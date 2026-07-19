@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grow tomato — hamburg</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/chrome.css" />
+  <style>
+    body { background: var(--bg-0); }
+    .nav-shell .py-3\.5 { padding-top: 8px; padding-bottom: 8px; }
+  </style>
+</head>
+<body data-depth="../" data-surface="ingredients" class="bento-page">
+<div id="nav-mount"></div>
+
+<!-- ============ HERO ============ -->
+<div class="bento-hero">
+  <div class="glyph grad-sage">🌱</div>
+  <div class="flex-1 min-w-0">
+    <div class="title">Grow · Tomato</div>
+    <div class="sub">
+      <span class="chip chip-sage" style="padding:2px 8px;font-size:10.5px;">India · 3 seasons</span>
+      <span class="chip" style="padding:2px 8px;font-size:10.5px;">60 – 100 days</span>
+      <span class="chip" style="padding:2px 8px;font-size:10.5px;">40 – 60 t / ha</span>
+    </div>
+  </div>
+  <a href="../ingredients/tomato.html" class="btn btn-white btn-sm">← Tomato</a>
+</div>
+
+<!-- ============ BENTO GRID (7 tiles, 4 col × 3 row) ============ -->
+<div class="bento-grid" style="grid-template-rows: repeat(3, 1fr);">
+
+  <!-- 1 · SOWING & HARVEST CALENDAR (span 3) -->
+  <div class="tile span-3">
+    <div class="cap"><span class="n">1</span> Sowing &amp; harvest · India</div>
+    <div class="body" style="justify-content:space-between;">
+      <div class="gcal">
+        <!-- Header row -->
+        <div class="h"></div>
+        <div class="h">Jan</div><div class="h">Feb</div><div class="h">Mar</div>
+        <div class="h">Apr</div><div class="h">May</div><div class="h">Jun</div>
+        <div class="h">Jul</div><div class="h">Aug</div><div class="h">Sep</div>
+        <div class="h">Oct</div><div class="h">Nov</div><div class="h">Dec</div>
+
+        <!-- Kharif: Jun-Jul sow, Aug grow, Sep-Oct harvest -->
+        <div class="sn kharif">Kharif</div>
+        <div class="c"></div><div class="c"></div><div class="c"></div>
+        <div class="c"></div><div class="c"></div>
+        <div class="c sow">S</div><div class="c sow">S</div>
+        <div class="c grow">G</div>
+        <div class="c harv">H</div><div class="c harv">H</div>
+        <div class="c"></div><div class="c"></div>
+
+        <!-- Rabi: Oct-Nov sow, Dec grow, Jan-Feb harvest -->
+        <div class="sn rabi">Rabi</div>
+        <div class="c harv">H</div><div class="c harv">H</div>
+        <div class="c"></div><div class="c"></div><div class="c"></div>
+        <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+        <div class="c sow">S</div><div class="c sow">S</div>
+        <div class="c grow">G</div>
+
+        <!-- Zaid: Jan-Feb sow, Mar grow, Apr-May harvest -->
+        <div class="sn zaid">Zaid</div>
+        <div class="c sow">S</div><div class="c sow">S</div>
+        <div class="c grow">G</div>
+        <div class="c harv">H</div><div class="c harv">H</div>
+        <div class="c"></div><div class="c"></div>
+        <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+      </div>
+
+      <div class="mini-legend" style="justify-content:center;gap:14px;margin-top:8px;">
+        <span><i style="background:var(--butter-500);"></i>Sow</span>
+        <span><i style="background:var(--sage-100);"></i>Grow</span>
+        <span><i style="background:var(--sage-500);"></i>Harvest</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · TOP REGIONS IN INDIA (span 1) -->
+  <div class="tile">
+    <div class="cap"><span class="n">2</span> Top regions</div>
+    <div class="body" style="gap:6px;">
+      <svg class="india-map" viewBox="0 0 180 200">
+        <!-- Very simplified India silhouette -->
+        <path class="land" d="M60 20 Q75 15 90 22 L110 20 Q125 25 135 40 Q145 55 148 70 Q152 90 155 105 Q158 125 150 140 Q140 155 130 165 Q118 180 105 185 Q95 190 88 185 L82 175 Q75 165 70 150 Q65 135 62 120 Q58 105 55 90 Q50 75 48 60 Q46 45 50 30 Q54 22 60 20 Z"/>
+        <!-- Andhra Pradesh -->
+        <circle class="dot dot-lg" cx="95" cy="130"/>
+        <text class="lbl" x="105" y="133">Andhra P.</text>
+        <!-- Karnataka -->
+        <circle class="dot dot-lg" cx="82" cy="140"/>
+        <text class="lbl" x="30" y="143">Karnataka</text>
+        <!-- Madhya Pradesh -->
+        <circle class="dot dot-md" cx="90" cy="80"/>
+        <text class="lbl" x="100" y="83">MP</text>
+        <!-- Odisha -->
+        <circle class="dot dot-md" cx="115" cy="105"/>
+        <text class="lbl" x="123" y="108">Odisha</text>
+        <!-- Maharashtra -->
+        <circle class="dot dot-sm" cx="75" cy="110"/>
+        <text class="lbl" x="30" y="113">MH</text>
+        <!-- Gujarat -->
+        <circle class="dot dot-sm" cx="58" cy="88"/>
+        <text class="lbl" x="20" y="91">GJ</text>
+      </svg>
+      <div style="font-size:10.5px;color:var(--text-lo);text-align:center;">Top 6 tomato states · 65% of India</div>
+    </div>
+  </div>
+
+  <!-- 3 · CLIMATE (span 2) -->
+  <div class="tile span-2">
+    <div class="cap"><span class="n">3</span> Climate</div>
+    <div class="body">
+      <div class="spec-list">
+        <div class="spec-row">
+          <div class="g"><span data-icon="thermometer" data-size="18"></span></div>
+          <div><div class="l">Temperature</div><div class="v">21 – 27<span class="u">°C day</span> · 15 – 20<span class="u">°C night</span></div></div>
+        </div>
+        <div class="spec-row">
+          <div class="g"><span data-icon="sun" data-size="18"></span></div>
+          <div><div class="l">Sunlight</div><div class="v">6 – 8<span class="u">hrs direct</span></div></div>
+        </div>
+        <div class="spec-row">
+          <div class="g"><span data-icon="droplet" data-size="18"></span></div>
+          <div><div class="l">Water</div><div class="v">500 – 700<span class="u">mm total</span> · 2×<span class="u">/ week</span></div></div>
+        </div>
+        <div class="spec-row">
+          <div class="g"><span data-icon="wind" data-size="18"></span></div>
+          <div><div class="l">Humidity</div><div class="v">50 – 70<span class="u">%</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 · SOIL & NUTRIENTS (span 2) -->
+  <div class="tile span-2">
+    <div class="cap"><span class="n">4</span> Soil &amp; nutrients</div>
+    <div class="body">
+      <div class="spec-list">
+        <div class="spec-row">
+          <div class="g"><span data-icon="sprout" data-size="18"></span></div>
+          <div><div class="l">Soil type</div><div class="v">Loam · well-drained · organic-rich</div></div>
+        </div>
+        <div class="spec-row">
+          <div class="g"><span data-icon="droplet" data-size="18"></span></div>
+          <div><div class="l">pH</div><div class="v">6.0 – 6.8<span class="u">slightly acidic</span></div></div>
+        </div>
+        <div class="spec-row">
+          <div class="g"><span data-icon="target" data-size="18"></span></div>
+          <div><div class="l">Spacing</div><div class="v">60 × 45<span class="u">cm</span></div></div>
+        </div>
+        <div class="spec-row">
+          <div class="g"><span data-icon="jar" data-size="18"></span></div>
+          <div><div class="l">NPK</div><div class="v">100 : 60 : 60<span class="u">kg / ha</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 · COMPANIONS (span 1) -->
+  <div class="tile">
+    <div class="cap"><span class="n">5</span> Companions</div>
+    <div class="body">
+      <div class="plant-cloud">
+        <span class="plant-chip good"><span class="g">🌿</span>Basil</span>
+        <span class="plant-chip good"><span class="g">🌼</span>Marigold</span>
+        <span class="plant-chip good"><span class="g">🥕</span>Carrot</span>
+        <span class="plant-chip good"><span class="g">🧅</span>Onion</span>
+        <span class="plant-chip good"><span class="g">🧄</span>Garlic</span>
+        <span class="plant-chip good"><span class="g">🌱</span>Parsley</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 · ENEMIES (span 1) -->
+  <div class="tile">
+    <div class="cap"><span class="n">6</span> Keep away</div>
+    <div class="body">
+      <div class="plant-cloud">
+        <span class="plant-chip bad"><span class="g">🥔</span>Potato</span>
+        <span class="plant-chip bad"><span class="g">🥬</span>Cabbage</span>
+        <span class="plant-chip bad"><span class="g">🌿</span>Fennel</span>
+        <span class="plant-chip bad"><span class="g">🌰</span>Walnut tree</span>
+        <span class="plant-chip bad"><span class="g">🌽</span>Corn</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 · PESTS (span 1) -->
+  <div class="tile">
+    <div class="cap"><span class="n">7</span> Pests</div>
+    <div class="body">
+      <div class="plant-cloud">
+        <span class="plant-chip"><span class="g">🦟</span>Whitefly</span>
+        <span class="plant-chip"><span class="g">🐛</span>Fruit borer</span>
+        <span class="plant-chip"><span class="g">🐜</span>Aphid</span>
+        <span class="plant-chip"><span class="g">🦗</span>Thrips</span>
+        <span class="plant-chip"><span class="g">🕷️</span>Spider mite</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 · DISEASES (span 1) -->
+  <div class="tile">
+    <div class="cap"><span class="n">8</span> Diseases</div>
+    <div class="body">
+      <div class="plant-cloud">
+        <span class="plant-chip"><span class="g">🍂</span>Early blight</span>
+        <span class="plant-chip"><span class="g">🍃</span>Late blight</span>
+        <span class="plant-chip"><span class="g">🌀</span>Leaf curl</span>
+        <span class="plant-chip"><span class="g">🌫️</span>Powdery mildew</span>
+        <span class="plant-chip"><span class="g">🥀</span>Wilt</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="../shared/icons.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

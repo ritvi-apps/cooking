@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Journeys — hamburg</title>
+  <meta name="description" content="Pick an ingredient. See everything you can make from it." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/chrome.css" />
+</head>
+<body data-depth="../" data-surface="journeys">
+<div id="nav-mount"></div>
+
+<main class="mx-auto max-w-6xl px-5 py-10">
+  <!-- Breadcrumbs -->
+  <div class="crumbs mb-4">
+    <a href="../index.html"><span data-icon="home" data-size="12"></span> Home</a>
+    <span class="sep">/</span>
+    <span>Journeys</span>
+  </div>
+
+  <div>
+    <p class="eyebrow">How to make</p>
+    <h1 class="h1 mt-2">Journeys</h1>
+    <p class="mt-3 max-w-xl" style="font-size:16px;line-height:1.55;color:var(--text-md);">
+      Pick a raw ingredient. See a visual map of everything it can become. Every node is
+      tappable.
+    </p>
+  </div>
+
+  <!-- Search -->
+  <div class="mt-8" style="max-width:520px;">
+    <label class="search">
+      <span data-icon="search" data-size="20" style="color:var(--text-lo);"></span>
+      <input type="text" placeholder="Filter journeys…" />
+    </label>
+  </div>
+
+  <!-- Categories -->
+  <div class="mt-6 h-scroll">
+    <button class="chip chip-sage">All · 4</button>
+    <button class="chip"><span data-icon="droplet" data-size="12"></span>Dairy</button>
+    <button class="chip"><span data-icon="wheat" data-size="12"></span>Grain</button>
+    <button class="chip"><span data-icon="jar" data-size="12"></span>Ferments</button>
+    <button class="chip"><span data-icon="leaf" data-size="12"></span>Plants</button>
+  </div>
+
+  <!-- LIVE journeys grid -->
+  <section class="mt-8">
+    <p class="eyebrow">Ready to explore</p>
+    <div class="mt-4 grid gap-4 md:grid-cols-2">
+      <!-- Milk -->
+      <a href="milk.html" class="journey-card">
+        <div class="icon grad-dairy">🥛</div>
+        <div class="body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="title">Milk</span>
+            <span class="chip chip-sage"><span data-icon="check" data-size="12"></span>solid</span>
+          </div>
+          <div class="sub">→ curd · paneer · butter · khoya · everything downstream</div>
+          <div class="mt-2 flex flex-wrap gap-1.5">
+            <span class="chip">4 transformations</span>
+            <span class="chip">8 outputs</span>
+            <span class="chip"><span data-icon="clock" data-size="12"></span>30 min – 2 hr</span>
+          </div>
+        </div>
+        <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+      </a>
+
+      <!-- Dough -->
+      <a href="dough.html" class="journey-card">
+        <div class="icon grad-grain">🌾</div>
+        <div class="body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="title">Dough</span>
+            <span class="chip chip-butter"><span data-icon="hourglass" data-size="12"></span>learning</span>
+          </div>
+          <div class="sub">→ chapati · paratha · poori · pizza base · naan</div>
+          <div class="mt-2 flex flex-wrap gap-1.5">
+            <span class="chip">5 transformations</span>
+            <span class="chip"><span data-icon="clock" data-size="12"></span>10 min mix + rest</span>
+            <span class="chip chip-sage">very easy</span>
+          </div>
+        </div>
+        <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+      </a>
+
+      <!-- Sourdough -->
+      <a href="sourdough.html" class="journey-card">
+        <div class="icon" style="background:#f0e4c8;color:#8a6e3a;font-size:36px;">🫙</div>
+        <div class="body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="title">Sourdough</span>
+            <span class="chip"><span data-icon="dot" data-size="10"></span>todo</span>
+          </div>
+          <div class="sub">→ starter · bread · pancakes · pizza · discard uses</div>
+          <div class="mt-2 flex flex-wrap gap-1.5">
+            <span class="chip">3 transformations</span>
+            <span class="chip"><span data-icon="clock" data-size="12"></span>7 days first time</span>
+            <span class="chip chip-butter">patience</span>
+          </div>
+        </div>
+        <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+      </a>
+
+      <!-- Kombucha -->
+      <a href="kombucha.html" class="journey-card">
+        <div class="icon grad-fruit">🍵</div>
+        <div class="body">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="title">Kombucha</span>
+            <span class="chip"><span data-icon="dot" data-size="10"></span>todo</span>
+          </div>
+          <div class="sub">→ SCOBY · sweet tea → base kombucha → flavored ferments</div>
+          <div class="mt-2 flex flex-wrap gap-1.5">
+            <span class="chip">3 stages</span>
+            <span class="chip"><span data-icon="clock" data-size="12"></span>7–14 days</span>
+            <span class="chip chip-butter">patience</span>
+          </div>
+        </div>
+        <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- COMING journeys -->
+  <section class="mt-12">
+    <p class="eyebrow">Coming as I learn them</p>
+    <div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="journey-card" style="opacity:0.65;">
+        <div class="icon grad-spice">🍅</div>
+        <div class="body"><div class="title">Tomato</div><div class="sub">→ sauce · chutney · soup · rasam</div></div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.65;">
+        <div class="icon grad-legume">🫘</div>
+        <div class="body"><div class="title">Chickpea</div><div class="sub">→ chole · hummus · falafel · flour</div></div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.65;">
+        <div class="icon grad-grain">🍚</div>
+        <div class="body"><div class="title">Rice</div><div class="sub">→ biryani · pulao · idli · dosa · kheer</div></div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.65;">
+        <div class="icon grad-legume">🫛</div>
+        <div class="body"><div class="title">Urad dal</div><div class="sub">→ dosa · idli · vada · dal makhani</div></div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.65;">
+        <div class="icon grad-herb">🥬</div>
+        <div class="body"><div class="title">Greens</div><div class="sub">→ palak · saag · chutney · thoran</div></div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.65;">
+        <div class="icon grad-fruit">🥭</div>
+        <div class="body"><div class="title">Mango</div><div class="sub">→ pickle · chutney · lassi · aamras</div></div>
+        <span class="chip">soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- How this section works -->
+  <section class="mt-14 card-flat p-6 md:p-8">
+    <p class="eyebrow">Why journeys, not recipes</p>
+    <p class="mt-3 font-display" style="font-size:22px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;line-height:1.4;max-width:720px;">
+      I have a poor memory. So instead of hunting recipes, I open the journey for whatever's
+      in front of me — and pick a path.
+    </p>
+  </section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="../shared/icons.js"></script>
+<script src="../shared/nav.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>
