@@ -1,0 +1,363 @@
+/* hamburg — kitchen companion. Warm, visual, low-text. */
+
+:root {
+  /* Brand — sage */
+  --sage-600: #4b7a4b;
+  --sage-500: #5a8a5a;
+  --sage-400: #7dac7d;
+  --sage-100: #dbe8d5;
+  --sage-50:  #eef4ea;
+
+  /* Accent — warm coral */
+  --coral-600: #c9603f;
+  --coral-500: #e07a5f;
+  --coral-100: #fce4d8;
+
+  /* Secondary — butter */
+  --butter-600: #d19c1f;
+  --butter-500: #e8b842;
+  --butter-100: #fbe9b3;
+
+  /* Warm neutrals */
+  --bg-0: #fdf9f3;   /* page */
+  --bg-1: #ffffff;   /* card */
+  --bg-2: #f5eee1;   /* muted */
+  --bg-3: #ece2cc;
+  --border: #ece1cc;
+  --border-strong: #d9c8a7;
+
+  --text-hi: #2a2620;
+  --text-md: #6b6659;
+  --text-lo: #a09b8e;
+
+  /* Ingredient category colors */
+  --ing-dairy:     #5aa4bc;
+  --ing-vegetable: #7ab26b;
+  --ing-legume:    #c9884a;
+  --ing-grain:     #b8a668;
+  --ing-spice:     #c05a4a;
+  --ing-herb:      #6ca75b;
+  --ing-fruit:     #d67a5f;
+  --ing-condiment: #9b7bc7;
+
+  /* Journey / step states */
+  --step-active: var(--sage-500);
+  --step-done:   var(--sage-400);
+  --step-todo:   var(--text-lo);
+}
+
+html, body {
+  background: var(--bg-0);
+  color: var(--text-hi);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Type scale */
+.h1 { font-family: 'Fraunces', Georgia, serif; font-size: 52px; line-height: 1.02; font-weight: 500; letter-spacing: -0.02em; }
+.h2 { font-family: 'Fraunces', Georgia, serif; font-size: 32px; line-height: 1.1;  font-weight: 500; letter-spacing: -0.015em; }
+.h3 { font-family: 'Fraunces', Georgia, serif; font-size: 20px; line-height: 1.3;  font-weight: 500; letter-spacing: -0.01em; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-500); }
+@media (max-width: 640px) { .h1 { font-size: 36px; } .h2 { font-size: 26px; } }
+
+* { border-color: var(--border); }
+
+a { color: inherit; text-decoration: none; }
+
+/* ============ CARD ============ */
+
+.card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(90, 138, 90, 0.12);
+  border-color: var(--border-strong);
+}
+.card-flat {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+/* ============ BUTTON ============ */
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px; font-weight: 600;
+  border: 1px solid transparent;
+  transition: all 140ms ease;
+  cursor: pointer;
+}
+.btn-primary { background: var(--sage-500); color: white; }
+.btn-primary:hover { background: var(--sage-600); }
+.btn-white { background: white; color: var(--text-hi); border-color: var(--border-strong); }
+.btn-white:hover { background: var(--bg-2); }
+.btn-ghost { background: transparent; color: var(--text-md); }
+.btn-ghost:hover { background: var(--bg-2); color: var(--text-hi); }
+.btn-lg { padding: 14px 26px; font-size: 15px; }
+.btn-sm { padding: 7px 14px; font-size: 12.5px; }
+
+/* ============ CHIPS ============ */
+
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 600;
+  background: var(--bg-2);
+  color: var(--text-md);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.chip .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.chip-sage   { background: var(--sage-100);   color: var(--sage-600); }
+.chip-coral  { background: var(--coral-100);  color: var(--coral-600); }
+.chip-butter { background: var(--butter-100); color: var(--butter-600); }
+.chip-white  { background: rgba(255,255,255,0.92); color: var(--text-hi); border-color: rgba(0,0,0,0.06); }
+
+/* ============ INGREDIENT TILE ============ */
+/* Big colorful square with a glyph + label. Primary navigation atom. */
+
+.ing-tile {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px 12px;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  transition: all 140ms ease;
+  text-align: center;
+  gap: 10px;
+}
+.ing-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 24px rgba(90, 138, 90, 0.12);
+}
+.ing-tile .glyph {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  line-height: 1;
+}
+.ing-tile .label {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 15px; font-weight: 500;
+  color: var(--text-hi);
+  letter-spacing: -0.01em;
+}
+.ing-tile .sub {
+  font-size: 11px;
+  color: var(--text-lo);
+  margin-top: -6px;
+}
+
+/* Glyph background per category */
+.glyph-dairy     { background: color-mix(in srgb, var(--ing-dairy) 18%, white); color: var(--ing-dairy); }
+.glyph-vegetable { background: color-mix(in srgb, var(--ing-vegetable) 18%, white); color: var(--ing-vegetable); }
+.glyph-legume    { background: color-mix(in srgb, var(--ing-legume) 18%, white); color: var(--ing-legume); }
+.glyph-grain     { background: color-mix(in srgb, var(--ing-grain) 18%, white); color: var(--ing-grain); }
+.glyph-spice     { background: color-mix(in srgb, var(--ing-spice) 18%, white); color: var(--ing-spice); }
+.glyph-herb      { background: color-mix(in srgb, var(--ing-herb) 18%, white); color: var(--ing-herb); }
+.glyph-fruit     { background: color-mix(in srgb, var(--ing-fruit) 18%, white); color: var(--ing-fruit); }
+.glyph-condiment { background: color-mix(in srgb, var(--ing-condiment) 18%, white); color: var(--ing-condiment); }
+.glyph-sage      { background: var(--sage-100); color: var(--sage-600); }
+.glyph-coral     { background: var(--coral-100); color: var(--coral-600); }
+.glyph-butter    { background: var(--butter-100); color: var(--butter-600); }
+
+/* ============ JOURNEY CARD ============ */
+/* Big horizontal card for a transformation journey (e.g. "Milk → 6 things") */
+
+.journey-card {
+  display: flex; align-items: center;
+  gap: 20px;
+  padding: 22px;
+  border-radius: 24px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  transition: all 160ms ease;
+  min-height: 120px;
+}
+.journey-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 10px 30px rgba(90, 138, 90, 0.12);
+}
+.journey-card .icon {
+  width: 72px; height: 72px;
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+  flex-shrink: 0;
+}
+.journey-card .body { flex: 1; min-width: 0; }
+.journey-card .title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 22px; font-weight: 500;
+  color: var(--text-hi);
+  letter-spacing: -0.01em;
+}
+.journey-card .sub {
+  font-size: 13px; color: var(--text-md); margin-top: 2px;
+}
+.journey-card .arrow {
+  color: var(--sage-500);
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+/* ============ STEP CARD ============ */
+/* Big numbered card for cooking steps */
+
+.step {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 20px;
+  padding: 22px;
+  border-radius: 20px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+}
+.step .num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--sage-100);
+  color: var(--sage-600);
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 26px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--sage-500);
+}
+.step .head {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--text-hi);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.step .cue {
+  font-size: 13.5px;
+  color: var(--text-md);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+.step .meta {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 10px;
+}
+@media (max-width: 560px) {
+  .step { grid-template-columns: 48px 1fr; gap: 14px; padding: 18px; }
+  .step .num { width: 40px; height: 40px; font-size: 20px; border-width: 1.5px; }
+  .step .head { font-size: 17px; }
+}
+
+/* ============ JOURNEY GRAPH NODE (SVG helpers) ============ */
+
+.node-label {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ============ INGREDIENT HERO ============ */
+
+.ing-hero {
+  border-radius: 24px;
+  padding: 40px;
+  display: flex; gap: 28px; align-items: center;
+}
+@media (max-width: 640px) {
+  .ing-hero { padding: 24px; flex-direction: column; text-align: center; }
+}
+.ing-hero .big-glyph {
+  width: 120px; height: 120px;
+  border-radius: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 72px; line-height: 1;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.7);
+}
+
+/* ============ MINI STAT ============ */
+
+.stat {
+  display: flex; flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.stat .k { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-lo); }
+.stat .v { font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 500; color: var(--text-hi); letter-spacing: -0.01em; }
+
+/* ============ NAV ============ */
+
+.nav-shell {
+  position: sticky; top: 0; z-index: 30;
+  background: rgba(253, 249, 243, 0.85);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-pill {
+  padding: 8px 16px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 600;
+  color: var(--text-md);
+  transition: all 140ms ease;
+}
+.nav-pill:hover { color: var(--text-hi); background: var(--bg-2); }
+.nav-pill.active {
+  color: var(--sage-600);
+  background: var(--sage-100);
+}
+
+/* ============ FOOTER ============ */
+
+.footer-shell {
+  border-top: 1px solid var(--border);
+  background: var(--bg-2);
+  color: var(--text-md);
+}
+
+/* ============ MISC ============ */
+
+.progress-track { height: 6px; border-radius: 999px; background: var(--bg-3); overflow: hidden; }
+.progress-fill  { height: 100%; background: var(--sage-500); border-radius: 999px; }
+
+.divider-dot::before { content: "·"; margin: 0 8px; color: var(--text-lo); }
+
+/* Scrollable horizontal chip row (mobile) */
+.h-scroll {
+  display: flex; gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.h-scroll::-webkit-scrollbar { display: none; }
+
+/* Warm gradient backgrounds for ingredient hero */
+.grad-dairy    { background: linear-gradient(135deg, #dfeef3, #b9dae4); }
+.grad-vegetable{ background: linear-gradient(135deg, #e0efd8, #b8d8a8); }
+.grad-legume   { background: linear-gradient(135deg, #f2e2c8, #dcbf90); }
+.grad-grain    { background: linear-gradient(135deg, #efe8cf, #d6c99f); }
+.grad-spice    { background: linear-gradient(135deg, #f3d8d0, #e0a898); }
+.grad-herb     { background: linear-gradient(135deg, #e2efd6, #b6d5a0); }
+.grad-fruit    { background: linear-gradient(135deg, #f5dac8, #e8b394); }
+.grad-condiment{ background: linear-gradient(135deg, #e8dff2, #c9b4de); }
+.grad-cream    { background: linear-gradient(135deg, #fdf5e6, #f0e2c4); }
+.grad-sage     { background: linear-gradient(135deg, var(--sage-100), #b5cfa8); }

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Journeys — hamburg</title>
+  <meta name="description" content="Pick an ingredient. See everything you can make from it." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/chrome.css" />
+</head>
+<body data-depth="../" data-surface="journeys">
+<div id="nav-mount"></div>
+
+<main class="mx-auto max-w-6xl px-5 py-10">
+  <div>
+    <p class="eyebrow">How to make</p>
+    <h1 class="h1 mt-2">Journeys</h1>
+    <p class="mt-3 max-w-xl" style="font-size:16px;line-height:1.55;color:var(--text-md);">
+      Pick a raw ingredient. See a visual map of everything it can become.
+    </p>
+  </div>
+
+  <!-- LIVE journeys -->
+  <section class="mt-10">
+    <p class="eyebrow">Ready to explore</p>
+    <div class="mt-4 grid gap-4 md:grid-cols-2">
+      <a href="milk.html" class="journey-card">
+        <div class="icon grad-dairy">🥛</div>
+        <div class="body">
+          <div class="title">Milk</div>
+          <div class="sub">→ curd · paneer · butter · khoya · and everything downstream</div>
+          <div class="mt-2 flex flex-wrap gap-1.5">
+            <span class="chip chip-sage">4 transformations</span>
+            <span class="chip">8 outputs</span>
+            <span class="chip">1 recipe made</span>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- COMING journeys -->
+  <section class="mt-12">
+    <p class="eyebrow">Coming as I learn them</p>
+    <div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="journey-card" style="opacity:0.7;">
+        <div class="icon grad-spice">🍅</div>
+        <div class="body">
+          <div class="title">Tomato</div>
+          <div class="sub">→ sauce base · chutney · rasam · soup</div>
+        </div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.7;">
+        <div class="icon grad-legume">🫘</div>
+        <div class="body">
+          <div class="title">Chickpea</div>
+          <div class="sub">→ chole · hummus · falafel · flour</div>
+        </div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.7;">
+        <div class="icon grad-grain">🌾</div>
+        <div class="body">
+          <div class="title">Rice</div>
+          <div class="sub">→ biryani · pulao · idli · dosa · kheer</div>
+        </div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.7;">
+        <div class="icon grad-legume">🫛</div>
+        <div class="body">
+          <div class="title">Urad dal</div>
+          <div class="sub">→ dosa · idli · vada · dal makhani</div>
+        </div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.7;">
+        <div class="icon grad-herb">🥬</div>
+        <div class="body">
+          <div class="title">Greens</div>
+          <div class="sub">→ palak · saag · chutney · thoran</div>
+        </div>
+        <span class="chip">soon</span>
+      </div>
+      <div class="journey-card" style="opacity:0.7;">
+        <div class="icon grad-fruit">🥭</div>
+        <div class="body">
+          <div class="title">Mango</div>
+          <div class="sub">→ pickle · chutney · lassi · aamras</div>
+        </div>
+        <span class="chip">soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="mt-14 card-flat p-6 md:p-8">
+    <p class="eyebrow">How this section works</p>
+    <p class="mt-3 font-display" style="font-size:22px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;line-height:1.4;max-width:720px;">
+      I have a poor memory. So instead of hunting recipes, I open the journey for whatever's
+      in front of me — and pick a path.
+    </p>
+    <div class="mt-6 grid gap-4 md:grid-cols-3">
+      <div class="flex gap-3">
+        <span class="text-2xl">1️⃣</span>
+        <div>
+          <p class="font-display" style="font-size:16px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Pick raw</p>
+          <p class="mt-1" style="font-size:13px;color:var(--text-md);">What's on the counter?</p>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <span class="text-2xl">2️⃣</span>
+        <div>
+          <p class="font-display" style="font-size:16px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">See the map</p>
+          <p class="mt-1" style="font-size:13px;color:var(--text-md);">Every transformation branch.</p>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <span class="text-2xl">3️⃣</span>
+        <div>
+          <p class="font-display" style="font-size:16px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Cook the steps</p>
+          <p class="mt-1" style="font-size:13px;color:var(--text-md);">Big numbered cards, minimal words.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="../shared/nav.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>

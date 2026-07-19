@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipes — hamburg</title>
+  <meta name="description" content="Every vegetarian dish I've cooked and liked enough to keep." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/chrome.css" />
+</head>
+<body data-depth="../" data-surface="recipes">
+<div id="nav-mount"></div>
+
+<main class="mx-auto max-w-6xl px-5 py-10">
+  <div>
+    <p class="eyebrow">My cookbook</p>
+    <h1 class="h1 mt-2">Recipes</h1>
+    <p class="mt-3 max-w-xl" style="font-size:16px;line-height:1.55;color:var(--text-md);">
+      Dishes I've cooked and liked. Not a wishlist.
+    </p>
+  </div>
+
+  <!-- Filter chips (visual, decorative) -->
+  <div class="mt-6 h-scroll">
+    <button class="chip chip-sage">All · 1</button>
+    <button class="chip">🌶 North Indian</button>
+    <button class="chip">🥥 South Indian</button>
+    <button class="chip">🍝 Italian</button>
+    <button class="chip">☀ Weeknight</button>
+    <button class="chip">📦 Meal-prep</button>
+    <button class="chip">⏱ Under 30 min</button>
+  </div>
+
+  <!-- Grid -->
+  <div class="mt-6 grid gap-4 md:grid-cols-3">
+    <a href="palak-paneer.html" class="card card-hover overflow-hidden">
+      <div class="grad-vegetable" style="height:180px;display:flex;align-items:center;justify-content:center;font-size:80px;position:relative;">
+        🥬
+        <span class="chip chip-white absolute top-3 left-3">easy</span>
+        <span class="chip chip-white absolute bottom-3 right-3">45 min</span>
+      </div>
+      <div class="p-5">
+        <p class="eyebrow">North Indian · main</p>
+        <h3 class="font-display mt-1" style="font-size:22px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Palak paneer</h3>
+        <p class="mt-2" style="font-size:13px;color:var(--text-md);line-height:1.5;">Bright spinach gravy, cubed paneer, no cream.</p>
+        <div class="mt-3 flex flex-wrap gap-1.5">
+          <span class="chip">weeknight</span>
+          <span class="chip">meal-prep</span>
+        </div>
+      </div>
+    </a>
+
+    <div class="card p-8 flex flex-col items-center justify-center text-center" style="border-style:dashed;min-height:280px;">
+      <span style="font-size:44px;">🍳</span>
+      <p class="mt-3 font-display" style="font-size:16px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Next weekend's cook</p>
+      <p class="mt-1" style="font-size:12.5px;color:var(--text-md);max-width:180px;">If I like it, it lands here.</p>
+    </div>
+
+    <div class="card p-8 flex flex-col items-center justify-center text-center" style="border-style:dashed;min-height:280px;">
+      <span style="font-size:36px;opacity:0.4;">·</span>
+      <p class="mt-2" style="font-size:12.5px;color:var(--text-lo);">Empty slot</p>
+    </div>
+  </div>
+
+  <div class="mt-14 card-flat p-6 text-center">
+    <p class="eyebrow">Rule</p>
+    <p class="mt-2 font-display" style="font-size:20px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;">
+      "Cook it. If it was good, save it."
+    </p>
+  </div>
+</main>
+
+<div id="footer-mount"></div>
+<script src="../shared/nav.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>
