@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dough — journey · hamburg</title>
+  <meta name="description" content="Flour + water + fat = a dozen breads. Every node is tappable." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/chrome.css" />
+</head>
+<body data-depth="../" data-surface="journeys">
+<div id="nav-mount"></div>
+
+<section class="mx-auto max-w-6xl px-5 pt-8 pb-4">
+  <div class="crumbs mb-4">
+    <a href="../index.html"><span data-icon="home" data-size="12"></span> Home</a>
+    <span class="sep">/</span>
+    <a href="index.html">Journeys</a>
+    <span class="sep">/</span>
+    <span>Dough</span>
+  </div>
+
+  <div class="card grad-grain p-6 md:p-8">
+    <div class="flex items-center gap-6 flex-wrap">
+      <div class="big-glyph" style="width:96px;height:96px;border-radius:24px;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;font-size:56px;">🌾</div>
+      <div class="flex-1 min-w-[240px]">
+        <p class="eyebrow" style="color:#8a6e3a;">Dough · journey</p>
+        <h1 class="h1 mt-2">Flour + water = a dozen breads.</h1>
+        <p class="mt-3 max-w-xl" style="font-size:15.5px;line-height:1.55;color:var(--text-md);">
+          One base dough. Different fats, different rests, different heat — five different meals.
+        </p>
+      </div>
+    </div>
+    <div class="mt-5 flex flex-wrap gap-2">
+      <span class="chip chip-white"><span data-icon="wheat" data-size="12"></span>Grain</span>
+      <span class="chip chip-white"><span data-icon="clock" data-size="12"></span>10 min mix + rest</span>
+      <span class="chip chip-white"><span data-icon="graph" data-size="12"></span>5 outputs</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE GRAPH ============ -->
+<section class="mx-auto max-w-6xl px-5 py-4">
+  <div class="card p-4 md:p-6">
+    <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+      <div class="flex items-center gap-2">
+        <span data-icon="graph" data-size="18" style="color:var(--sage-500);"></span>
+        <p class="eyebrow">The map</p>
+      </div>
+      <div class="flex items-center gap-3" style="font-size:11px;color:var(--text-lo);">
+        <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded-full" style="background:var(--sage-500);"></span>solid</span>
+        <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded-full" style="background:var(--butter-500);"></span>learning</span>
+        <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded-full" style="background:var(--text-lo);"></span>todo</span>
+      </div>
+    </div>
+
+    <p class="mb-3" style="font-size:12px;color:var(--text-md);text-align:center;">
+      <span data-icon="target" data-size="12" style="color:var(--sage-500);vertical-align:-2px;"></span>
+      Every node is a link
+    </p>
+
+    <div style="overflow-x:auto;">
+      <svg viewBox="0 0 980 560" style="display:block;width:100%;min-width:720px;height:auto;">
+        <defs>
+          <marker id="ar-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0 0L10 5L0 10Z" fill="#a09b8e"/>
+          </marker>
+          <linearGradient id="doughG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f9f2df"/>
+            <stop offset="100%" stop-color="#e0cf9a"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Edges root → dough base -->
+        <path d="M195 280 C 245 280, 245 280, 305 280" class="edge" marker-end="url(#ar-d)"/>
+        <text x="215" y="270" class="edge-label">+ water, salt</text>
+
+        <!-- Edges dough → outputs -->
+        <path d="M475 280 C 555 280, 555 60,  610 60"   class="edge" marker-end="url(#ar-d)"/>
+        <text x="510" y="170" class="edge-label">roll · dry pan</text>
+        <path d="M475 280 C 555 280, 555 170, 610 170"  class="edge" marker-end="url(#ar-d)"/>
+        <text x="510" y="225" class="edge-label">layer · ghee</text>
+        <path d="M475 280 C 555 280, 555 280, 610 280"  class="edge-strong" marker-end="url(#ar-d)"/>
+        <text x="510" y="275" class="edge-label" style="fill:var(--sage-600);font-weight:600;">deep fry</text>
+        <path d="M475 280 C 555 280, 555 390, 610 390"  class="edge" marker-end="url(#ar-d)"/>
+        <text x="510" y="380" class="edge-label">+ yeast · rise</text>
+        <path d="M475 280 C 555 280, 555 500, 610 500"  class="edge" marker-end="url(#ar-d)"/>
+        <text x="510" y="490" class="edge-label">+ yogurt · rest</text>
+
+        <!-- ═══ ROOT: FLOUR ═══ -->
+        <a href="#" onclick="return false;">
+          <g>
+            <circle class="node-hit" cx="120" cy="280" r="72" fill="url(#doughG)"/>
+            <circle class="node-ring" cx="120" cy="280" r="72" fill="none" stroke="#b8a668" stroke-width="2.5"/>
+            <text x="120" y="265" text-anchor="middle" font-size="34">🌾</text>
+            <text x="120" y="305" text-anchor="middle" class="node-label" fill="#2a2620" font-weight="600" font-size="17">Flour</text>
+            <text x="120" y="323" text-anchor="middle" fill="#6b6659" font-size="10.5">atta / maida</text>
+          </g>
+        </a>
+
+        <!-- ═══ TIER 1: BASE DOUGH ═══ -->
+        <a href="#" onclick="return false;">
+          <g>
+            <rect class="node-hit" x="305" y="245" width="170" height="70" rx="16" fill="#f9f2df"/>
+            <rect class="node-ring" x="305" y="245" width="170" height="70" rx="16" fill="none" stroke="#b8a668" stroke-width="2.5"/>
+            <text x="320" y="275" font-size="26">🥟</text>
+            <text x="355" y="277" class="node-label" fill="#2a2620" font-weight="600" font-size="16">Base dough</text>
+            <text x="355" y="297" fill="#6b6659" font-size="11">soft, rested 20 min</text>
+          </g>
+        </a>
+
+        <!-- ═══ TIER 2: OUTPUTS ═══ -->
+        <a href="dough-to-chapati.html">
+          <g>
+            <rect class="node-hit" x="610" y="25" width="180" height="70" rx="16" fill="#eef4ea"/>
+            <rect class="node-ring" x="610" y="25" width="180" height="70" rx="16" fill="none" stroke="var(--sage-500)" stroke-width="2.5"/>
+            <text x="625" y="55" font-size="24">🫓</text>
+            <text x="660" y="58" class="node-label" fill="#2a2620" font-weight="600" font-size="15">Chapati</text>
+            <text x="660" y="76" fill="#6b6659" font-size="11">roti · phulka · learning</text>
+            <text class="node-arrow" x="775" y="75" fill="var(--sage-500)" font-size="12">→</text>
+          </g>
+        </a>
+        <a href="dough-to-paratha.html">
+          <g>
+            <rect class="node-hit" x="610" y="135" width="180" height="70" rx="16" fill="#ffffff"/>
+            <rect class="node-ring" x="610" y="135" width="180" height="70" rx="16" fill="none" stroke="#b8a668" stroke-width="2"/>
+            <text x="625" y="165" font-size="24">🥞</text>
+            <text x="660" y="168" class="node-label" fill="#2a2620" font-weight="600" font-size="15">Paratha</text>
+            <text x="660" y="186" fill="#6b6659" font-size="11">layered · flaky</text>
+            <text class="node-arrow" x="775" y="185" fill="var(--sage-500)" font-size="12">→</text>
+          </g>
+        </a>
+        <a href="dough-to-poori.html">
+          <g>
+            <rect class="node-hit" x="610" y="245" width="180" height="70" rx="16" fill="#ffffff"/>
+            <rect class="node-ring" x="610" y="245" width="180" height="70" rx="16" fill="none" stroke="#b8a668" stroke-width="2"/>
+            <text x="625" y="275" font-size="24">🫓</text>
+            <text x="660" y="278" class="node-label" fill="#2a2620" font-weight="600" font-size="15">Poori</text>
+            <text x="660" y="296" fill="#6b6659" font-size="11">puffed · deep-fried</text>
+            <text class="node-arrow" x="775" y="295" fill="var(--sage-500)" font-size="12">→</text>
+          </g>
+        </a>
+        <a href="dough-to-pizza.html">
+          <g>
+            <rect class="node-hit" x="610" y="355" width="180" height="70" rx="16" fill="#ffffff"/>
+            <rect class="node-ring" x="610" y="355" width="180" height="70" rx="16" fill="none" stroke="#b8a668" stroke-width="2"/>
+            <text x="625" y="385" font-size="24">🍕</text>
+            <text x="660" y="388" class="node-label" fill="#2a2620" font-weight="600" font-size="15">Pizza base</text>
+            <text x="660" y="406" fill="#6b6659" font-size="11">maida · yeast · 1 hr rise</text>
+            <text class="node-arrow" x="775" y="405" fill="var(--sage-500)" font-size="12">→</text>
+          </g>
+        </a>
+        <a href="dough-to-naan.html">
+          <g>
+            <rect class="node-hit" x="610" y="465" width="180" height="70" rx="16" fill="#ffffff"/>
+            <rect class="node-ring" x="610" y="465" width="180" height="70" rx="16" fill="none" stroke="#b8a668" stroke-width="2"/>
+            <text x="625" y="495" font-size="24">🫓</text>
+            <text x="660" y="498" class="node-label" fill="#2a2620" font-weight="600" font-size="15">Naan</text>
+            <text x="660" y="516" fill="#6b6659" font-size="11">yogurt dough · tawa/oven</text>
+            <text class="node-arrow" x="775" y="515" fill="var(--sage-500)" font-size="12">→</text>
+          </g>
+        </a>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUTPUTS ============ -->
+<section class="mx-auto max-w-6xl px-5 py-8">
+  <p class="eyebrow">Five things from one dough</p>
+  <h2 class="h2 mt-2">Pick where to start</h2>
+
+  <div class="mt-6 grid gap-4 md:grid-cols-2">
+    <a href="dough-to-chapati.html" class="journey-card">
+      <div class="icon grad-grain">🫓</div>
+      <div class="body">
+        <div class="flex items-center gap-2"><span class="title">Chapati / roti</span><span class="chip chip-butter"><span data-icon="hourglass" data-size="12"></span>learning</span></div>
+        <div class="sub">Roll thin → dry tawa → flame puff. The weeknight bread.</div>
+        <div class="mt-2 flex flex-wrap gap-1.5">
+          <span class="chip"><span data-icon="clock" data-size="12"></span>3 min each</span>
+          <span class="chip chip-sage">very easy</span>
+        </div>
+      </div>
+      <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+    </a>
+    <a href="dough-to-paratha.html" class="journey-card">
+      <div class="icon grad-grain">🥞</div>
+      <div class="body">
+        <div class="flex items-center gap-2"><span class="title">Paratha</span><span class="chip"><span data-icon="dot" data-size="10"></span>todo</span></div>
+        <div class="sub">Layer with ghee → fold → roll → shallow fry. Weekend flake.</div>
+        <div class="mt-2 flex flex-wrap gap-1.5">
+          <span class="chip"><span data-icon="clock" data-size="12"></span>5 min each</span>
+        </div>
+      </div>
+      <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+    </a>
+    <a href="dough-to-poori.html" class="journey-card">
+      <div class="icon grad-grain">🫓</div>
+      <div class="body">
+        <div class="flex items-center gap-2"><span class="title">Poori</span><span class="chip"><span data-icon="dot" data-size="10"></span>todo</span></div>
+        <div class="sub">Roll small → drop in hot oil → puffs like a balloon.</div>
+        <div class="mt-2 flex flex-wrap gap-1.5">
+          <span class="chip"><span data-icon="clock" data-size="12"></span>1 min each</span>
+        </div>
+      </div>
+      <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+    </a>
+    <a href="dough-to-pizza.html" class="journey-card">
+      <div class="icon grad-spice">🍕</div>
+      <div class="body">
+        <div class="flex items-center gap-2"><span class="title">Pizza base</span><span class="chip"><span data-icon="dot" data-size="10"></span>todo</span></div>
+        <div class="sub">Maida + yeast + 1 hr rise. Blistered crust at home oven max.</div>
+        <div class="mt-2 flex flex-wrap gap-1.5">
+          <span class="chip"><span data-icon="clock" data-size="12"></span>1.5 hr total</span>
+        </div>
+      </div>
+      <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+    </a>
+    <a href="dough-to-naan.html" class="journey-card">
+      <div class="icon grad-grain">🫓</div>
+      <div class="body">
+        <div class="flex items-center gap-2"><span class="title">Naan</span><span class="chip"><span data-icon="dot" data-size="10"></span>todo</span></div>
+        <div class="sub">Yogurt-enriched dough → tawa flip trick for the tandoor puff.</div>
+        <div class="mt-2 flex flex-wrap gap-1.5">
+          <span class="chip"><span data-icon="clock" data-size="12"></span>2 hr rest</span>
+        </div>
+      </div>
+      <span class="arrow"><span data-icon="arrow-right" data-size="20"></span></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ THE ONE IDEA ============ -->
+<section class="mx-auto max-w-6xl px-5 py-6">
+  <div class="card-flat p-6 md:p-8">
+    <div class="flex items-start gap-4">
+      <div class="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:var(--sage-100);color:var(--sage-600);">
+        <span data-icon="sparkles" data-size="22"></span>
+      </div>
+      <div>
+        <p class="eyebrow">The one idea</p>
+        <p class="mt-2 font-display" style="font-size:22px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;line-height:1.4;max-width:720px;">
+          Dough is gluten holding air. Rest lets the gluten relax; heat sets it; fat or fold
+          creates layers. Everything else is the same dough treated differently.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<script src="../shared/icons.js"></script>
+<script src="../shared/nav.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>
