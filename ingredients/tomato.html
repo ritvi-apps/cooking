@@ -4,498 +4,169 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tomato — hamburg</title>
-  <meta name="description" content="Everything about tomato — origin, growing, sourcing, storage, cooking, pairings, nutrition." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../shared/chrome.css" />
+  <style>
+    body { background: var(--bg-0); }
+    .nav-shell .py-3\.5 { padding-top: 8px; padding-bottom: 8px; }
+  </style>
 </head>
-<body data-depth="../" data-surface="ingredients">
+<body data-depth="../" data-surface="ingredients" class="bento-page">
 <div id="nav-mount"></div>
 
 <!-- ============ HERO ============ -->
-<section class="mx-auto max-w-6xl px-5 pt-8 pb-4">
-  <div class="crumbs mb-4">
-    <a href="../index.html"><span data-icon="home" data-size="12"></span> Home</a>
-    <span class="sep">/</span>
-    <a href="index.html">Ingredients</a>
-    <span class="sep">/</span>
-    <span>Tomato</span>
+<div class="bento-hero">
+  <div class="glyph grad-spice">🍅</div>
+  <div class="flex-1 min-w-0">
+    <div class="title">Tomato</div>
+    <div class="sub">
+      <span class="chip chip-sage" style="padding:2px 8px;font-size:10.5px;">Kharif · Rabi · Zaid</span>
+      <span class="chip" style="padding:2px 8px;font-size:10.5px;">60 – 100 days</span>
+      <span class="chip" style="padding:2px 8px;font-size:10.5px;">21 – 27 °C</span>
+    </div>
   </div>
+  <a href="../pairings/index.html" class="btn btn-white btn-sm">Pairings</a>
+  <a href="index.html" class="btn btn-white btn-sm">All ingredients</a>
+</div>
 
-  <div class="ing-hero grad-spice">
-    <div class="big-glyph">🍅</div>
-    <div class="flex-1 min-w-[240px]">
-      <p class="eyebrow" style="color:var(--coral-600);">Nightshade · fruit-vegetable</p>
-      <h1 class="h1 mt-2">Tomato</h1>
-      <p class="mt-3 max-w-xl" style="font-size:16px;line-height:1.55;color:var(--text-md);">
-        Native to the Andes, feared for two centuries in Europe, now the world's most-eaten fruit. Everything worth knowing — from soil to plate.
-      </p>
-      <div class="mt-5 flex flex-wrap gap-2">
-        <span class="chip chip-white"><span data-icon="globe" data-size="12"></span>Solanaceae family</span>
-        <span class="chip chip-white"><span data-icon="sun" data-size="12"></span>Warm season</span>
-        <span class="chip chip-white"><span data-icon="calendar" data-size="12"></span>Peak Jul–Sep</span>
-        <span class="chip chip-white"><span data-icon="flame" data-size="12"></span>Lycopene ↑ when cooked</span>
+<!-- ============ BENTO GRID (5 tiles, 4 col × 3 row) ============ -->
+<div class="bento-grid" style="grid-template-rows: repeat(3, 1fr);">
+
+  <!-- 1 · GROW (span 2) — Indian climate seasons -->
+  <div class="tile span-2">
+    <div class="cap">
+      <span class="n">1</span> Grow · India
+      <a href="../grow/tomato.html" style="margin-left:auto;font-size:10px;color:var(--sage-600);letter-spacing:0;text-transform:none;font-weight:600;">Full guide →</a>
+    </div>
+    <div class="body" style="gap:10px;">
+      <div class="months">
+        <div class="m warn" title="Rabi harvest">Jan</div>
+        <div class="m warn" title="Rabi harvest">Feb</div>
+        <div class="m on"   title="Zaid sow">Mar</div>
+        <div class="m on"   title="Zaid sow">Apr</div>
+        <div class="m peak" title="Zaid harvest">May</div>
+        <div class="m on"   title="Kharif sow">Jun</div>
+        <div class="m on"   title="Kharif sow">Jul</div>
+        <div class="m"      title="Kharif grow">Aug</div>
+        <div class="m peak" title="Kharif harvest">Sep</div>
+        <div class="m on"   title="Rabi sow">Oct</div>
+        <div class="m on"   title="Rabi sow">Nov</div>
+        <div class="m"      title="Rabi grow">Dec</div>
+      </div>
+      <div class="season-row">
+        <span class="season-pill kharif">KHARIF <span class="r">Jun – Sep</span></span>
+        <span class="season-pill rabi">RABI <span class="r">Oct – Feb</span></span>
+        <span class="season-pill zaid">ZAID <span class="r">Mar – May</span></span>
+      </div>
+      <div class="mini-legend" style="margin-top:auto;">
+        <span><i style="background:var(--butter-500);"></i>Sow</span>
+        <span><i style="background:var(--sage-100);"></i>Grow</span>
+        <span><i style="background:var(--sage-500);"></i>Harvest</span>
+        <span style="margin-left:auto;">
+          <span class="chip" style="padding:2px 7px;font-size:10px;"><span data-icon="sun" data-size="10"></span>6 hrs</span>
+          <span class="chip" style="padding:2px 7px;font-size:10px;">pH 6 – 6.8</span>
+        </span>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ============ DOSSIER (sidebar + chapters) ============ -->
-<main class="mx-auto max-w-6xl px-5 py-8">
-  <div class="dossier">
-
-    <!-- Sidebar -->
-    <aside class="dossier-nav">
-      <a href="#origin"  class="active"><span class="num">1</span> Origin</a>
-      <a href="#grow"><span class="num">2</span> Grow</a>
-      <a href="#source"><span class="num">3</span> Source</a>
-      <a href="#store"><span class="num">4</span> Store</a>
-      <a href="#cook"><span class="num">5</span> Prep &amp; Cook</a>
-      <a href="#pair"><span class="num">6</span> Pairs / Avoid</a>
-      <a href="#nutrition"><span class="num">7</span> In the body</a>
-      <a href="#cook" class="cook-cta">
-        <span data-icon="flame" data-size="14"></span>
-        Cook mode
-      </a>
-    </aside>
-
-    <!-- Main -->
-    <div>
-
-      <!-- ============ 1. ORIGIN ============ -->
-      <section id="origin" class="chapter" style="padding-top:0;">
-        <div class="chapter-head">
-          <div class="num">1</div>
-          <h2>Origin</h2>
-        </div>
-        <p class="chapter-lede">
-          A wild fruit from the western foothills of South America, domesticated by the Aztecs, then feared in Europe as a poisonous nightshade until the 1800s. Its story is why the botanists still call it a fruit and the cooks still call it a vegetable.
-        </p>
-
-        <div class="fact-grid">
-          <div class="fact">
-            <div class="k"><span data-icon="leaf" data-size="12"></span>Family</div>
-            <div class="v">Solanaceae</div>
-            <div class="n">Nightshade. Cousins: potato, eggplant, chili, tobacco.</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="globe" data-size="12"></span>Native to</div>
-            <div class="v">Andean coast</div>
-            <div class="n">Wild in Peru &amp; Ecuador. Domesticated in Mesoamerica ~500 BC.</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="clock" data-size="12"></span>To Europe</div>
-            <div class="v">1540s</div>
-            <div class="n">Spanish returned with seeds. Treated as an ornamental for 200 years.</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="target" data-size="12"></span>Botanically</div>
-            <div class="v">A berry</div>
-            <div class="n">Legally ruled a vegetable in the US in 1893 (for tariff purposes).</div>
-          </div>
-        </div>
-
-        <div class="note mt-4">
-          <span class="ic" data-icon="info" data-size="18"></span>
-          <div>
-            <div class="t">Why Europeans thought it was poisonous</div>
-            <div class="b">Aristocrats ate off pewter plates. Tomato acid leached lead from the pewter — people got sick, blamed the fruit. Peasants used wooden plates and ate them safely for centuries.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ 2. GROW ============ -->
-      <section id="grow" class="chapter">
-        <div class="chapter-head">
-          <div class="num">2</div>
-          <h2>Grow</h2>
-        </div>
-        <p class="chapter-lede">
-          An annual almost everywhere. Loves heat, hates cold roots and wet leaves. If you can give it 6 hours of sun and a deep drink twice a week, it will feed you.
-        </p>
-
-        <div class="fact-grid">
-          <div class="fact">
-            <div class="k"><span data-icon="thermometer" data-size="12"></span>Soil temp</div>
-            <div class="v">&gt; 15 °C</div>
-            <div class="n">Transplant only after last frost — chilled roots stunt for the whole season.</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="droplet" data-size="12"></span>pH</div>
-            <div class="v">6.0 – 6.8</div>
-            <div class="n">Slightly acidic. Add compost, avoid fresh manure (too much nitrogen → leaves, no fruit).</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="sun" data-size="12"></span>Sun</div>
-            <div class="v">6+ hrs / day</div>
-            <div class="n">South-facing wall in cooler climates. Shade cloth if &gt; 32 °C.</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="hourglass" data-size="12"></span>Seed to fruit</div>
-            <div class="v">60 – 100 days</div>
-            <div class="n">Start seeds indoors 6–8 weeks before last frost.</div>
-          </div>
-        </div>
-
-        <p class="eyebrow mt-8">When to plant (Northern hemisphere)</p>
-        <div class="months mt-2">
-          <div class="m">Jan</div>
-          <div class="m warn">Feb</div>
-          <div class="m warn">Mar</div>
-          <div class="m on">Apr</div>
-          <div class="m on">May</div>
-          <div class="m peak">Jun</div>
-          <div class="m peak">Jul</div>
-          <div class="m peak">Aug</div>
-          <div class="m on">Sep</div>
-          <div class="m">Oct</div>
-          <div class="m">Nov</div>
-          <div class="m">Dec</div>
-        </div>
-        <div class="flex items-center gap-4 mt-3" style="font-size:11px;color:var(--text-lo);">
-          <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded" style="background:var(--butter-500);"></span>Sow indoors</span>
-          <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded" style="background:var(--sage-100);"></span>Transplant</span>
-          <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded" style="background:var(--sage-500);"></span>Harvest</span>
-        </div>
-
-        <p class="eyebrow mt-8">Companion planting</p>
-        <div class="pair-list mt-3">
-          <div class="pair-item">
-            <div class="g">🌿</div>
-            <div><div class="name">Basil</div><div class="why">Repels aphids &amp; whitefly. Old growers claim it sweetens the fruit; science calls it inconclusive but tradition holds.</div></div>
-          </div>
-          <div class="pair-item">
-            <div class="g">🥕</div>
-            <div><div class="name">Carrots</div><div class="why">Loosen soil around tomato roots. Plant early — carrots finish before tomatoes need the space.</div></div>
-          </div>
-          <div class="pair-item">
-            <div class="g">🌼</div>
-            <div><div class="name">Marigold</div><div class="why">Root secretions suppress nematodes. Bright blooms confuse pest scouts.</div></div>
-          </div>
-          <div class="pair-item avoid">
-            <div class="g">🥔</div>
-            <div><div class="name">Potato</div><div class="why">Same family, same blights. One spreads disease to the other. Also compete for nutrients.</div></div>
-          </div>
-          <div class="pair-item avoid">
-            <div class="g">🥬</div>
-            <div><div class="name">Cabbage / brassicas</div><div class="why">Heavy feeders that starve the tomato. Also chemical antagonism at the root zone.</div></div>
-          </div>
-          <div class="pair-item avoid">
-            <div class="g">🌱</div>
-            <div><div class="name">Fennel</div><div class="why">Allelopathic — releases compounds that inhibit almost every neighbour. Grow alone or with dill only.</div></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ 3. SOURCE ============ -->
-      <section id="source" class="chapter">
-        <div class="chapter-head">
-          <div class="num">3</div>
-          <h2>Source</h2>
-        </div>
-        <p class="chapter-lede">
-          A supermarket tomato in February travelled 5,000 km, was picked green, gassed with ethylene to turn red, and lost 60% of its flavor compounds along the way. Buy in season, buy heavy for size, or grow your own.
-        </p>
-
-        <p class="eyebrow">Seasonality (Northern hemisphere)</p>
-        <div class="months mt-2">
-          <div class="m">Jan</div><div class="m">Feb</div><div class="m">Mar</div>
-          <div class="m">Apr</div><div class="m">May</div><div class="m on">Jun</div>
-          <div class="m peak">Jul</div><div class="m peak">Aug</div><div class="m peak">Sep</div>
-          <div class="m on">Oct</div><div class="m">Nov</div><div class="m">Dec</div>
-        </div>
-
-        <p class="eyebrow mt-8">Common varieties</p>
-        <div class="pair-list mt-3">
-          <div class="pair-item">
-            <div class="g" style="background:#f5d5c8;">🍅</div>
-            <div><div class="name">Roma / Plum</div><div class="why">Meaty, low water, few seeds. The default for sauces &amp; paste.</div></div>
-          </div>
-          <div class="pair-item">
-            <div class="g" style="background:#c05a4a;color:#fff;">🍒</div>
-            <div><div class="name">Cherry</div><div class="why">Highest sugar, thin skin. Best raw — bursts in salad, blisters in pan.</div></div>
-          </div>
-          <div class="pair-item">
-            <div class="g" style="background:#e0a898;">🍅</div>
-            <div><div class="name">Beefsteak</div><div class="why">Big slices for burgers and sandwiches. Balanced sweet-acid, high water.</div></div>
-          </div>
-          <div class="pair-item">
-            <div class="g" style="background:#c9603f;color:#fff;">🍅</div>
-            <div><div class="name">San Marzano</div><div class="why">The pizza tomato. Long, dense, low seed count. The DOP ones grow near Vesuvius.</div></div>
-          </div>
-          <div class="pair-item">
-            <div class="g" style="background:#9bb26b;">🟢</div>
-            <div><div class="name">Green Zebra</div><div class="why">Ripe when yellow-green striped. Bright, tart. Great with feta.</div></div>
-          </div>
-          <div class="pair-item">
-            <div class="g" style="background:#8a4a3a;color:#fff;">🍅</div>
-            <div><div class="name">Heirloom (Cherokee, Brandywine)</div><div class="why">Genetic diversity = deeper flavor, thinner skin, shorter shelf life. Eat within 2 days.</div></div>
-          </div>
-        </div>
-
-        <p class="eyebrow mt-8">How to pick</p>
-        <div class="grid gap-3 md:grid-cols-2 mt-3">
-          <div class="note">
-            <span class="ic" data-icon="check-circle" data-size="18"></span>
-            <div>
-              <div class="t">Signs it's good</div>
-              <div class="b">Heavy for its size. Deep, even color to the shoulder. Slight give under thumb — not squishy. Sweet, grassy smell at the stem end (this is the #1 test).</div>
-            </div>
-          </div>
-          <div class="note stop">
-            <span class="ic" data-icon="x-circle" data-size="18"></span>
-            <div>
-              <div class="t">Walk away if</div>
-              <div class="b">Green shoulders (picked unripe). Soft or split skin. Refrigerated at the store (mealy inside). Smells like nothing at the stem.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="note warn mt-4">
-          <span class="ic" data-icon="warning" data-size="18"></span>
-          <div>
-            <div class="t">On the Dirty Dozen — buy organic if you can</div>
-            <div class="b">Tomato skin holds pesticide residue. EWG tests find 4+ pesticides on 92% of conventional samples. Organic isn't perfect but drops the count sharply.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ 4. STORE ============ -->
-      <section id="store" class="chapter">
-        <div class="chapter-head">
-          <div class="num">4</div>
-          <h2>Store</h2>
-        </div>
-        <p class="chapter-lede">
-          The single rule that changes everything: <strong>never refrigerate a whole tomato</strong>. Cold below 12 °C shatters the flavor cell membranes. Once mealy, they don't come back.
-        </p>
-
-        <div class="fact-grid">
-          <div class="fact">
-            <div class="k"><span data-icon="home" data-size="12"></span>Counter</div>
-            <div class="v">3 – 5 days</div>
-            <div class="n">Stem-down, out of direct sun, single layer (bruises spread by contact).</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="snowflake" data-size="12"></span>Fridge</div>
-            <div class="v">Only if cut</div>
-            <div class="n">Cut side down on a plate, sealed. 2 days max. Bring to room temp before eating.</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="sparkles" data-size="12"></span>Ripen faster</div>
-            <div class="v">Paper bag</div>
-            <div class="n">Traps the tomato's own ethylene. Add a banana or apple to speed further.</div>
-          </div>
-          <div class="fact">
-            <div class="k"><span data-icon="jar" data-size="12"></span>Preserve</div>
-            <div class="v">6 ways</div>
-            <div class="n">Sun-dried, oven-roasted, passata, paste, fermented salsa, frozen whole.</div>
-          </div>
-        </div>
-
-        <div class="note stop mt-4">
-          <span class="ic" data-icon="x-circle" data-size="18"></span>
-          <div>
-            <div class="t">Why the fridge ruins them</div>
-            <div class="b">Below 12 °C, chilling injury destroys the enzymes that make aroma compounds. The fruit turns mealy, muted, cardboard. The USDA Beltsville study (2016) mapped exactly which genes shut off — they don't turn back on when warmed.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ 5. PREP & COOK ============ -->
-      <section id="cook" class="chapter">
-        <div class="chapter-head">
-          <div class="num">5</div>
-          <h2>Prep &amp; Cook</h2>
-        </div>
-        <p class="chapter-lede">
-          Raw for freshness, cooked for depth. Heat and fat unlock lycopene — the pigment your body uses for skin and heart protection. A cooked tomato with olive oil delivers roughly 4× the absorbable lycopene of a raw one.
-        </p>
-
-        <p class="eyebrow">Basic prep</p>
-        <div class="grid gap-3 md:grid-cols-3 mt-3">
-          <div class="card p-4">
-            <div class="flex items-center gap-2 mb-2" style="color:var(--sage-600);">
-              <span data-icon="droplet" data-size="18"></span>
-              <span class="font-display" style="font-size:15px;font-weight:600;">Wash &amp; core</span>
-            </div>
-            <p style="font-size:13px;color:var(--text-md);line-height:1.5;">Cool water, gentle rub. Remove stem scar with knife tip — it's bitter.</p>
-          </div>
-          <div class="card p-4">
-            <div class="flex items-center gap-2 mb-2" style="color:var(--sage-600);">
-              <span data-icon="scissors" data-size="18"></span>
-              <span class="font-display" style="font-size:15px;font-weight:600;">Peel</span>
-            </div>
-            <p style="font-size:13px;color:var(--text-md);line-height:1.5;">Score X on bottom. Blanch 30s. Ice bath. Skin slips off — for silky sauces.</p>
-          </div>
-          <div class="card p-4">
-            <div class="flex items-center gap-2 mb-2" style="color:var(--sage-600);">
-              <span data-icon="knife" data-size="18"></span>
-              <span class="font-display" style="font-size:15px;font-weight:600;">Seed</span>
-            </div>
-            <p style="font-size:13px;color:var(--text-md);line-height:1.5;">Cut in half across the equator. Squeeze gently. Only for dishes that would go watery.</p>
-          </div>
-        </div>
-
-        <p class="eyebrow mt-8">What it can become</p>
-        <div class="mt-3" style="overflow-x:auto;">
-          <svg viewBox="0 0 900 340" style="display:block;width:100%;min-width:640px;height:auto;">
-            <defs>
-              <marker id="ar-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#a09b8e"/></marker>
-            </defs>
-            <!-- Edges -->
-            <path d="M110 170 C 200 170, 200 50,  300 50"  class="edge" marker-end="url(#ar-t)"/>
-            <path d="M110 170 C 200 170, 200 110, 300 110" class="edge" marker-end="url(#ar-t)"/>
-            <path d="M110 170 C 200 170, 200 170, 300 170" class="edge" marker-end="url(#ar-t)"/>
-            <path d="M110 170 C 200 170, 200 230, 300 230" class="edge" marker-end="url(#ar-t)"/>
-            <path d="M110 170 C 200 170, 200 290, 300 290" class="edge" marker-end="url(#ar-t)"/>
-            <!-- Second hops -->
-            <path d="M430 50  C 510 50,  510 20,  600 20"  class="edge" marker-end="url(#ar-t)"/>
-            <path d="M430 50  C 510 50,  510 80,  600 80"  class="edge" marker-end="url(#ar-t)"/>
-            <path d="M430 110 C 510 110, 510 110, 600 110" class="edge" marker-end="url(#ar-t)"/>
-            <path d="M430 170 C 510 170, 510 140, 600 140" class="edge" marker-end="url(#ar-t)"/>
-            <path d="M430 170 C 510 170, 510 200, 600 200" class="edge" marker-end="url(#ar-t)"/>
-            <path d="M430 230 C 510 230, 510 260, 600 260" class="edge" marker-end="url(#ar-t)"/>
-            <path d="M430 290 C 510 290, 510 320, 600 320" class="edge" marker-end="url(#ar-t)"/>
-            <!-- Root -->
-            <circle cx="70" cy="170" r="45" fill="#f5d5c8" stroke="#c05a4a" stroke-width="2.5"/>
-            <text x="70" y="167" text-anchor="middle" font-size="26">🍅</text>
-            <text x="70" y="192" text-anchor="middle" font-family="Fraunces" font-size="12" font-weight="600" fill="#2a2620">Tomato</text>
-            <!-- Method nodes -->
-            <g font-family="Fraunces" font-size="12" font-weight="500" fill="#2a2620">
-              <rect x="300" y="30"  width="130" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="365" y="55" text-anchor="middle">Raw</text>
-              <rect x="300" y="90"  width="130" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="365" y="115" text-anchor="middle">Roasted</text>
-              <rect x="300" y="150" width="130" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="365" y="175" text-anchor="middle">Simmered</text>
-              <rect x="300" y="210" width="130" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="365" y="235" text-anchor="middle">Sun-dried</text>
-              <rect x="300" y="270" width="130" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="365" y="295" text-anchor="middle">Fermented</text>
-              <!-- Leaves -->
-              <rect x="600" y="0"   width="140" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="670" y="25" text-anchor="middle">Salad · caprese</text>
-              <rect x="600" y="60"  width="140" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="670" y="85" text-anchor="middle">Gazpacho</text>
-              <rect x="600" y="90"  width="140" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="670" y="115" text-anchor="middle">Chutney</text>
-              <rect x="600" y="120" width="140" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="670" y="145" text-anchor="middle">Marinara</text>
-              <rect x="600" y="180" width="140" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="670" y="205" text-anchor="middle">Rasam · shakshuka</text>
-              <rect x="600" y="240" width="140" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="670" y="265" text-anchor="middle">Pesto rosso</text>
-              <rect x="600" y="300" width="140" height="40" rx="10" fill="#fff" stroke="#c9c1af"/><text x="670" y="325" text-anchor="middle">Hot sauce</text>
-            </g>
-          </svg>
-        </div>
-
-        <div class="note mt-6">
-          <span class="ic" data-icon="flame" data-size="18"></span>
-          <div>
-            <div class="t">Cook with fat, not without</div>
-            <div class="b">Lycopene is fat-soluble. A slow simmer with olive oil breaks cell walls and dissolves the pigment. The Journal of Agricultural &amp; Food Chemistry (2002) measured 3.8× more absorbable lycopene from tomato sauce with oil vs raw tomato juice.</div>
-          </div>
-        </div>
-        <div class="note warn mt-3">
-          <span class="ic" data-icon="warning" data-size="18"></span>
-          <div>
-            <div class="t">Don't cook in aluminum</div>
-            <div class="b">Tomato acid strips the aluminum oxide layer and leaches metal into the sauce. Off-flavor at best, health concern at worst. Stainless, enamel, or seasoned cast iron only.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ 6. PAIRS / AVOID ============ -->
-      <section id="pair" class="chapter">
-        <div class="chapter-head">
-          <div class="num">6</div>
-          <h2>Pairs / Avoid</h2>
-        </div>
-        <p class="chapter-lede">
-          Every pairing here has a reason — flavor chemistry, nutrient absorption, or a tradition that survived because it works. Everything in the "avoid" list has a specific failure mode, not just a rumor.
-        </p>
-
-        <p class="eyebrow" style="color:var(--sage-600);">Pairs beautifully with</p>
-        <div class="pair-list mt-3">
-          <div class="pair-item"><div class="g">🌿</div><div><div class="name">Basil</div><div class="why">Both share eugenol and linalool. The oils intensify each other's grassy note — the caprese is chemistry, not just tradition.</div></div></div>
-          <div class="pair-item"><div class="g">🫒</div><div><div class="name">Olive oil</div><div class="why">Dissolves lycopene for the body. Coats acid so it doesn't sting. Sicilian rule: oil on tomato before salt.</div></div></div>
-          <div class="pair-item"><div class="g">🧄</div><div><div class="name">Garlic</div><div class="why">Sulfur compounds balance the sweetness. Slow, low heat — never brown, or bitterness ruins the sauce.</div></div></div>
-          <div class="pair-item"><div class="g">🧀</div><div><div class="name">Mozzarella</div><div class="why">Fat softens the acid on your tongue. Milk protein binds lycopene, slowing absorption but extending release.</div></div></div>
-          <div class="pair-item"><div class="g">🧅</div><div><div class="name">Onion</div><div class="why">Cooked slow, onion sugars caramelize and mellow tomato's edge. The base of nearly every world sauce.</div></div></div>
-          <div class="pair-item"><div class="g">🥚</div><div><div class="name">Eggs</div><div class="why">Yolk fat carries lycopene. Acid tightens egg proteins — shakshuka, tomato omelette, huevos rancheros.</div></div></div>
-          <div class="pair-item"><div class="g">🫘</div><div><div class="name">Chickpea</div><div class="why">Vitamin C in tomato boosts iron absorption from the chickpea by ~3×. Chana masala isn't an accident.</div></div></div>
-          <div class="pair-item"><div class="g">🌶️</div><div><div class="name">Cumin</div><div class="why">Earthy anchor for tomato's bright top note. The reason Mexican and Indian sauces feel familiar.</div></div></div>
-          <div class="pair-item"><div class="g">🧂</div><div><div class="name">Salt (at rest)</div><div class="why">Draws out water from cut tomato. 15 min salted → concentrated flavor, better texture, less watery salad.</div></div></div>
-        </div>
-
-        <p class="eyebrow mt-8" style="color:var(--coral-600);">Avoid or handle carefully</p>
-        <div class="pair-list mt-3">
-          <div class="pair-item avoid"><div class="g">🥒</div><div><div class="name">Cucumber (raw, at length)</div><div class="why">Cucumber has ascorbinase — an enzyme that destroys tomato's vitamin C. Fine in a small salad; not for pickles or juice.</div></div></div>
-          <div class="pair-item avoid"><div class="g">🥛</div><div><div class="name">Milk (raw, cold)</div><div class="why">Acid curdles cold milk instantly. Cream in a hot sauce is different — the fat is emulsified and heat stabilizes the casein.</div></div></div>
-          <div class="pair-item avoid"><div class="g">🥔</div><div><div class="name">Potato (same meal, heavy)</div><div class="why">Both are nightshades. If you have solanine sensitivity or an inflammatory condition, load stacks the same alkaloids twice.</div></div></div>
-          <div class="pair-item avoid"><div class="g">🍋</div><div><div class="name">Extra citrus in a raw dish</div><div class="why">Tomato is already 4% acid. More lemon flattens the fruit's own tartness. Save citrus for cooked dishes that lost brightness.</div></div></div>
-          <div class="pair-item avoid"><div class="g">🥫</div><div><div class="name">Aluminum cookware</div><div class="why">Acid leaches metal. Off-flavor, off-color, off the table. Use stainless, enamel, or seasoned cast iron.</div></div></div>
-          <div class="pair-item avoid"><div class="g">🥶</div><div><div class="name">Refrigeration (whole)</div><div class="why">Below 12 °C aroma enzymes shut off permanently. Flavor doesn't return with warming.</div></div></div>
-        </div>
-      </section>
-
-      <!-- ============ 7. NUTRITION ============ -->
-      <section id="nutrition" class="chapter">
-        <div class="chapter-head">
-          <div class="num">7</div>
-          <h2>In the body</h2>
-        </div>
-        <p class="chapter-lede">
-          Cheap on calories, rich on carotenoids. The famous one is lycopene — a red-orange pigment linked to reduced prostate-cancer risk and better skin UV response in repeated meta-analyses.
-        </p>
-
-        <div class="fact-grid">
-          <div class="fact"><div class="k">Per 100 g</div><div class="v">18 kcal</div><div class="n">3.9 g carb · 1.2 g fiber · 0.9 g protein · 0.2 g fat</div></div>
-          <div class="fact"><div class="k">Vitamin C</div><div class="v">14 mg</div><div class="n">~15% RDA. Fades with cooking — raw for C, cooked for lycopene.</div></div>
-          <div class="fact"><div class="k">Lycopene</div><div class="v">3 mg raw · 15 mg paste</div><div class="n">Paste and canned deliver 5× the pigment of fresh. Cook with fat to absorb it.</div></div>
-          <div class="fact"><div class="k">Potassium</div><div class="v">237 mg</div><div class="n">Meaningful for blood pressure — one cup of sauce ≈ half a banana.</div></div>
-        </div>
-
-        <div class="note mt-4">
-          <span class="ic" data-icon="check-circle" data-size="18"></span>
-          <div>
-            <div class="t">Boosts absorption</div>
-            <div class="b">Heat + oil (breaks cell walls, dissolves pigment). Vitamin C from the tomato itself boosts iron uptake from legumes eaten together.</div>
-          </div>
-        </div>
-        <div class="note warn mt-3">
-          <span class="ic" data-icon="warning" data-size="18"></span>
-          <div>
-            <div class="t">Watch out for</div>
-            <div class="b">Oral allergy syndrome in some birch-pollen sufferers (mouth itch after raw tomato — cooked usually fine). Some people with autoimmune flare-ups track improvement after cutting all nightshades for 30 days.</div>
-          </div>
-        </div>
-      </section>
-
+  <!-- 2 · SOURCE — Vitamins & Minerals (per 100 g) -->
+  <div class="tile span-2">
+    <div class="cap"><span class="n">2</span> Source · Vitamins / Minerals</div>
+    <div class="body">
+      <div class="nutri-grid">
+        <div class="nutri"><div class="g">C</div><div class="body"><div class="l">Vitamin C</div><div class="v">14<span class="u">mg</span></div></div></div>
+        <div class="nutri"><div class="g">K</div><div class="body"><div class="l">Vitamin K</div><div class="v">8<span class="u">µg</span></div></div></div>
+        <div class="nutri"><div class="g">A</div><div class="body"><div class="l">Vitamin A</div><div class="v">833<span class="u">IU</span></div></div></div>
+        <div class="nutri"><div class="g">B9</div><div class="body"><div class="l">Folate</div><div class="v">15<span class="u">µg</span></div></div></div>
+        <div class="nutri"><div class="g">Ly</div><div class="body"><div class="l">Lycopene</div><div class="v">3<span class="u">mg (15 in paste)</span></div></div></div>
+        <div class="nutri"><div class="g">Po</div><div class="body"><div class="l">Potassium</div><div class="v">237<span class="u">mg</span></div></div></div>
+        <div class="nutri"><div class="g">Mn</div><div class="body"><div class="l">Manganese</div><div class="v">0.1<span class="u">mg</span></div></div></div>
+        <div class="nutri"><div class="g">Cu</div><div class="body"><div class="l">Copper</div><div class="v">0.06<span class="u">mg</span></div></div></div>
+      </div>
     </div>
   </div>
-</main>
 
-<div id="footer-mount"></div>
+  <!-- 3 · STORAGE — Good / Bad -->
+  <div class="tile span-2">
+    <div class="cap"><span class="n">3</span> Storage</div>
+    <div class="body">
+      <div class="split-2">
+        <div class="col">
+          <div class="col-cap good"><span data-icon="check-circle" data-size="12"></span>GOOD</div>
+          <div class="gb-row good"><div class="g" data-icon="home" data-size="14"></div>Counter · 3–5 days</div>
+          <div class="gb-row good"><div class="g" data-icon="basket" data-size="14"></div>Stem-down, single layer</div>
+          <div class="gb-row good"><div class="g" data-icon="wind" data-size="14"></div>Room temp, shade</div>
+          <div class="gb-row good"><div class="g" data-icon="jar" data-size="14"></div>Paper bag → ripens fast</div>
+        </div>
+        <div class="col">
+          <div class="col-cap bad"><span data-icon="x-circle" data-size="12"></span>BAD</div>
+          <div class="gb-row bad"><div class="g" data-icon="snowflake" data-size="14"></div>Fridge (whole)</div>
+          <div class="gb-row bad"><div class="g" data-icon="sun" data-size="14"></div>Direct sunlight</div>
+          <div class="gb-row bad"><div class="g" data-icon="warning" data-size="14"></div>Stacked / piled</div>
+          <div class="gb-row bad"><div class="g" data-icon="droplet" data-size="14"></div>Sealed plastic</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 · COOK — Methods -->
+  <div class="tile span-2">
+    <div class="cap"><span class="n">4</span> Cook</div>
+    <div class="body">
+      <div class="method-grid">
+        <div class="method"><div class="g">🥗</div><div class="l">Raw</div></div>
+        <div class="method"><div class="g">💧</div><div class="l">Boil / Blanch</div></div>
+        <div class="method"><div class="g">🍳</div><div class="l">Sauté</div></div>
+        <div class="method"><div class="g">🔥</div><div class="l">Roast</div></div>
+        <div class="method"><div class="g">🍝</div><div class="l">Sauce</div></div>
+        <div class="method"><div class="g">🍛</div><div class="l">Gravy</div></div>
+        <div class="method"><div class="g">☀️</div><div class="l">Dehydrate</div></div>
+        <div class="method"><div class="g">🫙</div><div class="l">Ferment</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 · PAIRS WITH / AVOID WITH (span 4) -->
+  <div class="tile span-4">
+    <div class="cap"><span class="n">5</span> Pairs with · Avoid with</div>
+    <div class="body">
+      <div class="split-2">
+        <div class="col">
+          <div class="col-cap good"><span data-icon="check-circle" data-size="12"></span>PAIRS WITH</div>
+          <div class="icon-cloud" style="margin-top:4px;">
+            <div class="ic-chip">🌿<span class="lbl">Basil</span></div>
+            <div class="ic-chip">🫒<span class="lbl">Olive oil</span></div>
+            <div class="ic-chip">🧄<span class="lbl">Garlic</span></div>
+            <div class="ic-chip">🧀<span class="lbl">Mozzarella</span></div>
+            <div class="ic-chip">🧅<span class="lbl">Onion</span></div>
+            <div class="ic-chip">🥚<span class="lbl">Eggs</span></div>
+            <div class="ic-chip">🫘<span class="lbl">Chickpea</span></div>
+            <div class="ic-chip">🌶️<span class="lbl">Cumin</span></div>
+            <div class="ic-chip">🧂<span class="lbl">Salt</span></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="col-cap bad"><span data-icon="x-circle" data-size="12"></span>AVOID WITH</div>
+          <div class="icon-cloud" style="margin-top:4px;">
+            <div class="ic-chip avoid">🥒<span class="lbl">Cucumber (raw)</span></div>
+            <div class="ic-chip avoid">🥛<span class="lbl">Cold milk</span></div>
+            <div class="ic-chip avoid">🥔<span class="lbl">Potato</span></div>
+            <div class="ic-chip avoid">🍋<span class="lbl">Extra citrus</span></div>
+            <div class="ic-chip avoid">🥫<span class="lbl">Aluminum pan</span></div>
+            <div class="ic-chip avoid">🥶<span class="lbl">Fridge (whole)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <script src="../shared/icons.js"></script>
 <script src="../shared/nav.js"></script>
-<script src="../shared/footer.js"></script>
-
-<script>
-  // Highlight active chapter in sidebar based on scroll position
-  (function () {
-    const links = document.querySelectorAll('.dossier-nav a[href^="#"]');
-    const map = new Map();
-    links.forEach(a => {
-      const id = a.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if (target) map.set(target, a);
-    });
-    if (!('IntersectionObserver' in window)) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          links.forEach(l => l.classList.remove('active'));
-          const link = map.get(e.target);
-          if (link) link.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-30% 0px -60% 0px' });
-    map.forEach((_, target) => io.observe(target));
-  })();
-</script>
 </body>
 </html>
