@@ -13,36 +13,37 @@ downstream. Tap a node, get big numbered steps, cook. If it was good, it stays.
 
 ## Structure
 
+The full HTML site lives under `prototype/`.
+
 ```
 /
-├── index.html                       kitchen home
-├── journeys/
-│   ├── index.html                   all journeys
-│   ├── milk.html                    THE map (SVG graph)
-│   ├── milk-to-paneer.html          step cards
-│   ├── milk-to-curd.html
-│   ├── milk-to-butter.html
-│   ├── milk-to-ghee.html
-│   └── milk-to-khoya.html
-├── recipes/
-│   ├── index.html
-│   └── palak-paneer.html
-├── ingredients/
-│   ├── index.html
-│   └── {paneer, spinach, ginger, garlic, cumin, garam-masala}.html
-├── skills.html                      what I'm learning
-├── 404.html
-├── patterns/components.html         design system
-└── shared/{chrome.css, nav.js, footer.js}
+├── README.md
+└── prototype/
+    ├── index.html                       kitchen home
+    ├── ingredients/
+    │   ├── tomato.html                  bento dossier (5 tiles)
+    │   └── {paneer, spinach, ginger, garlic, cumin, garam-masala}.html
+    ├── grow/
+    │   └── tomato.html                  detailed grow guide (India seasons)
+    ├── pairings/index.html              what pairs with what
+    ├── recipes/
+    │   ├── index.html
+    │   └── palak-paneer.html
+    ├── journeys/                        (legacy — being folded into ingredients)
+    ├── skills.html
+    ├── 404.html
+    ├── patterns/components.html         design system
+    └── shared/{chrome.css, nav.js, footer.js, icons.js}
 ```
 
 ## Viewing locally
 
 ```sh
-npx serve .
+cd prototype && python3 -m http.server 8765
+# open http://localhost:8765/
 ```
 
-Or open `index.html` directly. Pure HTML — no build step.
+Or open `prototype/index.html` directly. Pure HTML — no build step.
 
 ## Deploying
 
