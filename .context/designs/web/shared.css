@@ -1,92 +1,774 @@
-/* hamburg — kitchen companion. Warm, visual, low-text. */
+/* ============================================================================
+   CORE — identical in every product. Do not edit per product.
+   ============================================================================
+   Everything metric is shared; everything hued is not. A game and a tax app
+   should not look the same — they should look like they were built by the same
+   people. So the type scale, the radii, the shadow geometry, the frame and the
+   token NAMES are fixed here, and each product supplies only colour, below the
+   PALETTE banner.
+
+   The naming rule, which is the whole naming policy:
+
+       the CSS variable is the Tailwind token path with dots as dashes.
+       line.strong <-> --line-strong.  ink.2 <-> --ink-2.  brand.500 <-> --brand-500.
+
+   It ends every naming argument and it is checkable by eye. Before it, sets
+   broke it in both directions at once — Tailwind key `line` with CSS var
+   `--border`, key `ink` with `--text-primary` — and neither name could be
+   trusted to find the other.
+   ============================================================================ */
 
 :root {
-  /* Brand — sage */
-  --sage-600: #4b7a4b;
-  --sage-500: #5a8a5a;
-  --sage-400: #7dac7d;
-  --sage-100: #dbe8d5;
-  --sage-50:  #eef4ea;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* Accent — warm coral */
-  --coral-600: #c9603f;
-  --coral-500: #e07a5f;
-  --coral-100: #fce4d8;
+  /* Type. The first four steps were byte-identical across every set that had
+     a token layer — the strongest existing convention in the tree. */
+  --fs-2xs: 10px;     --lh-2xs: 1.3;
+  --fs-xs: 11.5px;    --lh-xs: 1.4;
+  --fs-sm: 13px;      --lh-sm: 1.45;
+  --fs-base: 14px;    --lh-base: 1.5;
+  --fs-body: 16px;    --lh-body: 1.5;
+  --fs-lead: 18px;    --lh-lead: 1.45;
+  --fs-h3: 22px;      --lh-h3: 1.25;    --ls-h3: -0.01em;
+  --fs-h2: 28px;      --lh-h2: 1.15;    --ls-h2: -0.02em;
+  --fs-h1: 36px;      --lh-h1: 1.08;    --ls-h1: -0.02em;
+  --fs-display: 46px; --lh-display: 1.02; --ls-display: -0.03em;
 
-  /* Secondary — butter */
-  --butter-600: #d19c1f;
-  --butter-500: #e8b842;
-  --butter-100: #fbe9b3;
+  --tracking-label: 0.18em;
 
-  /* Warm neutrals */
-  --bg-0: #fdf9f3;   /* page */
-  --bg-1: #ffffff;   /* card */
-  --bg-2: #f5eee1;   /* muted */
-  --bg-3: #ece2cc;
-  --border: #ece1cc;
-  --border-strong: #d9c8a7;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 28px;
+  --radius-pill: 999px;
+  --radius-phone: 40px;
 
-  --text-hi: #2a2620;
-  --text-md: #6b6659;
-  --text-lo: #a09b8e;
+  /* Geometry is shared; tint and strength are per product, because a dark
+     palette needs far more alpha to read at all. --shadow-tint is an `r g b`
+     triple, declared in the palette block. */
+  --shadow-a1: 0.05;
+  --shadow-a2: 0.07;
+  --shadow-a3: 0.18;
+  --shadow-sm: 0 1px 2px rgb(var(--shadow-tint) / var(--shadow-a1));
+  --shadow:    0 4px 14px rgb(var(--shadow-tint) / var(--shadow-a2));
+  --shadow-lg: 0 14px 34px -10px rgb(var(--shadow-tint) / var(--shadow-a3));
+  --shadow-phone: 0 0 0 1px var(--line-strong), 0 30px 60px -20px rgb(var(--shadow-tint) / var(--shadow-a3));
 
-  /* Ingredient category colors */
-  --ing-dairy:     #5aa4bc;
-  --ing-vegetable: #7ab26b;
-  --ing-legume:    #c9884a;
-  --ing-grain:     #b8a668;
-  --ing-spice:     #c05a4a;
-  --ing-herb:      #6ca75b;
-  --ing-fruit:     #d67a5f;
-  --ing-condiment: #9b7bc7;
-
-  /* Journey / step states */
-  --step-active: var(--sage-500);
-  --step-done:   var(--sage-400);
-  --step-todo:   var(--text-lo);
+  --frame-w: 390px;
+  --frame-h: 844px;
 }
 
 html, body {
-  background: var(--bg-0);
-  color: var(--text-hi);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--page);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
 
+.mono { font-family: var(--font-mono); }
+.num  { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; letter-spacing: -0.01em; }
+
+/* ---- Phone frame — a device, not a utility --------------------------------
+   390 wide is the spec and never changes. The HEIGHT is clamped to whatever is
+   left under the chrome bar, and the content scrolls inside the frame the way
+   it scrolls on the phone.
+
+   This replaces a transform: scale() approach that looked right and was not —
+   a transform does not change layout height, so the frame still occupied its
+   full 844px, and the page scrolled to reveal a frame that was already drawn
+   smaller. --chrome-h is measured by _chrome.js, because the bar wraps to two
+   rows on a narrow window and a guessed constant is wrong exactly when it
+   matters. */
+.phone {
+  width: var(--frame-w);
+  max-width: 100%;
+  height: min(var(--frame-h), calc(100dvh - var(--chrome-h, 0px) - var(--stage-pad, 32px)));
+  background: var(--frame);
+  /* The frame re-resolves ink itself. Without this, text with no colour class
+     inherits body's COMPUTED colour, which was resolved in the light scope —
+     so a dark frame kept black body text while everything token-driven around
+     it turned white. A variable remap only reaches declarations that read the
+     variable; inheritance carries the old value, not the new name. */
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--radius-phone);
+  box-shadow: var(--shadow-phone);
+}
+.phone::-webkit-scrollbar { width: 0; }
+/* A footer pinned to the bottom of the DEVICE, not the bottom of the content:
+   sticky keeps it in view while the content above it scrolls, which is what a
+   tab bar or a primary action actually does on the phone. */
+.phone > .pin-bottom { margin-top: auto; position: sticky; bottom: 0; }
+
+/* The stage is exactly the frame plus its padding, so the page itself never
+   scrolls on a screen that already fits. */
+.stage {
+  display: grid;
+  place-items: start center;
+  /* The same variable the frame subtracts from its own height, so the two
+     cannot disagree. A literal 16px here left the frame 32px shorter than the
+     space it was given. */
+  padding: calc(var(--stage-pad, 32px) / 2) 0;
+  height: 100dvh;
+  box-sizing: border-box;
+}
+
+/* ?bare is what the screenshots sheet embeds and what you capture a single
+   screen with. The gutter and the device rounding are framing for a screen
+   being *looked at*; inside a 390x844 tile they are a white margin and four
+   clipped corners, and the frame no longer fills the tile it was sized for. */
+[data-bare] .stage { padding: 0; }
+[data-bare] .phone {
+  border-radius: 0;
+  box-shadow: none;
+  max-width: none;
+}
+
+/* A theme scope is a token remap, never a second set of utilities. A utility
+   written against a variable follows whichever scope it lands in, so the theme
+   toggle changes no markup and nothing can be dark in one place and light in
+   another. */
+/* A screen with a modal over it does not scroll. `position: absolute; inset: 0`
+   resolves against the frame's padding box, and in a scroll container that is
+   the visible box pinned to the top of the scrollable area — so scrolling the
+   frame slid the backdrop off the screen and left the card floating over
+   nothing. A modal blocks the content underneath in the app too. */
+.phone--modal { overflow: hidden; }
+
+.phone--page   { background: var(--page); }
+.phone--sunken { background: var(--sunken); }
+
+/* The device status bar. The OS draws this, not the app — but the app pads for
+   it (pt-safe), so a wireframe that omits it puts every screen ~44px too high
+   and makes the first row look like it has more air than it will. */
+.statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  padding: 12px 20px 2px;
+  font-size: 13px;
+  color: var(--ink);
+}
+.statusbar-time { font-weight: 600; letter-spacing: 0.02em; }
+.statusbar-icons { display: flex; align-items: center; gap: 6px; }
+
+/* ---- Dev chrome — injected by _chrome.js, not part of the product ---------
+   Everything around the screen and nothing in it. One bar, same controls, same
+   order, in every product.
+
+   And the same COLOURS in every product. These are declared here rather than
+   read from the palette because the bar is tooling: reading --brand-500 made
+   the active chip blue in tic-tac-toe and navy in charades, so the same
+   control looked like a different control depending on which set you opened,
+   and the bar read as part of the product rather than as the thing holding
+   it. Nothing below this line may reference a product token. */
+:root {
+  --chrome-bg:      #ffffff;
+  --chrome-surface: #ffffff;
+  --chrome-line:    #d4d4d8;   /* zinc-300 */
+  --chrome-ink:     #3f3f46;   /* zinc-700 */
+  --chrome-ink-2:   #71717a;   /* zinc-500 */
+  --chrome-ink-3:   #a1a1aa;   /* zinc-400 */
+  --chrome-active:  #18181b;   /* zinc-900 */
+  --chrome-soft:    #f4f4f5;   /* zinc-100 */
+}
+
+.chrome {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--chrome-line);
+  background: color-mix(in srgb, var(--chrome-bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  padding: 7px 16px;
+}
+.chrome-row {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+.chrome-group { display: flex; align-items: center; gap: 6px; }
+/* The middle group scrolls; the row does not wrap. A wrapped row is two
+   stacked bars, which reads as two bars — chitragupt's settings flow has
+   twenty-three screens and pushed the bar onto a second line on a full-width
+   window. Scrolling the names keeps the row one line at every width, so the
+   nav on the left and the display controls on the right never move, and
+   --chrome-h stays put instead of doubling. min-width:0 is what actually lets
+   a flex child shrink below its content and scroll. */
+.chrome-mid {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.chrome-mid::-webkit-scrollbar { display: none; }
+.chrome-left, .chrome-right { flex: 0 0 auto; }
+/* Navigation left, settings right, and a gap between them that grows. */
+.chrome-right { margin-left: auto; }
+/* There is no .chrome-label. The breadcrumb it styled — `mobile · /game ›` —
+   said what the surface toggle on the right already says and what the flow
+   tint in the chart already says, and it sat between the nav chips and the
+   screen chips pushing the two apart for no information. */
+.chrome-chip {
+  border-radius: 6px;
+  border: 1px solid var(--chrome-line);
+  background: var(--chrome-surface);
+  padding: 2px 8px;
+  color: var(--chrome-ink);
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chrome-chip:hover { border-color: var(--chrome-active); }
+.chrome-chip.is-current {
+  border-color: var(--chrome-active);
+  background: var(--chrome-soft);
+  color: var(--chrome-active);
+  font-weight: 600;
+}
+
+/* Icon controls ------------------------------------------------------------
+   The controls that mean the same thing on every page — all routes,
+   screenshots, back, next, theme, surface, notes — are icons. They are lucide,
+   the estate's one icon set, asked for by name: nothing here carries a copy of
+   any path data, and there is no second icon library on the page.
+
+   The chip keeps its label in `title` and `aria-label`, so hovering still says
+   which control this is. An icon whose meaning you have to click to learn is
+   worse than the word it replaced. */
+.chrome-chip--icon {
+  width: 24px;
+  height: 22px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+}
+.chrome-ico { display: grid; place-items: center; line-height: 0; }
+.chrome svg { width: 14px; height: 14px; }
+/* The fallback when the lucide CDN did not load: the placeholder renders its
+   own label instead of an empty square. Wider than an icon slot, so the chip
+   grows to fit rather than clipping the word. */
+.chrome-ico--text {
+  font-size: 9px;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 0 4px;
+  white-space: nowrap;
+}
+.chrome-chip--icon:has(.chrome-ico--text) { width: auto; padding: 0 4px; }
+.seg-chip--icon:has(.chrome-ico--text) { padding: 2px 6px; }
+
+/* Segmented controls: surface, theme, and this screen's states. Always
+   rendered in the same slot — a control that appears only sometimes moves
+   everything beside it the day a product gains a surface or a dark scope. */
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--chrome-line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.seg--states { margin-left: 4px; }
+.seg-chip {
+  padding: 2px 10px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--chrome-ink-2);
+  background: var(--chrome-surface);
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.seg-chip + .seg-chip { border-left: 1px solid var(--chrome-line); }
+.seg-chip:hover { color: var(--chrome-active); }
+.seg-chip.is-current { background: var(--chrome-active); color: #fff; }
+.seg-chip--icon { padding: 2px 8px; display: inline-grid; place-items: center; }
+
+/* A surface that is not drawn is struck through, never omitted: a missing
+   thing has to look missing, or its absence reads as "no such thing". */
+.seg-chip.is-absent { color: var(--chrome-ink-3); text-decoration: line-through; cursor: default; }
+/* line-through does not cross an <svg>, so an icon half draws its own strike:
+   a hairline at the same angle, in the same colour, so a struck icon and a
+   struck word read as the same statement. It applies to a dead back/next as
+   well as to an undrawn theme or surface — §4 says the ends of the set are
+   struck through, and dimming alone did not say it. */
+.seg-chip--icon.is-absent,
+.chrome-chip--icon.is-absent { position: relative; text-decoration: none; }
+.seg-chip--icon.is-absent::after,
+.chrome-chip--icon.is-absent::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 50%;
+  border-top: 1px solid currentColor;
+  transform: rotate(-20deg);
+}
+/* A dead back/next at the ends of the set: shown, not hidden, so the bar does
+   not reflow as you step through it. */
+.chrome-chip.is-absent { color: var(--chrome-ink-3); border-color: var(--chrome-line); cursor: default; }
+.chrome-chip.is-absent:hover { border-color: var(--chrome-line); }
+
+/* ---- Notes drawer --------------------------------------------------------
+   The rationale lives in the wiki and only in the wiki. This renders it beside
+   the screen on demand, collapsed by default — the screen is the thing under
+   review, and an essay next to it competes for the eye.
+
+   Dev chrome, so the same fixed colours as the bar. */
+.notes {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(400px, 92vw);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  background: var(--chrome-surface);
+  border-left: 1px solid var(--chrome-line);
+  box-shadow: -12px 0 32px rgb(24 24 27 / 0.12);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--chrome-ink);
+}
+/* A panel that covers a third of the screen needs a way out that is not
+   "find the button you opened it with", which the bar may have scrolled. */
+.notes-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--chrome-line);
+  flex: none;
+}
+.notes-title {
+  flex: 1;
+  margin: 0;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: var(--chrome-ink-2);
+}
+.notes-close {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--chrome-line);
+  border-radius: 7px;
+  background: var(--chrome-surface);
+  color: var(--chrome-ink);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+.notes-close:hover { background: var(--chrome-soft); border-color: var(--chrome-active); }
+.notes-body { flex: 1; min-height: 0; overflow-y: auto; padding: 16px 18px 28px; }
+.notes-body h3, .notes-body h4, .notes-body h5 {
+  font-size: 13px; color: var(--chrome-active); margin: 16px 0 6px;
+}
+.notes-body h3:first-child, .notes-body h4:first-child { margin-top: 0; }
+.notes-body p { margin: 0 0 10px; }
+.notes-body ul { margin: 0 0 10px; padding-left: 18px; }
+.notes-body li { margin-bottom: 4px; }
+.notes-body code {
+  font-family: var(--font-mono); font-size: 11.5px;
+  background: var(--chrome-soft); padding: 1px 4px; border-radius: 4px;
+}
+.notes-body a { color: var(--chrome-active); }
+
+/* The info button lives at the far right of the bar, past the display
+   controls: it is about the page you are on, and it is the only control that
+   opens something over the screen rather than changing the screen. */
+/* The notes button is a .chrome-chip--icon like the rest; it only differs in
+   being round, because it is the one control that opens something OVER the
+   screen rather than changing which screen you are looking at. */
+.chrome-info { border-radius: 999px; margin-left: 2px; }
+.chrome-info.is-current { background: var(--chrome-active); border-color: var(--chrome-active); color: #fff; }
+/* A screen with no wiki page still renders the button, struck out, for the
+   same reason a missing theme is struck out rather than omitted: the gap has
+   to look like a gap. */
+.chrome-info.is-absent { color: var(--chrome-ink-3); cursor: default; }
+
+/* There is no .screen-layout and no .rationale any more. One screen per file:
+   a second frame in a file has no URL, cannot appear in routes.js, and cannot
+   be linked to. Themes are the toggle in the chrome bar, states are their own
+   files, and the reasoning is in the wiki behind the notes drawer. */
+
+/* ---- The flow chart ------------------------------------------------------
+   The gallery is this and nothing else: no title, no description, no tables.
+   React Flow draws it; the node positions come from routes.js. */
+/* The chart fills what is left under the bar. _chrome.js measures the bar and
+   publishes --chrome-h, so this stays right when it wraps to two rows. */
+.chart-page { height: 100dvh; display: flex; flex-direction: column; }
+.chart-canvas { flex: 1; min-height: 0; background: var(--page); }
+
+/* React Flow paints its own node chrome; this replaces it rather than sitting
+   on top, so the nodes look like the rest of the estate. */
+.react-flow__node.fnode {
+  width: auto;
+  padding: 10px 14px 10px 12px;
+  border: 1px solid var(--line);
+  /* The flow's colour, on the edge a reader's eye follows down a column. */
+  border-left: 4px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  opacity: 0.88;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.react-flow__node.fnode:hover { border-color: var(--brand-500); opacity: 1; }
+/* The normal way through the product is the thing a flow chart has to answer
+   first, so the screens on it are the ones that read as solid. */
+.react-flow__node.fnode.is-main { opacity: 1; box-shadow: var(--shadow); }
+/* The two ends say so: where a session starts, and where it finishes. */
+.react-flow__node.fnode.is-start { box-shadow: 0 0 0 2px var(--brand-500), var(--shadow); }
+.react-flow__node.fnode.is-end   { box-shadow: 0 0 0 2px var(--success), var(--shadow); }
+/* Hovering a screen isolates its own paths: everything it does not touch fades
+   back. With thirty edges on one chart this is the difference between tracing
+   a route and guessing at one. Declared after .is-main deliberately — same
+   specificity, and the dim has to win over the spine's own opacity. */
+.react-flow__node.fnode.is-dim { opacity: 0.16; }
+.react-flow__node.fnode.is-lit {
+  opacity: 1;
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 2px var(--brand-500), var(--shadow);
+}
+/* The screen whose routes are being traced, as against the screens that lead
+   to it — otherwise "how do I reach X" lights up a dozen boxes and X is not
+   one of them to look at. */
+.react-flow__node.fnode.is-sel {
+  border-color: var(--brand-700);
+  background: var(--brand-50);
+  box-shadow: 0 0 0 3px var(--brand-500), var(--shadow-lg);
+}
+.fnode-label { display: flex; flex-direction: column; gap: 2px; text-align: left; }
+/* The box asks the chart a question; only this opens the screen. Without a
+   separate control there was no way to interrogate a node without leaving the
+   page you were interrogating it from. */
+.fnode-go {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--frame);
+  color: var(--ink-3);
+}
+.fnode-go:hover { background: var(--brand-500); border-color: var(--brand-500); color: #fff; }
+.fname { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.fflow { font-size: 9.5px; color: var(--ink-3); letter-spacing: 0.02em; }
+.react-flow__handle { opacity: 0; }
+
+/* The key. Six swatches, so the colours mean something without a paragraph. */
+.react-flow__panel.fkey {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  max-width: 260px;
+  margin: 12px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  box-shadow: var(--shadow-sm);
+  font-size: 10px;
+  color: var(--ink-2);
+}
+.fkey-item { display: inline-flex; align-items: center; gap: 5px; }
+.fkey-dot { width: 9px; height: 3px; border-radius: 2px; }
+.fkey-line { width: 14px; height: 0; border-top: 2px solid var(--brand-500); }
+.fkey-toggle {
+  flex: 0 0 100%;
+  margin-bottom: 2px;
+  padding: 3px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.fkey-toggle.is-on { background: var(--brand-500); border-color: var(--brand-500); color: #fff; }
+.fkey-hint { flex: 0 0 100%; margin-top: 2px; color: var(--ink-4); font-size: 9.5px; }
+
+.react-flow__controls-button {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  fill: var(--ink-2);
+}
+
+/* ---- Gallery -------------------------------------------------------------
+   The route table IS the screens inventory. A second inventory in Markdown is
+   a copy that drifts the day a screen is added. */
+.route-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+.route-table th {
+  text-align: left;
+  padding: 9px 13px;
+  font-size: 10px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--line);
+  background: var(--muted);
+}
+.route-table td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.route-table tr:last-child td { border-bottom: none; }
+
+.section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--ink-3);
+  font-weight: 700;
+}
+
+/* Status of a screen, on its gallery row and nowhere else. A screen must not
+   move sections the day it is approved. */
+.status { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 6px; white-space: nowrap; }
+.status--built    { background: var(--success-bg); color: var(--success-fg); }
+.status--approved { background: var(--muted);      color: var(--ink-2); }
+.status--review   { background: var(--warn-bg);    color: var(--warn-fg); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* lucide injects an <svg> in place of the <i> and inherits currentColor. */
+.lucide { display: inline-block; vertical-align: -0.125em; stroke-width: 2; }
+
+/* ---- a11y baseline -------------------------------------------------------- */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--brand-500);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   PALETTE — hamburg. The only block that differs between products.
+   ============================================================================
+   Direction: A WARM KITCHEN. A cream page, white cards, and three colours:
+   sage, coral and butter. The values are the prototype's own (the old
+   chrome.css), renamed to roles — `sage` is `brand`, `coral` is `accent`,
+   `butter` is `highlight`.
+
+   RESERVED, as the prototype already spends them:
+     brand (sage)       — the primary action, and a step or a skill that is SOLID.
+     highlight (butter) — LEARNING, and SOWING on a growing calendar.
+     accent (coral)     — AVOID: what fights an ingredient, what ruins storage.
+     cat-*              — an ingredient's CATEGORY, and nothing else. A tile's
+                          tint says dairy, grain or spice before the label does.
+
+   The four status tokens are aliases, not new colours. The prototype has no
+   fourth hue, so `success` is brand, `warn` is highlight, `danger` is accent,
+   and `info` borrows the dairy blue. `info-fg` repeats `info`: there is no
+   darker blue in the prototype to give it.
+
+   Two values here are in no prototype file, because §8 requires the step:
+   `--brand-900`, a darker sage, and `--ink-inverse`. No screen uses the first.
+
+   LIGHT ONLY. The prototype drew no dark theme, so `themes` in routes.js is
+   ["light"] and there is no `.phone--dark` remap.
+
+   Tokens §8 does not name, and why each exists: `highlight-*` (the third
+   colour), `cat-*` (category identity), `wash-*` (the two ends of a category
+   gradient, and the node grounds of the journey graphs), `glass*` and
+   `page-glass` (a translucent white or cream over a gradient or a blur),
+   `hairline` (the border on a white chip).
+   ============================================================================ */
+
+:root {
+  /* rgba(90,138,90,...) — the prototype shadows with its own sage. */
+  --shadow-tint: 90 138 90;
+
+  /* ---- ground ---- */
+  --page:    #fdf9f3;
+  --frame:   #fdf9f3;
+  --surface: #ffffff;
+  --muted:   #f5eee1;
+  --sunken:  #ece2cc;
+  --page-glass:   rgb(253 249 243 / 0.85);
+  --glass-soft:   rgb(255 255 255 / 0.7);
+  --glass:        rgb(255 255 255 / 0.85);
+  --glass-strong: rgb(255 255 255 / 0.92);
+  --hairline:     rgb(0 0 0 / 0.06);
+
+  /* ---- ink ---- */
+  --ink:         #2a2620;
+  --ink-2:       #6b6659;
+  --ink-3:       #a09b8e;
+  --ink-4:       #c9c1af;
+  --ink-inverse: #ffffff;
+
+  --line:        #ece1cc;
+  --line-strong: #d9c8a7;
+
+  /* ---- brand · sage. RESERVED: the primary action, and "solid". ---- */
+  --brand-50:  #eef4ea;
+  --brand-100: #dbe8d5;
+  --brand-200: #b5cfa8;
+  --brand-400: #7dac7d;
+  --brand-500: #5a8a5a;
+  --brand-700: #4b7a4b;
+  --brand-900: #2f4d2f;
+
+  /* ---- accent · coral. RESERVED: avoid. ---- */
+  --accent-100: #fce4d8;
+  --accent-500: #e07a5f;
+  --accent-700: #c9603f;
+
+  /* ---- highlight · butter. RESERVED: learning, and sowing. ---- */
+  --highlight-100: #fbe9b3;
+  --highlight-400: #e8ce7a;
+  --highlight-500: #e8b842;
+  --highlight-700: #d19c1f;
+
+  /* ---- status. Aliases — see the banner. ---- */
+  --success: var(--brand-500);      --success-bg: var(--brand-100);      --success-fg: var(--brand-700);
+  --warn:    var(--highlight-500);  --warn-bg:    var(--highlight-100);  --warn-fg:    var(--highlight-700);
+  --danger:  var(--accent-500);     --danger-bg:  var(--accent-100);     --danger-fg:  var(--accent-700);
+  --info:    var(--cat-dairy);      --info-bg:    var(--wash-dairy);     --info-fg:    var(--cat-dairy);
+
+  /* ---- category. RESERVED: an ingredient's category. ---- */
+  --cat-dairy:     #5aa4bc;
+  --cat-vegetable: #7ab26b;
+  --cat-legume:    #c9884a;   --cat-legume-fg: #8a5e2a;
+  --cat-grain:     #b8a668;   --cat-grain-fg:  #8a6e3a;
+  --cat-spice:     #c05a4a;
+  --cat-herb:      #6ca75b;
+  --cat-fruit:     #d67a5f;
+  --cat-condiment: #9b7bc7;
+
+  /* ---- washes. A category hero runs from the first to the second. ---- */
+  --wash-dairy:     #dfeef3;  --wash-dairy-2:     #b9dae4;
+  --wash-vegetable: #e0efd8;  --wash-vegetable-2: #b8d8a8;
+  --wash-legume:    #f2e2c8;  --wash-legume-2:    #dcbf90;
+  --wash-grain:     #efe8cf;  --wash-grain-2:     #d6c99f;
+  --wash-spice:     #f3d8d0;  --wash-spice-2:     #e0a898;
+  --wash-herb:      #e2efd6;  --wash-herb-2:      #b6d5a0;
+  --wash-fruit:     #f5dac8;  --wash-fruit-2:     #e8b394;
+  --wash-condiment: #e8dff2;  --wash-condiment-2: #c9b4de;
+  --wash-plain:     #fdf5e6;  --wash-plain-2:     #f0e2c4;
+  /* The dough, sourdough and kombucha graphs paint their nodes with these. */
+  --wash-dough:   #f5e9d0;  --wash-dough-2: #d9c095;  --wash-dough-3: #f9f2df;
+  --wash-dough-4: #e0cf9a;  --wash-dough-5: #faf1de;  --wash-dough-6: #f0e4c8;
+  --wash-starter: #f5e2c0;  --wash-starter-2: #d3a870;
+}
+
+/* ============================================================================
+   COMPONENTS — this set's own classes.
+   ============================================================================
+   §8: adding a class means declaring it here in the same edit. A class that
+   resolves to nothing throws nothing and paints nothing.
+
+   These are the prototype's classes, with its hue names swapped for roles and
+   its literals swapped for the tokens above. Nothing was restyled.
+   ============================================================================ */
+
+/* A website frame is not a device. CORE's .phone assumes a 40px device
+   radius; only the rounding and the shadow need correcting. */
+.phone {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  /* The product's own type, scoped to the frame. CORE's stacks stay as they
+     are at the root, so the bar reads the same in every set. */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Fraunces', Georgia, serif;
+  font-family: var(--font-sans);
+}
+
+/* Bare mode is the real page: it fills whatever window it is given. CORE pins
+   the frame's logical width here, which is right for a device and wrong for a
+   web page. */
+[data-bare] .phone { width: 100%; }
+
+/* The page inside the frame. CORE's frame is a flex column for a phone's
+   pinned footer; a web page is one block that scrolls, so it must not shrink. */
+.screen { flex: none; width: 100%; }
+
+/* A border drawn with no colour of its own is a `line`. */
+.phone * { border-color: var(--line); }
+
+/* The mark is a letter on a brand square. Declared once, so the nav and the
+   footer cannot draw two different ones. */
+.brand-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 16px;
+  background: var(--brand-500); color: var(--ink-inverse);
+  font-family: var(--font-display); font-weight: 600; font-size: 18px;
+}
+.brand-mark--sm { width: 28px; height: 28px; border-radius: 12px; font-size: 14px; }
+.brand-name { font-family: var(--font-display); letter-spacing: -0.015em; font-size: 16px; font-weight: 600; color: var(--ink); }
+.brand-tag  { font-size: 10.5px; color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-line  { font-size: 12.5px; color: var(--ink-2); }
+.footer-links { font-size: 12px; color: var(--ink-2); }
+
 .font-display {
-  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+  font-family: var(--font-display);
   letter-spacing: -0.015em;
 }
 
-.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
 /* Type scale */
-.h1 { font-family: 'Fraunces', Georgia, serif; font-size: 52px; line-height: 1.02; font-weight: 500; letter-spacing: -0.02em; }
-.h2 { font-family: 'Fraunces', Georgia, serif; font-size: 32px; line-height: 1.1;  font-weight: 500; letter-spacing: -0.015em; }
-.h3 { font-family: 'Fraunces', Georgia, serif; font-size: 20px; line-height: 1.3;  font-weight: 500; letter-spacing: -0.01em; }
-.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-500); }
+.h1 { font-family: var(--font-display); font-size: 52px; line-height: 1.02; font-weight: 500; letter-spacing: -0.02em; }
+.h2 { font-family: var(--font-display); font-size: 32px; line-height: 1.1;  font-weight: 500; letter-spacing: -0.015em; }
+.h3 { font-family: var(--font-display); font-size: 20px; line-height: 1.3;  font-weight: 500; letter-spacing: -0.01em; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand-500); }
 @media (max-width: 640px) { .h1 { font-size: 36px; } .h2 { font-size: 26px; } }
-
-* { border-color: var(--border); }
-
-a { color: inherit; text-decoration: none; }
 
 /* ============ CARD ============ */
 
 .card {
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 20px;
   transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
 }
 .card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(90, 138, 90, 0.12);
-  border-color: var(--border-strong);
+  box-shadow: 0 8px 24px rgb(var(--shadow-tint) / 0.12);
+  border-color: var(--line-strong);
 }
 .card-flat {
-  background: var(--bg-2);
-  border: 1px solid var(--border);
+  background: var(--muted);
+  border: 1px solid var(--line);
   border-radius: 20px;
 }
 
@@ -101,12 +783,12 @@ a { color: inherit; text-decoration: none; }
   transition: all 140ms ease;
   cursor: pointer;
 }
-.btn-primary { background: var(--sage-500); color: white; }
-.btn-primary:hover { background: var(--sage-600); }
-.btn-white { background: white; color: var(--text-hi); border-color: var(--border-strong); }
-.btn-white:hover { background: var(--bg-2); }
-.btn-ghost { background: transparent; color: var(--text-md); }
-.btn-ghost:hover { background: var(--bg-2); color: var(--text-hi); }
+.btn-primary { background: var(--brand-500); color: var(--ink-inverse); }
+.btn-primary:hover { background: var(--brand-700); }
+.btn-white { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
+.btn-white:hover { background: var(--muted); }
+.btn-ghost { background: transparent; color: var(--ink-2); }
+.btn-ghost:hover { background: var(--muted); color: var(--ink); }
 .btn-lg { padding: 14px 26px; font-size: 15px; }
 .btn-sm { padding: 7px 14px; font-size: 12.5px; }
 
@@ -116,16 +798,16 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex; align-items: center; gap: 5px;
   padding: 4px 10px; border-radius: 999px;
   font-size: 11.5px; font-weight: 600;
-  background: var(--bg-2);
-  color: var(--text-md);
+  background: var(--muted);
+  color: var(--ink-2);
   border: 1px solid transparent;
   white-space: nowrap;
 }
 .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-.chip-sage   { background: var(--sage-100);   color: var(--sage-600); }
-.chip-coral  { background: var(--coral-100);  color: var(--coral-600); }
-.chip-butter { background: var(--butter-100); color: var(--butter-600); }
-.chip-white  { background: rgba(255,255,255,0.92); color: var(--text-hi); border-color: rgba(0,0,0,0.06); }
+.chip-brand   { background: var(--brand-100);   color: var(--brand-700); }
+.chip-accent  { background: var(--accent-100);  color: var(--accent-700); }
+.chip-highlight { background: var(--highlight-100); color: var(--highlight-700); }
+.chip-white  { background: var(--glass-strong); color: var(--ink); border-color: var(--hairline); }
 
 /* ============ INGREDIENT TILE ============ */
 /* Big colorful square with a glyph + label. Primary navigation atom. */
@@ -136,16 +818,16 @@ a { color: inherit; text-decoration: none; }
   padding: 20px 12px;
   aspect-ratio: 1 / 1;
   border-radius: 20px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   transition: all 140ms ease;
   text-align: center;
   gap: 10px;
 }
 .ing-tile:hover {
   transform: translateY(-2px);
-  border-color: var(--border-strong);
-  box-shadow: 0 8px 24px rgba(90, 138, 90, 0.12);
+  border-color: var(--line-strong);
+  box-shadow: 0 8px 24px rgb(var(--shadow-tint) / 0.12);
 }
 .ing-tile .glyph {
   width: 56px; height: 56px;
@@ -155,29 +837,29 @@ a { color: inherit; text-decoration: none; }
   line-height: 1;
 }
 .ing-tile .label {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 15px; font-weight: 500;
-  color: var(--text-hi);
+  color: var(--ink);
   letter-spacing: -0.01em;
 }
 .ing-tile .sub {
   font-size: 11px;
-  color: var(--text-lo);
+  color: var(--ink-3);
   margin-top: -6px;
 }
 
 /* Glyph background per category */
-.glyph-dairy     { background: color-mix(in srgb, var(--ing-dairy) 18%, white); color: var(--ing-dairy); }
-.glyph-vegetable { background: color-mix(in srgb, var(--ing-vegetable) 18%, white); color: var(--ing-vegetable); }
-.glyph-legume    { background: color-mix(in srgb, var(--ing-legume) 18%, white); color: var(--ing-legume); }
-.glyph-grain     { background: color-mix(in srgb, var(--ing-grain) 18%, white); color: var(--ing-grain); }
-.glyph-spice     { background: color-mix(in srgb, var(--ing-spice) 18%, white); color: var(--ing-spice); }
-.glyph-herb      { background: color-mix(in srgb, var(--ing-herb) 18%, white); color: var(--ing-herb); }
-.glyph-fruit     { background: color-mix(in srgb, var(--ing-fruit) 18%, white); color: var(--ing-fruit); }
-.glyph-condiment { background: color-mix(in srgb, var(--ing-condiment) 18%, white); color: var(--ing-condiment); }
-.glyph-sage      { background: var(--sage-100); color: var(--sage-600); }
-.glyph-coral     { background: var(--coral-100); color: var(--coral-600); }
-.glyph-butter    { background: var(--butter-100); color: var(--butter-600); }
+.glyph-dairy     { background: color-mix(in srgb, var(--cat-dairy) 18%, var(--surface)); color: var(--cat-dairy); }
+.glyph-vegetable { background: color-mix(in srgb, var(--cat-vegetable) 18%, var(--surface)); color: var(--cat-vegetable); }
+.glyph-legume    { background: color-mix(in srgb, var(--cat-legume) 18%, var(--surface)); color: var(--cat-legume); }
+.glyph-grain     { background: color-mix(in srgb, var(--cat-grain) 18%, var(--surface)); color: var(--cat-grain); }
+.glyph-spice     { background: color-mix(in srgb, var(--cat-spice) 18%, var(--surface)); color: var(--cat-spice); }
+.glyph-herb      { background: color-mix(in srgb, var(--cat-herb) 18%, var(--surface)); color: var(--cat-herb); }
+.glyph-fruit     { background: color-mix(in srgb, var(--cat-fruit) 18%, var(--surface)); color: var(--cat-fruit); }
+.glyph-condiment { background: color-mix(in srgb, var(--cat-condiment) 18%, var(--surface)); color: var(--cat-condiment); }
+.glyph-brand      { background: var(--brand-100); color: var(--brand-700); }
+.glyph-accent     { background: var(--accent-100); color: var(--accent-700); }
+.glyph-highlight    { background: var(--highlight-100); color: var(--highlight-700); }
 
 /* ============ JOURNEY CARD ============ */
 /* Big horizontal card for a transformation journey (e.g. "Milk → 6 things") */
@@ -187,15 +869,15 @@ a { color: inherit; text-decoration: none; }
   gap: 20px;
   padding: 22px;
   border-radius: 24px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   transition: all 160ms ease;
   min-height: 120px;
 }
 .journey-card:hover {
   transform: translateY(-2px);
-  border-color: var(--border-strong);
-  box-shadow: 0 10px 30px rgba(90, 138, 90, 0.12);
+  border-color: var(--line-strong);
+  box-shadow: 0 10px 30px rgb(var(--shadow-tint) / 0.12);
 }
 .journey-card .icon {
   width: 72px; height: 72px;
@@ -206,16 +888,16 @@ a { color: inherit; text-decoration: none; }
 }
 .journey-card .body { flex: 1; min-width: 0; }
 .journey-card .title {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 22px; font-weight: 500;
-  color: var(--text-hi);
+  color: var(--ink);
   letter-spacing: -0.01em;
 }
 .journey-card .sub {
-  font-size: 13px; color: var(--text-md); margin-top: 2px;
+  font-size: 13px; color: var(--ink-2); margin-top: 2px;
 }
 .journey-card .arrow {
-  color: var(--sage-500);
+  color: var(--brand-500);
   font-size: 22px;
   flex-shrink: 0;
 }
@@ -229,29 +911,29 @@ a { color: inherit; text-decoration: none; }
   gap: 20px;
   padding: 22px;
   border-radius: 20px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
 }
-.step .num {
+.step .numeral {
   width: 56px; height: 56px;
   border-radius: 50%;
-  background: var(--sage-100);
-  color: var(--sage-600);
-  font-family: 'Fraunces', Georgia, serif;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  font-family: var(--font-display);
   font-size: 26px; font-weight: 600;
   display: flex; align-items: center; justify-content: center;
-  border: 2px solid var(--sage-500);
+  border: 2px solid var(--brand-500);
 }
 .step .head {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 20px; font-weight: 500;
-  color: var(--text-hi);
+  color: var(--ink);
   letter-spacing: -0.01em;
   line-height: 1.25;
 }
 .step .cue {
   font-size: 13.5px;
-  color: var(--text-md);
+  color: var(--ink-2);
   line-height: 1.55;
   margin-top: 6px;
 }
@@ -261,7 +943,7 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 560px) {
   .step { grid-template-columns: 48px 1fr; gap: 14px; padding: 18px; }
-  .step .num { width: 40px; height: 40px; font-size: 20px; border-width: 1.5px; }
+  .step .numeral { width: 40px; height: 40px; font-size: 20px; border-width: 1.5px; }
   .step .head { font-size: 17px; }
 }
 
@@ -274,54 +956,55 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex; align-items: center; justify-content: center;
   width: 40px; height: 40px;
   border-radius: 50%;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
-  color: var(--text-md);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
   transition: all 140ms ease;
   cursor: pointer;
 }
+.icon-btn--sm { width: 36px; height: 36px; }
 .icon-btn:hover {
-  background: var(--sage-100);
-  color: var(--sage-600);
-  border-color: var(--sage-500);
+  background: var(--brand-100);
+  color: var(--brand-700);
+  border-color: var(--brand-500);
 }
 
 /* Search input */
 .search {
   display: flex; align-items: center; gap: 10px;
   padding: 14px 20px;
-  background: var(--bg-1);
-  border: 1.5px solid var(--border);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
   border-radius: 999px;
   transition: all 140ms ease;
 }
 .search:focus-within {
-  border-color: var(--sage-500);
-  box-shadow: 0 0 0 4px var(--sage-100);
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 4px var(--brand-100);
 }
 .search input {
   flex: 1;
   border: none; outline: none;
   background: transparent;
   font-size: 15px;
-  color: var(--text-hi);
+  color: var(--ink);
   font-family: inherit;
 }
-.search input::placeholder { color: var(--text-lo); }
+.search input::placeholder { color: var(--ink-3); }
 .search .kbd {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   padding: 2px 6px;
   border-radius: 4px;
-  background: var(--bg-2);
-  color: var(--text-lo);
-  border: 1px solid var(--border);
+  background: var(--muted);
+  color: var(--ink-3);
+  border: 1px solid var(--line);
 }
 
 /* ============ JOURNEY GRAPH NODE (SVG helpers) ============ */
 
 .node-label {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 500;
 }
@@ -334,7 +1017,7 @@ svg a .node-hit {
   transform-box: fill-box;
 }
 svg a:hover .node-hit {
-  filter: drop-shadow(0 4px 12px rgba(90, 138, 90, 0.25));
+  filter: drop-shadow(0 4px 12px rgb(var(--shadow-tint) / 0.25));
   transform: translateY(-2px);
 }
 svg a:hover .node-ring {
@@ -349,37 +1032,37 @@ svg a .node-arrow {
   transition: all 160ms ease;
 }
 svg .edge {
-  stroke: #c9c1af;
+  stroke: var(--ink-4);
   stroke-width: 1.8;
   fill: none;
 }
 svg .edge-strong {
-  stroke: var(--sage-500);
+  stroke: var(--brand-500);
   stroke-width: 2.2;
   fill: none;
 }
 svg .edge-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 10.5px;
-  fill: var(--text-md);
+  fill: var(--ink-2);
 }
 
 /* Breadcrumb */
 .crumbs {
   display: flex; align-items: center; gap: 6px;
   font-size: 12px;
-  color: var(--text-md);
+  color: var(--ink-2);
   flex-wrap: wrap;
 }
 .crumbs a {
   padding: 4px 10px;
   border-radius: 999px;
-  background: var(--bg-2);
-  color: var(--text-md);
+  background: var(--muted);
+  color: var(--ink-2);
   transition: all 140ms ease;
 }
-.crumbs a:hover { background: var(--sage-100); color: var(--sage-600); }
-.crumbs .sep { color: var(--text-lo); }
+.crumbs a:hover { background: var(--brand-100); color: var(--brand-700); }
+.crumbs .sep { color: var(--ink-3); }
 
 /* ============ INGREDIENT HERO ============ */
 
@@ -397,7 +1080,7 @@ svg .edge-label {
   display: flex; align-items: center; justify-content: center;
   font-size: 72px; line-height: 1;
   flex-shrink: 0;
-  background: rgba(255,255,255,0.7);
+  background: var(--glass-soft);
 }
 
 /* ============ MINI STAT ============ */
@@ -406,50 +1089,51 @@ svg .edge-label {
   display: flex; flex-direction: column;
   gap: 4px;
   padding: 12px 14px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 14px;
 }
-.stat .k { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-lo); }
-.stat .v { font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 500; color: var(--text-hi); letter-spacing: -0.01em; }
+.stat .k { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.stat .v { font-family: var(--font-display); font-size: 18px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
 
 /* ============ NAV ============ */
 
 .nav-shell {
   position: sticky; top: 0; z-index: 30;
-  background: rgba(253, 249, 243, 0.85);
+  background: var(--page-glass);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--line);
 }
 .nav-pill {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 8px 14px; border-radius: 999px;
   font-size: 13.5px; font-weight: 600;
-  color: var(--text-md);
+  color: var(--ink-2);
   transition: all 140ms ease;
   white-space: nowrap;
 }
-.nav-pill:hover { color: var(--text-hi); background: var(--bg-2); }
+.nav-pill:hover { color: var(--ink); background: var(--muted); }
+.nav-pill--sm { padding: 4px 10px; }
 .nav-pill.active {
-  color: var(--sage-600);
-  background: var(--sage-100);
+  color: var(--brand-700);
+  background: var(--brand-100);
 }
 
 /* ============ FOOTER ============ */
 
 .footer-shell {
-  border-top: 1px solid var(--border);
-  background: var(--bg-2);
-  color: var(--text-md);
+  border-top: 1px solid var(--line);
+  background: var(--muted);
+  color: var(--ink-2);
 }
 
 /* ============ MISC ============ */
 
-.progress-track { height: 6px; border-radius: 999px; background: var(--bg-3); overflow: hidden; }
-.progress-fill  { height: 100%; background: var(--sage-500); border-radius: 999px; }
+.progress-track { height: 6px; border-radius: 999px; background: var(--sunken); overflow: hidden; }
+.progress-fill  { height: 100%; background: var(--brand-500); border-radius: 999px; }
 
-.divider-dot::before { content: "·"; margin: 0 8px; color: var(--text-lo); }
+.divider-dot::before { content: "·"; margin: 0 8px; color: var(--ink-3); }
 
 /* Scrollable horizontal chip row (mobile) */
 .h-scroll {
@@ -464,7 +1148,7 @@ svg .edge-label {
 /* One viewport. Compact hero + grid of 8 info tiles. No scroll on desktop. */
 
 .bento-page {
-  height: 100vh;
+  height: var(--frame-h);
   display: flex; flex-direction: column;
   overflow: hidden;
 }
@@ -472,8 +1156,8 @@ svg .edge-label {
   flex: 0 0 auto;
   padding: 14px 22px;
   display: flex; align-items: center; gap: 16px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-1);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
 }
 .bento-hero .glyph {
   width: 64px; height: 64px; border-radius: 18px;
@@ -482,13 +1166,13 @@ svg .edge-label {
   flex-shrink: 0;
 }
 .bento-hero .title {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 30px; font-weight: 500; letter-spacing: -0.02em;
-  color: var(--text-hi);
+  color: var(--ink);
   line-height: 1;
 }
 .bento-hero .sub {
-  font-size: 12px; color: var(--text-md);
+  font-size: 12px; color: var(--ink-2);
   margin-top: 4px;
   display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
 }
@@ -503,8 +1187,8 @@ svg .edge-label {
   min-height: 0;
 }
 .tile {
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 18px;
   padding: 16px;
   display: flex; flex-direction: column;
@@ -513,18 +1197,18 @@ svg .edge-label {
   min-height: 0;
   transition: border-color 140ms ease, transform 140ms ease;
 }
-.tile:hover { border-color: var(--border-strong); }
+.tile:hover { border-color: var(--line-strong); }
 .tile .cap {
   display: flex; align-items: center; gap: 8px;
   font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-lo);
+  color: var(--ink-3);
   flex-shrink: 0;
 }
 .tile .cap .n {
   width: 18px; height: 18px; border-radius: 50%;
-  background: var(--sage-100); color: var(--sage-600);
-  font-family: 'Fraunces', Georgia, serif;
+  background: var(--brand-100); color: var(--brand-700);
+  font-family: var(--font-display);
   font-size: 10.5px; font-weight: 600;
   display: inline-flex; align-items: center; justify-content: center;
   letter-spacing: 0;
@@ -543,15 +1227,15 @@ svg .edge-label {
 .origin-line {
   display: flex; justify-content: space-between; align-items: center;
   gap: 6px; margin-top: auto;
-  font-size: 10.5px; color: var(--text-md); font-weight: 600;
+  font-size: 10.5px; color: var(--ink-2); font-weight: 600;
 }
-.origin-line .b { color: var(--text-lo); }
+.origin-line .b { color: var(--ink-3); }
 
 /* ---- Grow tile: month strip ---- */
-.tile .months { padding: 6px; border: none; background: var(--bg-2); }
+.tile .months { padding: 6px; border: none; background: var(--muted); }
 .tile .months .m { font-size: 8.5px; aspect-ratio: 1 / 1.2; }
 .mini-legend {
-  display: flex; gap: 8px; font-size: 9.5px; color: var(--text-lo);
+  display: flex; gap: 8px; font-size: 9.5px; color: var(--ink-3);
   align-items: center; flex-wrap: wrap;
 }
 .mini-legend span { display: inline-flex; align-items: center; gap: 4px; }
@@ -566,10 +1250,10 @@ svg .edge-label {
 .var-chip {
   display: flex; align-items: center; gap: 6px;
   padding: 6px 8px;
-  background: var(--bg-2);
+  background: var(--muted);
   border-radius: 10px;
-  font-size: 11.5px; color: var(--text-hi);
-  font-family: 'Fraunces', Georgia, serif; font-weight: 500;
+  font-size: 11.5px; color: var(--ink);
+  font-family: var(--font-display); font-weight: 500;
   letter-spacing: -0.01em;
 }
 .var-chip .d {
@@ -582,29 +1266,29 @@ svg .edge-label {
 }
 .store-cell {
   display: flex; align-items: center; gap: 8px;
-  padding: 8px 10px; background: var(--bg-2); border-radius: 12px;
+  padding: 8px 10px; background: var(--muted); border-radius: 12px;
   position: relative;
 }
 .store-cell .ic {
   width: 28px; height: 28px; border-radius: 8px;
-  background: white;
+  background: var(--surface);
   display: flex; align-items: center; justify-content: center;
-  font-size: 16px; color: var(--text-md);
+  font-size: 16px; color: var(--ink-2);
   flex-shrink: 0;
 }
 .store-cell .l {
-  font-size: 10.5px; color: var(--text-lo); font-weight: 600;
+  font-size: 10.5px; color: var(--ink-3); font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.06em;
 }
 .store-cell .v {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 13px; font-weight: 500; color: var(--text-hi);
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 500; color: var(--ink);
   letter-spacing: -0.01em;
 }
-.store-cell.yes .ic { background: var(--sage-100); color: var(--sage-600); }
-.store-cell.no  { background: color-mix(in srgb, var(--coral-100) 60%, white); }
-.store-cell.no .ic { background: white; color: var(--coral-600); }
-.store-cell.no .v { color: var(--coral-600); }
+.store-cell.yes .ic { background: var(--brand-100); color: var(--brand-700); }
+.store-cell.no  { background: color-mix(in srgb, var(--accent-100) 60%, var(--surface)); }
+.store-cell.no .ic { background: var(--surface); color: var(--accent-700); }
+.store-cell.no .v { color: var(--accent-700); }
 
 /* ---- Cook tile: mini transformation graph ---- */
 .cook-graph { width: 100%; height: 100%; min-height: 0; }
@@ -617,7 +1301,7 @@ svg .edge-label {
 }
 .ic-chip {
   width: 40px; height: 40px; border-radius: 12px;
-  background: var(--sage-100);
+  background: var(--brand-100);
   display: flex; align-items: center; justify-content: center;
   font-size: 20px;
   cursor: help;
@@ -625,11 +1309,11 @@ svg .edge-label {
   position: relative;
 }
 .ic-chip:hover { transform: translateY(-2px) scale(1.05); }
-.ic-chip.avoid { background: var(--coral-100); }
+.ic-chip.avoid { background: var(--accent-100); }
 .ic-chip .lbl {
   position: absolute; bottom: -22px; left: 50%;
   transform: translateX(-50%);
-  background: var(--text-hi); color: white;
+  background: var(--ink); color: var(--ink-inverse);
   font-size: 10px; font-weight: 600;
   padding: 3px 7px; border-radius: 6px;
   white-space: nowrap;
@@ -645,20 +1329,20 @@ svg .edge-label {
 }
 .stat-mini {
   padding: 8px 10px;
-  background: var(--bg-2);
+  background: var(--muted);
   border-radius: 10px;
 }
 .stat-mini .k {
   font-size: 9.5px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text-lo); font-weight: 700;
+  text-transform: uppercase; color: var(--ink-3); font-weight: 700;
 }
 .stat-mini .v {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 16px; font-weight: 500;
-  color: var(--text-hi); letter-spacing: -0.01em; line-height: 1.1;
+  color: var(--ink); letter-spacing: -0.01em; line-height: 1.1;
   margin-top: 2px;
 }
-.stat-mini .u { font-size: 10.5px; color: var(--text-lo); font-weight: 500; margin-left: 2px; }
+.stat-mini .u { font-size: 10.5px; color: var(--ink-3); font-weight: 500; margin-left: 2px; }
 
 /* Tile column-spans */
 .tile.span-2 { grid-column: span 2; }
@@ -676,8 +1360,8 @@ svg .edge-label {
   text-transform: uppercase;
   display: flex; align-items: center; gap: 5px;
 }
-.split-2 .col-cap.good { color: var(--sage-600); }
-.split-2 .col-cap.bad  { color: var(--coral-600); }
+.split-2 .col-cap.good { color: var(--brand-700); }
+.split-2 .col-cap.bad  { color: var(--accent-700); }
 
 /* Good / Bad list rows */
 .gb-row {
@@ -685,9 +1369,9 @@ svg .edge-label {
   padding: 6px 8px;
   border-radius: 10px;
   font-size: 12px;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-weight: 500;
-  color: var(--text-hi);
+  color: var(--ink);
   letter-spacing: -0.005em;
 }
 .gb-row .g {
@@ -695,10 +1379,10 @@ svg .edge-label {
   display: flex; align-items: center; justify-content: center;
   font-size: 14px; flex-shrink: 0;
 }
-.gb-row.good { background: color-mix(in srgb, var(--sage-100) 60%, white); }
-.gb-row.good .g { background: white; color: var(--sage-600); }
-.gb-row.bad  { background: color-mix(in srgb, var(--coral-100) 55%, white); }
-.gb-row.bad .g { background: white; color: var(--coral-600); }
+.gb-row.good { background: color-mix(in srgb, var(--brand-100) 60%, var(--surface)); }
+.gb-row.good .g { background: var(--surface); color: var(--brand-700); }
+.gb-row.bad  { background: color-mix(in srgb, var(--accent-100) 55%, var(--surface)); }
+.gb-row.bad .g { background: var(--surface); color: var(--accent-700); }
 
 /* Cook-method tiles */
 .method-grid {
@@ -709,7 +1393,7 @@ svg .edge-label {
   min-height: 0;
 }
 .method {
-  background: var(--bg-2);
+  background: var(--muted);
   border-radius: 12px;
   padding: 8px 6px;
   display: flex; flex-direction: column;
@@ -719,12 +1403,12 @@ svg .edge-label {
   cursor: pointer;
   min-height: 0;
 }
-.method:hover { background: var(--sage-100); transform: translateY(-1px); }
+.method:hover { background: var(--brand-100); transform: translateY(-1px); }
 .method .g { font-size: 22px; line-height: 1; }
 .method .l {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 11.5px; font-weight: 500;
-  color: var(--text-hi); letter-spacing: -0.005em;
+  color: var(--ink); letter-spacing: -0.005em;
   text-align: center;
 }
 
@@ -739,10 +1423,10 @@ svg .edge-label {
   padding: 3px 8px; border-radius: 999px;
   display: inline-flex; align-items: center; gap: 5px;
 }
-.season-pill .r { font-size: 9.5px; font-weight: 500; letter-spacing: 0; color: var(--text-md); }
-.season-pill.kharif { background: color-mix(in srgb, var(--sage-100) 80%, white); color: var(--sage-600); }
-.season-pill.rabi   { background: color-mix(in srgb, var(--butter-100) 65%, white); color: var(--butter-600); }
-.season-pill.zaid   { background: color-mix(in srgb, var(--coral-100) 55%, white); color: var(--coral-600); }
+.season-pill .r { font-size: 9.5px; font-weight: 500; letter-spacing: 0; color: var(--ink-2); }
+.season-pill.kharif { background: color-mix(in srgb, var(--brand-100) 80%, var(--surface)); color: var(--brand-700); }
+.season-pill.rabi   { background: color-mix(in srgb, var(--highlight-100) 65%, var(--surface)); color: var(--highlight-700); }
+.season-pill.zaid   { background: color-mix(in srgb, var(--accent-100) 55%, var(--surface)); color: var(--accent-700); }
 
 /* Nutrient tiles for Source */
 .nutri-grid {
@@ -754,17 +1438,17 @@ svg .edge-label {
 }
 .nutri {
   padding: 8px 10px;
-  background: var(--bg-2);
+  background: var(--muted);
   border-radius: 10px;
   display: flex; align-items: center; gap: 8px;
 }
 .nutri .g {
   width: 26px; height: 26px; border-radius: 8px;
-  background: white;
+  background: var(--surface);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 12px; font-weight: 600;
-  color: var(--sage-600);
+  color: var(--brand-700);
   flex-shrink: 0;
 }
 .nutri .body {
@@ -772,15 +1456,15 @@ svg .edge-label {
 }
 .nutri .l {
   font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text-lo);
+  text-transform: uppercase; color: var(--ink-3);
 }
 .nutri .v {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 13px; font-weight: 500; color: var(--text-hi);
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 500; color: var(--ink);
   letter-spacing: -0.01em; line-height: 1.1;
   margin-top: 1px;
 }
-.nutri .v .u { font-size: 10px; color: var(--text-lo); font-weight: 500; margin-left: 2px; }
+.nutri .v .u { font-size: 10px; color: var(--ink-3); font-weight: 500; margin-left: 2px; }
 
 /* ---- Grow-page: 3-season gantt calendar ---- */
 .gcal {
@@ -793,43 +1477,43 @@ svg .edge-label {
 .gcal .h {
   padding: 4px 0; text-align: center;
   font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
-  color: var(--text-lo); font-weight: 700;
+  color: var(--ink-3); font-weight: 700;
 }
 .gcal .sn {
   display: flex; align-items: center; gap: 8px;
   padding-left: 4px;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 12.5px; font-weight: 500; color: var(--text-hi);
+  font-family: var(--font-display);
+  font-size: 12.5px; font-weight: 500; color: var(--ink);
   letter-spacing: -0.01em;
 }
 .gcal .sn::before {
   content: ''; width: 4px; height: 20px; border-radius: 2px;
   display: inline-block;
 }
-.gcal .sn.kharif::before { background: var(--sage-500); }
-.gcal .sn.rabi::before   { background: var(--butter-500); }
-.gcal .sn.zaid::before   { background: var(--coral-500); }
+.gcal .sn.kharif::before { background: var(--brand-500); }
+.gcal .sn.rabi::before   { background: var(--highlight-500); }
+.gcal .sn.zaid::before   { background: var(--accent-500); }
 .gcal .c {
   height: 100%; min-height: 22px; border-radius: 6px;
-  background: var(--bg-2);
+  background: var(--muted);
   display: flex; align-items: center; justify-content: center;
   font-size: 9px; font-weight: 700; letter-spacing: 0.06em;
   color: transparent;
 }
-.gcal .c.sow  { background: var(--butter-500); color: white; }
-.gcal .c.grow { background: var(--sage-100); color: var(--sage-600); }
-.gcal .c.harv { background: var(--sage-500); color: white; }
+.gcal .c.sow  { background: var(--highlight-500); color: var(--ink-inverse); }
+.gcal .c.growing { background: var(--brand-100); color: var(--brand-700); }
+.gcal .c.harv { background: var(--brand-500); color: var(--ink-inverse); }
 
 /* Simple India map with region dots */
 .india-map { width: 100%; height: auto; display: block; }
-.india-map .land { fill: #eef4ea; stroke: #c9c1af; stroke-width: 0.8; }
-.india-map .dot { fill: var(--coral-500); }
+.india-map .land { fill: var(--brand-50); stroke: var(--ink-4); stroke-width: 0.8; }
+.india-map .dot { fill: var(--accent-500); }
 .india-map .dot-lg { r: 5; }
 .india-map .dot-md { r: 3.5; }
 .india-map .dot-sm { r: 2.5; }
 .india-map .lbl {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 9px; font-weight: 500; fill: var(--text-md);
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 500; fill: var(--ink-2);
   letter-spacing: -0.01em;
 }
 
@@ -838,26 +1522,26 @@ svg .edge-label {
 .spec-row {
   display: flex; align-items: center; gap: 10px;
   padding: 6px 8px;
-  background: var(--bg-2);
+  background: var(--muted);
   border-radius: 10px;
 }
 .spec-row .g {
   width: 30px; height: 30px; border-radius: 8px;
-  background: white;
+  background: var(--surface);
   display: flex; align-items: center; justify-content: center;
-  color: var(--sage-600);
+  color: var(--brand-700);
   flex-shrink: 0;
 }
 .spec-row .l {
   font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text-lo);
+  text-transform: uppercase; color: var(--ink-3);
 }
 .spec-row .v {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 13.5px; font-weight: 500; color: var(--text-hi);
+  font-family: var(--font-display);
+  font-size: 13.5px; font-weight: 500; color: var(--ink);
   letter-spacing: -0.01em; line-height: 1.1; margin-top: 1px;
 }
-.spec-row .v .u { font-size: 10.5px; color: var(--text-lo); font-weight: 500; margin-left: 2px; }
+.spec-row .v .u { font-size: 10.5px; color: var(--ink-3); font-weight: 500; margin-left: 2px; }
 
 /* Compact plant-chip cloud (for companion/enemy/pest/disease tiles) */
 .plant-cloud {
@@ -868,14 +1552,14 @@ svg .edge-label {
   display: inline-flex; align-items: center; gap: 5px;
   padding: 5px 9px 5px 6px;
   border-radius: 999px;
-  background: var(--bg-2);
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 11.5px; font-weight: 500; color: var(--text-hi);
+  background: var(--muted);
+  font-family: var(--font-display);
+  font-size: 11.5px; font-weight: 500; color: var(--ink);
   letter-spacing: -0.005em;
 }
 .plant-chip .g { font-size: 14px; line-height: 1; }
-.plant-chip.good { background: color-mix(in srgb, var(--sage-100) 70%, white); }
-.plant-chip.bad  { background: color-mix(in srgb, var(--coral-100) 55%, white); }
+.plant-chip.good { background: color-mix(in srgb, var(--brand-100) 70%, var(--surface)); }
+.plant-chip.bad  { background: color-mix(in srgb, var(--accent-100) 55%, var(--surface)); }
 
 /* Mobile: allow scroll, stack tiles */
 @media (max-width: 900px) {
@@ -908,8 +1592,8 @@ svg .edge-label {
   display: flex; flex-direction: column;
   gap: 2px;
   padding: 8px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 20px;
 }
 .dossier-nav a {
@@ -917,29 +1601,29 @@ svg .edge-label {
   padding: 10px 12px;
   border-radius: 12px;
   font-size: 13px; font-weight: 500;
-  color: var(--text-md);
+  color: var(--ink-2);
   transition: background 120ms ease, color 120ms ease;
 }
-.dossier-nav a:hover { background: var(--bg-2); color: var(--text-hi); }
+.dossier-nav a:hover { background: var(--muted); color: var(--ink); }
 .dossier-nav a.active {
-  background: var(--sage-100); color: var(--sage-600);
+  background: var(--brand-100); color: var(--brand-700);
 }
-.dossier-nav .num {
+.dossier-nav .numeral {
   width: 22px; height: 22px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 12px; font-weight: 600;
-  background: var(--bg-2); color: var(--text-md);
+  background: var(--muted); color: var(--ink-2);
   flex-shrink: 0;
 }
-.dossier-nav a.active .num { background: white; color: var(--sage-600); }
+.dossier-nav a.active .numeral { background: var(--surface); color: var(--brand-700); }
 .dossier-nav .cook-cta {
   margin-top: 8px; padding: 10px 12px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--line);
   border-radius: 0;
-  color: var(--coral-600); font-weight: 600;
+  color: var(--accent-700); font-weight: 600;
 }
-.dossier-nav .cook-cta:hover { background: var(--coral-100); color: var(--coral-600); }
+.dossier-nav .cook-cta:hover { background: var(--accent-100); color: var(--accent-700); }
 
 @media (max-width: 900px) {
   .dossier { grid-template-columns: 1fr; gap: 24px; }
@@ -950,30 +1634,30 @@ svg .edge-label {
   }
   .dossier-nav::-webkit-scrollbar { display: none; }
   .dossier-nav a { padding: 8px 12px; white-space: nowrap; font-size: 12.5px; }
-  .dossier-nav .cook-cta { border-top: none; border-left: 1px solid var(--border); margin-top: 0; margin-left: 4px; }
+  .dossier-nav .cook-cta { border-top: none; border-left: 1px solid var(--line); margin-top: 0; margin-left: 4px; }
 }
 
-.chapter { padding: 32px 0 48px; border-bottom: 1px dashed var(--border); }
+.chapter { padding: 32px 0 48px; border-bottom: 1px dashed var(--line); }
 .chapter:last-of-type { border-bottom: none; }
 .chapter-head {
   display: flex; align-items: center; gap: 14px;
   margin-bottom: 20px;
 }
-.chapter-head .num {
+.chapter-head .numeral {
   width: 36px; height: 36px; border-radius: 50%;
-  background: var(--sage-100); color: var(--sage-600);
-  font-family: 'Fraunces', Georgia, serif;
+  background: var(--brand-100); color: var(--brand-700);
+  font-family: var(--font-display);
   font-size: 17px; font-weight: 600;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
 .chapter-head h2 {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 26px; font-weight: 500; letter-spacing: -0.015em;
-  color: var(--text-hi);
+  color: var(--ink);
 }
 .chapter-lede {
-  font-size: 15.5px; line-height: 1.6; color: var(--text-md);
+  font-size: 15.5px; line-height: 1.6; color: var(--ink-2);
   max-width: 640px;
   margin-bottom: 20px;
 }
@@ -982,25 +1666,25 @@ svg .edge-label {
 .fact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
 .fact {
   padding: 14px 16px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 14px;
 }
 .fact .k {
   font-size: 10.5px; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--text-lo);
+  color: var(--ink-3);
   display: flex; align-items: center; gap: 6px;
 }
 .fact .v {
   margin-top: 6px;
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 17px; font-weight: 500;
-  color: var(--text-hi);
+  color: var(--ink);
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
-.fact .n { font-size: 12px; color: var(--text-md); margin-top: 4px; line-height: 1.45; }
+.fact .n { font-size: 12px; color: var(--ink-2); margin-top: 4px; line-height: 1.45; }
 
 /* Month strip for seasonality / planting calendar */
 .months {
@@ -1008,51 +1692,51 @@ svg .edge-label {
   grid-template-columns: repeat(12, 1fr);
   gap: 3px;
   padding: 10px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 14px;
 }
 .months .m {
   aspect-ratio: 1 / 1.15;
   border-radius: 8px;
-  background: var(--bg-2);
+  background: var(--muted);
   display: flex; align-items: center; justify-content: center;
   font-size: 10px; font-weight: 600;
-  color: var(--text-lo);
+  color: var(--ink-3);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.months .m.on { background: var(--sage-100); color: var(--sage-600); }
-.months .m.peak { background: var(--sage-500); color: white; }
-.months .m.warn { background: var(--butter-100); color: var(--butter-600); }
+.months .m.on { background: var(--brand-100); color: var(--brand-700); }
+.months .m.peak { background: var(--brand-500); color: var(--ink-inverse); }
+.months .m.warn { background: var(--highlight-100); color: var(--highlight-700); }
 
 /* Pair / avoid chip with reason */
 .pair-list { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .pair-item {
   display: flex; gap: 12px; align-items: flex-start;
   padding: 12px 14px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 14px;
   transition: border-color 140ms ease, transform 140ms ease;
 }
-.pair-item:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+.pair-item:hover { border-color: var(--line-strong); transform: translateY(-1px); }
 .pair-item .g {
   width: 38px; height: 38px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   font-size: 20px; flex-shrink: 0;
-  background: var(--bg-2);
+  background: var(--muted);
 }
 .pair-item .name {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 15px; font-weight: 500; color: var(--text-hi);
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 500; color: var(--ink);
   letter-spacing: -0.01em;
 }
 .pair-item .why {
-  font-size: 12px; color: var(--text-md); margin-top: 3px; line-height: 1.5;
+  font-size: 12px; color: var(--ink-2); margin-top: 3px; line-height: 1.5;
 }
-.pair-item.avoid { background: color-mix(in srgb, var(--coral-100) 30%, white); border-color: color-mix(in srgb, var(--coral-500) 20%, var(--border)); }
-.pair-item.avoid .g { background: var(--coral-100); color: var(--coral-600); }
+.pair-item.avoid { background: color-mix(in srgb, var(--accent-100) 30%, var(--surface)); border-color: color-mix(in srgb, var(--accent-500) 20%, var(--line)); }
+.pair-item.avoid .g { background: var(--accent-100); color: var(--accent-700); }
 
 /* Season strip on home */
 .season-strip {
@@ -1062,51 +1746,54 @@ svg .edge-label {
 }
 .season-tile {
   padding: 14px 12px;
-  background: var(--bg-1);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 14px;
   display: flex; align-items: center; gap: 10px;
   transition: border-color 140ms ease, transform 140ms ease;
 }
-.season-tile:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+.season-tile:hover { border-color: var(--line-strong); transform: translateY(-1px); }
 .season-tile .g {
   width: 36px; height: 36px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   font-size: 22px;
-  background: var(--sage-100);
+  background: var(--brand-100);
 }
 .season-tile .l {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 14px; font-weight: 500; color: var(--text-hi);
+  font-family: var(--font-display);
+  font-size: 14px; font-weight: 500; color: var(--ink);
   line-height: 1.15;
 }
-.season-tile .s { font-size: 11px; color: var(--text-lo); margin-top: 2px; }
+.season-tile .s { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
 
 /* Callout for scientific note */
 .note {
   display: flex; gap: 12px; align-items: flex-start;
   padding: 14px 16px;
-  background: var(--sage-50);
-  border: 1px solid var(--sage-100);
-  border-left: 3px solid var(--sage-500);
+  background: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-left: 3px solid var(--brand-500);
   border-radius: 12px;
 }
-.note.warn { background: color-mix(in srgb, var(--butter-100) 40%, white); border-color: var(--butter-100); border-left-color: var(--butter-500); }
-.note.stop { background: color-mix(in srgb, var(--coral-100) 40%, white); border-color: var(--coral-100); border-left-color: var(--coral-500); }
-.note .ic { color: var(--sage-600); flex-shrink: 0; margin-top: 2px; }
-.note.warn .ic { color: var(--butter-600); }
-.note.stop .ic { color: var(--coral-600); }
-.note .t { font-family: 'Fraunces', Georgia, serif; font-size: 14.5px; font-weight: 500; color: var(--text-hi); letter-spacing: -0.01em; }
-.note .b { font-size: 13px; color: var(--text-md); margin-top: 3px; line-height: 1.55; }
+.note.warn { background: color-mix(in srgb, var(--highlight-100) 40%, var(--surface)); border-color: var(--highlight-100); border-left-color: var(--highlight-500); }
+.note.stop { background: color-mix(in srgb, var(--accent-100) 40%, var(--surface)); border-color: var(--accent-100); border-left-color: var(--accent-500); }
+.note .ic { color: var(--brand-700); flex-shrink: 0; margin-top: 2px; }
+.note.warn .ic { color: var(--highlight-700); }
+.note.stop .ic { color: var(--accent-700); }
+.note .t { font-family: var(--font-display); font-size: 14.5px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+.note .b { font-size: 13px; color: var(--ink-2); margin-top: 3px; line-height: 1.55; }
 
 /* Warm gradient backgrounds for ingredient hero */
-.grad-dairy    { background: linear-gradient(135deg, #dfeef3, #b9dae4); }
-.grad-vegetable{ background: linear-gradient(135deg, #e0efd8, #b8d8a8); }
-.grad-legume   { background: linear-gradient(135deg, #f2e2c8, #dcbf90); }
-.grad-grain    { background: linear-gradient(135deg, #efe8cf, #d6c99f); }
-.grad-spice    { background: linear-gradient(135deg, #f3d8d0, #e0a898); }
-.grad-herb     { background: linear-gradient(135deg, #e2efd6, #b6d5a0); }
-.grad-fruit    { background: linear-gradient(135deg, #f5dac8, #e8b394); }
-.grad-condiment{ background: linear-gradient(135deg, #e8dff2, #c9b4de); }
-.grad-cream    { background: linear-gradient(135deg, #fdf5e6, #f0e2c4); }
-.grad-sage     { background: linear-gradient(135deg, var(--sage-100), #b5cfa8); }
+.grad-dairy    { background: linear-gradient(135deg, var(--wash-dairy), var(--wash-dairy-2)); }
+.grad-vegetable{ background: linear-gradient(135deg, var(--wash-vegetable), var(--wash-vegetable-2)); }
+.grad-legume   { background: linear-gradient(135deg, var(--wash-legume), var(--wash-legume-2)); }
+.grad-grain    { background: linear-gradient(135deg, var(--wash-grain), var(--wash-grain-2)); }
+.grad-spice    { background: linear-gradient(135deg, var(--wash-spice), var(--wash-spice-2)); }
+.grad-herb     { background: linear-gradient(135deg, var(--wash-herb), var(--wash-herb-2)); }
+.grad-fruit    { background: linear-gradient(135deg, var(--wash-fruit), var(--wash-fruit-2)); }
+.grad-condiment{ background: linear-gradient(135deg, var(--wash-condiment), var(--wash-condiment-2)); }
+.grad-plain    { background: linear-gradient(135deg, var(--wash-plain), var(--wash-plain-2)); }
+.grad-brand     { background: linear-gradient(135deg, var(--brand-100), var(--brand-200)); }
+/* The prototype used this name once and declared it nowhere, so it painted
+   nothing. The gradient is the one two other screens wrote inline. */
+.grad-highlight { background: linear-gradient(135deg, var(--highlight-100), var(--highlight-400)); }

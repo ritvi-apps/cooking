@@ -4,25 +4,46 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Garlic · hamburg</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared/chrome.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
 </head>
-<body data-depth="../" data-surface="ingredients">
-<div id="nav-mount"></div>
+<body data-chrome data-file="ingredients/garlic.html">
+
+<div class="stage">
+  <div class="phone">
+    <div class="screen min-h-frame">
+<header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header>
 
 <section class="mx-auto max-w-3xl px-5 pt-8 pb-4">
-  <div class="flex items-center gap-2 text-sm mb-4">
-    <a href="index.html" class="nav-pill" style="padding:4px 10px;font-size:12px;">← Ingredients</a>
+  <div class="flex items-center gap-2 text-base mb-4">
+    <a href="ingredients.html" class="nav-pill" style="padding:4px 10px;font-size:12px;">← Ingredients</a>
   </div>
-  <div class="ing-hero grad-cream">
+  <div class="ing-hero grad-plain">
     <div class="big-glyph">🧄</div>
     <div>
-      <p class="eyebrow" style="color:var(--ing-herb);">Aromatic · allium</p>
+      <p class="eyebrow" style="color:var(--cat-herb);">Aromatic · allium</p>
       <h1 class="h1 mt-1">Garlic</h1>
-      <p class="mt-2" style="font-size:14px;color:var(--text-md);">Also: lehsun</p>
+      <p class="mt-2" style="font-size:14px;color:var(--ink-2);">Also: lehsun</p>
     </div>
   </div>
 </section>
@@ -40,8 +61,8 @@
   <p class="eyebrow">Quick take</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-2">
     <div class="card p-4">
-      <p class="eyebrow" style="color:var(--sage-600);">Good for</p>
-      <ul class="mt-3 space-y-2" style="font-size:13.5px;color:var(--text-hi);line-height:1.5;">
+      <p class="eyebrow" style="color:var(--brand-700);">Good for</p>
+      <ul class="mt-3 space-y-2" style="font-size:13.5px;color:var(--ink);line-height:1.5;">
         <li>✓ Universal flavour amplifier</li>
         <li>✓ Real antimicrobial + heart benefits</li>
         <li>✓ Transforms at every heat level</li>
@@ -49,8 +70,8 @@
       </ul>
     </div>
     <div class="card p-4">
-      <p class="eyebrow" style="color:var(--coral-600);">Watch out</p>
-      <ul class="mt-3 space-y-2" style="font-size:13.5px;color:var(--text-hi);line-height:1.5;">
+      <p class="eyebrow" style="color:var(--accent-700);">Watch out</p>
+      <ul class="mt-3 space-y-2" style="font-size:13.5px;color:var(--ink);line-height:1.5;">
         <li>✗ Burnt garlic → unfixable bitter</li>
         <li>✗ Not sattvic (Jain / some yogic diets)</li>
         <li>✗ Raw + empty stomach = acidity</li>
@@ -64,15 +85,15 @@
   <p class="eyebrow">Goes well with</p>
   <div class="mt-4 grid gap-3">
     <div class="card p-4">
-      <p class="text-sm" style="color:var(--text-lo);font-weight:600;">Aromatic partners</p>
+      <p class="text-base" style="color:var(--ink-3);font-weight:600;">Aromatic partners</p>
       <div class="mt-2 flex flex-wrap gap-2">
-        <a href="ginger.html" class="chip chip-sage">🫚 ginger</a>
+        <a href="ginger.html" class="chip chip-brand">🫚 ginger</a>
         <span class="chip">🧅 onion</span>
         <span class="chip">🌶 green chilli</span>
       </div>
     </div>
     <div class="card p-4">
-      <p class="text-sm" style="color:var(--text-lo);font-weight:600;">Fats that carry it</p>
+      <p class="text-base" style="color:var(--ink-3);font-weight:600;">Fats that carry it</p>
       <div class="mt-2 flex flex-wrap gap-2">
         <span class="chip">🫒 olive oil</span>
         <span class="chip">🧈 butter</span>
@@ -85,23 +106,45 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">Keep it fresh</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-3">
-    <div class="card p-4"><span style="font-size:26px;">🛒</span><p class="font-display mt-2" style="font-size:15px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Buy</p><p style="font-size:12.5px;color:var(--text-md);line-height:1.5;">Heavy heads, tight papery skin.</p></div>
-    <div class="card p-4"><span style="font-size:26px;">🏺</span><p class="font-display mt-2" style="font-size:15px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Pantry</p><p style="font-size:12.5px;color:var(--text-md);line-height:1.5;">Cool, dark, airy. Never the fridge.</p></div>
-    <div class="card p-4"><span style="font-size:26px;">🧊</span><p class="font-display mt-2" style="font-size:15px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Peeled</p><p style="font-size:12.5px;color:var(--text-md);line-height:1.5;">Ginger-garlic paste in ice-cube trays.</p></div>
+    <div class="card p-4"><span style="font-size:26px;">🛒</span><p class="font-display mt-2" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Buy</p><p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Heavy heads, tight papery skin.</p></div>
+    <div class="card p-4"><span style="font-size:26px;">🏺</span><p class="font-display mt-2" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Pantry</p><p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Cool, dark, airy. Never the fridge.</p></div>
+    <div class="card p-4"><span style="font-size:26px;">🧊</span><p class="font-display mt-2" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Peeled</p><p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Ginger-garlic paste in ice-cube trays.</p></div>
   </div>
 </section>
 
 <section class="mx-auto max-w-3xl px-5 py-6 pb-10">
   <p class="eyebrow">Used in</p>
   <a href="../recipes/palak-paneer.html" class="card card-hover p-4 flex items-center gap-3">
-    <div class="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 grad-vegetable" style="font-size:32px;">🥬</div>
-    <div class="flex-1 min-w-0"><p class="font-display" style="font-size:16px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Palak paneer</p><p style="font-size:12.5px;color:var(--text-md);">Ginger-garlic paste + in the blend.</p></div>
-    <span class="chip chip-sage">easy</span><span style="font-size:16px;color:var(--sage-500);">→</span>
+    <div class="w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 grad-vegetable" style="font-size:32px;">🥬</div>
+    <div class="flex-1 min-w-0"><p class="font-display" style="font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Palak paneer</p><p style="font-size:12.5px;color:var(--ink-2);">Ginger-garlic paste + in the blend.</p></div>
+    <span class="chip chip-brand">easy</span><span style="font-size:16px;color:var(--brand-500);">→</span>
   </a>
 </section>
 
-<div id="footer-mount"></div>
-<script src="../shared/nav.js"></script>
-<script src="../shared/footer.js"></script>
+<footer class="footer-shell mt-20">
+  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="brand-mark brand-mark--sm">h</span>
+      <span class="footer-line">
+        <b class="font-display text-ink">hamburg</b>
+        <span class="divider-dot"></span>
+        cook, learn, remember, publish
+      </span>
+    </div>
+    <div class="footer-links flex flex-wrap items-center gap-4">
+      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
+      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
+      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
+      <span class="text-ink-3">🌱 100% veg</span>
+    </div>
+  </div>
+</footer>
+    </div>
+  </div>
+</div>
+
+<script src="../routes.js"></script>
+<script src="../_chrome.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

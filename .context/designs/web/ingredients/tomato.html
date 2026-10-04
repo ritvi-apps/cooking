@@ -4,18 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tomato — hamburg</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared/chrome.css" />
-  <style>
-    body { background: var(--bg-0); }
-    .nav-shell .py-3\.5 { padding-top: 8px; padding-bottom: 8px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
 </head>
-<body data-depth="../" data-surface="ingredients" class="bento-page">
-<div id="nav-mount"></div>
+<body data-chrome data-file="ingredients/tomato.html">
+
+<div class="stage">
+  <div class="phone">
+    <div class="screen min-h-frame bento-page">
+<header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header>
 
 <!-- ============ HERO ============ -->
 <div class="bento-hero">
@@ -23,13 +40,13 @@
   <div class="flex-1 min-w-0">
     <div class="title">Tomato</div>
     <div class="sub">
-      <span class="chip chip-sage" style="padding:2px 8px;font-size:10.5px;">Kharif · Rabi · Zaid</span>
+      <span class="chip chip-brand" style="padding:2px 8px;font-size:10.5px;">Kharif · Rabi · Zaid</span>
       <span class="chip" style="padding:2px 8px;font-size:10.5px;">60 – 100 days</span>
       <span class="chip" style="padding:2px 8px;font-size:10.5px;">21 – 27 °C</span>
     </div>
   </div>
-  <a href="../pairings/index.html" class="btn btn-white btn-sm">Pairings</a>
-  <a href="index.html" class="btn btn-white btn-sm">All ingredients</a>
+  <a href="../pairings/pairings.html" class="btn btn-white btn-sm">Pairings</a>
+  <a href="ingredients.html" class="btn btn-white btn-sm">All ingredients</a>
 </div>
 
 <!-- ============ BENTO GRID (5 tiles, 4 col × 3 row) ============ -->
@@ -39,7 +56,7 @@
   <div class="tile span-2">
     <div class="cap">
       <span class="n">1</span> Grow · India
-      <a href="../grow/tomato.html" style="margin-left:auto;font-size:10px;color:var(--sage-600);letter-spacing:0;text-transform:none;font-weight:600;">Full guide →</a>
+      <a href="../grow/tomato.html" style="margin-left:auto;font-size:10px;color:var(--brand-700);letter-spacing:0;text-transform:none;font-weight:600;">Full guide →</a>
     </div>
     <div class="body" style="gap:10px;">
       <div class="months">
@@ -62,11 +79,11 @@
         <span class="season-pill zaid">ZAID <span class="r">Mar – May</span></span>
       </div>
       <div class="mini-legend" style="margin-top:auto;">
-        <span><i style="background:var(--butter-500);"></i>Sow</span>
-        <span><i style="background:var(--sage-100);"></i>Grow</span>
-        <span><i style="background:var(--sage-500);"></i>Harvest</span>
+        <span><i style="background:var(--highlight-500);"></i>Sow</span>
+        <span><i style="background:var(--brand-100);"></i>Grow</span>
+        <span><i style="background:var(--brand-500);"></i>Harvest</span>
         <span style="margin-left:auto;">
-          <span class="chip" style="padding:2px 7px;font-size:10px;"><span data-icon="sun" data-size="10"></span>6 hrs</span>
+          <span class="chip" style="padding:2px 7px;font-size:10px;"><span><i data-lucide="sun" class="hb-icon w-[10px] h-[10px]" stroke-width="1.75"></i></span>6 hrs</span>
           <span class="chip" style="padding:2px 7px;font-size:10px;">pH 6 – 6.8</span>
         </span>
       </div>
@@ -96,18 +113,18 @@
     <div class="body">
       <div class="split-2">
         <div class="col">
-          <div class="col-cap good"><span data-icon="check-circle" data-size="12"></span>GOOD</div>
-          <div class="gb-row good"><div class="g" data-icon="home" data-size="14"></div>Counter · 3–5 days</div>
-          <div class="gb-row good"><div class="g" data-icon="basket" data-size="14"></div>Stem-down, single layer</div>
-          <div class="gb-row good"><div class="g" data-icon="wind" data-size="14"></div>Room temp, shade</div>
-          <div class="gb-row good"><div class="g" data-icon="jar" data-size="14"></div>Paper bag → ripens fast</div>
+          <div class="col-cap good"><span><i data-lucide="circle-check" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>GOOD</div>
+          <div class="gb-row good"><div class="g"><i data-lucide="house" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Counter · 3–5 days</div>
+          <div class="gb-row good"><div class="g"><i data-lucide="shopping-basket" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Stem-down, single layer</div>
+          <div class="gb-row good"><div class="g"><i data-lucide="wind" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Room temp, shade</div>
+          <div class="gb-row good"><div class="g"><i data-lucide="amphora" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Paper bag → ripens fast</div>
         </div>
         <div class="col">
-          <div class="col-cap bad"><span data-icon="x-circle" data-size="12"></span>BAD</div>
-          <div class="gb-row bad"><div class="g" data-icon="snowflake" data-size="14"></div>Fridge (whole)</div>
-          <div class="gb-row bad"><div class="g" data-icon="sun" data-size="14"></div>Direct sunlight</div>
-          <div class="gb-row bad"><div class="g" data-icon="warning" data-size="14"></div>Stacked / piled</div>
-          <div class="gb-row bad"><div class="g" data-icon="droplet" data-size="14"></div>Sealed plastic</div>
+          <div class="col-cap bad"><span><i data-lucide="circle-x" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>BAD</div>
+          <div class="gb-row bad"><div class="g"><i data-lucide="snowflake" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Fridge (whole)</div>
+          <div class="gb-row bad"><div class="g"><i data-lucide="sun" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Direct sunlight</div>
+          <div class="gb-row bad"><div class="g"><i data-lucide="triangle-alert" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Stacked / piled</div>
+          <div class="gb-row bad"><div class="g"><i data-lucide="droplet" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Sealed plastic</div>
         </div>
       </div>
     </div>
@@ -136,7 +153,7 @@
     <div class="body">
       <div class="split-2">
         <div class="col">
-          <div class="col-cap good"><span data-icon="check-circle" data-size="12"></span>PAIRS WITH</div>
+          <div class="col-cap good"><span><i data-lucide="circle-check" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>PAIRS WITH</div>
           <div class="icon-cloud" style="margin-top:4px;">
             <div class="ic-chip">🌿<span class="lbl">Basil</span></div>
             <div class="ic-chip">🫒<span class="lbl">Olive oil</span></div>
@@ -150,7 +167,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="col-cap bad"><span data-icon="x-circle" data-size="12"></span>AVOID WITH</div>
+          <div class="col-cap bad"><span><i data-lucide="circle-x" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>AVOID WITH</div>
           <div class="icon-cloud" style="margin-top:4px;">
             <div class="ic-chip avoid">🥒<span class="lbl">Cucumber (raw)</span></div>
             <div class="ic-chip avoid">🥛<span class="lbl">Cold milk</span></div>
@@ -165,8 +182,12 @@
   </div>
 
 </div>
+    </div>
+  </div>
+</div>
 
-<script src="../shared/icons.js"></script>
-<script src="../shared/nav.js"></script>
+<script src="../routes.js"></script>
+<script src="../_chrome.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

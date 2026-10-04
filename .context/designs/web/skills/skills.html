@@ -5,49 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skills — hamburg</title>
   <meta name="description" content="What I want to learn, what I'm working on, what feels solid." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="shared/chrome.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
 </head>
-<body data-depth="" data-surface="skills">
-<div id="nav-mount"></div>
+<body data-chrome data-file="skills/skills.html">
+
+<div class="stage">
+  <div class="phone">
+    <div class="screen min-h-frame">
+<header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header>
 
 <main class="mx-auto max-w-6xl px-5 py-10">
   <div>
     <p class="eyebrow">Progress</p>
     <h1 class="h1 mt-2">Skills</h1>
-    <p class="mt-3 max-w-xl" style="font-size:16px;line-height:1.55;color:var(--text-md);">
+    <p class="mt-3 max-w-xl" style="font-size:16px;line-height:1.55;color:var(--ink-2);">
       What I want to learn, what I'm actively working on, what feels solid.
     </p>
   </div>
 
   <!-- Summary -->
   <div class="mt-8 grid gap-4 md:grid-cols-3">
-    <div class="card p-5" style="background:var(--sage-100);">
+    <div class="card p-5" style="background:var(--brand-100);">
       <div class="flex items-center gap-2">
         <span style="font-size:22px;">✓</span>
-        <span class="eyebrow" style="color:var(--sage-600);">Solid</span>
+        <span class="eyebrow" style="color:var(--brand-700);">Solid</span>
       </div>
-      <p class="font-display mt-2" style="font-size:48px;font-weight:600;color:var(--sage-600);letter-spacing:-0.02em;line-height:1;">1</p>
-      <p class="mt-1" style="font-size:13px;color:var(--text-md);">Milk → paneer</p>
+      <p class="font-display mt-2" style="font-size:48px;font-weight:600;color:var(--brand-700);letter-spacing:-0.02em;line-height:1;">1</p>
+      <p class="mt-1" style="font-size:13px;color:var(--ink-2);">Milk → paneer</p>
     </div>
-    <div class="card p-5" style="background:var(--butter-100);">
+    <div class="card p-5" style="background:var(--highlight-100);">
       <div class="flex items-center gap-2">
         <span style="font-size:22px;">⌛</span>
-        <span class="eyebrow" style="color:var(--butter-600);">Learning</span>
+        <span class="eyebrow" style="color:var(--highlight-700);">Learning</span>
       </div>
-      <p class="font-display mt-2" style="font-size:48px;font-weight:600;color:var(--butter-600);letter-spacing:-0.02em;line-height:1;">2</p>
-      <p class="mt-1" style="font-size:13px;color:var(--text-md);">Milk → curd · tempering</p>
+      <p class="font-display mt-2" style="font-size:48px;font-weight:600;color:var(--highlight-700);letter-spacing:-0.02em;line-height:1;">2</p>
+      <p class="mt-1" style="font-size:13px;color:var(--ink-2);">Milk → curd · tempering</p>
     </div>
-    <div class="card p-5" style="background:var(--bg-2);">
+    <div class="card p-5" style="background:var(--muted);">
       <div class="flex items-center gap-2">
         <span style="font-size:22px;">•</span>
-        <span class="eyebrow" style="color:var(--text-lo);">Todo</span>
+        <span class="eyebrow" style="color:var(--ink-3);">Todo</span>
       </div>
-      <p class="font-display mt-2" style="font-size:48px;font-weight:600;color:var(--text-lo);letter-spacing:-0.02em;line-height:1;">6</p>
-      <p class="mt-1" style="font-size:13px;color:var(--text-md);">Butter, ghee, khoya, dosa, chutneys, sauces</p>
+      <p class="font-display mt-2" style="font-size:48px;font-weight:600;color:var(--ink-3);letter-spacing:-0.02em;line-height:1;">6</p>
+      <p class="mt-1" style="font-size:13px;color:var(--ink-2);">Butter, ghee, khoya, dosa, chutneys, sauces</p>
     </div>
   </div>
 
@@ -58,54 +79,54 @@
       <span style="font-size:28px;">🥛</span>
       <h2 class="h2">Dairy</h2>
     </div>
-    <p class="mt-2" style="font-size:14px;color:var(--text-md);">Milk → curd → paneer → cheese. One ingredient, five outputs.</p>
+    <p class="mt-2" style="font-size:14px;color:var(--ink-2);">Milk → curd → paneer → cheese. One ingredient, five outputs.</p>
 
     <div class="mt-4 grid gap-3">
-      <a href="journeys/milk-to-paneer.html" class="card card-hover p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 grad-dairy" style="font-size:28px;">🧀</div>
+      <a href="../journeys/milk-to-paneer.html" class="card card-hover p-4 flex items-center gap-4">
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 grad-dairy" style="font-size:28px;">🧀</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Milk → paneer</p><span class="chip chip-sage">✓ solid</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Split with acid, drain, press.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Milk → paneer</p><span class="chip chip-brand">✓ solid</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Split with acid, drain, press.</p>
         </div>
         <div class="hidden sm:block" style="min-width:120px;">
           <div class="progress-track"><div class="progress-fill" style="width:90%;"></div></div>
-          <p class="mt-1 text-right" style="font-size:10.5px;color:var(--text-lo);">practiced 8×</p>
+          <p class="mt-1 text-right" style="font-size:10.5px;color:var(--ink-3);">practiced 8×</p>
         </div>
       </a>
 
-      <a href="journeys/milk-to-curd.html" class="card card-hover p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 grad-cream" style="font-size:28px;">🍶</div>
+      <a href="../journeys/milk-to-curd.html" class="card card-hover p-4 flex items-center gap-4">
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 grad-plain" style="font-size:28px;">🍶</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Milk → curd</p><span class="chip chip-butter">⌛ learning</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Warm milk cultured overnight.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Milk → curd</p><span class="chip chip-highlight">⌛ learning</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Warm milk cultured overnight.</p>
         </div>
         <div class="hidden sm:block" style="min-width:120px;">
-          <div class="progress-track"><div class="progress-fill" style="width:50%;background:var(--butter-500);"></div></div>
-          <p class="mt-1 text-right" style="font-size:10.5px;color:var(--text-lo);">practiced 3×</p>
+          <div class="progress-track"><div class="progress-fill" style="width:50%;background:var(--highlight-500);"></div></div>
+          <p class="mt-1 text-right" style="font-size:10.5px;color:var(--ink-3);">practiced 3×</p>
         </div>
       </a>
 
-      <a href="journeys/milk-to-butter.html" class="card card-hover p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:var(--butter-100);font-size:28px;">🧈</div>
+      <a href="../journeys/milk-to-butter.html" class="card card-hover p-4 flex items-center gap-4">
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--highlight-100);font-size:28px;">🧈</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Milk → butter</p><span class="chip">• todo</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Churn cream until it splits.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Milk → butter</p><span class="chip">• todo</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Churn cream until it splits.</p>
         </div>
       </a>
 
-      <a href="journeys/milk-to-ghee.html" class="card card-hover p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:var(--butter-100);font-size:28px;">🫙</div>
+      <a href="../journeys/milk-to-ghee.html" class="card card-hover p-4 flex items-center gap-4">
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--highlight-100);font-size:28px;">🫙</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Butter → ghee</p><span class="chip">• todo</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Simmer, foam, brown the solids, strain.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Butter → ghee</p><span class="chip">• todo</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Simmer, foam, brown the solids, strain.</p>
         </div>
       </a>
 
-      <a href="journeys/milk-to-khoya.html" class="card card-hover p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 grad-fruit" style="font-size:28px;">🍮</div>
+      <a href="../journeys/milk-to-khoya.html" class="card card-hover p-4 flex items-center gap-4">
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 grad-fruit" style="font-size:28px;">🍮</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Milk → khoya</p><span class="chip">• todo</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Reduce milk to a soft dough.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Milk → khoya</p><span class="chip">• todo</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Reduce milk to a soft dough.</p>
         </div>
       </a>
     </div>
@@ -116,20 +137,20 @@
       <span style="font-size:28px;">🌰</span>
       <h2 class="h2">Spice work</h2>
     </div>
-    <p class="mt-2" style="font-size:14px;color:var(--text-md);">Tempering, blooming, roasting, blending.</p>
+    <p class="mt-2" style="font-size:14px;color:var(--ink-2);">Tempering, blooming, roasting, blending.</p>
     <div class="mt-4 grid gap-3">
       <div class="card p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 grad-spice" style="font-size:28px;">🔥</div>
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 grad-spice" style="font-size:28px;">🔥</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Tempering / tadka</p><span class="chip chip-butter">⌛ learning</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Hot fat + whole spices bloomed at the start or poured at the end.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Tempering / tadka</p><span class="chip chip-highlight">⌛ learning</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Hot fat + whole spices bloomed at the start or poured at the end.</p>
         </div>
       </div>
       <div class="card p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 grad-spice" style="font-size:28px;">🍂</div>
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 grad-spice" style="font-size:28px;">🍂</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Home garam masala</p><span class="chip">• todo</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Toast, cool, grind a small-batch blend.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Home garam masala</p><span class="chip">• todo</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Toast, cool, grind a small-batch blend.</p>
         </div>
       </div>
     </div>
@@ -140,20 +161,20 @@
       <span style="font-size:28px;">🌿</span>
       <h2 class="h2">Chutneys</h2>
     </div>
-    <p class="mt-2" style="font-size:14px;color:var(--text-md);">The little thing on the side that makes everything sing.</p>
+    <p class="mt-2" style="font-size:14px;color:var(--ink-2);">The little thing on the side that makes everything sing.</p>
     <div class="mt-4 grid gap-3">
       <div class="card p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 grad-herb" style="font-size:28px;">🌿</div>
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 grad-herb" style="font-size:28px;">🌿</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Green chutney base</p><span class="chip">• todo</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Coriander + mint + green chilli + acid.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Green chutney base</p><span class="chip">• todo</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Coriander + mint + green chilli + acid.</p>
         </div>
       </div>
       <div class="card p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 grad-fruit" style="font-size:28px;">🍯</div>
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 grad-fruit" style="font-size:28px;">🍯</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Tamarind date chutney</p><span class="chip">• todo</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Sweet-tart, keeps for weeks.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Tamarind date chutney</p><span class="chip">• todo</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Sweet-tart, keeps for weeks.</p>
         </div>
       </div>
     </div>
@@ -166,10 +187,10 @@
     </div>
     <div class="mt-4 grid gap-3">
       <div class="card p-4 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 grad-grain" style="font-size:28px;">🥞</div>
+        <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 grad-grain" style="font-size:28px;">🥞</div>
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--text-hi);letter-spacing:-0.01em;">Dosa batter</p><span class="chip">• todo</span></div>
-          <p style="font-size:12.5px;color:var(--text-md);">Rice + urad dal, ground, fermented overnight.</p>
+          <div class="flex items-center gap-2"><p class="font-display" style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Dosa batter</p><span class="chip">• todo</span></div>
+          <p style="font-size:12.5px;color:var(--ink-2);">Rice + urad dal, ground, fermented overnight.</p>
         </div>
       </div>
     </div>
@@ -177,15 +198,37 @@
 
   <section class="mt-14 card-flat p-6 text-center">
     <p class="eyebrow">Principle</p>
-    <p class="mt-2 font-display" style="font-size:22px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;line-height:1.4;max-width:720px;margin:0 auto;">
+    <p class="mt-2 font-display" style="font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;line-height:1.4;max-width:720px;margin:0 auto;">
       A skill is solid when I can produce it from memory in a distracted kitchen.
     </p>
   </section>
 
 </main>
 
-<div id="footer-mount"></div>
-<script src="shared/nav.js"></script>
-<script src="shared/footer.js"></script>
+<footer class="footer-shell mt-20">
+  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="brand-mark brand-mark--sm">h</span>
+      <span class="footer-line">
+        <b class="font-display text-ink">hamburg</b>
+        <span class="divider-dot"></span>
+        cook, learn, remember, publish
+      </span>
+    </div>
+    <div class="footer-links flex flex-wrap items-center gap-4">
+      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
+      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
+      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
+      <span class="text-ink-3">🌱 100% veg</span>
+    </div>
+  </div>
+</footer>
+    </div>
+  </div>
+</div>
+
+<script src="../routes.js"></script>
+<script src="../_chrome.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

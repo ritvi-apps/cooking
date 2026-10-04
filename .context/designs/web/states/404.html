@@ -4,38 +4,59 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Not found · hamburg</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="shared/chrome.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
 </head>
-<body data-depth="" data-surface="">
-<div id="nav-mount"></div>
+<body data-chrome data-file="states/404.html">
+
+<div class="stage">
+  <div class="phone">
+    <div class="screen min-h-frame">
+<header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header>
 
 <main class="mx-auto max-w-2xl px-5 py-20 text-center">
   <div style="font-size:88px;line-height:1;">🍳</div>
   <p class="eyebrow mt-6">404</p>
   <h1 class="h1 mt-2">Haven't cooked this page yet.</h1>
-  <p class="mt-4" style="font-size:15px;color:var(--text-md);">Try one of these instead.</p>
+  <p class="mt-4" style="font-size:15px;color:var(--ink-2);">Try one of these instead.</p>
 
   <div class="mt-8 grid gap-3 sm:grid-cols-2">
-    <a href="index.html" class="journey-card">
-      <div class="icon grad-sage">🏠</div>
+    <a href="../home/home.html" class="journey-card">
+      <div class="icon grad-brand">🏠</div>
       <div class="body"><div class="title">Home</div><div class="sub">Back to the kitchen.</div></div>
       <span class="arrow">→</span>
     </a>
-    <a href="journeys/index.html" class="journey-card">
+    <a href="../journeys/journeys.html" class="journey-card">
       <div class="icon grad-dairy">🗺</div>
       <div class="body"><div class="title">Journeys</div><div class="sub">Ingredient → transformations.</div></div>
       <span class="arrow">→</span>
     </a>
-    <a href="recipes/index.html" class="journey-card">
+    <a href="../recipes/recipes.html" class="journey-card">
       <div class="icon grad-vegetable">🍳</div>
       <div class="body"><div class="title">Recipes</div><div class="sub">Things I've actually cooked.</div></div>
       <span class="arrow">→</span>
     </a>
-    <a href="ingredients/index.html" class="journey-card">
+    <a href="../ingredients/ingredients.html" class="journey-card">
       <div class="icon grad-legume">🌿</div>
       <div class="body"><div class="title">Ingredients</div><div class="sub">One page each.</div></div>
       <span class="arrow">→</span>
@@ -43,8 +64,30 @@
   </div>
 </main>
 
-<div id="footer-mount"></div>
-<script src="shared/nav.js"></script>
-<script src="shared/footer.js"></script>
+<footer class="footer-shell mt-20">
+  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="brand-mark brand-mark--sm">h</span>
+      <span class="footer-line">
+        <b class="font-display text-ink">hamburg</b>
+        <span class="divider-dot"></span>
+        cook, learn, remember, publish
+      </span>
+    </div>
+    <div class="footer-links flex flex-wrap items-center gap-4">
+      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
+      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
+      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
+      <span class="text-ink-3">🌱 100% veg</span>
+    </div>
+  </div>
+</footer>
+    </div>
+  </div>
+</div>
+
+<script src="../routes.js"></script>
+<script src="../_chrome.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

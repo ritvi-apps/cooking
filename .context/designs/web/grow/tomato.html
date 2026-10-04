@@ -4,26 +4,43 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Grow tomato — hamburg</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared/chrome.css" />
-  <style>
-    body { background: var(--bg-0); }
-    .nav-shell .py-3\.5 { padding-top: 8px; padding-bottom: 8px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
 </head>
-<body data-depth="../" data-surface="ingredients" class="bento-page">
-<div id="nav-mount"></div>
+<body data-chrome data-file="grow/tomato.html">
+
+<div class="stage">
+  <div class="phone">
+    <div class="screen min-h-frame bento-page">
+<header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header>
 
 <!-- ============ HERO ============ -->
 <div class="bento-hero">
-  <div class="glyph grad-sage">🌱</div>
+  <div class="glyph grad-brand">🌱</div>
   <div class="flex-1 min-w-0">
     <div class="title">Grow · Tomato</div>
     <div class="sub">
-      <span class="chip chip-sage" style="padding:2px 8px;font-size:10.5px;">India · 3 seasons</span>
+      <span class="chip chip-brand" style="padding:2px 8px;font-size:10.5px;">India · 3 seasons</span>
       <span class="chip" style="padding:2px 8px;font-size:10.5px;">60 – 100 days</span>
       <span class="chip" style="padding:2px 8px;font-size:10.5px;">40 – 60 t / ha</span>
     </div>
@@ -51,7 +68,7 @@
         <div class="c"></div><div class="c"></div><div class="c"></div>
         <div class="c"></div><div class="c"></div>
         <div class="c sow">S</div><div class="c sow">S</div>
-        <div class="c grow">G</div>
+        <div class="c growing">G</div>
         <div class="c harv">H</div><div class="c harv">H</div>
         <div class="c"></div><div class="c"></div>
 
@@ -61,21 +78,21 @@
         <div class="c"></div><div class="c"></div><div class="c"></div>
         <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
         <div class="c sow">S</div><div class="c sow">S</div>
-        <div class="c grow">G</div>
+        <div class="c growing">G</div>
 
         <!-- Zaid: Jan-Feb sow, Mar grow, Apr-May harvest -->
         <div class="sn zaid">Zaid</div>
         <div class="c sow">S</div><div class="c sow">S</div>
-        <div class="c grow">G</div>
+        <div class="c growing">G</div>
         <div class="c harv">H</div><div class="c harv">H</div>
         <div class="c"></div><div class="c"></div>
         <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
       </div>
 
       <div class="mini-legend" style="justify-content:center;gap:14px;margin-top:8px;">
-        <span><i style="background:var(--butter-500);"></i>Sow</span>
-        <span><i style="background:var(--sage-100);"></i>Grow</span>
-        <span><i style="background:var(--sage-500);"></i>Harvest</span>
+        <span><i style="background:var(--highlight-500);"></i>Sow</span>
+        <span><i style="background:var(--brand-100);"></i>Grow</span>
+        <span><i style="background:var(--brand-500);"></i>Harvest</span>
       </div>
     </div>
   </div>
@@ -106,7 +123,7 @@
         <circle class="dot dot-sm" cx="58" cy="88"/>
         <text class="lbl" x="20" y="91">GJ</text>
       </svg>
-      <div style="font-size:10.5px;color:var(--text-lo);text-align:center;">Top 6 tomato states · 65% of India</div>
+      <div style="font-size:10.5px;color:var(--ink-3);text-align:center;">Top 6 tomato states · 65% of India</div>
     </div>
   </div>
 
@@ -116,19 +133,19 @@
     <div class="body">
       <div class="spec-list">
         <div class="spec-row">
-          <div class="g"><span data-icon="thermometer" data-size="18"></span></div>
+          <div class="g"><span><i data-lucide="thermometer" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
           <div><div class="l">Temperature</div><div class="v">21 – 27<span class="u">°C day</span> · 15 – 20<span class="u">°C night</span></div></div>
         </div>
         <div class="spec-row">
-          <div class="g"><span data-icon="sun" data-size="18"></span></div>
+          <div class="g"><span><i data-lucide="sun" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
           <div><div class="l">Sunlight</div><div class="v">6 – 8<span class="u">hrs direct</span></div></div>
         </div>
         <div class="spec-row">
-          <div class="g"><span data-icon="droplet" data-size="18"></span></div>
+          <div class="g"><span><i data-lucide="droplet" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
           <div><div class="l">Water</div><div class="v">500 – 700<span class="u">mm total</span> · 2×<span class="u">/ week</span></div></div>
         </div>
         <div class="spec-row">
-          <div class="g"><span data-icon="wind" data-size="18"></span></div>
+          <div class="g"><span><i data-lucide="wind" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
           <div><div class="l">Humidity</div><div class="v">50 – 70<span class="u">%</span></div></div>
         </div>
       </div>
@@ -141,19 +158,19 @@
     <div class="body">
       <div class="spec-list">
         <div class="spec-row">
-          <div class="g"><span data-icon="sprout" data-size="18"></span></div>
+          <div class="g"><span><i data-lucide="sprout" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
           <div><div class="l">Soil type</div><div class="v">Loam · well-drained · organic-rich</div></div>
         </div>
         <div class="spec-row">
-          <div class="g"><span data-icon="droplet" data-size="18"></span></div>
+          <div class="g"><span><i data-lucide="droplet" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
           <div><div class="l">pH</div><div class="v">6.0 – 6.8<span class="u">slightly acidic</span></div></div>
         </div>
         <div class="spec-row">
-          <div class="g"><span data-icon="target" data-size="18"></span></div>
+          <div class="g"><span><i data-lucide="target" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
           <div><div class="l">Spacing</div><div class="v">60 × 45<span class="u">cm</span></div></div>
         </div>
         <div class="spec-row">
-          <div class="g"><span data-icon="jar" data-size="18"></span></div>
+          <div class="g"><span><i data-lucide="amphora" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
           <div><div class="l">NPK</div><div class="v">100 : 60 : 60<span class="u">kg / ha</span></div></div>
         </div>
       </div>
@@ -218,8 +235,12 @@
   </div>
 
 </div>
+    </div>
+  </div>
+</div>
 
-<script src="../shared/icons.js"></script>
-<script src="../shared/nav.js"></script>
+<script src="../routes.js"></script>
+<script src="../_chrome.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

@@ -4,28 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dough → Pizza · hamburg</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared/chrome.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
 </head>
-<body data-depth="../" data-surface="journeys">
-<div id="nav-mount"></div>
+<body data-chrome data-file="journeys/dough-to-pizza.html">
+
+<div class="stage">
+  <div class="phone">
+    <div class="screen min-h-frame">
+<header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header>
 
 <section class="mx-auto max-w-3xl px-5 pt-8 pb-4">
   <div class="crumbs mb-4">
-    <a href="../index.html"><span data-icon="home" data-size="12"></span> Home</a>
+    <a href="../home/home.html"><span><i data-lucide="house" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span> Home</a>
     <span class="sep">/</span>
     <a href="dough.html">Dough</a>
     <span class="sep">/</span>
     <span>Pizza base</span>
   </div>
   <div class="card grad-spice p-6 md:p-8">
-    <div class="flex items-center gap-4"><span style="font-size:44px;">🌾</span><span data-icon="arrow-right" data-size="24" style="color:var(--text-lo);"></span><span style="font-size:44px;">🍕</span></div>
-    <p class="eyebrow mt-4" style="color:var(--coral-600);">Dough → pizza base</p>
+    <div class="flex items-center gap-4"><span style="font-size:44px;">🌾</span><span style="color:var(--ink-3);"><i data-lucide="arrow-right" class="hb-icon w-[24px] h-[24px]" stroke-width="1.75"></i></span><span style="font-size:44px;">🍕</span></div>
+    <p class="eyebrow mt-4" style="color:var(--accent-700);">Dough → pizza base</p>
     <h1 class="h1 mt-2">Blistered crust, home oven.</h1>
-    <p class="mt-3" style="font-size:15.5px;line-height:1.55;color:var(--text-md);max-width:520px;">Maida + water + yeast + salt + olive oil. One-hour rise. Oven at max, preheated pan.</p>
+    <p class="mt-3" style="font-size:15.5px;line-height:1.55;color:var(--ink-2);max-width:520px;">Maida + water + yeast + salt + olive oil. One-hour rise. Oven at max, preheated pan.</p>
   </div>
 </section>
 
@@ -34,28 +55,49 @@
     <div class="stat"><span class="k">Makes</span><span class="v">2 pies</span></div>
     <div class="stat"><span class="k">Rise</span><span class="v">1 hr</span></div>
     <div class="stat"><span class="k">Bake</span><span class="v">7 min</span></div>
-    <div class="stat"><span class="k">Skill</span><span class="v" style="color:var(--text-lo);">Todo •</span></div>
+    <div class="stat"><span class="k">Skill</span><span class="v" style="color:var(--ink-3);">Todo •</span></div>
   </div>
 </section>
 
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">The idea</p>
   <div class="mt-4 space-y-3">
-    <div class="step"><div class="num">1</div><div><p class="head">Wake the yeast <span data-icon="sparkles" data-size="20" style="vertical-align:-3px;color:var(--butter-600);"></span></p><p class="cue">1 tsp active dry yeast + ½ cup warm water + 1 tsp sugar. Wait 10 min → foamy.</p></div></div>
-    <div class="step"><div class="num">2</div><div><p class="head">Mix, knead 8 min <span data-icon="whisk" data-size="20" style="vertical-align:-3px;color:var(--text-md);"></span></p><p class="cue">2½ cups maida + 1 tsp salt + 2 tbsp olive oil + yeast water + ~½ cup more water. Windowpane test.</p></div></div>
-    <div class="step"><div class="num">3</div><div><p class="head">Rise 1 hour <span data-icon="clock" data-size="20" style="vertical-align:-3px;color:var(--text-md);"></span></p><p class="cue">Oiled bowl, covered, warm spot. Doubled in size.</p></div></div>
-    <div class="step"><div class="num">4</div><div><p class="head">Preheat oven + pan <span data-icon="flame" data-size="20" style="vertical-align:-3px;color:var(--coral-600);"></span></p><p class="cue">Max temp (~250 °C). Cast iron or pizza stone in there for 20 min. Hot = blister.</p><div class="meta"><span class="chip chip-coral"><span data-icon="target" data-size="12"></span>preheat the pan, not just the oven</span></div></div></div>
-    <div class="step"><div class="num">5</div><div><p class="head">Stretch, top, bake <span data-icon="pot" data-size="20" style="vertical-align:-3px;color:var(--text-md);"></span></p><p class="cue">Stretch by hand (don't roll). Sauce → cheese → toppings sparse. 7 min on the hot pan.</p></div></div>
+    <div class="step"><div class="numeral">1</div><div><p class="head">Wake the yeast <span style="vertical-align:-3px;color:var(--highlight-700);"><i data-lucide="sparkles" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></p><p class="cue">1 tsp active dry yeast + ½ cup warm water + 1 tsp sugar. Wait 10 min → foamy.</p></div></div>
+    <div class="step"><div class="numeral">2</div><div><p class="head">Mix, knead 8 min <span style="vertical-align:-3px;color:var(--ink-2);"><i data-lucide="utensils" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></p><p class="cue">2½ cups maida + 1 tsp salt + 2 tbsp olive oil + yeast water + ~½ cup more water. Windowpane test.</p></div></div>
+    <div class="step"><div class="numeral">3</div><div><p class="head">Rise 1 hour <span style="vertical-align:-3px;color:var(--ink-2);"><i data-lucide="clock" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></p><p class="cue">Oiled bowl, covered, warm spot. Doubled in size.</p></div></div>
+    <div class="step"><div class="numeral">4</div><div><p class="head">Preheat oven + pan <span style="vertical-align:-3px;color:var(--accent-700);"><i data-lucide="flame" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></p><p class="cue">Max temp (~250 °C). Cast iron or pizza stone in there for 20 min. Hot = blister.</p><div class="meta"><span class="chip chip-accent"><span><i data-lucide="target" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>preheat the pan, not just the oven</span></div></div></div>
+    <div class="step"><div class="numeral">5</div><div><p class="head">Stretch, top, bake <span style="vertical-align:-3px;color:var(--ink-2);"><i data-lucide="cooking-pot" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></p><p class="cue">Stretch by hand (don't roll). Sauce → cheese → toppings sparse. 7 min on the hot pan.</p></div></div>
   </div>
 </section>
 
 <section class="mx-auto max-w-3xl px-5 py-6 pb-10">
-  <div class="card-flat p-5 text-center"><p style="font-size:13.5px;color:var(--text-md);">Full write-up after I get the char right.</p></div>
+  <div class="card-flat p-5 text-center"><p style="font-size:13.5px;color:var(--ink-2);">Full write-up after I get the char right.</p></div>
 </section>
 
-<div id="footer-mount"></div>
-<script src="../shared/icons.js"></script>
-<script src="../shared/nav.js"></script>
-<script src="../shared/footer.js"></script>
+<footer class="footer-shell mt-20">
+  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="brand-mark brand-mark--sm">h</span>
+      <span class="footer-line">
+        <b class="font-display text-ink">hamburg</b>
+        <span class="divider-dot"></span>
+        cook, learn, remember, publish
+      </span>
+    </div>
+    <div class="footer-links flex flex-wrap items-center gap-4">
+      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
+      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
+      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
+      <span class="text-ink-3">🌱 100% veg</span>
+    </div>
+  </div>
+</footer>
+    </div>
+  </div>
+</div>
+
+<script src="../routes.js"></script>
+<script src="../_chrome.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

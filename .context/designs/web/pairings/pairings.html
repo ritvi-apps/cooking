@@ -5,32 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pairings — hamburg</title>
   <meta name="description" content="What goes with what. What doesn't. Every pairing has a reason." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared/chrome.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
 </head>
-<body data-depth="../" data-surface="pairings">
-<div id="nav-mount"></div>
+<body data-chrome data-file="pairings/pairings.html">
+
+<div class="stage">
+  <div class="phone">
+    <div class="screen min-h-frame">
+<header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill active" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill active" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header>
 
 <!-- ============ HERO ============ -->
 <section class="mx-auto max-w-6xl px-5 pt-10 pb-4">
   <div class="crumbs mb-4">
-    <a href="../index.html"><span data-icon="home" data-size="12"></span> Home</a>
+    <a href="../home/home.html"><span><i data-lucide="house" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span> Home</a>
     <span class="sep">/</span>
     <span>Pairings</span>
   </div>
 
   <p class="eyebrow">What goes with what</p>
   <h1 class="h1 mt-2">Pairings.</h1>
-  <p class="mt-3 max-w-2xl" style="font-size:16.5px;line-height:1.55;color:var(--text-md);">
+  <p class="mt-3 max-w-2xl" style="font-size:16.5px;line-height:1.55;color:var(--ink-2);">
     Pick an ingredient. See what pairs beautifully, what to avoid, and — for every one — <em>why</em>. Flavor chemistry, nutrient absorption, or a tradition that survived because it worked.
   </p>
 
   <div class="mt-6" style="max-width:560px;">
     <label class="search">
-      <span data-icon="search" data-size="20" style="color:var(--text-lo);"></span>
+      <span style="color:var(--ink-3);"><i data-lucide="search" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span>
       <input type="text" placeholder="Pair with… (tomato, paneer, ginger…)" />
       <span class="kbd">⌘K</span>
     </label>
@@ -41,11 +62,11 @@
 <section class="mx-auto max-w-6xl px-5 py-6">
   <div class="flex items-center justify-between mb-3">
     <p class="eyebrow">Pick an ingredient</p>
-    <span style="font-size:12px;color:var(--text-lo);">6 of 40 shown</span>
+    <span style="font-size:12px;color:var(--ink-3);">6 of 40 shown</span>
   </div>
 
   <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
-    <button class="ing-tile" style="border-color:var(--sage-500);box-shadow:0 0 0 3px var(--sage-100);">
+    <button class="ing-tile" style="border-color:var(--brand-500);box-shadow:0 0 0 3px var(--brand-100);">
       <div class="glyph glyph-spice">🍅</div>
       <div class="label">Tomato</div>
       <div class="sub">selected</div>
@@ -71,11 +92,11 @@
 <!-- ============ SELECTED: TOMATO ============ -->
 <section class="mx-auto max-w-6xl px-5 py-6">
   <div class="card grad-spice p-6 md:p-8 flex items-center gap-5">
-    <div style="width:72px;height:72px;border-radius:20px;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;font-size:44px;">🍅</div>
+    <div style="width:72px;height:72px;border-radius:20px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-size:44px;">🍅</div>
     <div class="flex-1 min-w-0">
-      <p class="eyebrow" style="color:var(--coral-600);">Now pairing with</p>
+      <p class="eyebrow" style="color:var(--accent-700);">Now pairing with</p>
       <h2 class="h2 mt-1">Tomato</h2>
-      <p class="mt-1" style="font-size:14px;color:var(--text-md);">9 great matches · 6 to avoid · <a href="../ingredients/tomato.html" style="color:var(--sage-600);text-decoration:underline;">open full dossier →</a></p>
+      <p class="mt-1" style="font-size:14px;color:var(--ink-2);">9 great matches · 6 to avoid · <a href="../ingredients/tomato.html" style="color:var(--brand-700);text-decoration:underline;">open full dossier →</a></p>
     </div>
   </div>
 </section>
@@ -83,7 +104,7 @@
 <!-- ============ PAIRS WITH ============ -->
 <section class="mx-auto max-w-6xl px-5 py-4">
   <div class="flex items-center gap-3 mb-4">
-    <span data-icon="check-circle" data-size="20" style="color:var(--sage-500);"></span>
+    <span style="color:var(--brand-500);"><i data-lucide="circle-check" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span>
     <h3 class="h3" style="margin:0;">Pairs beautifully with</h3>
   </div>
 
@@ -103,7 +124,7 @@
 <!-- ============ AVOID WITH ============ -->
 <section class="mx-auto max-w-6xl px-5 py-8">
   <div class="flex items-center gap-3 mb-4">
-    <span data-icon="x-circle" data-size="20" style="color:var(--coral-500);"></span>
+    <span style="color:var(--accent-500);"><i data-lucide="circle-x" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span>
     <h3 class="h3" style="margin:0;">Avoid or handle carefully</h3>
   </div>
 
@@ -129,57 +150,57 @@
   <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
     <div class="card p-5">
       <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--butter-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🌶️</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🌶️</div>
         <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--butter-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🧈</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🧈</div>
       </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;">Turmeric + fat</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--text-md);line-height:1.55;">Curcumin is fat-soluble. Ghee, coconut oil, or full-fat milk raises absorption 7–10×. Never add turmeric to a fat-free dish.</p>
+      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Turmeric + fat</h3>
+      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Curcumin is fat-soluble. Ghee, coconut oil, or full-fat milk raises absorption 7–10×. Never add turmeric to a fat-free dish.</p>
     </div>
     <div class="card p-5">
       <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--butter-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🌶️</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🌶️</div>
         <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:#2a2620;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;">•</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--surface);display:flex;align-items:center;justify-content:center;font-size:22px;">•</div>
       </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;">Turmeric + black pepper</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--text-md);line-height:1.55;">Piperine in pepper inhibits the liver enzyme that clears curcumin. Bioavailability rises up to 2000%. This is why the two live together in every masala.</p>
+      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Turmeric + black pepper</h3>
+      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Piperine in pepper inhibits the liver enzyme that clears curcumin. Bioavailability rises up to 2000%. This is why the two live together in every masala.</p>
     </div>
     <div class="card p-5">
       <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--sage-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥬</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥬</div>
         <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--coral-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍋</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--accent-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍋</div>
       </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;">Iron greens + vitamin C</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--text-md);line-height:1.55;">Non-heme iron (spinach, lentils) absorbs 3× better with 25 mg vitamin C at the same meal. Squeeze lemon on the dal.</p>
+      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Iron greens + vitamin C</h3>
+      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Non-heme iron (spinach, lentils) absorbs 3× better with 25 mg vitamin C at the same meal. Squeeze lemon on the dal.</p>
     </div>
     <div class="card p-5">
       <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--butter-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍚</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍚</div>
         <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--sage-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🫘</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🫘</div>
       </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;">Rice + legume</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--text-md);line-height:1.55;">Rice is low in lysine; legumes are low in methionine. Together they cover all nine essential amino acids. Every ancient food culture found this independently.</p>
+      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Rice + legume</h3>
+      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Rice is low in lysine; legumes are low in methionine. Together they cover all nine essential amino acids. Every ancient food culture found this independently.</p>
     </div>
     <div class="card p-5">
       <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--sage-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥑</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥑</div>
         <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--butter-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥕</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥕</div>
       </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;">Carotenoid + fat</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--text-md);line-height:1.55;">Beta-carotene (carrot, sweet potato) needs fat to absorb. Salad with avocado delivers 4–8× the carotenoids of a fat-free one.</p>
+      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Carotenoid + fat</h3>
+      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Beta-carotene (carrot, sweet potato) needs fat to absorb. Salad with avocado delivers 4–8× the carotenoids of a fat-free one.</p>
     </div>
     <div class="card p-5">
       <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--sage-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍞</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍞</div>
         <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--coral-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍯</div>
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--accent-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍯</div>
       </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--text-hi);letter-spacing:-0.01em;">Sourdough + honey</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--text-md);line-height:1.55;">Fermentation lowers gluten-related irritation and predigests carbs. Honey has enzymes that gut bacteria feed on. Both are gentle on the microbiome.</p>
+      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Sourdough + honey</h3>
+      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Fermentation lowers gluten-related irritation and predigests carbs. Honey has enzymes that gut bacteria feed on. Both are gentle on the microbiome.</p>
     </div>
   </div>
 </section>
@@ -188,35 +209,35 @@
 <section class="mx-auto max-w-6xl px-5 py-8">
   <div class="flex items-end justify-between mb-4">
     <div>
-      <p class="eyebrow" style="color:var(--coral-600);">Common mistakes</p>
+      <p class="eyebrow" style="color:var(--accent-700);">Common mistakes</p>
       <h2 class="h2 mt-1">Combinations to skip</h2>
     </div>
   </div>
 
   <div class="grid gap-3 md:grid-cols-2">
     <div class="note stop">
-      <span class="ic" data-icon="x-circle" data-size="18"></span>
+      <span class="ic"><i data-lucide="circle-x" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
       <div>
         <div class="t">Milk + citrus</div>
         <div class="b">Citric acid drops milk's pH below the casein isoelectric point (~4.6). Proteins clump instantly. Add citrus <em>after</em> heat has stabilized proteins in a cooked dish.</div>
       </div>
     </div>
     <div class="note stop">
-      <span class="ic" data-icon="x-circle" data-size="18"></span>
+      <span class="ic"><i data-lucide="circle-x" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
       <div>
         <div class="t">Spinach + dairy (for iron)</div>
         <div class="b">Calcium binds oxalates in spinach. You lose most of the iron you thought you were getting. If the goal is iron, eat greens with vitamin C, not paneer.</div>
       </div>
     </div>
     <div class="note stop">
-      <span class="ic" data-icon="x-circle" data-size="18"></span>
+      <span class="ic"><i data-lucide="circle-x" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
       <div>
         <div class="t">Tea + iron-rich meal</div>
         <div class="b">Tannins in tea block ~60% of non-heme iron absorption. Wait one hour after a lentil or spinach dish before your chai.</div>
       </div>
     </div>
     <div class="note stop">
-      <span class="ic" data-icon="x-circle" data-size="18"></span>
+      <span class="ic"><i data-lucide="circle-x" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
       <div>
         <div class="t">Honey heated above 40 °C</div>
         <div class="b">Ayurveda names this a "toxic" combination; food science agrees on the smaller point — enzymes and delicate aromatics degrade above ~40 °C. Stir into warm, not hot.</div>
@@ -225,9 +246,30 @@
   </div>
 </section>
 
-<div id="footer-mount"></div>
-<script src="../shared/icons.js"></script>
-<script src="../shared/nav.js"></script>
-<script src="../shared/footer.js"></script>
+<footer class="footer-shell mt-20">
+  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="brand-mark brand-mark--sm">h</span>
+      <span class="footer-line">
+        <b class="font-display text-ink">hamburg</b>
+        <span class="divider-dot"></span>
+        cook, learn, remember, publish
+      </span>
+    </div>
+    <div class="footer-links flex flex-wrap items-center gap-4">
+      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
+      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
+      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
+      <span class="text-ink-3">🌱 100% veg</span>
+    </div>
+  </div>
+</footer>
+    </div>
+  </div>
+</div>
+
+<script src="../routes.js"></script>
+<script src="../_chrome.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

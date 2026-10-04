@@ -5,20 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Components · hamburg</title>
   <meta name="description" content="Design system reference. Copy these class strings, don't improvise." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="../tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared/chrome.css" />
+  <link rel="stylesheet" href="../shared.css" />
 </head>
-<body data-depth="../" data-surface="patterns">
-<div id="nav-mount"></div>
+<body data-chrome data-file="patterns/components.html">
+
+<div class="stage">
+  <div class="phone">
+    <div class="screen min-h-frame">
+<header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header>
 
 <main class="mx-auto max-w-5xl px-5 py-10">
   <div>
     <p class="eyebrow">Design system</p>
     <h1 class="h1 mt-2">Components</h1>
-    <p class="mt-3 max-w-xl" style="font-size:15.5px;line-height:1.55;color:var(--text-md);">
+    <p class="mt-3 max-w-xl" style="font-size:15.5px;line-height:1.55;color:var(--ink-2);">
       Every visual atom hamburg uses. Reuse these — don't invent new ones.
     </p>
   </div>
@@ -27,10 +48,10 @@
   <section class="mt-12">
     <h2 class="h2">Color</h2>
     <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3">
-      <div class="card p-3"><div class="h-14 rounded-xl" style="background:var(--sage-500);"></div><p class="mt-2 font-mono" style="font-size:11px;color:var(--text-md);">--sage-500</p></div>
-      <div class="card p-3"><div class="h-14 rounded-xl" style="background:var(--coral-500);"></div><p class="mt-2 font-mono" style="font-size:11px;color:var(--text-md);">--coral-500</p></div>
-      <div class="card p-3"><div class="h-14 rounded-xl" style="background:var(--butter-500);"></div><p class="mt-2 font-mono" style="font-size:11px;color:var(--text-md);">--butter-500</p></div>
-      <div class="card p-3"><div class="h-14 rounded-xl border" style="background:var(--bg-0);"></div><p class="mt-2 font-mono" style="font-size:11px;color:var(--text-md);">--bg-0</p></div>
+      <div class="card p-3"><div class="h-14 rounded" style="background:var(--brand-500);"></div><p class="mt-2 font-mono" style="font-size:11px;color:var(--ink-2);">--brand-500</p></div>
+      <div class="card p-3"><div class="h-14 rounded" style="background:var(--accent-500);"></div><p class="mt-2 font-mono" style="font-size:11px;color:var(--ink-2);">--accent-500</p></div>
+      <div class="card p-3"><div class="h-14 rounded" style="background:var(--highlight-500);"></div><p class="mt-2 font-mono" style="font-size:11px;color:var(--ink-2);">--highlight-500</p></div>
+      <div class="card p-3"><div class="h-14 rounded border" style="background:var(--page);"></div><p class="mt-2 font-mono" style="font-size:11px;color:var(--ink-2);">--page</p></div>
     </div>
   </section>
 
@@ -63,9 +84,9 @@
     <div class="mt-5 card p-6 space-y-4">
       <div class="flex flex-wrap gap-2">
         <span class="chip">default</span>
-        <span class="chip chip-sage">✓ solid</span>
-        <span class="chip chip-butter">⌛ learning</span>
-        <span class="chip chip-coral">🎯 key step</span>
+        <span class="chip chip-brand">✓ solid</span>
+        <span class="chip chip-highlight">⌛ learning</span>
+        <span class="chip chip-accent">🎯 key step</span>
         <span class="chip chip-white">45 min</span>
       </div>
     </div>
@@ -74,7 +95,7 @@
   <!-- Ingredient tiles -->
   <section class="mt-12">
     <h2 class="h2">Ingredient tile</h2>
-    <p class="mt-2" style="font-size:13.5px;color:var(--text-md);">The primary navigation atom on the home page.</p>
+    <p class="mt-2" style="font-size:13.5px;color:var(--ink-2);">The primary navigation atom on the home page.</p>
     <div class="mt-5 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
       <a href="#" class="ing-tile"><div class="glyph glyph-dairy">🥛</div><div class="label">Milk</div><div class="sub">4 journeys</div></a>
       <a href="#" class="ing-tile"><div class="glyph glyph-vegetable">🥬</div><div class="label">Spinach</div><div class="sub">vegetable</div></a>
@@ -88,12 +109,12 @@
   <!-- Journey card -->
   <section class="mt-12">
     <h2 class="h2">Journey card</h2>
-    <p class="mt-2" style="font-size:13.5px;color:var(--text-md);">Horizontal card for a transformation journey.</p>
+    <p class="mt-2" style="font-size:13.5px;color:var(--ink-2);">Horizontal card for a transformation journey.</p>
     <div class="mt-5 grid gap-3 md:grid-cols-2">
       <a href="#" class="journey-card">
         <div class="icon grad-dairy">🥛</div>
         <div class="body">
-          <div class="flex items-center gap-2"><span class="title">Milk</span><span class="chip chip-sage">✓ solid</span></div>
+          <div class="flex items-center gap-2"><span class="title">Milk</span><span class="chip chip-brand">✓ solid</span></div>
           <div class="sub">→ curd · paneer · butter · khoya</div>
         </div>
         <span class="arrow">→</span>
@@ -112,21 +133,21 @@
   <!-- Step card -->
   <section class="mt-12">
     <h2 class="h2">Step card</h2>
-    <p class="mt-2" style="font-size:13.5px;color:var(--text-md);">Big number, minimal text, optional meta chips. Used on all journey pages and recipes.</p>
+    <p class="mt-2" style="font-size:13.5px;color:var(--ink-2);">Big number, minimal text, optional meta chips. Used on all journey pages and recipes.</p>
     <div class="mt-5 space-y-3">
       <div class="step">
-        <div class="num">1</div>
+        <div class="numeral">1</div>
         <div>
           <p class="head">Boil the milk 🔥</p>
           <p class="cue">Medium heat. Big lazy bubbles = ready.</p>
           <div class="meta">
             <span class="chip">~10 min</span>
-            <span class="chip chip-coral">🥄 stir often</span>
+            <span class="chip chip-accent">🥄 stir often</span>
           </div>
         </div>
       </div>
       <div class="step">
-        <div class="num">2</div>
+        <div class="numeral">2</div>
         <div>
           <p class="head">Kill the heat, wait 30 seconds ⏸</p>
           <p class="cue">The "shivering point." Hot but not raging.</p>
@@ -142,7 +163,7 @@
       <div class="stat"><span class="k">Time</span><span class="v">30 min</span></div>
       <div class="stat"><span class="k">Yield</span><span class="v">~200 g</span></div>
       <div class="stat"><span class="k">Difficulty</span><span class="v">Easy</span></div>
-      <div class="stat"><span class="k">Skill</span><span class="v" style="color:var(--sage-600);">Solid ✓</span></div>
+      <div class="stat"><span class="k">Skill</span><span class="v" style="color:var(--brand-700);">Solid ✓</span></div>
     </div>
   </section>
 
@@ -152,9 +173,9 @@
     <div class="mt-5 ing-hero grad-dairy">
       <div class="big-glyph">🧀</div>
       <div>
-        <p class="eyebrow" style="color:var(--ing-dairy);">Dairy · fresh cheese</p>
+        <p class="eyebrow" style="color:var(--cat-dairy);">Dairy · fresh cheese</p>
         <h1 class="h1 mt-1">Paneer</h1>
-        <p class="mt-2" style="font-size:14px;color:var(--text-md);">Also: chhena</p>
+        <p class="mt-2" style="font-size:14px;color:var(--ink-2);">Also: chhena</p>
       </div>
     </div>
   </section>
@@ -164,15 +185,15 @@
     <h2 class="h2">Pros / cons</h2>
     <div class="mt-5 grid gap-3 sm:grid-cols-2">
       <div class="card p-4">
-        <p class="eyebrow" style="color:var(--sage-600);">Good for</p>
-        <ul class="mt-3 space-y-2" style="font-size:13.5px;color:var(--text-hi);line-height:1.5;">
+        <p class="eyebrow" style="color:var(--brand-700);">Good for</p>
+        <ul class="mt-3 space-y-2" style="font-size:13.5px;color:var(--ink);line-height:1.5;">
           <li>✓ High-protein vegetarian meals</li>
           <li>✓ Grilling, tikka, curries</li>
         </ul>
       </div>
       <div class="card p-4">
-        <p class="eyebrow" style="color:var(--coral-600);">Watch out</p>
-        <ul class="mt-3 space-y-2" style="font-size:13.5px;color:var(--text-hi);line-height:1.5;">
+        <p class="eyebrow" style="color:var(--accent-700);">Watch out</p>
+        <ul class="mt-3 space-y-2" style="font-size:13.5px;color:var(--ink);line-height:1.5;">
           <li>✗ Squeaky if boiled &gt; 3 min</li>
           <li>✗ Not vegan</li>
         </ul>
@@ -183,23 +204,45 @@
   <!-- Gradient backgrounds -->
   <section class="mt-12">
     <h2 class="h2">Gradients</h2>
-    <p class="mt-2" style="font-size:13.5px;color:var(--text-md);">Category-tinted backgrounds for heroes and card headers.</p>
+    <p class="mt-2" style="font-size:13.5px;color:var(--ink-2);">Category-tinted backgrounds for heroes and card headers.</p>
     <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3">
-      <div class="rounded-2xl h-24 grad-dairy p-3"><p class="font-mono" style="font-size:11px;color:var(--text-md);">.grad-dairy</p></div>
-      <div class="rounded-2xl h-24 grad-vegetable p-3"><p class="font-mono" style="font-size:11px;color:var(--text-md);">.grad-vegetable</p></div>
-      <div class="rounded-2xl h-24 grad-legume p-3"><p class="font-mono" style="font-size:11px;color:var(--text-md);">.grad-legume</p></div>
-      <div class="rounded-2xl h-24 grad-grain p-3"><p class="font-mono" style="font-size:11px;color:var(--text-md);">.grad-grain</p></div>
-      <div class="rounded-2xl h-24 grad-spice p-3"><p class="font-mono" style="font-size:11px;color:var(--text-md);">.grad-spice</p></div>
-      <div class="rounded-2xl h-24 grad-herb p-3"><p class="font-mono" style="font-size:11px;color:var(--text-md);">.grad-herb</p></div>
-      <div class="rounded-2xl h-24 grad-fruit p-3"><p class="font-mono" style="font-size:11px;color:var(--text-md);">.grad-fruit</p></div>
-      <div class="rounded-2xl h-24 grad-cream p-3"><p class="font-mono" style="font-size:11px;color:var(--text-md);">.grad-cream</p></div>
+      <div class="rounded-lg h-24 grad-dairy p-3"><p class="font-mono" style="font-size:11px;color:var(--ink-2);">.grad-dairy</p></div>
+      <div class="rounded-lg h-24 grad-vegetable p-3"><p class="font-mono" style="font-size:11px;color:var(--ink-2);">.grad-vegetable</p></div>
+      <div class="rounded-lg h-24 grad-legume p-3"><p class="font-mono" style="font-size:11px;color:var(--ink-2);">.grad-legume</p></div>
+      <div class="rounded-lg h-24 grad-grain p-3"><p class="font-mono" style="font-size:11px;color:var(--ink-2);">.grad-grain</p></div>
+      <div class="rounded-lg h-24 grad-spice p-3"><p class="font-mono" style="font-size:11px;color:var(--ink-2);">.grad-spice</p></div>
+      <div class="rounded-lg h-24 grad-herb p-3"><p class="font-mono" style="font-size:11px;color:var(--ink-2);">.grad-herb</p></div>
+      <div class="rounded-lg h-24 grad-fruit p-3"><p class="font-mono" style="font-size:11px;color:var(--ink-2);">.grad-fruit</p></div>
+      <div class="rounded-lg h-24 grad-plain p-3"><p class="font-mono" style="font-size:11px;color:var(--ink-2);">.grad-cream</p></div>
     </div>
   </section>
 
 </main>
 
-<div id="footer-mount"></div>
-<script src="../shared/nav.js"></script>
-<script src="../shared/footer.js"></script>
+<footer class="footer-shell mt-20">
+  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <span class="brand-mark brand-mark--sm">h</span>
+      <span class="footer-line">
+        <b class="font-display text-ink">hamburg</b>
+        <span class="divider-dot"></span>
+        cook, learn, remember, publish
+      </span>
+    </div>
+    <div class="footer-links flex flex-wrap items-center gap-4">
+      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
+      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
+      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
+      <span class="text-ink-3">🌱 100% veg</span>
+    </div>
+  </div>
+</footer>
+    </div>
+  </div>
+</div>
+
+<script src="../routes.js"></script>
+<script src="../_chrome.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
