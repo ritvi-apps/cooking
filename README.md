@@ -13,41 +13,48 @@ downstream. Tap a node, get big numbered steps, cook. If it was good, it stays.
 
 ## Structure
 
-The full HTML site lives under `prototype/`.
+The site is a static design set under `.context/designs/web/`. Everything else
+about the product is beside it, in `.context/` — start at
+[`.context/README.md`](.context/README.md).
 
 ```
 /
 ├── README.md
-└── prototype/
-    ├── index.html                       kitchen home
-    ├── ingredients/
-    │   ├── tomato.html                  bento dossier (5 tiles)
-    │   └── {paneer, spinach, ginger, garlic, cumin, garam-masala}.html
-    ├── grow/
-    │   └── tomato.html                  detailed grow guide (India seasons)
-    ├── pairings/index.html              what pairs with what
-    ├── recipes/
-    │   ├── index.html
-    │   └── palak-paneer.html
-    ├── journeys/                        (legacy — being folded into ingredients)
-    ├── skills.html
-    ├── 404.html
-    ├── patterns/components.html         design system
-    └── shared/{chrome.css, nav.js, footer.js, icons.js}
+├── AGENTS.md · CLAUDE.md
+├── scripts/check-designs.py
+└── .context/
+    ├── tasks.md                         the ordered queue
+    ├── wiki/                            what the product is, and why
+    ├── features/                        what is next
+    └── designs/web/
+        ├── index.html                   the flow chart of every screen
+        ├── routes.js                    the manifest
+        ├── home/home.html               kitchen home
+        ├── ingredients/                 the list, and seven dossiers
+        ├── grow/tomato.html             grow guide (India seasons)
+        ├── pairings/pairings.html       what pairs with what
+        ├── recipes/                     the cookbook, and palak paneer
+        ├── journeys/                    (legacy — being folded into ingredients)
+        ├── skills/skills.html
+        ├── states/404.html
+        └── patterns/components.html     design system
 ```
 
 ## Viewing locally
 
 ```sh
-cd prototype && python3 -m http.server 8765
-# open http://localhost:8765/
+cd .context && python3 -m http.server 8765
+# open http://localhost:8765/designs/web/
 ```
 
-Or open `prototype/index.html` directly. Pure HTML — no build step.
+Pure HTML — no build step. Serve it rather than opening a file: the notes
+button reads the wiki over http.
 
 ## Deploying
 
-GitHub Pages, `main` branch, `/` root. That's it. No Actions workflow needed.
+Not deployed. GitHub Pages is off for this repository, and Pages does not serve
+a dot-folder. Where the site is served from is the open task T002 in
+`.context/tasks.md`.
 
 ## Design language
 
@@ -57,7 +64,7 @@ GitHub Pages, `main` branch, `/` root. That's it. No Actions workflow needed.
 - Big rounded cards (rounded-2xl), soft shadows
 - Mobile-first — designed to open in one hand while cooking
 
-Reference `patterns/components.html` for the full component library.
+Reference `.context/designs/web/patterns/components.html` for the full component library.
 
 ## Growth rule
 
