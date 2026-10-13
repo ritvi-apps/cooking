@@ -407,7 +407,16 @@ def screen_source(path):
     folder that is a page of its own.
     """
     if not WEB:
-        return open(path).read()
+        # A route is thin: it reads params and mounts one screen component, and
+        # that component is where router.push lives. Reading the route alone
+        # found 0 navigations in chess and imposter. So in Expo a screen is its
+        # route file and the components that file mounts — one step, no further.
+        src, parts = open(path).read(), []
+        for spec in re.findall(r"""from\s+["']@/(components/[^"']+)["']""", src):
+            hit = next((p for p in (os.path.join(SRC_DIR, spec + e) for e in ('.tsx', '.ts'))
+                        if os.path.isfile(p)), None)
+            if hit: parts.append(open(hit).read())
+        return '\n'.join([src] + parts)
     here, parts = os.path.dirname(path), []
     for root, dirs, fs in os.walk(here):
         if root != here and 'page.tsx' in fs:
