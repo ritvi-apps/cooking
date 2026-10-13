@@ -396,6 +396,13 @@ def routes_in(src):
             out |= route_lits(m.group(1))
     return out
 
+# How many files import each hook. One means the hook belongs to that file.
+HOOK_USERS = {}
+if not WEB:
+    for _f in glob.glob(os.path.join(SRC_DIR, '**', '*.ts*'), recursive=True):
+        for _h in set(re.findall(r"""from\s+["']@/(hooks/[^"']+)["']""", open(_f).read())):
+            HOOK_USERS[_h] = HOOK_USERS.get(_h, 0) + 1
+
 def screen_source(path):
     """The source that renders one screen.
 
@@ -410,13 +417,33 @@ def screen_source(path):
         # A route is thin: it reads params and mounts one screen component, and
         # that component is where router.push lives. Reading the route alone
         # found 0 navigations in chess and imposter. So in Expo a screen is its
-        # route file and the components that file mounts — one step, no further.
-        src, parts = open(path).read(), []
-        for spec in re.findall(r"""from\s+["']@/(components/[^"']+)["']""", src):
-            hit = next((p for p in (os.path.join(SRC_DIR, spec + e) for e in ('.tsx', '.ts'))
-                        if os.path.isfile(p)), None)
-            if hit: parts.append(open(hit).read())
-        return '\n'.join([src] + parts)
+        # route file and the components that file mounts.
+        #
+        # One step further, and only inside the feature: a screen keeps its
+        # state and navigation in a hook and its sections in the same folder,
+        # so those are read too. Splitting aakalan's screens that way took it
+        # from 33 navigations to 15. A component from ANOTHER folder is not
+        # followed — a shared back button is not this screen's navigation —
+        # and neither is a hook two files use: imposter's useHomeActions
+        # serves Home and History, and reading it into History charged that
+        # screen with every route Home can reach.
+        def resolve(spec):
+            return next((p for p in (os.path.join(SRC_DIR, spec + e) for e in ('.tsx', '.ts'))
+                         if os.path.isfile(p)), None)
+        def imports(src, prefix):
+            return re.findall(r"""from\s+["']@/(%s[^"']+)["']""" % prefix, src)
+        src, seen = open(path).read(), []
+        for spec in imports(src, 'components/'):
+            hit = resolve(spec)
+            if not hit or hit in seen: continue
+            seen.append(hit)
+            inner = open(hit).read()
+            feature = os.path.dirname(spec) + '/'
+            own = [h for h in imports(inner, 'hooks/') if HOOK_USERS.get(h, 0) == 1]
+            for more in own + imports(inner, feature):
+                deep = resolve(more)
+                if deep and deep not in seen: seen.append(deep)
+        return '\n'.join([src] + [open(p).read() for p in seen])
     here, parts = os.path.dirname(path), []
     for root, dirs, fs in os.walk(here):
         if root != here and 'page.tsx' in fs:
