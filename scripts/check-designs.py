@@ -61,7 +61,7 @@ for fl in R['flows']:
         for w, sf in (s.get('states') or {}).items():
             states[sf] = s['file']; order.append(sf)
 declared_files = set(screens) | set(states)
-on_disk = {f for f in glob.glob('*/*.html')}
+on_disk = {f for f in glob.glob('*/**/*.html', recursive=True)}
 
 def hrefs(f):
     s = open(f).read()
