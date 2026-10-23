@@ -241,6 +241,33 @@ print('   %d forward edges over %d screens, no cycles' % (
 # route — food/item.tsx wears three portion faces, scan/correct.tsx two scopes —
 # because which face it wears is a fact about the data. A `route: null` is a
 # specimen page that nothing in the app renders, which patterns pages are.
+# ---- architecture ------------------------------------------------------------
+# Every set carries an architecture flow, opened from the bar's chip (decided
+# 2026-10-23): the manifest names its overview, the flow declares it, and each
+# screen frames an Archify diagram from ../architecture/ whose .json source sits
+# beside it. The links check above reads href only; a framed diagram is an
+# iframe src, so a deleted diagram would otherwise go unnoticed.
+head('architecture — the overview is declared and every framed diagram has its source')
+arch_page = R.get('architecture')
+arch_flow = next((fl for fl in R['flows'] if fl.get('flow') == 'architecture'), None)
+if not arch_page:
+    bad('routes.js names no `architecture` page — run bin/arch-set with this set\'s spec')
+elif arch_page not in declared_files:
+    bad('`architecture: "%s"` is not a declared screen' % arch_page)
+if arch_flow is None:
+    bad('no `architecture` flow in routes.js')
+framed = set()
+for f in sorted(x for x in declared_files if x.startswith('architecture/')):
+    for src in re.findall(r'<iframe[^>]*\ssrc="([^"]+)"', open(f).read()):
+        t = os.path.normpath(os.path.join(os.path.dirname(f), src.split('?')[0].split('#')[0]))
+        framed.add(t)
+        if not os.path.exists(t): bad('%s frames %s, which does not exist' % (f, t))
+        elif not os.path.exists(t[:-5] + '.json'): bad('%s has no %s.json source beside it' % (t, os.path.basename(t)[:-5]))
+assets = os.path.normpath('../architecture')
+for d in sorted(glob.glob(os.path.join(assets, '*.html'))):
+    if os.path.normpath(d) not in framed: bad('%s is drawn and no architecture screen frames it' % d)
+print('   %d diagrams framed' % len(framed))
+
 head('routes — every app screen is drawn, and every drawing has a screen')
 
 app_dir = APP_DIR
