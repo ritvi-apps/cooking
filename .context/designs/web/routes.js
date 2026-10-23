@@ -15,6 +15,7 @@
  */
 window.ROUTES = {
   product: "hamburg",
+  architecture: "architecture/overview.html",
   surface: "web",
 
   /* Web only. The surface toggle shows `mobile` struck through. */
@@ -35,15 +36,15 @@ window.ROUTES = {
       { file: "states/404.html", screen: "Not found", route: null, status: "review", notes: "not-found" },
     ]},
     { flow: "home", screens: [
-      { file: "home/home.html", screen: "Home", route: null, status: "review", notes: "home" },
+      { file: "home/home.html", key: "Cook", screen: "Home", route: null, status: "review", notes: "home" },
     ]},
     { flow: "grow", screens: [
-      { file: "grow/tomato.html", screen: "Grow tomato", route: null, status: "review", notes: "grow-tomato" },
+      { file: "grow/tomato.html", key: "Learn", screen: "Grow tomato", route: null, status: "review", notes: "grow-tomato" },
     ]},
     { flow: "ingredients", screens: [
-      { file: "ingredients/ingredients.html", screen: "Ingredients", route: null, status: "review", notes: "ingredients" },
+      { file: "ingredients/ingredients.html", key: "Cook", screen: "Ingredients", route: null, status: "review", notes: "ingredients" },
       { file: "ingredients/tomato.html", screen: "Tomato", route: null, status: "review", notes: "tomato" },
-      { file: "ingredients/paneer.html", screen: "Paneer", route: null, status: "review", notes: "paneer" },
+      { file: "ingredients/paneer.html", key: "Cook", screen: "Paneer", route: null, status: "review", notes: "paneer" },
       { file: "ingredients/spinach.html", screen: "Spinach", route: null, status: "review", notes: "spinach" },
       { file: "ingredients/ginger.html", screen: "Ginger", route: null, status: "review", notes: "ginger" },
       { file: "ingredients/garlic.html", screen: "Garlic", route: null, status: "review", notes: "garlic" },
@@ -52,9 +53,9 @@ window.ROUTES = {
     ]},
     { flow: "journeys", screens: [
       { file: "journeys/journeys.html", screen: "Journeys", route: null, status: "review", notes: "journeys" },
-      { file: "journeys/milk.html", screen: "Milk journey", route: null, status: "review", notes: "milk" },
+      { file: "journeys/milk.html", key: "Learn", screen: "Milk journey", route: null, status: "review", notes: "milk" },
       { file: "journeys/milk-to-curd.html", screen: "Milk → Curd", route: null, status: "review", notes: "milk-to-curd" },
-      { file: "journeys/milk-to-paneer.html", screen: "Milk → Paneer", route: null, status: "review", notes: "milk-to-paneer" },
+      { file: "journeys/milk-to-paneer.html", key: "Learn", screen: "Milk → Paneer", route: null, status: "review", notes: "milk-to-paneer" },
       { file: "journeys/milk-to-butter.html", screen: "Milk → Butter", route: null, status: "review", notes: "milk-to-butter" },
       { file: "journeys/milk-to-ghee.html", screen: "Butter → Ghee", route: null, status: "review", notes: "milk-to-ghee" },
       { file: "journeys/milk-to-khoya.html", screen: "Milk → Khoya", route: null, status: "review", notes: "milk-to-khoya" },
@@ -76,17 +77,23 @@ window.ROUTES = {
       { file: "journeys/kombucha-herb.html", screen: "Herb kombucha", route: null, status: "review", notes: "kombucha-herb" },
     ]},
     { flow: "pairings", screens: [
-      { file: "pairings/pairings.html", screen: "Pairings", route: null, status: "review", notes: "pairings" },
+      { file: "pairings/pairings.html", key: "Learn", screen: "Pairings", route: null, status: "review", notes: "pairings" },
     ]},
     { flow: "recipes", screens: [
-      { file: "recipes/recipes.html", screen: "Recipes", route: null, status: "review", notes: "recipes" },
-      { file: "recipes/palak-paneer.html", screen: "Palak paneer", route: null, status: "review", notes: "palak-paneer" },
+      { file: "recipes/recipes.html", key: "Cook", screen: "Recipes", route: null, status: "review", notes: "recipes" },
+      { file: "recipes/palak-paneer.html", key: "Cook", screen: "Palak paneer", route: null, status: "review", notes: "palak-paneer" },
     ]},
     { flow: "skills", screens: [
       { file: "skills/skills.html", screen: "Skills", route: null, status: "review", notes: "skills" },
     ]},
     { flow: "patterns", screens: [
       { file: "patterns/components.html", screen: "Components", route: null, status: "review", notes: "components" },
+    ]},
+    { flow: "architecture", screens: [
+      { file: "architecture/overview.html", route: null, screen: "Architecture", status: "needs review", notes: "architecture" },
+      { file: "architecture/who-uses.html", route: null, screen: "Who uses it", status: "needs review", notes: "architecture" },
+      { file: "architecture/how-it-works.html", route: null, screen: "How the repo is built", status: "needs review", notes: "architecture" },
+      { file: "architecture/relies-on.html", route: null, screen: "What it relies on", status: "needs review", notes: "architecture" },
     ]},
   ],
 
@@ -97,6 +104,9 @@ window.ROUTES = {
     start: "home/home.html",
     end: ["recipes/palak-paneer.html"],
     edges: [
+      { from: "architecture/overview.html", to: "architecture/who-uses.html", side: true },
+      { from: "architecture/overview.html", to: "architecture/how-it-works.html", side: true },
+      { from: "architecture/overview.html", to: "architecture/relies-on.html", side: true },
 
 
       /* A step forward. Rank only ever rises along these, so the graph is a DAG. */
