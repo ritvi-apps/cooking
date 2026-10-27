@@ -9,3 +9,10 @@ modules:
 # Files copied from the estate source repo (estate copies.sets).
 copies:
   use: [check-designs, design-shell-web]
+
+# The stages this product's work goes through, in order (`canon pipeline`).
+# ~/git/bin/flow counts how far each conversation got against these.
+pipeline:
+  - { id: idea, done: [.context/README.md] }
+  - { id: research, done: [.context/raw, .context/wiki/synthesis] }
+  - { id: design, done: [.context/designs] }
