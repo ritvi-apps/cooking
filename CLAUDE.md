@@ -15,7 +15,6 @@ truth.
 README.md      what the product is
 AGENTS.md      the agent contract (imported above)
 .context/      everything else — see .context/README.md
-scripts/       check-designs.py, shared with every product
 .claude/       the four wiki skills
 ```
 

@@ -21,7 +21,6 @@ about the product is beside it, in `.context/` — start at
 /
 ├── README.md
 ├── AGENTS.md · CLAUDE.md
-├── scripts/check-designs.py
 └── .context/
     ├── tasks.md                         the ordered queue
     ├── wiki/                            what the product is, and why

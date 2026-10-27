@@ -48,7 +48,6 @@ the reason changed.
 
 Before marking work complete:
 
-1. Run `python3 scripts/check-designs.py .context/designs/web`. It exits
-   non-zero on any failure.
-2. Run `canon check`.
-3. Reflect changed behaviour in `CLAUDE.md` and any affected `.context/` artifact.
+1. Run `canon check`. It runs the design checks and exits non-zero on any
+   failure.
+2. Reflect changed behaviour in `CLAUDE.md` and any affected `.context/` artifact.

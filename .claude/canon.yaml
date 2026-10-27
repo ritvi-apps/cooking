@@ -1,5 +1,7 @@
-canon: 0.16.0
+canon: 0.17.0
 kind: content
+# Standards imported from canon by name; `canon standards` lists them.
+standards: [design-sets]
 modules:
   - docs
   - knowledge
@@ -8,7 +10,7 @@ modules:
 
 # Files copied from the estate source repo (estate copies.sets).
 copies:
-  use: [check-designs, design-shell-web]
+  use: [design-shell-web]
 
 # The stages this product's work goes through, in order (`canon pipeline`).
 # ~/git/bin/flow counts how far each conversation got against these.
