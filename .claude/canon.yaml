@@ -1,4 +1,4 @@
-canon: 0.17.0
+canon: 0.18.0
 kind: content
 # Standards imported from canon by name; `canon standards` lists them.
 standards: [design-sets]
@@ -8,8 +8,9 @@ modules:
   - design
   - refs
 
-# Files copied from the estate source repo (estate copies.sets).
+# Files copied from charades (its copies.sets); canon check keeps them equal.
 copies:
+  source: ../charades
   use: [design-shell-web]
 
 # The stages this product's work goes through, in order (`canon pipeline`).
