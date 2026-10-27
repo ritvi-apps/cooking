@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 **Converted, not redrawn.** This is the prototype's own markup, with its nav bar, footer and icons written in on 2026-10-04. See [[converted-design-set]].
 
-**Ingredients are the primary surface.** The nav holds Ingredients, Pairings and Cookbook; Journeys and Skills left it on 2026-07-19. See [[2026-07-19-dossiers-over-journeys]].
+**Ingredients are the primary surface.** The nav holds Ingredients, Pairings and Cookbook; Journeys and Skills left it on 2026-07-19. See [[dossiers]].
 
 **Three tiles open a journey, not a dossier.** Milk, Wheat and Sourdough say "7 chapters" and link to their journey pages, because they have no dossier yet.
 

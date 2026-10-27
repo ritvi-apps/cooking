@@ -24,7 +24,7 @@ picked. Journeys says the same thing in its own words.
 ## Related
 - [[journey-catalogue]]
 - [[milk]]
-- [[2026-07-19-dossiers-over-journeys]]
+- [[dossiers]]
 
 ## Sources
 - .context/designs/web/journeys/journeys.html

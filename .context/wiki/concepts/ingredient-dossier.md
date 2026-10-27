@@ -31,8 +31,8 @@ as one chapter of it.
 
 ## Related
 - [[tomato]]
-- [[2026-07-19-bento-dossier]]
-- [[2026-07-19-dossiers-over-journeys]]
+- [[dossiers]]
+- [[dossiers]]
 
 ## Sources
 - .context/designs/web/home/home.html

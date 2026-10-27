@@ -6,4 +6,4 @@ last-verified: 2026-10-04
 
 **Converted, not redrawn.** This is the prototype's own markup, with its nav bar, footer and icons written in on 2026-10-04. See [[converted-design-set]].
 
-**This is the older chapter layout.** Only Tomato was redrawn as a single-frame bento. See [[2026-07-19-bento-dossier]] and [[ingredient-dossier]].
+**This is the older chapter layout.** Only Tomato was redrawn as a single-frame bento. See [[dossiers]] and [[ingredient-dossier]].
