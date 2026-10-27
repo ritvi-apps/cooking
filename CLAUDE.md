@@ -38,5 +38,5 @@ scripts/       check-designs.py, shared with every product
 
 ## Wiki
 
-`.context/wiki/` is the knowledge base. Read `.context/wiki/CLAUDE.md` before
+`.context/wiki/` is the knowledge base. Read zeno's `wiki-schema` standard before
 touching a page. Skills: `/ingest`, `/ask`, `/wiki-lint`, `/decision`.
