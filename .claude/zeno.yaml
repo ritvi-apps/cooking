@@ -1,6 +1,21 @@
-zeno: 0.11.0
+zeno: 0.12.0
 kind: content
 modules:
   - docs
   - knowledge
   - design
+
+# Shared files (estate copies.files) this product does not carry, or keeps its own copy of.
+copies:
+  skip:
+    - { file: scripts/listing-from-md.mjs, reason: "no store listing" }
+    - { file: scripts/listing-readme.mjs, reason: "no store listing" }
+    - { file: scripts/play-upload.mjs, reason: "no Play Console app" }
+    - { file: scripts/release-notes.mjs, reason: "no store release notes" }
+    - { file: scripts/goldie-to-fastlane.mjs, reason: "no store capture" }
+    - { file: scripts/build-screenshot-apk.mjs, reason: "no mobile app" }
+    - { file: scripts/build-screenshot-app.sh, reason: "no mobile app" }
+    - { file: scripts/release-android.mjs, reason: "no mobile app" }
+    - { file: scripts/eas-export-keystore.mjs, reason: "no EAS project" }
+    - { file: scripts/check-ota-safe.mjs, reason: "no OTA channel" }
+    - { file: .github/CODEOWNERS, reason: "the repo has no `.github/`" }

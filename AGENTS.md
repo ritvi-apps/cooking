@@ -50,5 +50,5 @@ Before marking work complete:
 
 1. Run `python3 scripts/check-designs.py .context/designs/web`. It exits
    non-zero on any failure.
-2. Run `~/git/bin/check cooking`.
+2. Run `zeno check`.
 3. Reflect changed behaviour in `CLAUDE.md` and any affected `.context/` artifact.

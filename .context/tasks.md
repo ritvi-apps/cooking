@@ -41,8 +41,6 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
       The stylesheet has rules for 900, 640 and 560px and no screen shows them.
 - [ ] T011 [P] The Cookbook pill never shows as active: the nav keys it
       `cookbook` and the recipe screens say `recipes`. The prototype had it too.
-- [ ] T012 [P] Run `~/git/bin/install-hooks cooking` once this branch is
-      merged, so a push runs `~/git/bin/check cooking`.
 
 ## Blocked
 
