@@ -30,7 +30,7 @@ the top item of `## Now` is the next action. After finishing, delete the task.
 
 ## Designs
 
-`.context/designs/web/` follows `~/git/personal/STYLE-GUIDE.md`. `routes.js` is
+`.context/designs/web/` follows the `design-sets` standard. `routes.js` is
 the manifest and the one place a screen is declared; the flow chart, the bar
 and the screenshots sheet all read it. One screen per file. The bar is injected
 by `_chrome.js` from `data-file` on `<body>` — never hand-write chrome into a

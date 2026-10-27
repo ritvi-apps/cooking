@@ -19,11 +19,11 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
        dot-folder, so `.context/designs/web/` cannot be the published site.  ~30m
 3. [ ] T003 Move the inline styles into classes. About 1,800 declarations are
        written on the element; a third are colours a token class exists for
-       (STYLE-GUIDE §3). Check each screen by eye after: a utility loses to a
+       (design-sets §3). Check each screen by eye after: a utility loses to a
        two-class component rule where the inline style used to win.  ~1d
 4. [ ] T004 Declare the drawings' geometry once. The four journey graphs, the
        two diagrams on Milk → Paneer and the India map write their shape out in
-       the screen (STYLE-GUIDE §3).  ~3h
+       the screen (design-sets §3).  ~3h
 
 ## Parallel
 <!-- [P]: independent of the Now chain, safe to batch into one sitting -->
@@ -36,7 +36,7 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
 - [ ] T008 [P] Fold the journeys into ingredients  `feat:0001-fold-journeys-into-ingredients`
 - [ ] T009 [P] Take `patterns/components.html` out of the site frame and remove
       its lead-in lines: a patterns page carries no prose and no site nav
-      (STYLE-GUIDE §5).
+      (design-sets §5).
 - [ ] T010 [P] Draw the narrow layout, or drop "mobile-first" from the README.
       The stylesheet has rules for 900, 640 and 560px and no screen shows them.
 - [ ] T011 [P] The Cookbook pill never shows as active: the nav keys it

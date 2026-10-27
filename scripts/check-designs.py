@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The style-guide checks from ~/git/personal/STYLE-GUIDE.md §12, over a design surface.
+"""The checks from the design-sets standard §12, over a design surface.
 
     python3 scripts/check-designs.py .context/designs/mobile
 
