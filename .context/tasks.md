@@ -6,7 +6,7 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
 # Tasks — hamburg
 
 <!-- Ordered. The top item of `Now` is THE next action. Read top-down, stop at
-     the first unblocked task, do it, tick it, append a Session Note.
+     the first unblocked task, do it, delete it when done.
      Position in `Now` IS the dependency — `needs:` is only for cross-section
      edges. A task needing more structure than a line is a features/ page. -->
 
@@ -47,19 +47,3 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
 ## Blocked
 
 ## Waiting
-
-## Done
-
-- [x] T000 Migrate to the `.context/` standard and convert the prototype to a static design set  done:2026-10-04
-
-## Session Notes
-
-### 2026-10-04
-- Done: T000. `prototype/` to `.context/designs/web/` as 39 static screens in
-  the shared shell, a wiki written from what the prototype and the README say,
-  four feature pages from the README and the 2026-07-19 commits.
-- Learned: `.git/info/exclude` in this clone held `.context/`, so nothing under
-  it could be added; the line is gone. GitHub Pages is off, so the README's
-  deploy note described nothing live. One class, `grad-butter`, was used and
-  never declared.
-- Next: T001.

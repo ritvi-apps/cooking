@@ -9,8 +9,7 @@ Read `CLAUDE.md` before making changes. It says what the product is and how
 the repository is laid out.
 
 **Before starting work, read `.context/tasks.md`.** It is the ordered queue —
-the top item of `## Now` is the next action. After finishing, tick the task and
-append a Session Note.
+the top item of `## Now` is the next action. After finishing, delete the task.
 
 - `.context/` — ten folders, one job each; see `~/git/products/CLAUDE.md`.
   `.context/README.md` says which are present here and why the rest are not.
