@@ -1,6 +1,6 @@
 # Wiki index
 
-One line per page. Rules: `zeno standards` → `wiki-schema`.
+One line per page. Rules: `canon standards` → `wiki-schema`.
 
 ## Concepts
 - [[converted-design-set]] — The design set in `.context/designs/web/` was converted from the prototype that

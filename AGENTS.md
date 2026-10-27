@@ -14,7 +14,7 @@ the top item of `## Now` is the next action. After finishing, delete the task.
 - `.context/` — ten folders, one job each; see `~/git/products/CLAUDE.md`.
   `.context/README.md` says which are present here and why the rest are not.
 - `.context/designs/web/` — the design set. There is no app, so it is the spec.
-- `.context/wiki/` — the knowledge base; its schema is zeno's `wiki-schema` standard
+- `.context/wiki/` — the knowledge base; its schema is canon's `wiki-schema` standard
 - `.context/features/` — what is next, one page per feature
 
 ## Repository rules
@@ -50,5 +50,5 @@ Before marking work complete:
 
 1. Run `python3 scripts/check-designs.py .context/designs/web`. It exits
    non-zero on any failure.
-2. Run `zeno check`.
+2. Run `canon check`.
 3. Reflect changed behaviour in `CLAUDE.md` and any affected `.context/` artifact.
