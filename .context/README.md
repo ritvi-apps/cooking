@@ -8,11 +8,8 @@ the design set here is the spec.
 Start at [`tasks.md`](tasks.md).
 
 The brand mark is the `.brand-mark` class: a letter on a coloured square.
+`designs/assets/icon.svg` draws the same mark.
 
 ## Viewing the designs
 
-```bash
-cd .context && python3 -m http.server 8899   # then localhost:8899/designs/web/
-```
-
-Serve from `.context/`: the notes button reads `wiki/surfaces/<slug>.md`.
+Open `designs/web/index.html` straight from disk.

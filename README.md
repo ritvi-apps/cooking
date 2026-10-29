@@ -25,29 +25,13 @@ about the product is beside it, in `.context/` — start at
     ├── tasks.md                         the ordered queue
     ├── wiki/                            what the product is, and why
     ├── features/                        what is next
-    └── designs/web/
-        ├── index.html                   the flow chart of every screen
-        ├── routes.js                    the manifest
-        ├── home/home.html               kitchen home
-        ├── ingredients/                 the list, and seven dossiers
-        ├── grow/tomato.html             grow guide (India seasons)
-        ├── pairings/pairings.html       what pairs with what
-        ├── recipes/                     the cookbook, and palak paneer
-        ├── journeys/                    (legacy — being folded into ingredients)
-        ├── skills/skills.html
-        ├── states/404.html
-        └── patterns/components.html     design system
+    └── designs/                         the Babul design set: babul.js, tokens.js, web/
 ```
 
 ## Viewing locally
 
-```sh
-cd .context && python3 -m http.server 8765
-# open http://localhost:8765/designs/web/
-```
-
-Pure HTML — no build step. Serve it rather than opening a file: the notes
-button reads the wiki over http.
+Open `.context/designs/web/index.html` straight from disk. Pure HTML — no
+build step and no server.
 
 ## Deploying
 
@@ -63,7 +47,7 @@ a dot-folder. Where the site is served from is the open task T002 in
 - Big rounded cards (rounded-2xl), soft shadows
 - Mobile-first — designed to open in one hand while cooking
 
-Reference `.context/designs/web/patterns/components.html` for the full component library.
+The component boards are in `.context/designs/web/components/`; the shell lists them.
 
 ## Growth rule
 

@@ -3,37 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>hamburg — everything about everything you eat</title>
-  <meta name="description" content="Deep, honest guides to every ingredient. Origin, growing, sourcing, storage, cooking, pairings, and what your body does with it." />
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Home</title>
+  <script src="../../_shell/boot.js"></script>
+  <link data-link="auto" href="../launch/not-found.html" title="an address with no page" />
 </head>
-<body data-chrome data-file="home/home.html">
+<body data-page="home/home" data-status="review" data-journeys="Cook">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen">
+<c-site-nav active="ingredients" size="regular"></c-site-nav>
 
 <!-- ============ HERO ============ -->
 <section class="mx-auto max-w-5xl px-5 pt-16 pb-8">
@@ -46,11 +25,7 @@
   </p>
 
   <div class="mt-7 max-w-xl">
-    <label class="search">
-      <span style="color:var(--ink-3);"><i data-lucide="search" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span>
-      <input type="text" placeholder="Look up an ingredient — tomato, paneer, ginger…" />
-      <span class="kbd">⌘K</span>
-    </label>
+    <c-search placeholder="Look up an ingredient — tomato, paneer, ginger…" kbd></c-search>
   </div>
 </section>
 
@@ -65,36 +40,12 @@
   </div>
 
   <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-    <a href="../ingredients/tomato.html" class="ing-tile">
-      <div class="glyph glyph-spice">🍅</div>
-      <div class="label">Tomato</div>
-      <div class="sub">7 chapters</div>
-    </a>
-    <a href="../journeys/milk.html" class="ing-tile">
-      <div class="glyph glyph-dairy">🥛</div>
-      <div class="label">Milk</div>
-      <div class="sub">7 chapters</div>
-    </a>
-    <a href="../journeys/dough.html" class="ing-tile">
-      <div class="glyph glyph-grain">🌾</div>
-      <div class="label">Wheat</div>
-      <div class="sub">7 chapters</div>
-    </a>
-    <a href="../journeys/sourdough.html" class="ing-tile">
-      <div class="glyph glyph-legume">🫙</div>
-      <div class="label">Sourdough</div>
-      <div class="sub">7 chapters</div>
-    </a>
-    <a href="../ingredients/spinach.html" class="ing-tile">
-      <div class="glyph glyph-vegetable">🥬</div>
-      <div class="label">Spinach</div>
-      <div class="sub">7 chapters</div>
-    </a>
-    <a href="../ingredients/paneer.html" class="ing-tile">
-      <div class="glyph glyph-dairy">🧀</div>
-      <div class="label">Paneer</div>
-      <div class="sub">7 chapters</div>
-    </a>
+    <c-ing-tile cat="spice" glyph="🍅" label="Tomato" sub="7 chapters" href="../ingredients/tomato.html"></c-ing-tile>
+    <c-ing-tile cat="dairy" glyph="🥛" label="Milk" sub="7 chapters" href="../journeys/milk.html"></c-ing-tile>
+    <c-ing-tile cat="grain" glyph="🌾" label="Wheat" sub="7 chapters" href="../journeys/dough.html"></c-ing-tile>
+    <c-ing-tile cat="legume" glyph="🫙" label="Sourdough" sub="7 chapters" href="../journeys/sourdough.html"></c-ing-tile>
+    <c-ing-tile cat="vegetable" glyph="🥬" label="Spinach" sub="7 chapters" href="../ingredients/spinach.html"></c-ing-tile>
+    <c-ing-tile cat="dairy" glyph="🧀" label="Paneer" sub="7 chapters" href="../ingredients/paneer.html"></c-ing-tile>
   </div>
 </section>
 
@@ -109,30 +60,14 @@
   </div>
 
   <div class="season-strip">
-    <a href="../ingredients/tomato.html" class="season-tile">
-      <div class="g">🍅</div><div><div class="l">Tomato</div><div class="s">Peak</div></div>
-    </a>
-    <a href="#" class="season-tile">
-      <div class="g">🥭</div><div><div class="l">Mango</div><div class="s">Late season</div></div>
-    </a>
-    <a href="#" class="season-tile">
-      <div class="g">🌽</div><div><div class="l">Sweet corn</div><div class="s">Peak</div></div>
-    </a>
-    <a href="#" class="season-tile">
-      <div class="g">🫐</div><div><div class="l">Berries</div><div class="s">Peak</div></div>
-    </a>
-    <a href="#" class="season-tile">
-      <div class="g">🥒</div><div><div class="l">Cucumber</div><div class="s">Peak</div></div>
-    </a>
-    <a href="#" class="season-tile">
-      <div class="g">🌶️</div><div><div class="l">Peppers</div><div class="s">Building</div></div>
-    </a>
-    <a href="#" class="season-tile">
-      <div class="g">🌿</div><div><div class="l">Basil</div><div class="s">Peak</div></div>
-    </a>
-    <a href="#" class="season-tile">
-      <div class="g">🍑</div><div><div class="l">Stone fruit</div><div class="s">Peak</div></div>
-    </a>
+    <c-season-tile glyph="🍅" label="Tomato" sub="Peak" href="../ingredients/tomato.html"></c-season-tile>
+    <c-season-tile glyph="🥭" label="Mango" sub="Late season" href="#"></c-season-tile>
+    <c-season-tile glyph="🌽" label="Sweet corn" sub="Peak" href="#"></c-season-tile>
+    <c-season-tile glyph="🫐" label="Berries" sub="Peak" href="#"></c-season-tile>
+    <c-season-tile glyph="🥒" label="Cucumber" sub="Peak" href="#"></c-season-tile>
+    <c-season-tile glyph="🌶️" label="Peppers" sub="Building" href="#"></c-season-tile>
+    <c-season-tile glyph="🌿" label="Basil" sub="Peak" href="#"></c-season-tile>
+    <c-season-tile glyph="🍑" label="Stone fruit" sub="Peak" href="#"></c-season-tile>
   </div>
 </section>
 
@@ -148,55 +83,13 @@
     </div>
 
     <div class="grid gap-3 mt-8 md:grid-cols-3 lg:grid-cols-4">
-      <div class="p-4 rounded-lg" style="background:var(--muted);">
-        <div class="flex items-center gap-2 mb-1.5">
-          <span class="numeral" style="width:22px;height:22px;border-radius:50%;background:white;color:var(--brand-700);font-family:Fraunces,Georgia,serif;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;">1</span>
-          <span class="font-display" style="font-size:15px;font-weight:500;">Origin</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Family, native region, how it got here.</p>
-      </div>
-      <div class="p-4 rounded-lg" style="background:var(--muted);">
-        <div class="flex items-center gap-2 mb-1.5">
-          <span class="numeral" style="width:22px;height:22px;border-radius:50%;background:white;color:var(--brand-700);font-family:Fraunces,Georgia,serif;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;">2</span>
-          <span class="font-display" style="font-size:15px;font-weight:500;">Grow</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">When to plant, soil, water, companions.</p>
-      </div>
-      <div class="p-4 rounded-lg" style="background:var(--muted);">
-        <div class="flex items-center gap-2 mb-1.5">
-          <span class="numeral" style="width:22px;height:22px;border-radius:50%;background:white;color:var(--brand-700);font-family:Fraunces,Georgia,serif;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;">3</span>
-          <span class="font-display" style="font-size:15px;font-weight:500;">Source</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Seasonality, varieties, how to pick.</p>
-      </div>
-      <div class="p-4 rounded-lg" style="background:var(--muted);">
-        <div class="flex items-center gap-2 mb-1.5">
-          <span class="numeral" style="width:22px;height:22px;border-radius:50%;background:white;color:var(--brand-700);font-family:Fraunces,Georgia,serif;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;">4</span>
-          <span class="font-display" style="font-size:15px;font-weight:500;">Store</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Where, how long, what preserves it.</p>
-      </div>
-      <div class="p-4 rounded-lg" style="background:var(--muted);">
-        <div class="flex items-center gap-2 mb-1.5">
-          <span class="numeral" style="width:22px;height:22px;border-radius:50%;background:white;color:var(--brand-700);font-family:Fraunces,Georgia,serif;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;">5</span>
-          <span class="font-display" style="font-size:15px;font-weight:500;">Prep &amp; Cook</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Every transformation. Science of heat.</p>
-      </div>
-      <div class="p-4 rounded-lg" style="background:var(--muted);">
-        <div class="flex items-center gap-2 mb-1.5">
-          <span class="numeral" style="width:22px;height:22px;border-radius:50%;background:white;color:var(--brand-700);font-family:Fraunces,Georgia,serif;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;">6</span>
-          <span class="font-display" style="font-size:15px;font-weight:500;">Pairs / Avoid</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">What works with it, what fights it.</p>
-      </div>
-      <div class="p-4 rounded-lg" style="background:var(--muted);">
-        <div class="flex items-center gap-2 mb-1.5">
-          <span class="numeral" style="width:22px;height:22px;border-radius:50%;background:white;color:var(--brand-700);font-family:Fraunces,Georgia,serif;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;">7</span>
-          <span class="font-display" style="font-size:15px;font-weight:500;">In the body</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Nutrients, absorption, cautions.</p>
-      </div>
+      <c-chapter-tile n="1" label="Origin">Family, native region, how it got here.</c-chapter-tile>
+      <c-chapter-tile n="2" label="Grow">When to plant, soil, water, companions.</c-chapter-tile>
+      <c-chapter-tile n="3" label="Source">Seasonality, varieties, how to pick.</c-chapter-tile>
+      <c-chapter-tile n="4" label="Store">Where, how long, what preserves it.</c-chapter-tile>
+      <c-chapter-tile n="5" label="Prep &amp; Cook">Every transformation. Science of heat.</c-chapter-tile>
+      <c-chapter-tile n="6" label="Pairs / Avoid">What works with it, what fights it.</c-chapter-tile>
+      <c-chapter-tile n="7" label="In the body">Nutrients, absorption, cautions.</c-chapter-tile>
       <a href="../ingredients/tomato.html" class="p-4 rounded-lg flex items-center justify-between" style="background:var(--brand-100);color:var(--brand-700);">
         <span class="font-display" style="font-size:15px;font-weight:600;">See a full dossier</span>
         <span><i data-lucide="arrow-right" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i></span>
@@ -215,8 +108,8 @@
         Pick any ingredient. See what pairs beautifully, what to avoid, and — for every pairing — <em>why</em>. Flavor chemistry, nutrient absorption, or tradition that survived because it worked.
       </p>
       <div class="mt-4 flex flex-wrap gap-2">
-        <span class="chip chip-brand">Turmeric + black pepper → 2000× absorption</span>
-        <span class="chip chip-accent">Tomato + cucumber → destroys vitamin C</span>
+        <c-chip tone="brand">Turmeric + black pepper → 2000× absorption</c-chip>
+        <c-chip tone="accent">Tomato + cucumber → destroys vitamin C</c-chip>
       </div>
     </div>
     <span class="btn btn-primary shrink-0">
@@ -225,30 +118,10 @@
   </a>
 </section>
 
-<footer class="footer-shell mt-20">
-  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <span class="brand-mark brand-mark--sm">h</span>
-      <span class="footer-line">
-        <b class="font-display text-ink">hamburg</b>
-        <span class="divider-dot"></span>
-        cook, learn, remember, publish
-      </span>
-    </div>
-    <div class="footer-links flex flex-wrap items-center gap-4">
-      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
-      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
-      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
-      <span class="text-ink-3">🌱 100% veg</span>
-    </div>
-  </div>
-</footer>
+<c-site-footer></c-site-footer>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

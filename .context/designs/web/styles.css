@@ -1,0 +1,930 @@
+/* ============================================================================
+   hamburg — the classes its components are built from.
+   ============================================================================
+   Colours, type, radius and shadow are tokens (tokens.js); this file is only
+   the shapes the components make of them. A class here that no page or
+   component uses is dead: the design check fails on it.
+   ============================================================================ */
+
+/* Inter, Fraunces and JetBrains Mono, as the prototype loaded them. The dots
+   in the host are escaped only so the design check does not read them as
+   class names. */
+@import url("https://fonts\2e googleapis\2e com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--brand-500);
+  outline-offset: 2px;
+}
+
+/* A website frame is not a device. The shell's .phone assumes a 40px device
+   radius; only the rounding and the shadow need correcting. */
+.phone {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  /* The product's own type, scoped to the frame. the shell's stacks stay as they
+     are at the root, so the bar reads the same in every set. */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Fraunces', Georgia, serif;
+  font-family: var(--font-sans);
+}
+
+/* Bare mode is the real page: it fills whatever window it is given. the shell pins
+   the frame's logical width here, which is right for a device and wrong for a
+   web page. */
+[data-bare] .phone { width: 100%; }
+
+/* The page inside the frame. the shell's frame is a flex column for a phone's
+   pinned footer; a web page is one block that scrolls, so it must not shrink. */
+.screen { flex: none; width: 100%; min-height: var(--frame-h); }
+
+/* A border drawn with no colour of its own is a `line`. */
+.phone * { border-color: var(--line); }
+
+/* The mark is a letter on a brand square. Declared once, so the nav and the
+   footer cannot draw two different ones. */
+.brand-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 16px;
+  background: var(--brand-500); color: var(--ink-inverse);
+  font-family: var(--font-display); font-weight: 600; font-size: 18px;
+}
+.brand-mark--sm { width: 28px; height: 28px; border-radius: 12px; font-size: 14px; }
+.brand-name { font-family: var(--font-display); letter-spacing: -0.015em; font-size: 16px; font-weight: 600; color: var(--ink); }
+.brand-tag  { font-size: 10.5px; color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; }
+.footer-line  { font-size: 12.5px; color: var(--ink-2); }
+.footer-links { font-size: 12px; color: var(--ink-2); }
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+/* Type scale */
+.h1 { font-family: var(--font-display); font-size: 52px; line-height: 1.02; font-weight: 500; letter-spacing: -0.02em; }
+.h2 { font-family: var(--font-display); font-size: 32px; line-height: 1.1;  font-weight: 500; letter-spacing: -0.015em; }
+.h3 { font-family: var(--font-display); font-size: 20px; line-height: 1.3;  font-weight: 500; letter-spacing: -0.01em; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brand-500); }
+@media (max-width: 640px) { .h1 { font-size: 36px; } .h2 { font-size: 26px; } }
+
+/* ============ CARD ============ */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--line-strong);
+}
+.card-flat {
+  background: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+/* ============ BUTTON ============ */
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px; font-weight: 600;
+  border: 1px solid transparent;
+  transition: all 140ms ease;
+  cursor: pointer;
+}
+.btn-primary { background: var(--brand-500); color: var(--ink-inverse); }
+.btn-primary:hover { background: var(--brand-700); }
+.btn-white { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
+.btn-white:hover { background: var(--muted); }
+.btn-sm { padding: 7px 14px; font-size: 12.5px; }
+
+/* ============ CHIPS ============ */
+
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 600;
+  background: var(--muted);
+  color: var(--ink-2);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.chip .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.chip-brand   { background: var(--brand-100);   color: var(--brand-700); }
+.chip-accent  { background: var(--accent-100);  color: var(--accent-700); }
+.chip-highlight { background: var(--highlight-100); color: var(--highlight-700); }
+.chip-white  { background: var(--glass-strong); color: var(--ink); border-color: var(--hairline); }
+
+/* ============ INGREDIENT TILE ============ */
+/* Big colorful square with a glyph + label. Primary navigation atom. */
+
+.ing-tile {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px 12px;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: all 140ms ease;
+  text-align: center;
+  gap: 10px;
+}
+.ing-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-hover);
+}
+.ing-tile .glyph {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  line-height: 1;
+}
+.ing-tile .label {
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.ing-tile .sub {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: -6px;
+}
+
+/* Glyph background per category */
+.glyph-dairy     { background: color-mix(in srgb, var(--cat-dairy) 18%, var(--surface)); color: var(--cat-dairy); }
+.glyph-vegetable { background: color-mix(in srgb, var(--cat-vegetable) 18%, var(--surface)); color: var(--cat-vegetable); }
+.glyph-legume    { background: color-mix(in srgb, var(--cat-legume) 18%, var(--surface)); color: var(--cat-legume); }
+.glyph-grain     { background: color-mix(in srgb, var(--cat-grain) 18%, var(--surface)); color: var(--cat-grain); }
+.glyph-spice     { background: color-mix(in srgb, var(--cat-spice) 18%, var(--surface)); color: var(--cat-spice); }
+.glyph-herb      { background: color-mix(in srgb, var(--cat-herb) 18%, var(--surface)); color: var(--cat-herb); }
+
+/* ============ JOURNEY CARD ============ */
+/* Big horizontal card for a transformation journey (e.g. "Milk → 6 things") */
+
+.journey-card {
+  display: flex; align-items: center;
+  gap: 20px;
+  padding: 22px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: all 160ms ease;
+  min-height: 120px;
+}
+.journey-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-lift);
+}
+.journey-card .icon {
+  width: 72px; height: 72px;
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+  flex-shrink: 0;
+}
+.journey-card .body { flex: 1; min-width: 0; }
+.journey-card .title {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.journey-card .sub {
+  font-size: 13px; color: var(--ink-2); margin-top: 2px;
+}
+.journey-card .arrow {
+  color: var(--brand-500);
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+/* ============ STEP CARD ============ */
+/* Big numbered card for cooking steps */
+
+.step {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 20px;
+  padding: 22px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.step .numeral {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--brand-500);
+}
+.step .head {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.step .cue {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+.step .meta {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 10px;
+}
+@media (max-width: 560px) {
+  .step { grid-template-columns: 48px 1fr; gap: 14px; padding: 18px; }
+  .step .numeral { width: 40px; height: 40px; font-size: 20px; border-width: 1.5px; }
+  .step .head { font-size: 17px; }
+}
+
+/* ============ ICONS ============ */
+
+.hb-icon { display: inline-block; vertical-align: -0.15em; flex-shrink: 0; }
+[data-icon] { display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  transition: all 140ms ease;
+  cursor: pointer;
+}
+.icon-btn--sm { width: 36px; height: 36px; }
+.icon-btn:hover {
+  background: var(--brand-100);
+  color: var(--brand-700);
+  border-color: var(--brand-500);
+}
+
+/* Search input */
+.search {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 20px;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  transition: all 140ms ease;
+}
+.search:focus-within {
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 4px var(--brand-100);
+}
+.search input {
+  flex: 1;
+  border: none; outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--ink);
+  font-family: inherit;
+}
+.search input::placeholder { color: var(--ink-3); }
+.search .kbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--muted);
+  color: var(--ink-3);
+  border: 1px solid var(--line);
+}
+
+/* ============ JOURNEY GRAPH NODE (SVG helpers) ============ */
+
+.node-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* SVG interactive node styling */
+svg a { cursor: pointer; }
+svg a .node-hit {
+  transition: fill 160ms ease, filter 160ms ease, transform 160ms ease;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+svg a:hover .node-hit {
+  filter: drop-shadow(var(--shadow-node));
+  transform: translateY(-2px);
+}
+svg a:hover .node-ring {
+  stroke-width: 3;
+}
+svg a:hover .node-arrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+svg a .node-arrow {
+  opacity: 0.4;
+  transition: all 160ms ease;
+}
+svg .edge {
+  stroke: var(--ink-4);
+  stroke-width: 1.8;
+  fill: none;
+}
+svg .edge-strong {
+  stroke: var(--brand-500);
+  stroke-width: 2.2;
+  fill: none;
+}
+svg .edge-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  fill: var(--ink-2);
+}
+
+/* Breadcrumb */
+.crumbs {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px;
+  color: var(--ink-2);
+  flex-wrap: wrap;
+}
+.crumbs a {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--muted);
+  color: var(--ink-2);
+  transition: all 140ms ease;
+}
+.crumbs a:hover { background: var(--brand-100); color: var(--brand-700); }
+.crumbs .sep { color: var(--ink-3); }
+
+/* ============ INGREDIENT HERO ============ */
+
+.ing-hero {
+  border-radius: 24px;
+  padding: 40px;
+  display: flex; gap: 28px; align-items: center;
+}
+@media (max-width: 640px) {
+  .ing-hero { padding: 24px; flex-direction: column; text-align: center; }
+}
+.ing-hero .big-glyph {
+  width: 120px; height: 120px;
+  border-radius: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 72px; line-height: 1;
+  flex-shrink: 0;
+  background: var(--glass-soft);
+}
+
+/* ============ MINI STAT ============ */
+
+.stat {
+  display: flex; flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.stat .k { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.stat .v { font-family: var(--font-display); font-size: 18px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+
+/* ============ NAV ============ */
+
+.nav-shell {
+  position: sticky; top: 0; z-index: 30;
+  background: var(--page-glass);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 14px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 600;
+  color: var(--ink-2);
+  transition: all 140ms ease;
+  white-space: nowrap;
+}
+.nav-pill:hover { color: var(--ink); background: var(--muted); }
+.nav-pill--sm { padding: 4px 10px; }
+.nav-pill.active {
+  color: var(--brand-700);
+  background: var(--brand-100);
+}
+
+/* ============ FOOTER ============ */
+
+.footer-shell {
+  border-top: 1px solid var(--line);
+  background: var(--muted);
+  color: var(--ink-2);
+}
+
+/* ============ MISC ============ */
+
+.divider-dot::before { content: "·"; margin: 0 8px; color: var(--ink-3); }
+
+/* Scrollable horizontal chip row (mobile) */
+.h-scroll {
+  display: flex; gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.h-scroll::-webkit-scrollbar { display: none; }
+
+/* ============ BENTO (single-screen ingredient dashboard) ============ */
+/* One viewport. Compact hero + grid of 8 info tiles. No scroll on desktop. */
+
+.bento-page {
+  height: var(--frame-h);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.bento-hero {
+  flex: 0 0 auto;
+  padding: 14px 22px;
+  display: flex; align-items: center; gap: 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.bento-hero .glyph {
+  width: 64px; height: 64px; border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+  flex-shrink: 0;
+}
+.bento-hero .title {
+  font-family: var(--font-display);
+  font-size: 30px; font-weight: 500; letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+.bento-hero .sub {
+  font-size: 12px; color: var(--ink-2);
+  margin-top: 4px;
+  display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+}
+
+.bento-grid {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 12px;
+  padding: 12px 22px 22px;
+  min-height: 0;
+}
+.tile {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  min-height: 0;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+.tile:hover { border-color: var(--line-strong); }
+.tile .cap {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+.tile .cap .n {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--brand-100); color: var(--brand-700);
+  font-family: var(--font-display);
+  font-size: 10.5px; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+  letter-spacing: 0;
+}
+.tile .body {
+  flex: 1 1 auto;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+}
+
+/* ---- Grow tile: month strip ---- */
+.tile .months { padding: 6px; border: none; background: var(--muted); }
+.tile .months .m { font-size: 8.5px; aspect-ratio: 1 / 1.2; }
+.mini-legend {
+  display: flex; gap: 8px; font-size: 9.5px; color: var(--ink-3);
+  align-items: center; flex-wrap: wrap;
+}
+.mini-legend span { display: inline-flex; align-items: center; gap: 4px; }
+.mini-legend i {
+  width: 8px; height: 8px; border-radius: 2px; display: inline-block;
+}
+
+/* ---- Pairs / Avoid clouds ---- */
+.icon-cloud {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  align-content: flex-start;
+}
+.ic-chip {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--brand-100);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  cursor: help;
+  transition: transform 120ms ease, background 120ms ease;
+  position: relative;
+}
+.ic-chip:hover { transform: translateY(-2px) scale(1.05); }
+.ic-chip.avoid { background: var(--accent-100); }
+.ic-chip .lbl {
+  position: absolute; bottom: -22px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink); color: var(--ink-inverse);
+  font-size: 10px; font-weight: 600;
+  padding: 3px 7px; border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 120ms ease;
+  z-index: 5;
+}
+.ic-chip:hover .lbl { opacity: 1; }
+
+
+/* Tile column-spans */
+.tile.span-2 { grid-column: span 2; }
+.tile.span-3 { grid-column: span 3; }
+.tile.span-4 { grid-column: span 4; }
+
+/* Two-column split inside a tile */
+.split-2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  height: 100%; min-height: 0;
+}
+.split-2 > .col { display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+.split-2 .col-cap {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 5px;
+}
+.split-2 .col-cap.good { color: var(--brand-700); }
+.split-2 .col-cap.bad  { color: var(--accent-700); }
+
+/* Good / Bad list rows */
+.gb-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.gb-row .g {
+  width: 26px; height: 26px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+.gb-row.good { background: color-mix(in srgb, var(--brand-100) 60%, var(--surface)); }
+.gb-row.good .g { background: var(--surface); color: var(--brand-700); }
+.gb-row.bad  { background: color-mix(in srgb, var(--accent-100) 55%, var(--surface)); }
+.gb-row.bad .g { background: var(--surface); color: var(--accent-700); }
+
+/* Cook-method tiles */
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  height: 100%;
+  min-height: 0;
+}
+.method {
+  background: var(--muted);
+  border-radius: 12px;
+  padding: 8px 6px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 4px;
+  transition: background 140ms ease, transform 140ms ease;
+  cursor: pointer;
+  min-height: 0;
+}
+.method:hover { background: var(--brand-100); transform: translateY(-1px); }
+.method .g { font-size: 22px; line-height: 1; }
+.method .l {
+  font-family: var(--font-display);
+  font-size: 11.5px; font-weight: 500;
+  color: var(--ink); letter-spacing: -0.005em;
+  text-align: center;
+}
+
+/* Season pill row */
+.season-row {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-top: 6px;
+}
+.season-pill {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 8px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.season-pill .r { font-size: 9.5px; font-weight: 500; letter-spacing: 0; color: var(--ink-2); }
+.season-pill.kharif { background: color-mix(in srgb, var(--brand-100) 80%, var(--surface)); color: var(--brand-700); }
+.season-pill.rabi   { background: color-mix(in srgb, var(--highlight-100) 65%, var(--surface)); color: var(--highlight-700); }
+.season-pill.zaid   { background: color-mix(in srgb, var(--accent-100) 55%, var(--surface)); color: var(--accent-700); }
+
+/* Nutrient tiles for Source */
+.nutri-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  height: 100%;
+  min-height: 0;
+}
+.nutri {
+  padding: 8px 10px;
+  background: var(--muted);
+  border-radius: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.nutri .g {
+  width: 26px; height: 26px; border-radius: 8px;
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 600;
+  color: var(--brand-700);
+  flex-shrink: 0;
+}
+.nutri .body {
+  min-width: 0;
+}
+.nutri .l {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.nutri .v {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 500; color: var(--ink);
+  letter-spacing: -0.01em; line-height: 1.1;
+  margin-top: 1px;
+}
+.nutri .v .u { font-size: 10px; color: var(--ink-3); font-weight: 500; margin-left: 2px; }
+
+/* ---- Grow-page: 3-season gantt calendar ---- */
+.gcal {
+  display: grid;
+  grid-template-columns: 76px repeat(12, 1fr);
+  gap: 4px;
+  align-items: stretch;
+  min-height: 0;
+}
+.gcal .h {
+  padding: 4px 0; text-align: center;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--ink-3); font-weight: 700;
+}
+.gcal .sn {
+  display: flex; align-items: center; gap: 8px;
+  padding-left: 4px;
+  font-family: var(--font-display);
+  font-size: 12.5px; font-weight: 500; color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.gcal .sn::before {
+  content: ''; width: 4px; height: 20px; border-radius: 2px;
+  display: inline-block;
+}
+.gcal .sn.kharif::before { background: var(--brand-500); }
+.gcal .sn.rabi::before   { background: var(--highlight-500); }
+.gcal .sn.zaid::before   { background: var(--accent-500); }
+.gcal .c {
+  height: 100%; min-height: 22px; border-radius: 6px;
+  background: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.06em;
+  color: transparent;
+}
+.gcal .c.sow  { background: var(--highlight-500); color: var(--ink-inverse); }
+.gcal .c.growing { background: var(--brand-100); color: var(--brand-700); }
+.gcal .c.harv { background: var(--brand-500); color: var(--ink-inverse); }
+
+/* Simple India map with region dots */
+.india-map { width: 100%; height: auto; display: block; }
+.india-map .land { fill: var(--brand-50); stroke: var(--ink-4); stroke-width: 0.8; }
+.india-map .dot { fill: var(--accent-500); }
+.india-map .dot-lg { r: 5; }
+.india-map .dot-md { r: 3.5; }
+.india-map .dot-sm { r: 2.5; }
+.india-map .lbl {
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 500; fill: var(--ink-2);
+  letter-spacing: -0.01em;
+}
+
+/* Spec list: icon + label + value */
+.spec-list { display: flex; flex-direction: column; gap: 6px; height: 100%; min-height: 0; justify-content: space-around; }
+.spec-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 8px;
+  background: var(--muted);
+  border-radius: 10px;
+}
+.spec-row .g {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--brand-700);
+  flex-shrink: 0;
+}
+.spec-row .l {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.spec-row .v {
+  font-family: var(--font-display);
+  font-size: 13.5px; font-weight: 500; color: var(--ink);
+  letter-spacing: -0.01em; line-height: 1.1; margin-top: 1px;
+}
+.spec-row .v .u { font-size: 10.5px; color: var(--ink-3); font-weight: 500; margin-left: 2px; }
+
+/* Compact plant-chip cloud (for companion/enemy/pest/disease tiles) */
+.plant-cloud {
+  display: flex; flex-wrap: wrap; gap: 5px;
+  align-content: flex-start;
+}
+.plant-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 9px 5px 6px;
+  border-radius: 999px;
+  background: var(--muted);
+  font-family: var(--font-display);
+  font-size: 11.5px; font-weight: 500; color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.plant-chip .g { font-size: 14px; line-height: 1; }
+.plant-chip.good { background: color-mix(in srgb, var(--brand-100) 70%, var(--surface)); }
+.plant-chip.bad  { background: color-mix(in srgb, var(--accent-100) 55%, var(--surface)); }
+
+/* Mobile: allow scroll, stack tiles */
+@media (max-width: 900px) {
+  .bento-page { height: auto; overflow: visible; }
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 220px;
+    grid-template-rows: none;
+  }
+  .tile.span-2, .tile.span-3, .tile.span-4 { grid-column: span 2; }
+  .gcal { grid-template-columns: 60px repeat(12, 1fr); }
+}
+@media (max-width: 560px) {
+  .bento-hero .title { font-size: 24px; }
+  .bento-hero .glyph { width: 52px; height: 52px; font-size: 32px; }
+  .bento-grid { grid-template-columns: 1fr; grid-template-rows: repeat(8, 200px); }
+}
+
+/* Month strip for seasonality / planting calendar */
+.months {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3px;
+  padding: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.months .m {
+  aspect-ratio: 1 / 1.15;
+  border-radius: 8px;
+  background: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 600;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.months .m.on { background: var(--brand-100); color: var(--brand-700); }
+.months .m.peak { background: var(--brand-500); color: var(--ink-inverse); }
+.months .m.warn { background: var(--highlight-100); color: var(--highlight-700); }
+
+/* Pair / avoid chip with reason */
+.pair-list { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.pair-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+.pair-item:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+.pair-item .g {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+  background: var(--muted);
+}
+.pair-item .name {
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 500; color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.pair-item .why {
+  font-size: 12px; color: var(--ink-2); margin-top: 3px; line-height: 1.5;
+}
+.pair-item.avoid { background: color-mix(in srgb, var(--accent-100) 30%, var(--surface)); border-color: color-mix(in srgb, var(--accent-500) 20%, var(--line)); }
+.pair-item.avoid .g { background: var(--accent-100); color: var(--accent-700); }
+
+/* Season strip on home */
+.season-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+.season-tile {
+  padding: 14px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex; align-items: center; gap: 10px;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+.season-tile:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+.season-tile .g {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  background: var(--brand-100);
+}
+.season-tile .l {
+  font-family: var(--font-display);
+  font-size: 14px; font-weight: 500; color: var(--ink);
+  line-height: 1.15;
+}
+.season-tile .s { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+
+/* Callout for scientific note */
+.note {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 14px 16px;
+  background: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-left: 3px solid var(--brand-500);
+  border-radius: 12px;
+}
+.note.warn { background: color-mix(in srgb, var(--highlight-100) 40%, var(--surface)); border-color: var(--highlight-100); border-left-color: var(--highlight-500); }
+.note.stop { background: color-mix(in srgb, var(--accent-100) 40%, var(--surface)); border-color: var(--accent-100); border-left-color: var(--accent-500); }
+.note .ic { color: var(--brand-700); flex-shrink: 0; margin-top: 2px; }
+.note.warn .ic { color: var(--highlight-700); }
+.note.stop .ic { color: var(--accent-700); }
+.note .t { font-family: var(--font-display); font-size: 14.5px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+.note .b { font-size: 13px; color: var(--ink-2); margin-top: 3px; line-height: 1.55; }
+
+/* Warm gradient backgrounds for ingredient hero */
+.grad-dairy    { background: linear-gradient(135deg, var(--wash-dairy), var(--wash-dairy-2)); }
+.grad-vegetable{ background: linear-gradient(135deg, var(--wash-vegetable), var(--wash-vegetable-2)); }
+.grad-legume   { background: linear-gradient(135deg, var(--wash-legume), var(--wash-legume-2)); }
+.grad-grain    { background: linear-gradient(135deg, var(--wash-grain), var(--wash-grain-2)); }
+.grad-spice    { background: linear-gradient(135deg, var(--wash-spice), var(--wash-spice-2)); }
+.grad-herb     { background: linear-gradient(135deg, var(--wash-herb), var(--wash-herb-2)); }
+.grad-fruit    { background: linear-gradient(135deg, var(--wash-fruit), var(--wash-fruit-2)); }
+.grad-plain    { background: linear-gradient(135deg, var(--wash-plain), var(--wash-plain-2)); }
+.grad-brand     { background: linear-gradient(135deg, var(--brand-100), var(--brand-200)); }
+/* The prototype used this name once and declared it nowhere, so it painted
+   nothing. The gradient is the one two other screens wrote inline. */
+.grad-highlight { background: linear-gradient(135deg, var(--highlight-100), var(--highlight-400)); }
+
+/* ============ JOURNEY CARD ICON TINTS ============ */
+/* The grounds a journey card's icon wears when no category gradient fits. */
+.journey-card .icon.tint-butter  { background: var(--highlight-100); color: var(--highlight-700); }
+.journey-card .icon.tint-dough   { background: var(--wash-dough);    color: var(--cat-grain-fg); }
+.journey-card .icon.tint-dough-6 { background: var(--wash-dough-6);  color: var(--cat-grain-fg); }
+.journey-card .icon.tint-legume  { background: var(--wash-legume);   color: var(--cat-grain-fg); }
+.journey-card .icon.tint-starter { background: var(--wash-starter);  color: var(--cat-legume-fg); }
+.journey-card .icon.glyph-34 { font-size: 34px; }
+.journey-card .icon.glyph-36 { font-size: 36px; }
+
+/* The two ingredients a pairing card puts side by side. */
+.pair-tile {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}

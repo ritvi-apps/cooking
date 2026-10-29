@@ -3,120 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ingredients — hamburg</title>
-  <meta name="description" content="What I know about each ingredient." />
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Ingredients</title>
+  <script src="../../_shell/boot.js"></script>
 </head>
-<body data-chrome data-file="ingredients/ingredients.html">
+<body data-page="ingredients/ingredients" data-status="review" data-journeys="Cook">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen">
+<c-site-nav active="ingredients" size="regular"></c-site-nav>
 
 <main class="mx-auto max-w-6xl px-5 py-10">
-  <div>
-    <p class="eyebrow">Encyclopedia</p>
-    <h1 class="h1 mt-2">Ingredients</h1>
-    <p class="mt-3 max-w-xl" style="font-size:16px;line-height:1.55;color:var(--ink-2);">
-      One page per ingredient. What it's good at, what it isn't, and what to do with it.
-    </p>
-  </div>
+  <c-page-head kicker="Encyclopedia" heading="Ingredients" lede="One page per ingredient. What it's good at, what it isn't, and what to do with it."></c-page-head>
 
   <div class="mt-6 h-scroll">
-    <button class="chip chip-brand">All · 6</button>
-    <button class="chip">🥛 Dairy</button>
-    <button class="chip">🥬 Vegetable</button>
-    <button class="chip">🫚 Aromatic</button>
-    <button class="chip">🌰 Spice</button>
+    <c-chip tone="brand" as="button">All · 6</c-chip>
+    <c-chip tone="plain" as="button">🥛 Dairy</c-chip>
+    <c-chip tone="plain" as="button">🥬 Vegetable</c-chip>
+    <c-chip tone="plain" as="button">🫚 Aromatic</c-chip>
+    <c-chip tone="plain" as="button">🌰 Spice</c-chip>
   </div>
 
   <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-    <a href="paneer.html" class="ing-tile">
-      <div class="glyph glyph-dairy">🧀</div>
-      <div class="label">Paneer</div>
-      <div class="sub">dairy · 1 recipe</div>
-    </a>
-    <a href="spinach.html" class="ing-tile">
-      <div class="glyph glyph-vegetable">🥬</div>
-      <div class="label">Spinach</div>
-      <div class="sub">vegetable · 1 recipe</div>
-    </a>
-    <a href="ginger.html" class="ing-tile">
-      <div class="glyph glyph-spice">🫚</div>
-      <div class="label">Ginger</div>
-      <div class="sub">aromatic · 1 recipe</div>
-    </a>
-    <a href="garlic.html" class="ing-tile">
-      <div class="glyph glyph-herb">🧄</div>
-      <div class="label">Garlic</div>
-      <div class="sub">aromatic · 1 recipe</div>
-    </a>
-    <a href="cumin.html" class="ing-tile">
-      <div class="glyph glyph-spice">🌰</div>
-      <div class="label">Cumin</div>
-      <div class="sub">spice · 1 recipe</div>
-    </a>
-    <a href="garam-masala.html" class="ing-tile">
-      <div class="glyph glyph-spice">🍂</div>
-      <div class="label">Garam masala</div>
-      <div class="sub">blend · 1 recipe</div>
-    </a>
+    <c-ing-tile cat="dairy" glyph="🧀" label="Paneer" sub="dairy · 1 recipe" href="paneer.html"></c-ing-tile>
+    <c-ing-tile cat="vegetable" glyph="🥬" label="Spinach" sub="vegetable · 1 recipe" href="spinach.html"></c-ing-tile>
+    <c-ing-tile cat="spice" glyph="🫚" label="Ginger" sub="aromatic · 1 recipe" href="ginger.html"></c-ing-tile>
+    <c-ing-tile cat="herb" glyph="🧄" label="Garlic" sub="aromatic · 1 recipe" href="garlic.html"></c-ing-tile>
+    <c-ing-tile cat="spice" glyph="🌰" label="Cumin" sub="spice · 1 recipe" href="cumin.html"></c-ing-tile>
+    <c-ing-tile cat="spice" glyph="🍂" label="Garam masala" sub="blend · 1 recipe" href="garam-masala.html"></c-ing-tile>
   </div>
 
-  <div class="mt-14 card-flat p-6 text-center">
-    <p class="eyebrow">Growing</p>
-    <p class="mt-2 font-display" style="font-size:20px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">
-      An ingredient gets a page the first time a recipe uses it.
-    </p>
-  </div>
+  <c-closing-note label="Growing" class="mt-14">An ingredient gets a page the first time a recipe uses it.</c-closing-note>
 </main>
 
-<footer class="footer-shell mt-20">
-  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <span class="brand-mark brand-mark--sm">h</span>
-      <span class="footer-line">
-        <b class="font-display text-ink">hamburg</b>
-        <span class="divider-dot"></span>
-        cook, learn, remember, publish
-      </span>
-    </div>
-    <div class="footer-links flex flex-wrap items-center gap-4">
-      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
-      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
-      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
-      <span class="text-ink-3">🌱 100% veg</span>
-    </div>
-  </div>
-</footer>
+<c-site-footer></c-site-footer>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

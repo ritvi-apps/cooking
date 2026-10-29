@@ -3,85 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dough — journey · hamburg</title>
-  <meta name="description" content="Flour + water + fat = a dozen breads. Every node is tappable." />
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Dough journey</title>
+  <script src="../../_shell/boot.js"></script>
 </head>
-<body data-chrome data-file="journeys/dough.html">
+<body data-page="journeys/dough" data-status="review">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen">
+<c-site-nav active="none" size="regular"></c-site-nav>
 
 <section class="mx-auto max-w-6xl px-5 pt-8 pb-4">
-  <div class="crumbs mb-4">
-    <a href="../home/home.html"><span><i data-lucide="house" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span> Home</a>
-    <span class="sep">/</span>
-    <a href="journeys.html">Journeys</a>
-    <span class="sep">/</span>
-    <span>Dough</span>
-  </div>
+  <c-crumbs home="../home/home.html" up="journeys.html" up-label="Journeys" here="Dough" class="mb-4"></c-crumbs>
 
-  <div class="card grad-grain p-6 md:p-8">
-    <div class="flex items-center gap-6 flex-wrap">
-      <div class="big-glyph" style="width:96px;height:96px;border-radius:24px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-size:56px;">🌾</div>
-      <div class="flex-1 min-w-[240px]">
-        <p class="eyebrow" style="color:var(--cat-grain-fg);">Dough · journey</p>
-        <h1 class="h1 mt-2">Flour + water = a dozen breads.</h1>
-        <p class="mt-3 max-w-xl" style="font-size:15.5px;line-height:1.55;color:var(--ink-2);">
-          One base dough. Different fats, different rests, different heat — five different meals.
-        </p>
-      </div>
-    </div>
-    <div class="mt-5 flex flex-wrap gap-2">
-      <span class="chip chip-white"><span><i data-lucide="wheat" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>Grain</span>
-      <span class="chip chip-white"><span><i data-lucide="clock" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>10 min mix + rest</span>
-      <span class="chip chip-white"><span><i data-lucide="waypoints" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>5 outputs</span>
-    </div>
-  </div>
+  <c-journey-hero glyph="🌾" tint="grain" tone="cat-grain-fg" kicker="Dough · journey" heading="Flour + water = a dozen breads." lede="One base dough. Different fats, different rests, different heat — five different meals.">
+      <c-chip tone="white" icon="wheat">Grain</c-chip>
+      <c-chip tone="white" icon="clock">10 min mix + rest</c-chip>
+      <c-chip tone="white" icon="waypoints">5 outputs</c-chip>
+    </c-journey-hero>
 </section>
 
 <!-- ============ THE GRAPH ============ -->
 <section class="mx-auto max-w-6xl px-5 py-4">
   <div class="card p-4 md:p-6">
-    <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
-      <div class="flex items-center gap-2">
-        <span style="color:var(--brand-500);"><i data-lucide="waypoints" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
-        <p class="eyebrow">The map</p>
-      </div>
-      <div class="flex items-center gap-3" style="font-size:11px;color:var(--ink-3);">
-        <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded-full" style="background:var(--brand-500);"></span>solid</span>
-        <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded-full" style="background:var(--highlight-500);"></span>learning</span>
-        <span class="flex items-center gap-1.5"><span class="inline-block w-2.5 h-2.5 rounded-full" style="background:var(--ink-3);"></span>todo</span>
-      </div>
-    </div>
+    <c-map-head label="The map" legend></c-map-head>
 
-    <p class="mb-3" style="font-size:12px;color:var(--ink-2);text-align:center;">
-      <span style="color:var(--brand-500);vertical-align:-2px;"><i data-lucide="target" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>
-      Every node is a link
-    </p>
+    <c-map-hint class="mb-3">Every node is a link</c-map-hint>
 
     <div style="overflow-x:auto;">
       <svg viewBox="0 0 980 560" style="display:block;width:100%;min-width:720px;height:auto;">
@@ -195,107 +142,34 @@
   <h2 class="h2 mt-2">Pick where to start</h2>
 
   <div class="mt-6 grid gap-4 md:grid-cols-2">
-    <a href="dough-to-chapati.html" class="journey-card">
-      <div class="icon grad-grain">🫓</div>
-      <div class="body">
-        <div class="flex items-center gap-2"><span class="title">Chapati / roti</span><span class="chip chip-highlight"><span><i data-lucide="hourglass" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>learning</span></div>
-        <div class="sub">Roll thin → dry tawa → flame puff. The weeknight bread.</div>
-        <div class="mt-2 flex flex-wrap gap-1.5">
-          <span class="chip"><span><i data-lucide="clock" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>3 min each</span>
-          <span class="chip chip-brand">very easy</span>
-        </div>
-      </div>
-      <span class="arrow"><span><i data-lucide="arrow-right" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></span>
-    </a>
-    <a href="dough-to-paratha.html" class="journey-card">
-      <div class="icon grad-grain">🥞</div>
-      <div class="body">
-        <div class="flex items-center gap-2"><span class="title">Paratha</span><span class="chip"><span><i data-lucide="dot" class="hb-icon w-[10px] h-[10px]" stroke-width="1.75"></i></span>todo</span></div>
-        <div class="sub">Layer with ghee → fold → roll → shallow fry. Weekend flake.</div>
-        <div class="mt-2 flex flex-wrap gap-1.5">
-          <span class="chip"><span><i data-lucide="clock" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>5 min each</span>
-        </div>
-      </div>
-      <span class="arrow"><span><i data-lucide="arrow-right" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></span>
-    </a>
-    <a href="dough-to-poori.html" class="journey-card">
-      <div class="icon grad-grain">🫓</div>
-      <div class="body">
-        <div class="flex items-center gap-2"><span class="title">Poori</span><span class="chip"><span><i data-lucide="dot" class="hb-icon w-[10px] h-[10px]" stroke-width="1.75"></i></span>todo</span></div>
-        <div class="sub">Roll small → drop in hot oil → puffs like a balloon.</div>
-        <div class="mt-2 flex flex-wrap gap-1.5">
-          <span class="chip"><span><i data-lucide="clock" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>1 min each</span>
-        </div>
-      </div>
-      <span class="arrow"><span><i data-lucide="arrow-right" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></span>
-    </a>
-    <a href="dough-to-pizza.html" class="journey-card">
-      <div class="icon grad-spice">🍕</div>
-      <div class="body">
-        <div class="flex items-center gap-2"><span class="title">Pizza base</span><span class="chip"><span><i data-lucide="dot" class="hb-icon w-[10px] h-[10px]" stroke-width="1.75"></i></span>todo</span></div>
-        <div class="sub">Maida + yeast + 1 hr rise. Blistered crust at home oven max.</div>
-        <div class="mt-2 flex flex-wrap gap-1.5">
-          <span class="chip"><span><i data-lucide="clock" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>1.5 hr total</span>
-        </div>
-      </div>
-      <span class="arrow"><span><i data-lucide="arrow-right" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></span>
-    </a>
-    <a href="dough-to-naan.html" class="journey-card">
-      <div class="icon grad-grain">🫓</div>
-      <div class="body">
-        <div class="flex items-center gap-2"><span class="title">Naan</span><span class="chip"><span><i data-lucide="dot" class="hb-icon w-[10px] h-[10px]" stroke-width="1.75"></i></span>todo</span></div>
-        <div class="sub">Yogurt-enriched dough → tawa flip trick for the tandoor puff.</div>
-        <div class="mt-2 flex flex-wrap gap-1.5">
-          <span class="chip"><span><i data-lucide="clock" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>2 hr rest</span>
-        </div>
-      </div>
-      <span class="arrow"><span><i data-lucide="arrow-right" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span></span>
-    </a>
+    <c-journey-card glyph="🫓" tint="grain" name="Chapati / roti" sub="Roll thin → dry tawa → flame puff. The weeknight bread." skill="learning" chips href="dough-to-chapati.html">
+          <c-chip tone="plain" icon="clock">3 min each</c-chip>
+          <c-chip tone="brand">very easy</c-chip>
+        </c-journey-card>
+    <c-journey-card glyph="🥞" tint="grain" name="Paratha" sub="Layer with ghee → fold → roll → shallow fry. Weekend flake." skill="todo" chips href="dough-to-paratha.html">
+          <c-chip tone="plain" icon="clock">5 min each</c-chip>
+        </c-journey-card>
+    <c-journey-card glyph="🫓" tint="grain" name="Poori" sub="Roll small → drop in hot oil → puffs like a balloon." skill="todo" chips href="dough-to-poori.html">
+          <c-chip tone="plain" icon="clock">1 min each</c-chip>
+        </c-journey-card>
+    <c-journey-card glyph="🍕" tint="spice" name="Pizza base" sub="Maida + yeast + 1 hr rise. Blistered crust at home oven max." skill="todo" chips href="dough-to-pizza.html">
+          <c-chip tone="plain" icon="clock">1.5 hr total</c-chip>
+        </c-journey-card>
+    <c-journey-card glyph="🫓" tint="grain" name="Naan" sub="Yogurt-enriched dough → tawa flip trick for the tandoor puff." skill="todo" chips href="dough-to-naan.html">
+          <c-chip tone="plain" icon="clock">2 hr rest</c-chip>
+        </c-journey-card>
   </div>
 </section>
 
 <!-- ============ THE ONE IDEA ============ -->
 <section class="mx-auto max-w-6xl px-5 py-6">
-  <div class="card-flat p-6 md:p-8">
-    <div class="flex items-start gap-4">
-      <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--brand-100);color:var(--brand-700);">
-        <span><i data-lucide="sparkles" class="hb-icon w-[22px] h-[22px]" stroke-width="1.75"></i></span>
-      </div>
-      <div>
-        <p class="eyebrow">The one idea</p>
-        <p class="mt-2 font-display" style="font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;line-height:1.4;max-width:720px;">
-          Dough is gluten holding air. Rest lets the gluten relax; heat sets it; fat or fold
-          creates layers. Everything else is the same dough treated differently.
-        </p>
-      </div>
-    </div>
-  </div>
+  <c-one-idea icon="sparkles" label="The one idea">Dough is gluten holding air. Rest lets the gluten relax; heat sets it; fat or fold creates layers. Everything else is the same dough treated differently.</c-one-idea>
 </section>
 
-<footer class="footer-shell mt-20">
-  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <span class="brand-mark brand-mark--sm">h</span>
-      <span class="footer-line">
-        <b class="font-display text-ink">hamburg</b>
-        <span class="divider-dot"></span>
-        cook, learn, remember, publish
-      </span>
-    </div>
-    <div class="footer-links flex flex-wrap items-center gap-4">
-      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
-      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
-      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
-      <span class="text-ink-3">🌱 100% veg</span>
-    </div>
-  </div>
-</footer>
+<c-site-footer></c-site-footer>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

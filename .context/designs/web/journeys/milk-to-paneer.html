@@ -3,65 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Milk → Paneer · hamburg</title>
-  <meta name="description" content="Turn 1L of whole milk into 200g of fresh paneer, in 30 minutes." />
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Milk → Paneer</title>
+  <script src="../../_shell/boot.js"></script>
 </head>
-<body data-chrome data-file="journeys/milk-to-paneer.html">
+<body data-page="journeys/milk-to-paneer" data-status="review" data-journeys="Learn">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen">
+<c-site-nav active="none" size="regular"></c-site-nav>
 
 <!-- ============ HERO ============ -->
 <section class="mx-auto max-w-3xl px-5 pt-8 pb-4">
-  <div class="flex items-center gap-2 text-base mb-4">
-    <a href="milk.html" class="nav-pill" style="padding:4px 10px;font-size:12px;">← Milk journey</a>
-  </div>
+  <c-back-pill back="milk.html" label="Milk journey"></c-back-pill>
 
-  <div class="card grad-dairy p-6 md:p-8">
-    <div class="flex items-center gap-4">
-      <span style="font-size:44px;">🥛</span>
-      <span style="font-size:26px;color:var(--ink-3);">→</span>
-      <span style="font-size:44px;">🧀</span>
-    </div>
-    <p class="eyebrow mt-4" style="color:var(--cat-dairy);">Milk → paneer</p>
-    <h1 class="h1 mt-2">Make paneer in 30 minutes.</h1>
-    <p class="mt-3" style="font-size:15.5px;line-height:1.55;color:var(--ink-2);max-width:520px;">
-      Split milk with an acid, drain, press. That's the whole thing.
-    </p>
-  </div>
+  <c-transform-hero arrow="text" from="🥛" to="🧀" tint="dairy" tone="cat-dairy" kicker="Milk → paneer" heading="Make paneer in 30 minutes." lede="Split milk with an acid, drain, press. That's the whole thing."></c-transform-hero>
 </section>
 
 <!-- ============ QUICK FACTS ============ -->
 <section class="mx-auto max-w-3xl px-5 py-4">
   <div class="grid grid-cols-4 gap-2">
-    <div class="stat"><span class="k">Time</span><span class="v">30 min</span></div>
-    <div class="stat"><span class="k">Yield</span><span class="v">~200 g</span></div>
-    <div class="stat"><span class="k">Difficulty</span><span class="v">Easy</span></div>
-    <div class="stat"><span class="k">Skill</span><span class="v" style="color:var(--brand-700);">Solid ✓</span></div>
+    <c-stat label="Time" value="30 min" tone="plain"></c-stat>
+    <c-stat label="Yield" value="~200 g" tone="plain"></c-stat>
+    <c-stat label="Difficulty" value="Easy" tone="plain"></c-stat>
+    <c-stat label="Skill" value="Solid ✓" tone="brand"></c-stat>
   </div>
 </section>
 
@@ -69,27 +34,9 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">What you need</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-3">
-    <div class="card p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🥛</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Whole milk</p>
-        <p style="font-size:12px;color:var(--ink-2);">1 litre · full fat</p>
-      </div>
-    </div>
-    <div class="card p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🍋</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Lemon</p>
-        <p style="font-size:12px;color:var(--ink-2);">2 tbsp juice</p>
-      </div>
-    </div>
-    <div class="card p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🧻</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Muslin cloth</p>
-        <p style="font-size:12px;color:var(--ink-2);">+ colander, weight</p>
-      </div>
-    </div>
+    <c-item-card glyph="🥛" name="Whole milk" amount="1 litre · full fat"></c-item-card>
+    <c-item-card glyph="🍋" name="Lemon" amount="2 tbsp juice"></c-item-card>
+    <c-item-card glyph="🧻" name="Muslin cloth" amount="+ colander, weight"></c-item-card>
   </div>
 </section>
 
@@ -98,86 +45,37 @@
   <p class="eyebrow">Do this</p>
 
   <div class="mt-4 space-y-3">
-    <div class="step">
-      <div class="numeral">1</div>
-      <div>
-        <p class="head">Boil the milk 🔥</p>
-        <p class="cue">Medium heat. Big lazy bubbles = ready.</p>
-        <div class="meta">
-          <span class="chip">~10 min</span>
-          <span class="chip chip-accent">🥄 stir often</span>
-        </div>
-      </div>
-    </div>
+    <c-step n="1" head="Boil the milk 🔥" cue="Medium heat. Big lazy bubbles = ready." meta>
+          <c-chip tone="plain">~10 min</c-chip>
+          <c-chip tone="accent">🥄 stir often</c-chip>
+        </c-step>
 
-    <div class="step">
-      <div class="numeral">2</div>
-      <div>
-        <p class="head">Kill the heat, wait 30 seconds ⏸</p>
-        <p class="cue">The "shivering point." Hot but not raging.</p>
-        <div class="meta">
-          <span class="chip">30 sec</span>
-        </div>
-      </div>
-    </div>
+    <c-step n="2" head="Kill the heat, wait 30 seconds ⏸" cue="The &quot;shivering point.&quot; Hot but not raging." meta>
+          <c-chip tone="plain">30 sec</c-chip>
+        </c-step>
 
-    <div class="step">
-      <div class="numeral">3</div>
-      <div>
-        <p class="head">Add lemon, one tbsp at a time 🍋</p>
-        <p class="cue">Stir gently. Stop when the whey turns clear yellow-green.</p>
-        <div class="meta">
-          <span class="chip">2 min</span>
-          <span class="chip chip-highlight">⚠ don't dump it all in</span>
-        </div>
-      </div>
-    </div>
+    <c-step n="3" head="Add lemon, one tbsp at a time 🍋" cue="Stir gently. Stop when the whey turns clear yellow-green." meta>
+          <c-chip tone="plain">2 min</c-chip>
+          <c-chip tone="highlight">⚠ don't dump it all in</c-chip>
+        </c-step>
 
-    <div class="step">
-      <div class="numeral">4</div>
-      <div>
-        <p class="head">Rest 5 minutes 🧘</p>
-        <p class="cue">Curds firm up. Don't stir.</p>
-        <div class="meta">
-          <span class="chip">5 min</span>
-        </div>
-      </div>
-    </div>
+    <c-step n="4" head="Rest 5 minutes 🧘" cue="Curds firm up. Don't stir." meta>
+          <c-chip tone="plain">5 min</c-chip>
+        </c-step>
 
-    <div class="step">
-      <div class="numeral">5</div>
-      <div>
-        <p class="head">Strain through muslin 💧</p>
-        <p class="cue">Save the whey — knead into roti dough, water your plants.</p>
-        <div class="meta">
-          <span class="chip">2 min</span>
-          <span class="chip chip-brand">♻ save the whey</span>
-        </div>
-      </div>
-    </div>
+    <c-step n="5" head="Strain through muslin 💧" cue="Save the whey — knead into roti dough, water your plants." meta>
+          <c-chip tone="plain">2 min</c-chip>
+          <c-chip tone="brand">♻ save the whey</c-chip>
+        </c-step>
 
-    <div class="step">
-      <div class="numeral">6</div>
-      <div>
-        <p class="head">Rinse with cold water 🚿</p>
-        <p class="cue">Washes off residual acid. Skip this → sour paneer.</p>
-        <div class="meta">
-          <span class="chip">1 min</span>
-        </div>
-      </div>
-    </div>
+    <c-step n="6" head="Rinse with cold water 🚿" cue="Washes off residual acid. Skip this → sour paneer." meta>
+          <c-chip tone="plain">1 min</c-chip>
+        </c-step>
 
-    <div class="step">
-      <div class="numeral">7</div>
-      <div>
-        <p class="head">Twist, press, wait ⚖</p>
-        <p class="cue">Cubes → 30 min under 2 kg. Grilling → 2 hours. Bhurji → skip pressing.</p>
-        <div class="meta">
-          <span class="chip">30 min – 2 hr</span>
-          <span class="chip">choose your press</span>
-        </div>
-      </div>
-    </div>
+    <c-step n="7" head="Twist, press, wait ⚖" cue="Cubes → 30 min under 2 kg. Grilling → 2 hours. Bhurji → skip pressing." meta>
+          <c-chip tone="plain">30 min – 2 hr</c-chip>
+          <c-chip tone="plain">choose your press</c-chip>
+        </c-step>
   </div>
 </section>
 
@@ -185,21 +83,9 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">Choose your acid</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-3">
-    <div class="card p-4">
-      <span style="font-size:26px;">🍋</span>
-      <p class="font-display mt-2" style="font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Lemon</p>
-      <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Softest texture. Slight citrus note. My default.</p>
-    </div>
-    <div class="card p-4">
-      <span style="font-size:26px;">🧪</span>
-      <p class="font-display mt-2" style="font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">White vinegar</p>
-      <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Firmer. Cleaner flavour. Best for grilling.</p>
-    </div>
-    <div class="card p-4">
-      <span style="font-size:26px;">♻</span>
-      <p class="font-display mt-2" style="font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Old whey</p>
-      <p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Traditional. Softer curds. Zero waste.</p>
-    </div>
+    <c-idea-card size="md" glyph="🍋" heading="Lemon" text="Softest texture. Slight citrus note. My default."></c-idea-card>
+    <c-idea-card size="md" glyph="🧪" heading="White vinegar" text="Firmer. Cleaner flavour. Best for grilling."></c-idea-card>
+    <c-idea-card size="md" glyph="♻" heading="Old whey" text="Traditional. Softer curds. Zero waste."></c-idea-card>
   </div>
 </section>
 
@@ -207,27 +93,9 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">If something goes wrong</p>
   <div class="mt-4 grid gap-3">
-    <div class="card p-4 flex gap-3 items-start">
-      <span style="font-size:22px;">😰</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Milk didn't split</p>
-        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;">Add another tablespoon of acid. If it still won't budge → milk is ultra-pasteurized; try a fresher brand next time.</p>
-      </div>
-    </div>
-    <div class="card p-4 flex gap-3 items-start">
-      <span style="font-size:22px;">🥶</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Paneer is rubbery</p>
-        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;">You skipped the rinse or pressed too hard. Ease off next time.</p>
-      </div>
-    </div>
-    <div class="card p-4 flex gap-3 items-start">
-      <span style="font-size:22px;">😖</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Tastes sour</p>
-        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;">Too much acid. Rinse the curds better and stop the moment whey turns clear.</p>
-      </div>
-    </div>
+    <c-tip-card glyph="😰" heading="Milk didn't split" text="Add another tablespoon of acid. If it still won't budge → milk is ultra-pasteurized; try a fresher brand next time."></c-tip-card>
+    <c-tip-card glyph="🥶" heading="Paneer is rubbery" text="You skipped the rinse or pressed too hard. Ease off next time."></c-tip-card>
+    <c-tip-card glyph="😖" heading="Tastes sour" text="Too much acid. Rinse the curds better and stop the moment whey turns clear."></c-tip-card>
   </div>
 </section>
 
@@ -235,22 +103,8 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">Now that you have paneer</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-2">
-    <a href="../recipes/palak-paneer.html" class="journey-card">
-      <div class="icon grad-vegetable">🥬</div>
-      <div class="body">
-        <div class="title">Palak paneer</div>
-        <div class="sub">Bright spinach gravy, cubed paneer.</div>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="../ingredients/paneer.html" class="journey-card">
-      <div class="icon grad-dairy">🧀</div>
-      <div class="body">
-        <div class="title">About paneer</div>
-        <div class="sub">Pros, cons, how to store it, what it pairs with.</div>
-      </div>
-      <span class="arrow">→</span>
-    </a>
+    <c-journey-card arrow="text" glyph="🥬" tint="vegetable" name="Palak paneer" sub="Bright spinach gravy, cubed paneer." href="../recipes/palak-paneer.html"></c-journey-card>
+    <c-journey-card arrow="text" glyph="🧀" tint="dairy" name="About paneer" sub="Pros, cons, how to store it, what it pairs with." href="../ingredients/paneer.html" data-link="side"></c-journey-card>
   </div>
 </section>
 
@@ -258,51 +112,15 @@
 <section class="mx-auto max-w-3xl px-5 py-6 pb-10">
   <p class="eyebrow">Learned from</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-2">
-    <a href="#" class="card card-hover p-4 flex gap-3 items-start">
-      <div class="w-20 h-14 rounded flex items-center justify-center flex-shrink-0 grad-spice text-white">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="min-w-0 flex-1">
-        <p class="font-display" style="font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;letter-spacing:-0.01em;">Perfect paneer, every time</p>
-        <p class="mt-1" style="font-size:11.5px;color:var(--ink-2);">Hebbar's Kitchen · 6 min</p>
-      </div>
-    </a>
-    <a href="#" class="card card-hover p-4 flex gap-3 items-start">
-      <div class="w-20 h-14 rounded flex items-center justify-center flex-shrink-0 grad-dairy text-white">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="min-w-0 flex-1">
-        <p class="font-display" style="font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;letter-spacing:-0.01em;">The paneer that broke me — and the fix</p>
-        <p class="mt-1" style="font-size:11.5px;color:var(--ink-2);">Ranveer Brar · 12 min</p>
-      </div>
-    </a>
+    <c-video-card tint="spice" heading="Perfect paneer, every time" byline="Hebbar's Kitchen · 6 min" href="#"></c-video-card>
+    <c-video-card tint="dairy" heading="The paneer that broke me — and the fix" byline="Ranveer Brar · 12 min" href="#"></c-video-card>
   </div>
 </section>
 
-<footer class="footer-shell mt-20">
-  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <span class="brand-mark brand-mark--sm">h</span>
-      <span class="footer-line">
-        <b class="font-display text-ink">hamburg</b>
-        <span class="divider-dot"></span>
-        cook, learn, remember, publish
-      </span>
-    </div>
-    <div class="footer-links flex flex-wrap items-center gap-4">
-      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
-      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
-      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
-      <span class="text-ink-3">🌱 100% veg</span>
-    </div>
-  </div>
-</footer>
+<c-site-footer></c-site-footer>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

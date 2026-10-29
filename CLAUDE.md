@@ -6,7 +6,7 @@ hamburg is a kitchen companion: deep guides to ingredients, what each one
 becomes, and what pairs with it. 100% vegetarian. See `README.md`.
 
 **Status:** design only. There is no application and nothing is deployed. The
-static design set in `.context/designs/web/` is the product's only source of
+static design set in `.context/designs/` is the product's only source of
 truth.
 
 ## Layout
@@ -20,8 +20,8 @@ AGENTS.md      the agent contract (imported above)
 
 ## Stack
 
-- **Markup:** static HTML, one screen per file
-- **Styling:** Tailwind via the pinned CDN, plus `shared.css`
+- **Markup:** static HTML, one page per file, built from components (a Babul set)
+- **Styling:** Tailwind via the pinned CDN, `tokens.js`, plus `web/styles.css`
 - **Icons:** lucide, by name
 - **Behaviour:** none. No script renders a screen
 

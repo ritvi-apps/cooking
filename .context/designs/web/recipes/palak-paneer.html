@@ -3,43 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Palak paneer · hamburg</title>
-  <meta name="description" content="Bright spinach gravy, cubed paneer, no cream. The version I actually make." />
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Palak paneer</title>
+  <script src="../../_shell/boot.js"></script>
 </head>
-<body data-chrome data-file="recipes/palak-paneer.html">
+<body data-page="recipes/palak-paneer" data-status="review" data-end data-journeys="Cook">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen">
+<c-site-nav active="none" size="regular"></c-site-nav>
 
 <!-- ============ HERO ============ -->
 <section class="mx-auto max-w-3xl px-5 pt-8 pb-4">
-  <div class="flex items-center gap-2 text-base mb-4">
-    <a href="recipes.html" class="nav-pill" style="padding:4px 10px;font-size:12px;">← Recipes</a>
-  </div>
+  <c-back-pill back="recipes.html" label="Recipes"></c-back-pill>
 
   <div class="card grad-vegetable p-6 md:p-8">
     <div class="flex items-center gap-3 flex-wrap">
@@ -59,10 +35,10 @@
 <!-- ============ STATS ============ -->
 <section class="mx-auto max-w-3xl px-5 py-4">
   <div class="grid grid-cols-4 gap-2">
-    <div class="stat"><span class="k">Serves</span><span class="v">4</span></div>
-    <div class="stat"><span class="k">Prep</span><span class="v">15 min</span></div>
-    <div class="stat"><span class="k">Cook</span><span class="v">30 min</span></div>
-    <div class="stat"><span class="k">Difficulty</span><span class="v">Easy</span></div>
+    <c-stat label="Serves" value="4" tone="plain"></c-stat>
+    <c-stat label="Prep" value="15 min" tone="plain"></c-stat>
+    <c-stat label="Cook" value="30 min" tone="plain"></c-stat>
+    <c-stat label="Difficulty" value="Easy" tone="plain"></c-stat>
   </div>
 </section>
 
@@ -70,54 +46,12 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">What you need</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-2">
-    <a href="../ingredients/paneer.html" class="card card-hover p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🧀</span>
-      <div class="flex-1 min-w-0">
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Paneer</p>
-        <p style="font-size:12px;color:var(--ink-2);">250 g · cubed</p>
-      </div>
-      <span style="font-size:16px;color:var(--brand-500);">→</span>
-    </a>
-    <a href="../ingredients/spinach.html" class="card card-hover p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🥬</span>
-      <div class="flex-1 min-w-0">
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Spinach</p>
-        <p style="font-size:12px;color:var(--ink-2);">500 g · fresh</p>
-      </div>
-      <span style="font-size:16px;color:var(--brand-500);">→</span>
-    </a>
-    <a href="../ingredients/ginger.html" class="card card-hover p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🫚</span>
-      <div class="flex-1 min-w-0">
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Ginger</p>
-        <p style="font-size:12px;color:var(--ink-2);">1 inch</p>
-      </div>
-      <span style="font-size:16px;color:var(--brand-500);">→</span>
-    </a>
-    <a href="../ingredients/garlic.html" class="card card-hover p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🧄</span>
-      <div class="flex-1 min-w-0">
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Garlic</p>
-        <p style="font-size:12px;color:var(--ink-2);">4 cloves</p>
-      </div>
-      <span style="font-size:16px;color:var(--brand-500);">→</span>
-    </a>
-    <a href="../ingredients/cumin.html" class="card card-hover p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🌰</span>
-      <div class="flex-1 min-w-0">
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Cumin seeds</p>
-        <p style="font-size:12px;color:var(--ink-2);">1 tsp</p>
-      </div>
-      <span style="font-size:16px;color:var(--brand-500);">→</span>
-    </a>
-    <a href="../ingredients/garam-masala.html" class="card card-hover p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🍂</span>
-      <div class="flex-1 min-w-0">
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Garam masala</p>
-        <p style="font-size:12px;color:var(--ink-2);">1 tsp</p>
-      </div>
-      <span style="font-size:16px;color:var(--brand-500);">→</span>
-    </a>
+    <c-item-card variant="link" glyph="🧀" name="Paneer" amount="250 g · cubed" href="../ingredients/paneer.html" data-link="side"></c-item-card>
+    <c-item-card variant="link" glyph="🥬" name="Spinach" amount="500 g · fresh" href="../ingredients/spinach.html" data-link="side"></c-item-card>
+    <c-item-card variant="link" glyph="🫚" name="Ginger" amount="1 inch" href="../ingredients/ginger.html" data-link="side"></c-item-card>
+    <c-item-card variant="link" glyph="🧄" name="Garlic" amount="4 cloves" href="../ingredients/garlic.html" data-link="side"></c-item-card>
+    <c-item-card variant="link" glyph="🌰" name="Cumin seeds" amount="1 tsp" href="../ingredients/cumin.html" data-link="side"></c-item-card>
+    <c-item-card variant="link" glyph="🍂" name="Garam masala" amount="1 tsp" href="../ingredients/garam-masala.html" data-link="side"></c-item-card>
   </div>
 
   <div class="mt-4 card p-3 flex items-center justify-between gap-3 flex-wrap">
@@ -129,57 +63,13 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">Do this</p>
   <div class="mt-4 space-y-3">
-    <div class="step">
-      <div class="numeral">1</div>
-      <div>
-        <p class="head">Blanch the spinach 💧</p>
-        <p class="cue">Salted boiling water → 45 sec → ice bath. Locks the green.</p>
-        <div class="meta"><span class="chip chip-highlight">⚠ don't skip the shock</span></div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">2</div>
-      <div>
-        <p class="head">Blend cold, keep it coarse 🌀</p>
-        <p class="cue">Spinach + green chilli + half the ginger-garlic + 2 tbsp water. 10 sec pulse only.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">3</div>
-      <div>
-        <p class="head">Bloom cumin in ghee 🔥</p>
-        <p class="cue">Cumin crackles → add onion. Cook translucent, not brown.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">4</div>
-      <div>
-        <p class="head">Ginger-garlic + tomato 🍅</p>
-        <p class="cue">Cook until fat pools at the edges. That's the "masala ready" cue.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">5</div>
-      <div>
-        <p class="head">Kill the heat before adding spinach 🛑</p>
-        <p class="cue">Spinach loves low heat. Add blend, stir, turn back to low, simmer 4–5 min.</p>
-        <div class="meta"><span class="chip chip-accent">🎯 this is the recipe</span></div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">6</div>
-      <div>
-        <p class="head">Fold in paneer 🧀</p>
-        <p class="cue">Gently. Simmer 2 min max — longer turns it squeaky.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">7</div>
-      <div>
-        <p class="head">Finish, rest, serve 🍽</p>
-        <p class="cue">Kasuri methi (crushed), garam masala, a knob of butter. Off heat. Rest 5 min.</p>
-      </div>
-    </div>
+    <c-step n="1" head="Blanch the spinach 💧" cue="Salted boiling water → 45 sec → ice bath. Locks the green." meta><c-chip tone="highlight">⚠ don't skip the shock</c-chip></c-step>
+    <c-step n="2" head="Blend cold, keep it coarse 🌀" cue="Spinach + green chilli + half the ginger-garlic + 2 tbsp water. 10 sec pulse only."></c-step>
+    <c-step n="3" head="Bloom cumin in ghee 🔥" cue="Cumin crackles → add onion. Cook translucent, not brown."></c-step>
+    <c-step n="4" head="Ginger-garlic + tomato 🍅" cue="Cook until fat pools at the edges. That's the &quot;masala ready&quot; cue."></c-step>
+    <c-step n="5" head="Kill the heat before adding spinach 🛑" cue="Spinach loves low heat. Add blend, stir, turn back to low, simmer 4–5 min." meta><c-chip tone="accent">🎯 this is the recipe</c-chip></c-step>
+    <c-step n="6" head="Fold in paneer 🧀" cue="Gently. Simmer 2 min max — longer turns it squeaky."></c-step>
+    <c-step n="7" head="Finish, rest, serve 🍽" cue="Kasuri methi (crushed), garam masala, a knob of butter. Off heat. Rest 5 min."></c-step>
   </div>
 </section>
 
@@ -187,27 +77,9 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">Notes for future me</p>
   <div class="mt-4 grid gap-3">
-    <div class="card p-4 flex gap-3 items-start">
-      <span style="font-size:22px;">💡</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Blend cold, cook low</p>
-        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;">First time I blended spinach hot → army-green sludge. Cold blend + low heat = bright and grassy.</p>
-      </div>
-    </div>
-    <div class="card p-4 flex gap-3 items-start">
-      <span style="font-size:22px;">🚫</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Skip the cream</p>
-        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;">Restaurant habit. At home the ghee + butter finish is enough.</p>
-      </div>
-    </div>
-    <div class="card p-4 flex gap-3 items-start">
-      <span style="font-size:22px;">📦</span>
-      <div>
-        <p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Meal-prep tip</p>
-        <p style="font-size:13px;color:var(--ink-2);line-height:1.5;">Gravy holds 3 days. Add paneer only when reheating — pre-cooked paneer turns rubbery.</p>
-      </div>
-    </div>
+    <c-tip-card glyph="💡" heading="Blend cold, cook low" text="First time I blended spinach hot → army-green sludge. Cold blend + low heat = bright and grassy."></c-tip-card>
+    <c-tip-card glyph="🚫" heading="Skip the cream" text="Restaurant habit. At home the ghee + butter finish is enough."></c-tip-card>
+    <c-tip-card glyph="📦" heading="Meal-prep tip" text="Gravy holds 3 days. Add paneer only when reheating — pre-cooked paneer turns rubbery."></c-tip-card>
   </div>
 </section>
 
@@ -215,9 +87,9 @@
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">Try it different</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-3">
-    <div class="card p-4"><span style="font-size:28px;">🌱</span><p class="font-display mt-2" style="font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Palak tofu</p><p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Straight 1:1 sub for vegan. Press the tofu.</p></div>
-    <div class="card p-4"><span style="font-size:28px;">🌽</span><p class="font-display mt-2" style="font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Palak corn</p><p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">Add sweet corn in step 6. Kid-friendly.</p></div>
-    <div class="card p-4"><span style="font-size:28px;">🍶</span><p class="font-display mt-2" style="font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Restaurant-y</p><p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;">2 tbsp cream in step 7. Heavier finish.</p></div>
+    <c-idea-card size="lg" glyph="🌱" heading="Palak tofu" text="Straight 1:1 sub for vegan. Press the tofu."></c-idea-card>
+    <c-idea-card size="lg" glyph="🌽" heading="Palak corn" text="Add sweet corn in step 6. Kid-friendly."></c-idea-card>
+    <c-idea-card size="lg" glyph="🍶" heading="Restaurant-y" text="2 tbsp cream in step 7. Heavier finish."></c-idea-card>
   </div>
 </section>
 
@@ -225,43 +97,15 @@
 <section class="mx-auto max-w-3xl px-5 py-6 pb-10">
   <p class="eyebrow">See also</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-2">
-    <a href="../journeys/milk-to-paneer.html" class="journey-card">
-      <div class="icon grad-dairy">🧀</div>
-      <div class="body"><div class="title">Make paneer at home</div><div class="sub">The technique behind the star ingredient.</div></div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="../journeys/milk.html" class="journey-card">
-      <div class="icon grad-dairy">🥛</div>
-      <div class="body"><div class="title">Milk — full journey</div><div class="sub">Everything milk becomes.</div></div>
-      <span class="arrow">→</span>
-    </a>
+    <c-journey-card arrow="text" glyph="🧀" tint="dairy" name="Make paneer at home" sub="The technique behind the star ingredient." href="../journeys/milk-to-paneer.html" data-link="side"></c-journey-card>
+    <c-journey-card arrow="text" glyph="🥛" tint="dairy" name="Milk — full journey" sub="Everything milk becomes." href="../journeys/milk.html" data-link="side"></c-journey-card>
   </div>
 </section>
 
-<footer class="footer-shell mt-20">
-  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <span class="brand-mark brand-mark--sm">h</span>
-      <span class="footer-line">
-        <b class="font-display text-ink">hamburg</b>
-        <span class="divider-dot"></span>
-        cook, learn, remember, publish
-      </span>
-    </div>
-    <div class="footer-links flex flex-wrap items-center gap-4">
-      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
-      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
-      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
-      <span class="text-ink-3">🌱 100% veg</span>
-    </div>
-  </div>
-</footer>
+<c-site-footer></c-site-footer>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

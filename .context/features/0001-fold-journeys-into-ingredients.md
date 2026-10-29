@@ -5,7 +5,7 @@ status: building
 last-verified: 2026-10-04
 release: null
 superseded-by: null
-surfaces: ["[[home]]", "[[journeys]]", "[[milk]]", "[[dough]]", "[[sourdough]]"]
+surfaces: ["[[home]]", "[[journeys]]"]
 ---
 
 # Fold journeys into ingredients

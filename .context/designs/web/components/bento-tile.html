@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>hamburg — BentoTile</title>
+  <script src="../../_shell/boot.js" data-view="components"></script>
+</head>
+<body data-component="bento-tile" data-group="Layout">
+
+<div class="cells">
+  <c-bento-tile n="1" label="Sowing & harvest · India" class="w-[300px] h-[220px]">
+    <div class="body" style="justify-content:space-between;">
+      <div class="gcal">
+        <!-- Header row -->
+        <div class="h"></div>
+        <div class="h">Jan</div><div class="h">Feb</div><div class="h">Mar</div>
+        <div class="h">Apr</div><div class="h">May</div><div class="h">Jun</div>
+        <div class="h">Jul</div><div class="h">Aug</div><div class="h">Sep</div>
+        <div class="h">Oct</div><div class="h">Nov</div><div class="h">Dec</div>
+
+        <!-- Kharif: Jun-Jul sow, Aug grow, Sep-Oct harvest -->
+        <div class="sn kharif">Kharif</div>
+        <div class="c"></div><div class="c"></div><div class="c"></div>
+        <div class="c"></div><div class="c"></div>
+        <div class="c sow">S</div><div class="c sow">S</div>
+        <div class="c growing">G</div>
+        <div class="c harv">H</div><div class="c harv">H</div>
+        <div class="c"></div><div class="c"></div>
+
+        <!-- Rabi: Oct-Nov sow, Dec grow, Jan-Feb harvest -->
+        <div class="sn rabi">Rabi</div>
+        <div class="c harv">H</div><div class="c harv">H</div>
+        <div class="c"></div><div class="c"></div><div class="c"></div>
+        <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+        <div class="c sow">S</div><div class="c sow">S</div>
+        <div class="c growing">G</div>
+
+        <!-- Zaid: Jan-Feb sow, Mar grow, Apr-May harvest -->
+        <div class="sn zaid">Zaid</div>
+        <div class="c sow">S</div><div class="c sow">S</div>
+        <div class="c growing">G</div>
+        <div class="c harv">H</div><div class="c harv">H</div>
+        <div class="c"></div><div class="c"></div>
+        <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+      </div>
+
+      <c-grow-legend style="justify-content:center;gap:14px;margin-top:8px;"></c-grow-legend>
+    </div>
+  </c-bento-tile>
+</div>
+
+</body>
+</html>

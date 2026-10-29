@@ -3,51 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tomato — hamburg</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Tomato</title>
+  <script src="../../_shell/boot.js"></script>
 </head>
-<body data-chrome data-file="ingredients/tomato.html">
+<body data-page="ingredients/tomato" data-status="review">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame bento-page">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen bento-page">
+<c-site-nav active="ingredients" size="compact"></c-site-nav>
 
 <!-- ============ HERO ============ -->
-<div class="bento-hero">
-  <div class="glyph grad-spice">🍅</div>
-  <div class="flex-1 min-w-0">
-    <div class="title">Tomato</div>
-    <div class="sub">
-      <span class="chip chip-brand" style="padding:2px 8px;font-size:10.5px;">Kharif · Rabi · Zaid</span>
-      <span class="chip" style="padding:2px 8px;font-size:10.5px;">60 – 100 days</span>
-      <span class="chip" style="padding:2px 8px;font-size:10.5px;">21 – 27 °C</span>
-    </div>
-  </div>
-  <a href="../pairings/pairings.html" class="btn btn-white btn-sm">Pairings</a>
-  <a href="ingredients.html" class="btn btn-white btn-sm">All ingredients</a>
-</div>
+<c-bento-hero glyph="🍅" tint="spice" heading="Tomato">
+      <c-chip tone="brand" style="padding:2px 8px;font-size:10.5px;">Kharif · Rabi · Zaid</c-chip>
+      <c-chip tone="plain" style="padding:2px 8px;font-size:10.5px;">60 – 100 days</c-chip>
+      <c-chip tone="plain" style="padding:2px 8px;font-size:10.5px;">21 – 27 °C</c-chip>
+    <a slot="end" href="../pairings/pairings.html" class="btn btn-white btn-sm" data-link="side">Pairings</a><a slot="end" href="ingredients.html" class="btn btn-white btn-sm" data-link="back">All ingredients</a></c-bento-hero>
 
 <!-- ============ BENTO GRID (5 tiles, 4 col × 3 row) ============ -->
 <div class="bento-grid" style="grid-template-rows: repeat(3, 1fr);">
@@ -74,120 +45,108 @@
         <div class="m"      title="Rabi grow">Dec</div>
       </div>
       <div class="season-row">
-        <span class="season-pill kharif">KHARIF <span class="r">Jun – Sep</span></span>
-        <span class="season-pill rabi">RABI <span class="r">Oct – Feb</span></span>
-        <span class="season-pill zaid">ZAID <span class="r">Mar – May</span></span>
+        <c-season-pill season="kharif" label="KHARIF" months="Jun – Sep"></c-season-pill>
+        <c-season-pill season="rabi" label="RABI" months="Oct – Feb"></c-season-pill>
+        <c-season-pill season="zaid" label="ZAID" months="Mar – May"></c-season-pill>
       </div>
-      <div class="mini-legend" style="margin-top:auto;">
-        <span><i style="background:var(--highlight-500);"></i>Sow</span>
-        <span><i style="background:var(--brand-100);"></i>Grow</span>
-        <span><i style="background:var(--brand-500);"></i>Harvest</span>
-        <span style="margin-left:auto;">
-          <span class="chip" style="padding:2px 7px;font-size:10px;"><span><i data-lucide="sun" class="hb-icon w-[10px] h-[10px]" stroke-width="1.75"></i></span>6 hrs</span>
-          <span class="chip" style="padding:2px 7px;font-size:10px;">pH 6 – 6.8</span>
-        </span>
-      </div>
+      <c-grow-legend style="margin-top:auto;"><span style="margin-left:auto;">
+          <c-chip tone="plain" icon="sun" small style="padding:2px 7px;font-size:10px;">6 hrs</c-chip>
+          <c-chip tone="plain" style="padding:2px 7px;font-size:10px;">pH 6 – 6.8</c-chip>
+        </span></c-grow-legend>
     </div>
   </div>
 
   <!-- 2 · SOURCE — Vitamins & Minerals (per 100 g) -->
-  <div class="tile span-2">
-    <div class="cap"><span class="n">2</span> Source · Vitamins / Minerals</div>
+  <c-bento-tile n="2" label="Source · Vitamins / Minerals" class="span-2">
     <div class="body">
       <div class="nutri-grid">
-        <div class="nutri"><div class="g">C</div><div class="body"><div class="l">Vitamin C</div><div class="v">14<span class="u">mg</span></div></div></div>
-        <div class="nutri"><div class="g">K</div><div class="body"><div class="l">Vitamin K</div><div class="v">8<span class="u">µg</span></div></div></div>
-        <div class="nutri"><div class="g">A</div><div class="body"><div class="l">Vitamin A</div><div class="v">833<span class="u">IU</span></div></div></div>
-        <div class="nutri"><div class="g">B9</div><div class="body"><div class="l">Folate</div><div class="v">15<span class="u">µg</span></div></div></div>
-        <div class="nutri"><div class="g">Ly</div><div class="body"><div class="l">Lycopene</div><div class="v">3<span class="u">mg (15 in paste)</span></div></div></div>
-        <div class="nutri"><div class="g">Po</div><div class="body"><div class="l">Potassium</div><div class="v">237<span class="u">mg</span></div></div></div>
-        <div class="nutri"><div class="g">Mn</div><div class="body"><div class="l">Manganese</div><div class="v">0.1<span class="u">mg</span></div></div></div>
-        <div class="nutri"><div class="g">Cu</div><div class="body"><div class="l">Copper</div><div class="v">0.06<span class="u">mg</span></div></div></div>
+        <c-nutri letter="C" label="Vitamin C" value="14" unit="mg"></c-nutri>
+        <c-nutri letter="K" label="Vitamin K" value="8" unit="µg"></c-nutri>
+        <c-nutri letter="A" label="Vitamin A" value="833" unit="IU"></c-nutri>
+        <c-nutri letter="B9" label="Folate" value="15" unit="µg"></c-nutri>
+        <c-nutri letter="Ly" label="Lycopene" value="3" unit="mg (15 in paste)"></c-nutri>
+        <c-nutri letter="Po" label="Potassium" value="237" unit="mg"></c-nutri>
+        <c-nutri letter="Mn" label="Manganese" value="0.1" unit="mg"></c-nutri>
+        <c-nutri letter="Cu" label="Copper" value="0.06" unit="mg"></c-nutri>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 3 · STORAGE — Good / Bad -->
-  <div class="tile span-2">
-    <div class="cap"><span class="n">3</span> Storage</div>
+  <c-bento-tile n="3" label="Storage" class="span-2">
     <div class="body">
       <div class="split-2">
         <div class="col">
-          <div class="col-cap good"><span><i data-lucide="circle-check" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>GOOD</div>
-          <div class="gb-row good"><div class="g"><i data-lucide="house" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Counter · 3–5 days</div>
-          <div class="gb-row good"><div class="g"><i data-lucide="shopping-basket" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Stem-down, single layer</div>
-          <div class="gb-row good"><div class="g"><i data-lucide="wind" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Room temp, shade</div>
-          <div class="gb-row good"><div class="g"><i data-lucide="amphora" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Paper bag → ripens fast</div>
+          <c-col-cap tone="good" icon="circle-check">GOOD</c-col-cap>
+          <c-gb-row tone="good" icon="house">Counter · 3–5 days</c-gb-row>
+          <c-gb-row tone="good" icon="shopping-basket">Stem-down, single layer</c-gb-row>
+          <c-gb-row tone="good" icon="wind">Room temp, shade</c-gb-row>
+          <c-gb-row tone="good" icon="amphora">Paper bag → ripens fast</c-gb-row>
         </div>
         <div class="col">
-          <div class="col-cap bad"><span><i data-lucide="circle-x" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>BAD</div>
-          <div class="gb-row bad"><div class="g"><i data-lucide="snowflake" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Fridge (whole)</div>
-          <div class="gb-row bad"><div class="g"><i data-lucide="sun" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Direct sunlight</div>
-          <div class="gb-row bad"><div class="g"><i data-lucide="triangle-alert" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Stacked / piled</div>
-          <div class="gb-row bad"><div class="g"><i data-lucide="droplet" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></div>Sealed plastic</div>
+          <c-col-cap tone="bad" icon="circle-x">BAD</c-col-cap>
+          <c-gb-row tone="bad" icon="snowflake">Fridge (whole)</c-gb-row>
+          <c-gb-row tone="bad" icon="sun">Direct sunlight</c-gb-row>
+          <c-gb-row tone="bad" icon="triangle-alert">Stacked / piled</c-gb-row>
+          <c-gb-row tone="bad" icon="droplet">Sealed plastic</c-gb-row>
         </div>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 4 · COOK — Methods -->
-  <div class="tile span-2">
-    <div class="cap"><span class="n">4</span> Cook</div>
+  <c-bento-tile n="4" label="Cook" class="span-2">
     <div class="body">
       <div class="method-grid">
-        <div class="method"><div class="g">🥗</div><div class="l">Raw</div></div>
-        <div class="method"><div class="g">💧</div><div class="l">Boil / Blanch</div></div>
-        <div class="method"><div class="g">🍳</div><div class="l">Sauté</div></div>
-        <div class="method"><div class="g">🔥</div><div class="l">Roast</div></div>
-        <div class="method"><div class="g">🍝</div><div class="l">Sauce</div></div>
-        <div class="method"><div class="g">🍛</div><div class="l">Gravy</div></div>
-        <div class="method"><div class="g">☀️</div><div class="l">Dehydrate</div></div>
-        <div class="method"><div class="g">🫙</div><div class="l">Ferment</div></div>
+        <c-method glyph="🥗" label="Raw"></c-method>
+        <c-method glyph="💧" label="Boil / Blanch"></c-method>
+        <c-method glyph="🍳" label="Sauté"></c-method>
+        <c-method glyph="🔥" label="Roast"></c-method>
+        <c-method glyph="🍝" label="Sauce"></c-method>
+        <c-method glyph="🍛" label="Gravy"></c-method>
+        <c-method glyph="☀️" label="Dehydrate"></c-method>
+        <c-method glyph="🫙" label="Ferment"></c-method>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 5 · PAIRS WITH / AVOID WITH (span 4) -->
-  <div class="tile span-4">
-    <div class="cap"><span class="n">5</span> Pairs with · Avoid with</div>
+  <c-bento-tile n="5" label="Pairs with · Avoid with" class="span-4">
     <div class="body">
       <div class="split-2">
         <div class="col">
-          <div class="col-cap good"><span><i data-lucide="circle-check" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>PAIRS WITH</div>
+          <c-col-cap tone="good" icon="circle-check">PAIRS WITH</c-col-cap>
           <div class="icon-cloud" style="margin-top:4px;">
-            <div class="ic-chip">🌿<span class="lbl">Basil</span></div>
-            <div class="ic-chip">🫒<span class="lbl">Olive oil</span></div>
-            <div class="ic-chip">🧄<span class="lbl">Garlic</span></div>
-            <div class="ic-chip">🧀<span class="lbl">Mozzarella</span></div>
-            <div class="ic-chip">🧅<span class="lbl">Onion</span></div>
-            <div class="ic-chip">🥚<span class="lbl">Eggs</span></div>
-            <div class="ic-chip">🫘<span class="lbl">Chickpea</span></div>
-            <div class="ic-chip">🌶️<span class="lbl">Cumin</span></div>
-            <div class="ic-chip">🧂<span class="lbl">Salt</span></div>
+            <c-ic-chip glyph="🌿" label="Basil"></c-ic-chip>
+            <c-ic-chip glyph="🫒" label="Olive oil"></c-ic-chip>
+            <c-ic-chip glyph="🧄" label="Garlic"></c-ic-chip>
+            <c-ic-chip glyph="🧀" label="Mozzarella"></c-ic-chip>
+            <c-ic-chip glyph="🧅" label="Onion"></c-ic-chip>
+            <c-ic-chip glyph="🥚" label="Eggs"></c-ic-chip>
+            <c-ic-chip glyph="🫘" label="Chickpea"></c-ic-chip>
+            <c-ic-chip glyph="🌶️" label="Cumin"></c-ic-chip>
+            <c-ic-chip glyph="🧂" label="Salt"></c-ic-chip>
           </div>
         </div>
         <div class="col">
-          <div class="col-cap bad"><span><i data-lucide="circle-x" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span>AVOID WITH</div>
+          <c-col-cap tone="bad" icon="circle-x">AVOID WITH</c-col-cap>
           <div class="icon-cloud" style="margin-top:4px;">
-            <div class="ic-chip avoid">🥒<span class="lbl">Cucumber (raw)</span></div>
-            <div class="ic-chip avoid">🥛<span class="lbl">Cold milk</span></div>
-            <div class="ic-chip avoid">🥔<span class="lbl">Potato</span></div>
-            <div class="ic-chip avoid">🍋<span class="lbl">Extra citrus</span></div>
-            <div class="ic-chip avoid">🥫<span class="lbl">Aluminum pan</span></div>
-            <div class="ic-chip avoid">🥶<span class="lbl">Fridge (whole)</span></div>
+            <c-ic-chip variant="avoid" glyph="🥒" label="Cucumber (raw)"></c-ic-chip>
+            <c-ic-chip variant="avoid" glyph="🥛" label="Cold milk"></c-ic-chip>
+            <c-ic-chip variant="avoid" glyph="🥔" label="Potato"></c-ic-chip>
+            <c-ic-chip variant="avoid" glyph="🍋" label="Extra citrus"></c-ic-chip>
+            <c-ic-chip variant="avoid" glyph="🥫" label="Aluminum pan"></c-ic-chip>
+            <c-ic-chip variant="avoid" glyph="🥶" label="Fridge (whole)"></c-ic-chip>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
 </div>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

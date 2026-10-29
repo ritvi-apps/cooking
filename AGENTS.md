@@ -13,7 +13,7 @@ the top item of `## Now` is the next action. After finishing, delete the task.
 
 - `.context/` — ten folders, one job each; see `~/git/products/CLAUDE.md`.
   `.context/README.md` says which are present here and why the rest are not.
-- `.context/designs/web/` — the design set. There is no app, so it is the spec.
+- `.context/designs/` — the design set. There is no app, so it is the spec.
 - `.context/wiki/` — the knowledge base; its schema is canon's `wiki-schema` standard
 - `.context/features/` — what is next, one page per feature
 
@@ -22,7 +22,7 @@ the top item of `## Now` is the next action. After finishing, delete the task.
 1. This repository holds no application code. Do not add any.
 2. Keep product material in whichever of the ten `.context/` folders owns it.
    **HTML is the spec for anything visual; the wiki is for what a picture cannot
-   hold.** The screen inventory is `routes.js`, never a second list in Markdown.
+   hold.** The page inventory is the pages themselves, never a list in Markdown.
 3. Do not create top-level `docs/`, `wireframes/` or `prototype/` directories.
 4. `.context/raw/` is immutable.
 5. Everything is vegetarian, and a recipe is added only after it was cooked.
@@ -30,19 +30,16 @@ the top item of `## Now` is the next action. After finishing, delete the task.
 
 ## Designs
 
-`.context/designs/web/` follows the `design-sets` standard. `routes.js` is
-the manifest and the one place a screen is declared; the flow chart, the bar
-and the screenshots sheet all read it. One screen per file. The bar is injected
-by `_chrome.js` from `data-file` on `<body>` — never hand-write chrome into a
-screen, and never add a script that renders one. The site's own nav and footer
-are written into each screen.
+`.context/designs/` is a Babul design set: canon's `design-sets` standard
+(`canon standards`) says how it is built and `canon check` checks it. The
+shell reads pages, links, journeys and components from the HTML itself; there
+is no data file to update. It holds only designs; what they cannot show — a
+page's notes, design decisions, colour rules — is in `wiki/` (`surfaces/`,
+`decisions/`, `concepts/`).
 
-`_chrome.js`, `_gallery.js`, `index.html`, `screenshots.html` and the CORE block
-of `shared.css` are charades' copies. Never edit them here.
-
-A change to a screen is three edits: the HTML, `routes.js` if a link or a
-screen was added, and the screen's notes page in `.context/wiki/surfaces/` if
-the reason changed.
+**Reserved here:** sage is the primary action and "solid", butter is
+"learning", coral is "avoid", and `cat-*` is an ingredient's category and
+nothing else (`tokens.js` says so on each).
 
 ## Completion rules
 

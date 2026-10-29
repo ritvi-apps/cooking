@@ -21,7 +21,6 @@ of every screen says 100% veg.
 
 ## Related
 - [[growth-rule]]
-- [[paneer]]
 - [[pairings]]
 
 ## Sources

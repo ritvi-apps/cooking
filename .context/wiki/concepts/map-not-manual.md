@@ -23,7 +23,6 @@ picked. Journeys says the same thing in its own words.
 
 ## Related
 - [[journey-catalogue]]
-- [[milk]]
 - [[dossiers]]
 
 ## Sources

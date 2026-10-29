@@ -8,4 +8,4 @@ last-verified: 2026-07-19
 
 **Why:** the chapter version was judged too text-dense; Origin and In the body were dropped on the owner's feedback (commits `4067af7`, `b507bd8`).
 
-**Rejected:** a transformation-graph model with journeys as the whole site · seven text chapters per ingredient. [[skills]] has no way in; [[journeys]] is reached from the footer only.
+**Rejected:** a transformation-graph model with journeys as the whole site · seven text chapters per ingredient. The Skills page is gone; [[journeys]] is reached from the footer only.

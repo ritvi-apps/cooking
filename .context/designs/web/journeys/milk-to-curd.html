@@ -3,170 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Milk → Curd · hamburg</title>
-  <meta name="description" content="Make dahi at home: warm milk + a spoon of yesterday's curd + a warm spot." />
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Milk → Curd</title>
+  <script src="../../_shell/boot.js"></script>
 </head>
-<body data-chrome data-file="journeys/milk-to-curd.html">
+<body data-page="journeys/milk-to-curd" data-status="review">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen">
+<c-site-nav active="none" size="regular"></c-site-nav>
 
 <section class="mx-auto max-w-3xl px-5 pt-8 pb-4">
-  <div class="flex items-center gap-2 text-base mb-4">
-    <a href="milk.html" class="nav-pill" style="padding:4px 10px;font-size:12px;">← Milk journey</a>
-  </div>
-  <div class="card grad-plain p-6 md:p-8">
-    <div class="flex items-center gap-4">
-      <span style="font-size:44px;">🥛</span>
-      <span style="font-size:26px;color:var(--ink-3);">→</span>
-      <span style="font-size:44px;">🍶</span>
-    </div>
-    <p class="eyebrow mt-4">Milk → curd (dahi)</p>
-    <h1 class="h1 mt-2">Set curd overnight.</h1>
-    <p class="mt-3" style="font-size:15.5px;line-height:1.55;color:var(--ink-2);max-width:520px;">
-      Warm milk + a spoon of live culture + a warm spot to sleep. That's it.
-    </p>
-  </div>
+  <c-back-pill back="milk.html" label="Milk journey"></c-back-pill>
+  <c-transform-hero arrow="text" from="🥛" to="🍶" tint="plain" kicker="Milk → curd (dahi)" heading="Set curd overnight." lede="Warm milk + a spoon of live culture + a warm spot to sleep. That's it."></c-transform-hero>
 </section>
 
 <section class="mx-auto max-w-3xl px-5 py-4">
   <div class="grid grid-cols-4 gap-2">
-    <div class="stat"><span class="k">Time</span><span class="v">6–10 hr</span></div>
-    <div class="stat"><span class="k">Hands-on</span><span class="v">5 min</span></div>
-    <div class="stat"><span class="k">Difficulty</span><span class="v">Easy</span></div>
-    <div class="stat"><span class="k">Skill</span><span class="v" style="color:var(--highlight-700);">Learning ⌛</span></div>
+    <c-stat label="Time" value="6–10 hr" tone="plain"></c-stat>
+    <c-stat label="Hands-on" value="5 min" tone="plain"></c-stat>
+    <c-stat label="Difficulty" value="Easy" tone="plain"></c-stat>
+    <c-stat label="Skill" value="Learning ⌛" tone="highlight"></c-stat>
   </div>
 </section>
 
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">What you need</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-3">
-    <div class="card p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🥛</span>
-      <div><p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Whole milk</p><p style="font-size:12px;color:var(--ink-2);">500 ml</p></div>
-    </div>
-    <div class="card p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🥄</span>
-      <div><p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Live curd</p><p style="font-size:12px;color:var(--ink-2);">1 tbsp starter</p></div>
-    </div>
-    <div class="card p-4 flex items-center gap-3">
-      <span style="font-size:32px;">🌡</span>
-      <div><p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Warm spot</p><p style="font-size:12px;color:var(--ink-2);">~30 °C</p></div>
-    </div>
+    <c-item-card glyph="🥛" name="Whole milk" amount="500 ml"></c-item-card>
+    <c-item-card glyph="🥄" name="Live curd" amount="1 tbsp starter"></c-item-card>
+    <c-item-card glyph="🌡" name="Warm spot" amount="~30 °C"></c-item-card>
   </div>
 </section>
 
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">Do this</p>
   <div class="mt-4 space-y-3">
-    <div class="step">
-      <div class="numeral">1</div>
-      <div>
-        <p class="head">Warm the milk 🔥</p>
-        <p class="cue">Bring just to a boil. Kill the heat.</p>
-        <div class="meta"><span class="chip">8 min</span></div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">2</div>
-      <div>
-        <p class="head">Cool to lukewarm 🌡</p>
-        <p class="cue">Finger test: comfortable, not hot. Too hot kills the culture.</p>
-        <div class="meta"><span class="chip">10 min</span><span class="chip chip-highlight">⚠ this is the trick</span></div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">3</div>
-      <div>
-        <p class="head">Whisk in the starter 🥄</p>
-        <p class="cue">1 tbsp of yesterday's curd. Stir smooth.</p>
-        <div class="meta"><span class="chip">1 min</span></div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">4</div>
-      <div>
-        <p class="head">Cover, warm, wait 🛌</p>
-        <p class="cue">Oven with light on, warm cupboard, wrapped in a towel. Summer: 6 hr. Winter: 10 hr.</p>
-        <div class="meta"><span class="chip">6–10 hr</span></div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="numeral">5</div>
-      <div>
-        <p class="head">Fridge → set fully 🧊</p>
-        <p class="cue">2 more hours in the fridge finishes the set. Now it slices clean.</p>
-        <div class="meta"><span class="chip">2 hr</span></div>
-      </div>
-    </div>
+    <c-step n="1" head="Warm the milk 🔥" cue="Bring just to a boil. Kill the heat." meta><c-chip tone="plain">8 min</c-chip></c-step>
+    <c-step n="2" head="Cool to lukewarm 🌡" cue="Finger test: comfortable, not hot. Too hot kills the culture." meta><c-chip tone="plain">10 min</c-chip><c-chip tone="highlight">⚠ this is the trick</c-chip></c-step>
+    <c-step n="3" head="Whisk in the starter 🥄" cue="1 tbsp of yesterday's curd. Stir smooth." meta><c-chip tone="plain">1 min</c-chip></c-step>
+    <c-step n="4" head="Cover, warm, wait 🛌" cue="Oven with light on, warm cupboard, wrapped in a towel. Summer: 6 hr. Winter: 10 hr." meta><c-chip tone="plain">6–10 hr</c-chip></c-step>
+    <c-step n="5" head="Fridge → set fully 🧊" cue="2 more hours in the fridge finishes the set. Now it slices clean." meta><c-chip tone="plain">2 hr</c-chip></c-step>
   </div>
 </section>
 
 <section class="mx-auto max-w-3xl px-5 py-6">
   <p class="eyebrow">If something goes wrong</p>
   <div class="mt-4 grid gap-3">
-    <div class="card p-4 flex gap-3 items-start"><span style="font-size:22px;">💧</span><div><p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Watery / not set</p><p style="font-size:13px;color:var(--ink-2);line-height:1.5;">Milk was too hot when starter went in, or spot wasn't warm enough. Try again.</p></div></div>
-    <div class="card p-4 flex gap-3 items-start"><span style="font-size:22px;">😖</span><div><p class="font-display" style="font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;">Too sour</p><p style="font-size:13px;color:var(--ink-2);line-height:1.5;">Left it out too long. Refrigerate earlier next time.</p></div></div>
+    <c-tip-card glyph="💧" heading="Watery / not set" text="Milk was too hot when starter went in, or spot wasn't warm enough. Try again."></c-tip-card>
+    <c-tip-card glyph="😖" heading="Too sour" text="Left it out too long. Refrigerate earlier next time."></c-tip-card>
   </div>
 </section>
 
 <section class="mx-auto max-w-3xl px-5 py-6 pb-10">
   <p class="eyebrow">Now that you have curd</p>
   <div class="mt-4 grid gap-3 sm:grid-cols-3">
-    <div class="journey-card" style="opacity:0.75;"><div class="icon grad-plain">🥤</div><div class="body"><div class="title">Lassi</div><div class="sub">Blend with water + salt or sugar.</div></div><span class="chip">soon</span></div>
-    <div class="journey-card" style="opacity:0.75;"><div class="icon grad-vegetable">🥗</div><div class="body"><div class="title">Raita</div><div class="sub">Mix cucumber / boondi / mint.</div></div><span class="chip">soon</span></div>
-    <div class="journey-card" style="opacity:0.75;"><div class="icon grad-highlight">🍲</div><div class="body"><div class="title">Kadhi</div><div class="sub">Cook down with besan + spice.</div></div><span class="chip">soon</span></div>
+    <c-journey-card state="soon" glyph="🥤" tint="plain" name="Lassi" sub="Blend with water + salt or sugar."></c-journey-card>
+    <c-journey-card state="soon" glyph="🥗" tint="vegetable" name="Raita" sub="Mix cucumber / boondi / mint."></c-journey-card>
+    <c-journey-card state="soon" glyph="🍲" tint="highlight" name="Kadhi" sub="Cook down with besan + spice."></c-journey-card>
   </div>
 </section>
 
-<footer class="footer-shell mt-20">
-  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <span class="brand-mark brand-mark--sm">h</span>
-      <span class="footer-line">
-        <b class="font-display text-ink">hamburg</b>
-        <span class="divider-dot"></span>
-        cook, learn, remember, publish
-      </span>
-    </div>
-    <div class="footer-links flex flex-wrap items-center gap-4">
-      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
-      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
-      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
-      <span class="text-ink-3">🌱 100% veg</span>
-    </div>
-  </div>
-</footer>
+<c-site-footer></c-site-footer>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

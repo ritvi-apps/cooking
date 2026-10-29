@@ -1,0 +1,3 @@
+BABUL_SHELL.define("journey-hero", `
+<template><div class="card {tint=dairy? grad-dairy}{tint=fruit? grad-fruit}{tint=grain? grad-grain} p-6 md:p-8"><div class="flex items-center gap-6 flex-wrap"><div class="big-glyph" style="width:96px;height:96px;border-radius:24px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-size:56px;">{glyph}</div><div class="flex-1 min-w-[240px]"><p class="eyebrow" style="color:var(--{tone});">{kicker}</p><h1 class="h1 mt-2">{heading}</h1><p class="mt-3 max-w-xl" style="font-size:15.5px;line-height:1.55;color:var(--ink-2);">{lede}</p></div></div><div class="mt-5 flex flex-wrap gap-2"><slot></slot></div></div></template>
+`);

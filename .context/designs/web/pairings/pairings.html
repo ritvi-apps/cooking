@@ -3,45 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pairings — hamburg</title>
-  <meta name="description" content="What goes with what. What doesn't. Every pairing has a reason." />
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Pairings</title>
+  <script src="../../_shell/boot.js"></script>
 </head>
-<body data-chrome data-file="pairings/pairings.html">
+<body data-page="pairings/pairings" data-status="review" data-journeys="Learn">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill active" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill active" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen">
+<c-site-nav active="pairings" size="regular"></c-site-nav>
 
 <!-- ============ HERO ============ -->
 <section class="mx-auto max-w-6xl px-5 pt-10 pb-4">
-  <div class="crumbs mb-4">
-    <a href="../home/home.html"><span><i data-lucide="house" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span> Home</a>
-    <span class="sep">/</span>
-    <span>Pairings</span>
-  </div>
+  <c-crumbs home="../home/home.html" here="Pairings" class="mb-4"></c-crumbs>
 
   <p class="eyebrow">What goes with what</p>
   <h1 class="h1 mt-2">Pairings.</h1>
@@ -50,11 +24,7 @@
   </p>
 
   <div class="mt-6" style="max-width:560px;">
-    <label class="search">
-      <span style="color:var(--ink-3);"><i data-lucide="search" class="hb-icon w-[20px] h-[20px]" stroke-width="1.75"></i></span>
-      <input type="text" placeholder="Pair with… (tomato, paneer, ginger…)" />
-      <span class="kbd">⌘K</span>
-    </label>
+    <c-search placeholder="Pair with… (tomato, paneer, ginger…)" kbd></c-search>
   </div>
 </section>
 
@@ -66,26 +36,12 @@
   </div>
 
   <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
-    <button class="ing-tile" style="border-color:var(--brand-500);box-shadow:0 0 0 3px var(--brand-100);">
-      <div class="glyph glyph-spice">🍅</div>
-      <div class="label">Tomato</div>
-      <div class="sub">selected</div>
-    </button>
-    <a href="../journeys/milk.html" class="ing-tile">
-      <div class="glyph glyph-dairy">🥛</div><div class="label">Milk</div>
-    </a>
-    <a href="#" class="ing-tile">
-      <div class="glyph glyph-dairy">🧀</div><div class="label">Paneer</div>
-    </a>
-    <a href="#" class="ing-tile">
-      <div class="glyph glyph-herb">🌿</div><div class="label">Basil</div>
-    </a>
-    <a href="#" class="ing-tile">
-      <div class="glyph glyph-spice">🧄</div><div class="label">Garlic</div>
-    </a>
-    <a href="#" class="ing-tile">
-      <div class="glyph glyph-vegetable">🥬</div><div class="label">Spinach</div>
-    </a>
+    <c-ing-tile state="picked" cat="spice" glyph="🍅" label="Tomato" sub="selected"></c-ing-tile>
+    <c-ing-tile cat="dairy" glyph="🥛" label="Milk" href="../journeys/milk.html"></c-ing-tile>
+    <c-ing-tile cat="dairy" glyph="🧀" label="Paneer" href="#"></c-ing-tile>
+    <c-ing-tile cat="herb" glyph="🌿" label="Basil" href="#"></c-ing-tile>
+    <c-ing-tile cat="spice" glyph="🧄" label="Garlic" href="#"></c-ing-tile>
+    <c-ing-tile cat="vegetable" glyph="🥬" label="Spinach" href="#"></c-ing-tile>
   </div>
 </section>
 
@@ -109,15 +65,15 @@
   </div>
 
   <div class="pair-list">
-    <div class="pair-item"><div class="g">🌿</div><div><div class="name">Basil</div><div class="why">Both share eugenol and linalool. Their oils intensify each other — the caprese is chemistry, not just tradition.</div></div></div>
-    <div class="pair-item"><div class="g">🫒</div><div><div class="name">Olive oil</div><div class="why">Dissolves lycopene for the body (4× absorption). Coats acid so it doesn't sting. Oil before salt.</div></div></div>
-    <div class="pair-item"><div class="g">🧄</div><div><div class="name">Garlic</div><div class="why">Sulfur compounds balance the sweetness. Slow, low heat — never brown, or bitterness ruins the sauce.</div></div></div>
-    <div class="pair-item"><div class="g">🧀</div><div><div class="name">Mozzarella</div><div class="why">Fat softens the acid on your tongue. Milk protein binds lycopene for a slower, steadier release.</div></div></div>
-    <div class="pair-item"><div class="g">🧅</div><div><div class="name">Onion</div><div class="why">Cooked slow, onion sugars caramelize and mellow tomato's edge. The base of nearly every world sauce.</div></div></div>
-    <div class="pair-item"><div class="g">🥚</div><div><div class="name">Eggs</div><div class="why">Yolk fat carries lycopene. Acid tightens egg proteins — shakshuka, tomato omelette, huevos rancheros.</div></div></div>
-    <div class="pair-item"><div class="g">🫘</div><div><div class="name">Chickpea</div><div class="why">Vitamin C in tomato boosts iron absorption from the chickpea by ~3×. Chana masala isn't an accident.</div></div></div>
-    <div class="pair-item"><div class="g">🌶️</div><div><div class="name">Cumin</div><div class="why">Earthy anchor for tomato's bright top note. The reason Mexican and Indian sauces feel familiar.</div></div></div>
-    <div class="pair-item"><div class="g">🧂</div><div><div class="name">Salt (at rest)</div><div class="why">Draws out water from cut tomato. 15 min salted → concentrated flavor, better texture, less watery salad.</div></div></div>
+    <c-pair-item glyph="🌿" name="Basil">Both share eugenol and linalool. Their oils intensify each other — the caprese is chemistry, not just tradition.</c-pair-item>
+    <c-pair-item glyph="🫒" name="Olive oil">Dissolves lycopene for the body (4× absorption). Coats acid so it doesn't sting. Oil before salt.</c-pair-item>
+    <c-pair-item glyph="🧄" name="Garlic">Sulfur compounds balance the sweetness. Slow, low heat — never brown, or bitterness ruins the sauce.</c-pair-item>
+    <c-pair-item glyph="🧀" name="Mozzarella">Fat softens the acid on your tongue. Milk protein binds lycopene for a slower, steadier release.</c-pair-item>
+    <c-pair-item glyph="🧅" name="Onion">Cooked slow, onion sugars caramelize and mellow tomato's edge. The base of nearly every world sauce.</c-pair-item>
+    <c-pair-item glyph="🥚" name="Eggs">Yolk fat carries lycopene. Acid tightens egg proteins — shakshuka, tomato omelette, huevos rancheros.</c-pair-item>
+    <c-pair-item glyph="🫘" name="Chickpea">Vitamin C in tomato boosts iron absorption from the chickpea by ~3×. Chana masala isn't an accident.</c-pair-item>
+    <c-pair-item glyph="🌶️" name="Cumin">Earthy anchor for tomato's bright top note. The reason Mexican and Indian sauces feel familiar.</c-pair-item>
+    <c-pair-item glyph="🧂" name="Salt (at rest)">Draws out water from cut tomato. 15 min salted → concentrated flavor, better texture, less watery salad.</c-pair-item>
   </div>
 </section>
 
@@ -129,12 +85,12 @@
   </div>
 
   <div class="pair-list">
-    <div class="pair-item avoid"><div class="g">🥒</div><div><div class="name">Cucumber (raw, at length)</div><div class="why">Cucumber has ascorbinase — an enzyme that destroys tomato's vitamin C. Fine in a small salad; not for juice.</div></div></div>
-    <div class="pair-item avoid"><div class="g">🥛</div><div><div class="name">Milk (raw, cold)</div><div class="why">Acid curdles cold milk instantly. Cream in a hot sauce is different — heat and emulsion stabilize casein.</div></div></div>
-    <div class="pair-item avoid"><div class="g">🥔</div><div><div class="name">Potato (heavy stacking)</div><div class="why">Both are nightshades. Loading the same meal doubles the alkaloid dose if you're sensitive.</div></div></div>
-    <div class="pair-item avoid"><div class="g">🍋</div><div><div class="name">Extra citrus (raw dish)</div><div class="why">Tomato is already 4% acid. More lemon flattens its own tartness. Save citrus for cooked dishes that lost brightness.</div></div></div>
-    <div class="pair-item avoid"><div class="g">🥫</div><div><div class="name">Aluminum cookware</div><div class="why">Acid leaches metal. Off-flavor, off-color. Stainless, enamel, or seasoned cast iron only.</div></div></div>
-    <div class="pair-item avoid"><div class="g">🥶</div><div><div class="name">Whole fruit in the fridge</div><div class="why">Below 12 °C, aroma enzymes shut off permanently. Flavor doesn't return with warming.</div></div></div>
+    <c-pair-item variant="avoid" glyph="🥒" name="Cucumber (raw, at length)">Cucumber has ascorbinase — an enzyme that destroys tomato's vitamin C. Fine in a small salad; not for juice.</c-pair-item>
+    <c-pair-item variant="avoid" glyph="🥛" name="Milk (raw, cold)">Acid curdles cold milk instantly. Cream in a hot sauce is different — heat and emulsion stabilize casein.</c-pair-item>
+    <c-pair-item variant="avoid" glyph="🥔" name="Potato (heavy stacking)">Both are nightshades. Loading the same meal doubles the alkaloid dose if you're sensitive.</c-pair-item>
+    <c-pair-item variant="avoid" glyph="🍋" name="Extra citrus (raw dish)">Tomato is already 4% acid. More lemon flattens its own tartness. Save citrus for cooked dishes that lost brightness.</c-pair-item>
+    <c-pair-item variant="avoid" glyph="🥫" name="Aluminum cookware">Acid leaches metal. Off-flavor, off-color. Stainless, enamel, or seasoned cast iron only.</c-pair-item>
+    <c-pair-item variant="avoid" glyph="🥶" name="Whole fruit in the fridge">Below 12 °C, aroma enzymes shut off permanently. Flavor doesn't return with warming.</c-pair-item>
   </div>
 </section>
 
@@ -148,60 +104,12 @@
   </div>
 
   <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-    <div class="card p-5">
-      <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🌶️</div>
-        <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🧈</div>
-      </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Turmeric + fat</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Curcumin is fat-soluble. Ghee, coconut oil, or full-fat milk raises absorption 7–10×. Never add turmeric to a fat-free dish.</p>
-    </div>
-    <div class="card p-5">
-      <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🌶️</div>
-        <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--surface);display:flex;align-items:center;justify-content:center;font-size:22px;">•</div>
-      </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Turmeric + black pepper</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Piperine in pepper inhibits the liver enzyme that clears curcumin. Bioavailability rises up to 2000%. This is why the two live together in every masala.</p>
-    </div>
-    <div class="card p-5">
-      <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥬</div>
-        <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--accent-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍋</div>
-      </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Iron greens + vitamin C</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Non-heme iron (spinach, lentils) absorbs 3× better with 25 mg vitamin C at the same meal. Squeeze lemon on the dal.</p>
-    </div>
-    <div class="card p-5">
-      <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍚</div>
-        <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🫘</div>
-      </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Rice + legume</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Rice is low in lysine; legumes are low in methionine. Together they cover all nine essential amino acids. Every ancient food culture found this independently.</p>
-    </div>
-    <div class="card p-5">
-      <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥑</div>
-        <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--highlight-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🥕</div>
-      </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Carotenoid + fat</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Beta-carotene (carrot, sweet potato) needs fat to absorb. Salad with avocado delivers 4–8× the carotenoids of a fat-free one.</p>
-    </div>
-    <div class="card p-5">
-      <div class="flex items-center gap-3">
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--brand-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍞</div>
-        <div style="font-size:20px;">+</div>
-        <div style="width:44px;height:44px;border-radius:12px;background:var(--accent-100);display:flex;align-items:center;justify-content:center;font-size:22px;">🍯</div>
-      </div>
-      <h3 class="font-display mt-3" style="font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;">Sourdough + honey</h3>
-      <p class="mt-1.5" style="font-size:13px;color:var(--ink-2);line-height:1.55;">Fermentation lowers gluten-related irritation and predigests carbs. Honey has enzymes that gut bacteria feed on. Both are gentle on the microbiome.</p>
-    </div>
+    <c-pairing-card a="🌶️" a-tint="bg-highlight-100" b="🧈" b-tint="bg-highlight-100" heading="Turmeric + fat">Curcumin is fat-soluble. Ghee, coconut oil, or full-fat milk raises absorption 7–10×. Never add turmeric to a fat-free dish.</c-pairing-card>
+    <c-pairing-card a="🌶️" a-tint="bg-highlight-100" b="•" b-tint="bg-ink text-surface" heading="Turmeric + black pepper">Piperine in pepper inhibits the liver enzyme that clears curcumin. Bioavailability rises up to 2000%. This is why the two live together in every masala.</c-pairing-card>
+    <c-pairing-card a="🥬" a-tint="bg-brand-100" b="🍋" b-tint="bg-accent-100" heading="Iron greens + vitamin C">Non-heme iron (spinach, lentils) absorbs 3× better with 25 mg vitamin C at the same meal. Squeeze lemon on the dal.</c-pairing-card>
+    <c-pairing-card a="🍚" a-tint="bg-highlight-100" b="🫘" b-tint="bg-brand-100" heading="Rice + legume">Rice is low in lysine; legumes are low in methionine. Together they cover all nine essential amino acids. Every ancient food culture found this independently.</c-pairing-card>
+    <c-pairing-card a="🥑" a-tint="bg-brand-100" b="🥕" b-tint="bg-highlight-100" heading="Carotenoid + fat">Beta-carotene (carrot, sweet potato) needs fat to absorb. Salad with avocado delivers 4–8× the carotenoids of a fat-free one.</c-pairing-card>
+    <c-pairing-card a="🍞" a-tint="bg-brand-100" b="🍯" b-tint="bg-accent-100" heading="Sourdough + honey">Fermentation lowers gluten-related irritation and predigests carbs. Honey has enzymes that gut bacteria feed on. Both are gentle on the microbiome.</c-pairing-card>
   </div>
 </section>
 
@@ -215,61 +123,17 @@
   </div>
 
   <div class="grid gap-3 md:grid-cols-2">
-    <div class="note stop">
-      <span class="ic"><i data-lucide="circle-x" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
-      <div>
-        <div class="t">Milk + citrus</div>
-        <div class="b">Citric acid drops milk's pH below the casein isoelectric point (~4.6). Proteins clump instantly. Add citrus <em>after</em> heat has stabilized proteins in a cooked dish.</div>
-      </div>
-    </div>
-    <div class="note stop">
-      <span class="ic"><i data-lucide="circle-x" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
-      <div>
-        <div class="t">Spinach + dairy (for iron)</div>
-        <div class="b">Calcium binds oxalates in spinach. You lose most of the iron you thought you were getting. If the goal is iron, eat greens with vitamin C, not paneer.</div>
-      </div>
-    </div>
-    <div class="note stop">
-      <span class="ic"><i data-lucide="circle-x" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
-      <div>
-        <div class="t">Tea + iron-rich meal</div>
-        <div class="b">Tannins in tea block ~60% of non-heme iron absorption. Wait one hour after a lentil or spinach dish before your chai.</div>
-      </div>
-    </div>
-    <div class="note stop">
-      <span class="ic"><i data-lucide="circle-x" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span>
-      <div>
-        <div class="t">Honey heated above 40 °C</div>
-        <div class="b">Ayurveda names this a "toxic" combination; food science agrees on the smaller point — enzymes and delicate aromatics degrade above ~40 °C. Stir into warm, not hot.</div>
-      </div>
-    </div>
+    <c-note tone="stop" icon="circle-x" heading="Milk + citrus">Citric acid drops milk's pH below the casein isoelectric point (~4.6). Proteins clump instantly. Add citrus <em>after</em> heat has stabilized proteins in a cooked dish.</c-note>
+    <c-note tone="stop" icon="circle-x" heading="Spinach + dairy (for iron)">Calcium binds oxalates in spinach. You lose most of the iron you thought you were getting. If the goal is iron, eat greens with vitamin C, not paneer.</c-note>
+    <c-note tone="stop" icon="circle-x" heading="Tea + iron-rich meal">Tannins in tea block ~60% of non-heme iron absorption. Wait one hour after a lentil or spinach dish before your chai.</c-note>
+    <c-note tone="stop" icon="circle-x" heading="Honey heated above 40 °C">Ayurveda names this a "toxic" combination; food science agrees on the smaller point — enzymes and delicate aromatics degrade above ~40 °C. Stir into warm, not hot.</c-note>
   </div>
 </section>
 
-<footer class="footer-shell mt-20">
-  <div class="mx-auto max-w-6xl px-5 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div class="flex items-center gap-2">
-      <span class="brand-mark brand-mark--sm">h</span>
-      <span class="footer-line">
-        <b class="font-display text-ink">hamburg</b>
-        <span class="divider-dot"></span>
-        cook, learn, remember, publish
-      </span>
-    </div>
-    <div class="footer-links flex flex-wrap items-center gap-4">
-      <a class="nav-pill nav-pill--sm" href="../journeys/journeys.html">Journeys</a>
-      <a class="nav-pill nav-pill--sm" href="../recipes/recipes.html">Recipes</a>
-      <a class="nav-pill nav-pill--sm" href="../ingredients/ingredients.html">Ingredients</a>
-      <span class="text-ink-3">🌱 100% veg</span>
-    </div>
-  </div>
-</footer>
+<c-site-footer></c-site-footer>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

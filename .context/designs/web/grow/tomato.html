@@ -3,57 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Grow tomato — hamburg</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="../tailwind.config.js"></script>
-  <script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../shared.css" />
+  <title>hamburg — Grow tomato</title>
+  <script src="../../_shell/boot.js"></script>
 </head>
-<body data-chrome data-file="grow/tomato.html">
+<body data-page="grow/tomato" data-status="review" data-journeys="Learn">
 
 <div class="stage">
   <div class="phone">
-    <div class="screen min-h-frame bento-page">
-<header class="nav-shell">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 gap-4">
-    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="brand-mark">h</span>
-      <span class="hidden sm:flex flex-col leading-tight">
-        <span class="brand-name">hamburg</span>
-        <span class="brand-tag">kitchen companion</span>
-      </span>
-    </a>
-    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
-    <a href="../patterns/components.html" class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></a>
-  </div>
-  <div class="md:hidden border-t border-line px-3 py-2">
-    <div class="h-scroll"><a class="nav-pill active" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
-  </div>
-</header>
+    <div class="screen bento-page">
+<c-site-nav active="ingredients" size="compact"></c-site-nav>
 
 <!-- ============ HERO ============ -->
-<div class="bento-hero">
-  <div class="glyph grad-brand">🌱</div>
-  <div class="flex-1 min-w-0">
-    <div class="title">Grow · Tomato</div>
-    <div class="sub">
-      <span class="chip chip-brand" style="padding:2px 8px;font-size:10.5px;">India · 3 seasons</span>
-      <span class="chip" style="padding:2px 8px;font-size:10.5px;">60 – 100 days</span>
-      <span class="chip" style="padding:2px 8px;font-size:10.5px;">40 – 60 t / ha</span>
-    </div>
-  </div>
-  <a href="../ingredients/tomato.html" class="btn btn-white btn-sm">← Tomato</a>
-</div>
+<c-bento-hero glyph="🌱" tint="brand" heading="Grow · Tomato">
+      <c-chip tone="brand" style="padding:2px 8px;font-size:10.5px;">India · 3 seasons</c-chip>
+      <c-chip tone="plain" style="padding:2px 8px;font-size:10.5px;">60 – 100 days</c-chip>
+      <c-chip tone="plain" style="padding:2px 8px;font-size:10.5px;">40 – 60 t / ha</c-chip>
+    <a slot="end" href="../ingredients/tomato.html" class="btn btn-white btn-sm" data-link="back">← Tomato</a></c-bento-hero>
 
 <!-- ============ BENTO GRID (7 tiles, 4 col × 3 row) ============ -->
 <div class="bento-grid" style="grid-template-rows: repeat(3, 1fr);">
 
   <!-- 1 · SOWING & HARVEST CALENDAR (span 3) -->
-  <div class="tile span-3">
-    <div class="cap"><span class="n">1</span> Sowing &amp; harvest · India</div>
+  <c-bento-tile n="1" label="Sowing &amp; harvest · India" class="span-3">
     <div class="body" style="justify-content:space-between;">
       <div class="gcal">
         <!-- Header row -->
@@ -89,17 +60,12 @@
         <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
       </div>
 
-      <div class="mini-legend" style="justify-content:center;gap:14px;margin-top:8px;">
-        <span><i style="background:var(--highlight-500);"></i>Sow</span>
-        <span><i style="background:var(--brand-100);"></i>Grow</span>
-        <span><i style="background:var(--brand-500);"></i>Harvest</span>
-      </div>
+      <c-grow-legend style="justify-content:center;gap:14px;margin-top:8px;"></c-grow-legend>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 2 · TOP REGIONS IN INDIA (span 1) -->
-  <div class="tile">
-    <div class="cap"><span class="n">2</span> Top regions</div>
+  <c-bento-tile n="2" label="Top regions">
     <div class="body" style="gap:6px;">
       <svg class="india-map" viewBox="0 0 180 200">
         <!-- Very simplified India silhouette -->
@@ -125,122 +91,89 @@
       </svg>
       <div style="font-size:10.5px;color:var(--ink-3);text-align:center;">Top 6 tomato states · 65% of India</div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 3 · CLIMATE (span 2) -->
-  <div class="tile span-2">
-    <div class="cap"><span class="n">3</span> Climate</div>
+  <c-bento-tile n="3" label="Climate" class="span-2">
     <div class="body">
       <div class="spec-list">
-        <div class="spec-row">
-          <div class="g"><span><i data-lucide="thermometer" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
-          <div><div class="l">Temperature</div><div class="v">21 – 27<span class="u">°C day</span> · 15 – 20<span class="u">°C night</span></div></div>
-        </div>
-        <div class="spec-row">
-          <div class="g"><span><i data-lucide="sun" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
-          <div><div class="l">Sunlight</div><div class="v">6 – 8<span class="u">hrs direct</span></div></div>
-        </div>
-        <div class="spec-row">
-          <div class="g"><span><i data-lucide="droplet" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
-          <div><div class="l">Water</div><div class="v">500 – 700<span class="u">mm total</span> · 2×<span class="u">/ week</span></div></div>
-        </div>
-        <div class="spec-row">
-          <div class="g"><span><i data-lucide="wind" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
-          <div><div class="l">Humidity</div><div class="v">50 – 70<span class="u">%</span></div></div>
-        </div>
+        <c-spec-row icon="thermometer" label="Temperature">21 – 27<span class="u">°C day</span> · 15 – 20<span class="u">°C night</span></c-spec-row>
+        <c-spec-row icon="sun" label="Sunlight">6 – 8<span class="u">hrs direct</span></c-spec-row>
+        <c-spec-row icon="droplet" label="Water">500 – 700<span class="u">mm total</span> · 2×<span class="u">/ week</span></c-spec-row>
+        <c-spec-row icon="wind" label="Humidity">50 – 70<span class="u">%</span></c-spec-row>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 4 · SOIL & NUTRIENTS (span 2) -->
-  <div class="tile span-2">
-    <div class="cap"><span class="n">4</span> Soil &amp; nutrients</div>
+  <c-bento-tile n="4" label="Soil &amp; nutrients" class="span-2">
     <div class="body">
       <div class="spec-list">
-        <div class="spec-row">
-          <div class="g"><span><i data-lucide="sprout" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
-          <div><div class="l">Soil type</div><div class="v">Loam · well-drained · organic-rich</div></div>
-        </div>
-        <div class="spec-row">
-          <div class="g"><span><i data-lucide="droplet" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
-          <div><div class="l">pH</div><div class="v">6.0 – 6.8<span class="u">slightly acidic</span></div></div>
-        </div>
-        <div class="spec-row">
-          <div class="g"><span><i data-lucide="target" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
-          <div><div class="l">Spacing</div><div class="v">60 × 45<span class="u">cm</span></div></div>
-        </div>
-        <div class="spec-row">
-          <div class="g"><span><i data-lucide="amphora" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span></div>
-          <div><div class="l">NPK</div><div class="v">100 : 60 : 60<span class="u">kg / ha</span></div></div>
-        </div>
+        <c-spec-row icon="sprout" label="Soil type">Loam · well-drained · organic-rich</c-spec-row>
+        <c-spec-row icon="droplet" label="pH">6.0 – 6.8<span class="u">slightly acidic</span></c-spec-row>
+        <c-spec-row icon="target" label="Spacing">60 × 45<span class="u">cm</span></c-spec-row>
+        <c-spec-row icon="amphora" label="NPK">100 : 60 : 60<span class="u">kg / ha</span></c-spec-row>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 5 · COMPANIONS (span 1) -->
-  <div class="tile">
-    <div class="cap"><span class="n">5</span> Companions</div>
+  <c-bento-tile n="5" label="Companions">
     <div class="body">
       <div class="plant-cloud">
-        <span class="plant-chip good"><span class="g">🌿</span>Basil</span>
-        <span class="plant-chip good"><span class="g">🌼</span>Marigold</span>
-        <span class="plant-chip good"><span class="g">🥕</span>Carrot</span>
-        <span class="plant-chip good"><span class="g">🧅</span>Onion</span>
-        <span class="plant-chip good"><span class="g">🧄</span>Garlic</span>
-        <span class="plant-chip good"><span class="g">🌱</span>Parsley</span>
+        <c-plant-chip tone="good" glyph="🌿">Basil</c-plant-chip>
+        <c-plant-chip tone="good" glyph="🌼">Marigold</c-plant-chip>
+        <c-plant-chip tone="good" glyph="🥕">Carrot</c-plant-chip>
+        <c-plant-chip tone="good" glyph="🧅">Onion</c-plant-chip>
+        <c-plant-chip tone="good" glyph="🧄">Garlic</c-plant-chip>
+        <c-plant-chip tone="good" glyph="🌱">Parsley</c-plant-chip>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 6 · ENEMIES (span 1) -->
-  <div class="tile">
-    <div class="cap"><span class="n">6</span> Keep away</div>
+  <c-bento-tile n="6" label="Keep away">
     <div class="body">
       <div class="plant-cloud">
-        <span class="plant-chip bad"><span class="g">🥔</span>Potato</span>
-        <span class="plant-chip bad"><span class="g">🥬</span>Cabbage</span>
-        <span class="plant-chip bad"><span class="g">🌿</span>Fennel</span>
-        <span class="plant-chip bad"><span class="g">🌰</span>Walnut tree</span>
-        <span class="plant-chip bad"><span class="g">🌽</span>Corn</span>
+        <c-plant-chip tone="bad" glyph="🥔">Potato</c-plant-chip>
+        <c-plant-chip tone="bad" glyph="🥬">Cabbage</c-plant-chip>
+        <c-plant-chip tone="bad" glyph="🌿">Fennel</c-plant-chip>
+        <c-plant-chip tone="bad" glyph="🌰">Walnut tree</c-plant-chip>
+        <c-plant-chip tone="bad" glyph="🌽">Corn</c-plant-chip>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 7 · PESTS (span 1) -->
-  <div class="tile">
-    <div class="cap"><span class="n">7</span> Pests</div>
+  <c-bento-tile n="7" label="Pests">
     <div class="body">
       <div class="plant-cloud">
-        <span class="plant-chip"><span class="g">🦟</span>Whitefly</span>
-        <span class="plant-chip"><span class="g">🐛</span>Fruit borer</span>
-        <span class="plant-chip"><span class="g">🐜</span>Aphid</span>
-        <span class="plant-chip"><span class="g">🦗</span>Thrips</span>
-        <span class="plant-chip"><span class="g">🕷️</span>Spider mite</span>
+        <c-plant-chip tone="plain" glyph="🦟">Whitefly</c-plant-chip>
+        <c-plant-chip tone="plain" glyph="🐛">Fruit borer</c-plant-chip>
+        <c-plant-chip tone="plain" glyph="🐜">Aphid</c-plant-chip>
+        <c-plant-chip tone="plain" glyph="🦗">Thrips</c-plant-chip>
+        <c-plant-chip tone="plain" glyph="🕷️">Spider mite</c-plant-chip>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
   <!-- 8 · DISEASES (span 1) -->
-  <div class="tile">
-    <div class="cap"><span class="n">8</span> Diseases</div>
+  <c-bento-tile n="8" label="Diseases">
     <div class="body">
       <div class="plant-cloud">
-        <span class="plant-chip"><span class="g">🍂</span>Early blight</span>
-        <span class="plant-chip"><span class="g">🍃</span>Late blight</span>
-        <span class="plant-chip"><span class="g">🌀</span>Leaf curl</span>
-        <span class="plant-chip"><span class="g">🌫️</span>Powdery mildew</span>
-        <span class="plant-chip"><span class="g">🥀</span>Wilt</span>
+        <c-plant-chip tone="plain" glyph="🍂">Early blight</c-plant-chip>
+        <c-plant-chip tone="plain" glyph="🍃">Late blight</c-plant-chip>
+        <c-plant-chip tone="plain" glyph="🌀">Leaf curl</c-plant-chip>
+        <c-plant-chip tone="plain" glyph="🌫️">Powdery mildew</c-plant-chip>
+        <c-plant-chip tone="plain" glyph="🥀">Wilt</c-plant-chip>
       </div>
     </div>
-  </div>
+  </c-bento-tile>
 
 </div>
     </div>
   </div>
 </div>
 
-<script src="../routes.js"></script>
-<script src="../_chrome.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

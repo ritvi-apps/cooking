@@ -27,8 +27,7 @@ The Ingredients list also labels Ginger and Garlic `aromatic` and Garam masala
 
 ## Related
 - [[ingredients]]
-- [[components]]
 
 ## Sources
-- .context/designs/web/shared.css
+- .context/designs/tokens.js
 - .context/designs/web/ingredients/ingredients.html

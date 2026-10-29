@@ -1,0 +1,12 @@
+{"schema_version":1,"diagram_type":"architecture","meta":{"title":"2 · How the repo is built","output":"how-it-works.html","quality_profile":"showcase"},
+ "components":[
+  {"id":"data","type":"frontend","label":"babul.js · tokens.js","sublabel":"the product, the tokens","pos":[40,100],"size":[200,70]},
+  {"id":"shell","type":"frontend","label":"_shell","sublabel":"copied from charades","pos":[320,100],"size":[190,70]},
+  {"id":"pages","type":"frontend","label":"Pages","sublabel":"HTML, one per page, from components","pos":[600,100],"size":[200,70]},
+  {"id":"wiki","type":"database","label":"Wiki","sublabel":".context/wiki, Markdown","pos":[40,260],"size":[190,70]},
+  {"id":"check","type":"security","label":"canon check","sublabel":"scans the HTML","pos":[600,260],"size":[200,70]}],
+ "connections":[
+  {"id":"a","from":"data","to":"shell","label":"read","variant":"emphasis"},
+  {"id":"b","from":"shell","to":"pages","label":"frames, reads"},
+  {"id":"c","from":"wiki","to":"pages","label":"notes they cannot show","variant":"dashed"},
+  {"id":"d","from":"check","to":"pages","label":"checks"}]}

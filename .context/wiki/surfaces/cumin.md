@@ -1,9 +1,0 @@
----
-last-verified: 2026-10-04
----
-
-# cumin
-
-**Converted, not redrawn.** This is the prototype's own markup, with its nav bar, footer and icons written in on 2026-10-04. See [[converted-design-set]].
-
-**This is the older chapter layout.** Only Tomato was redrawn as a single-frame bento. See [[dossiers]] and [[ingredient-dossier]].

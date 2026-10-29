@@ -5,7 +5,7 @@ status: building
 last-verified: 2026-10-04
 release: null
 superseded-by: null
-surfaces: ["[[paneer]]", "[[spinach]]", "[[ginger]]", "[[garlic]]", "[[cumin]]", "[[garam-masala]]", "[[home]]"]
+surfaces: ["[[tomato]]", "[[home]]"]
 ---
 
 # A bento dossier for every ingredient
