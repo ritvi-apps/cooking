@@ -8,11 +8,7 @@ modules:
   - design
   - refs
 
-# Files copied from charades (its copies.sets); canon check keeps them equal.
-copies:
-  source: ../charades
-  use: [design-shell, design-shell-web]
-
+copies: { source: ../babul, use: [design-shell, design-shell-web] }
 # The stages this product's work goes through, in order (`canon pipeline`).
 # `canon flow` counts how far each conversation got against these.
 pipeline:
