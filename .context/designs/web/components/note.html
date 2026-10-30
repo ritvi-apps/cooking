@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>hamburg — Note</title>
   <script src="../../shell.js" data-view="components"></script>
+<template><div class="note{tone=warn? warn}{tone=stop? stop}"><span class="ic"><i data-lucide="{icon}" class="hb-icon w-[18px] h-[18px]" stroke-width="1.75"></i></span><div><div class="t">{heading}</div><div class="b"><slot></slot></div></div></div></template>
 </head>
 <body data-component="note" data-group="Cards">
 

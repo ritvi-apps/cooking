@@ -1,3 +1,0 @@
-BABUL_SHELL.define("chapter-tile", `
-<template><div class="p-4 rounded-lg" style="background:var(--muted);"><div class="flex items-center gap-2 mb-1.5"><span class="numeral" style="width:22px;height:22px;border-radius:50%;background:var(--surface);color:var(--brand-700);font-family:Fraunces,Georgia,serif;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;">{n}</span><span class="font-display" style="font-size:15px;font-weight:500;">{label}</span></div><p style="font-size:12.5px;color:var(--ink-2);line-height:1.5;"><slot></slot></p></div></template>
-`);

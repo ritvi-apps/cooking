@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>hamburg — SiteNav</title>
   <script src="../../shell.js" data-view="components"></script>
+<template><header class="nav-shell">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 {size=compact?py-2:py-3.5} gap-4">
+    <a href="../home/home.html" class="flex items-center gap-2.5 shrink-0">
+      <span class="brand-mark">h</span>
+      <span class="hidden sm:flex flex-col leading-tight">
+        <span class="brand-name">hamburg</span>
+        <span class="brand-tag">kitchen companion</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1"><a class="nav-pill{active=ingredients? active}" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill{active=pairings? active}" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></nav>
+    <span class="icon-btn icon-btn--sm" title="Component reference"><i data-lucide="palette" class="hb-icon w-[14px] h-[14px]" stroke-width="1.75"></i></span>
+  </div>
+  <div class="md:hidden border-t border-line px-3 py-2">
+    <div class="h-scroll"><a class="nav-pill{active=ingredients? active}" href="../ingredients/ingredients.html"><i data-lucide="leaf" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Ingredients</span></a><a class="nav-pill{active=pairings? active}" href="../pairings/pairings.html"><i data-lucide="link" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Pairings</span></a><a class="nav-pill" href="../recipes/recipes.html"><i data-lucide="book-open" class="hb-icon w-[16px] h-[16px]" stroke-width="1.75"></i><span>Cookbook</span></a></div>
+  </div>
+</header></template>
 </head>
 <body data-component="site-nav" data-group="Layout">
 

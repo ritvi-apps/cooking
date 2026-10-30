@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>hamburg — PairItem</title>
   <script src="../../shell.js" data-view="components"></script>
+<template><div class="pair-item"><div class="g">{glyph}</div><div><div class="name">{name}</div><div class="why"><slot></slot></div></div></div></template>
+<template variant="avoid"><div class="pair-item avoid"><div class="g">{glyph}</div><div><div class="name">{name}</div><div class="why"><slot></slot></div></div></div></template>
 </head>
 <body data-component="pair-item" data-group="Cards">
 

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>hamburg — Stat</title>
   <script src="../../shell.js" data-view="components"></script>
+<template><div class="stat"><span class="k">{label}</span><span data-if="tone=plain" class="v">{value}</span><span data-if="tone=muted" class="v" style="color:var(--ink-3);">{value}</span><span data-if="tone=brand" class="v" style="color:var(--brand-700);">{value}</span><span data-if="tone=highlight" class="v" style="color:var(--highlight-700);">{value}</span></div></template>
 </head>
 <body data-component="stat" data-group="Cards">
 

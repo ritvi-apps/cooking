@@ -1,3 +1,0 @@
-BABUL_SHELL.define("video-card", `
-<template><a class="card card-hover p-4 flex gap-3 items-start"><div class="w-20 h-14 rounded flex items-center justify-center flex-shrink-0 {tint=dairy? grad-dairy}{tint=spice? grad-spice} text-white"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="min-w-0 flex-1"><p class="font-display" style="font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;letter-spacing:-0.01em;">{heading}</p><p class="mt-1" style="font-size:11.5px;color:var(--ink-2);">{byline}</p></div></a></template>
-`);

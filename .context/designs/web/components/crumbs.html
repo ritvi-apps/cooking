@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>hamburg — Crumbs</title>
   <script src="../../shell.js" data-view="components"></script>
+<template><div class="crumbs"><a href="{home}" data-link="back"><span><i data-lucide="house" class="hb-icon w-[12px] h-[12px]" stroke-width="1.75"></i></span> Home</a><span class="sep">/</span><a data-if="up" href="{up}" data-link="back">{up-label}</a><span data-if="up" class="sep">/</span><span>{here}</span></div></template>
 </head>
 <body data-component="crumbs" data-group="Layout">
 
