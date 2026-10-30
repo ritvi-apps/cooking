@@ -1,8 +1,0 @@
-{"schema_version":1,"diagram_type":"architecture","meta":{"title":"1 · Who uses it","output":"who-uses.html","quality_profile":"showcase"},
- "components":[
-  {"id":"cook","type":"external","label":"The cook","sublabel":"phone in one hand","pos":[40,40],"size":[170,60]},
-  {"id":"after","type":"external","label":"After cooking","sublabel":"it was good","pos":[40,180],"size":[170,60]},
-  {"id":"site","type":"frontend","label":"hamburg","sublabel":"static pages, vegetarian","pos":[420,40],"size":[180,200]}],
- "connections":[
-  {"id":"read","from":"cook","to":"site","label":"reads the steps","variant":"emphasis"},
-  {"id":"save","from":"after","to":"site","label":"saves the recipe"}]}

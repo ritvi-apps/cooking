@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "verified": "2026-10-30",
+  "summary": "There is no app and no server. The product is a set of 88 static HTML design pages in this repo, opened from disk. Nothing is deployed.",
+  "headlines": [
+    { "label": "Known cost a month", "value": "$0", "note": "Nothing is hosted. GitHub Pages is off for this repo." },
+    { "label": "What makes cost grow", "value": "Nothing yet", "note": "No server, no per-use service. A host will be chosen in task T002." },
+    { "label": "What depends on it", "value": "The portfolio site", "note": "It reads this repo's design set and wiki at build time." }
+  ],
+  "areas": [
+    { "id": "repo", "label": "This repo" },
+    { "id": "outside", "label": "Outside services" }
+  ],
+  "parts": [
+    { "id": "designs", "area": "repo", "label": "Design pages", "does": "Static HTML, opened from disk. No script renders a screen.",
+      "cost": { "today": "$0", "grows": "Nothing", "basis": "stated", "source": "CLAUDE.md; README.md" },
+      "ifDown": { "user": "No user yet. Nobody is served.", "data": "All of it is in git.", "basis": "stated", "source": "CLAUDE.md, Status" } },
+    { "id": "cdn", "area": "outside", "label": "Tailwind, icons, fonts", "does": "Loaded by each page from public CDNs",
+      "cost": { "today": "$0", "grows": "Nothing", "basis": "assumed", "source": "CDN use read in CLAUDE.md Stack; no bill or terms read" },
+      "ifDown": { "user": "Pages open unstyled or without icons. Only the owner sees this today.", "data": "None held there", "basis": "assumed", "source": "CLAUDE.md Stack says styling comes from the CDN" } },
+    { "id": "portfolio", "area": "outside", "label": "Portfolio site", "does": "Copies this design set and wiki into its own build",
+      "cost": { "today": "Not read", "grows": "Nothing here", "basis": "unknown" },
+      "ifDown": { "user": "This product's page on the portfolio stops updating.", "data": "None held there", "basis": "code", "source": "ritesh-firodiya.github.io scripts/designs/sources.mjs lists this repo" } }
+  ],
+  "flows": [
+    { "name": "Read the designs", "cost": "$0", "note": "no server involved", "path": ["designs", "cdn"],
+      "steps": ["The owner opens index.html from disk.", "The page loads styles and icons from the CDNs."] }
+  ],
+  "data": [
+    { "what": "Design pages, wiki, features", "where": "Git only, in ritvi-apps/cooking" }
+  ],
+  "unknowns": [
+    "Where the site will be served from, and what that costs: open task T002 in .context/tasks.md.",
+    "The CDN dependency has no recorded fallback. A page needs a network to look right.",
+    "The portfolio site publishes this repo's wiki, so every wiki page here is public. Nothing here records that the owner checked them for that.",
+    "README says 'mobile-first', but no screen shows the narrow layout (task T010)."
+  ]
+}
