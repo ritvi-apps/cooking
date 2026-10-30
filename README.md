@@ -25,7 +25,7 @@ about the product is beside it, in `.context/` — start at
     ├── tasks.md                         the ordered queue
     ├── wiki/                            what the product is, and why
     ├── features/                        what is next
-    └── designs/                         the Babul design set: babul.js, tokens.js, web/
+    └── designs/                         the Babul design set: design.js, tokens.js, web/
 ```
 
 ## Viewing locally

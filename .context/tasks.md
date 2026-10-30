@@ -28,7 +28,7 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
 <!-- [P]: independent of the Now chain, safe to batch into one sitting -->
 
 - [ ] T006 [P] Decide the seven season tiles on Home and the other `#` links.
-      Each is in `babul.js` under `missing`. Draw the page or stop it being a link.
+      Each is in `design.js` under `missing`. Draw the page or stop it being a link.
 - [ ] T007 [P] Redraw the six older dossiers as bento  `feat:0002-bento-dossier-for-every-ingredient`
 - [ ] T008 [P] Fold the journeys into ingredients  `feat:0001-fold-journeys-into-ingredients`
 - [ ] T010 [P] Draw the narrow layout, or drop "mobile-first" from the README.
