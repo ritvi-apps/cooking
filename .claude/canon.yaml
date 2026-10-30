@@ -8,7 +8,6 @@ modules:
   - design
   - refs
 
-copies: { source: ../babul, use: [design-shell, design-shell-web] }
 # The stages this product's work goes through, in order (`canon pipeline`).
 # `canon flow` counts how far each conversation got against these.
 pipeline:

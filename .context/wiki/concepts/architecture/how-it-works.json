@@ -1,7 +1,7 @@
 {"schema_version":1,"diagram_type":"architecture","meta":{"title":"2 · How the repo is built","output":"how-it-works.html","quality_profile":"showcase"},
  "components":[
   {"id":"data","type":"frontend","label":"babul.js · tokens.js","sublabel":"the product, the tokens","pos":[40,100],"size":[200,70]},
-  {"id":"shell","type":"frontend","label":"_shell","sublabel":"copied from babul","pos":[320,100],"size":[190,70]},
+  {"id":"shell","type":"frontend","label":"shell.js","sublabel":"loads canon's shell","pos":[320,100],"size":[190,70]},
   {"id":"pages","type":"frontend","label":"Pages","sublabel":"HTML, one per page, from components","pos":[600,100],"size":[200,70]},
   {"id":"wiki","type":"database","label":"Wiki","sublabel":".context/wiki, Markdown","pos":[40,260],"size":[190,70]},
   {"id":"check","type":"security","label":"canon check","sublabel":"scans the HTML","pos":[600,260],"size":[200,70]}],
