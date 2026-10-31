@@ -1,4 +1,4 @@
-canon: 0.18.0
+canon: 0.26.0
 kind: content
 # Standards imported from canon by name; `canon standards` lists them.
 standards: [design-sets]
