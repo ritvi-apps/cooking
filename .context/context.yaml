@@ -10,7 +10,8 @@ modules:
 
 # The stages this product's work goes through, in order (`canon pipeline`).
 # `canon flow` counts how far each conversation got against these.
-pipeline:
-  - { id: idea, done: [.context/README.md] }
-  - { id: research, done: [.context/raw, .context/wiki/synthesis] }
-  - { id: design, done: [.context/designs] }
+pipelines:
+  default:
+    - { id: idea, done: [.context/README.md] }
+    - { id: research, done: [.context/raw, .context/wiki/synthesis] }
+    - { id: design, done: [.context/designs] }
