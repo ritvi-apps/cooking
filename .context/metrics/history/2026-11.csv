@@ -1,0 +1,8 @@
+metric,period,value
+versions_total,2026-11,0
+ios_versions_approved,2026-11,0
+store_rejections_min,2026-11,0
+reverted_total,2026-11,0
+ideas_dropped,2026-11,2
+experiments_discarded,2026-11,1
+features_shelved,2026-11,0
