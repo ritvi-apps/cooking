@@ -33,8 +33,7 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
 - [ ] T008 [P] Fold the journeys into ingredients  `feat:0001-fold-journeys-into-ingredients`
 - [ ] T010 [P] Draw the narrow layout, or drop "mobile-first" from the README.
       The stylesheet has rules for 900, 640 and 560px and no screen shows them.
-- [ ] T011 [P] The Cookbook pill never shows as active: the nav keys it
-      `cookbook` and the recipe screens say `recipes`. The prototype had it too.
+- [ ] T011 [P] Fix the Cookbook pill: BUG-0001.
 
 ## Blocked
 
