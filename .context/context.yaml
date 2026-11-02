@@ -13,5 +13,4 @@ modules:
 pipelines:
   default:
     - { id: idea, done: [.context/README.md] }
-    - { id: research, done: [.context/raw, .context/wiki/synthesis] }
     - { id: design, done: [.context/designs] }
