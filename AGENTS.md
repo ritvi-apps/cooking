@@ -11,7 +11,7 @@ the repository is laid out.
 **Before starting work, read `.context/tasks.md`.** It is the ordered queue —
 the top item of `## Now` is the next action. After finishing, delete the task.
 
-- `.context/` — ten folders, one job each; see `~/git/products/CLAUDE.md`.
+- `.context/` — ten folders, one job each; see `~/git/ritvi-apps/CLAUDE.md`.
   `.context/README.md` says which are present here and why the rest are not.
 - `.context/designs/` — the design set. There is no app, so it is the spec.
 - `.context/wiki/` — the knowledge base; its schema is canon's `wiki-schema` standard
