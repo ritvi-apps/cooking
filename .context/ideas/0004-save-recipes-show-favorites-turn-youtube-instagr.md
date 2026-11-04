@@ -15,6 +15,21 @@ Market review: [[video-recipe-market]].
 - For the owner's own use: use the free tier of an existing app (Pestle or Deglaze). hamburg stays the cookbook of dishes that were cooked and liked ([[growth-rule]]).
 - Revisit if: a test shows these apps fail on Hindi or Hinglish cooking videos, or on Indian vegetarian dishes. Test it by importing 10 such links into each of the top 3 apps and counting the wrong imports.
 
+## Decided in discussion (2026-11-04)
+- Output format: text only. Inputs are a video link and the user's own voice in a regional language. No video is stored.
+- When to convert: on save, keep the free text (captions, post caption, description), or the speech-to-text transcript when there is none, because a video can go down. Run the text → recipe step when the user opens it to cook.
+- Cost order: free text first, then Groq Whisper (Hindi/English, ~₹0.06/min), Sarvam only for regional audio (~₹0.50/min). On-device Whisper or IndicConformer is the ₹0 option, not tested.
+- Same video saved by many users: convert once and reuse the text.
+- Plans: unlimited saves; 5 conversions a month free; Pro unlimited (fair use 200/month) at ₹79–99/month or ₹499–599/year, $2.99/month or $19.99/year. No lifetime purchase.
+- Home: a separate app, not AskCal (AskCal is a calorie logger and the marketing focus). Its only link to AskCal: send a recipe's calories there. hamburg only if its growth rule gains a separate "to try" list.
+- Different because: voice → text in regional languages; none of the top 4 apps offers it in its store description.
+
+## Open
+- App name: not chosen.
+- Pipeline: research is done ([[video-recipe-market]]). Next is an experiment: 10 Hindi/Marathi reels and 10 voice notes, Sarvam vs Whisper and Haiku vs Sonnet, counting wrong ingredients and quantities. Then options → plan (gated) → design.
+- Copyright: whether recipe text shared across users is allowed.
+- Payment: whether Sarvam, Groq and the Anthropic API take UPI or prepaid credits without a credit card.
+
 ## If yes (only if the revisit test shows a gap)
 - MVP features: paste a link → ingredients and steps; save; favorites. Left out: meal plan, grocery list, nutrition, sharing.
 - Different because: Hindi and Hinglish videos, vegetarian only, no import limit. Ties to the "paywall and import limit" and "wrong import" complaints.
