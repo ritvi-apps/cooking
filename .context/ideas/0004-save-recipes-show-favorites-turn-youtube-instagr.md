@@ -25,7 +25,9 @@ Market review: [[video-recipe-market]].
 - Different because: voice → text in regional languages; none of the top 4 apps offers it in its store description.
 
 ## Open
-- App name: not chosen.
+- Market: global, not India only (company rule). Rework the pricing and the "different because" line for a global market.
+- App name: not chosen. Global options: Recipe Echo, Saywhisk, Cookspoken, Reel to Meal, Hearth Notes; availability not checked.
+- Paused 2026-11-04 by the owner: "we will comeback later".
 - Pipeline: research is done ([[video-recipe-market]]). Next is an experiment: 10 Hindi/Marathi reels and 10 voice notes, Sarvam vs Whisper and Haiku vs Sonnet, counting wrong ingredients and quantities. Then options → plan (gated) → design.
 - Copyright: whether recipe text shared across users is allowed.
 - Payment: whether Sarvam, Groq and the Anthropic API take UPI or prepaid credits without a credit card.
