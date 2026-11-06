@@ -30,9 +30,9 @@ as one chapter of it.
 - Milk, Wheat and Sourdough have a journey and no dossier.
 
 ## Related
-- [[tomato]]
-- [[dossiers]]
-- [[dossiers]]
+- [tomato](../surfaces/tomato.md)
+- [dossiers](../decisions/dossiers.md)
+- [dossiers](../decisions/dossiers.md)
 
 ## Sources
 - .context/designs/web/home/home.html

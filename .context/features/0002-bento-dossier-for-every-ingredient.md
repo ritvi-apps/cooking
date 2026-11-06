@@ -5,7 +5,7 @@ status: building
 last-verified: 2026-10-04
 release: null
 superseded-by: null
-surfaces: ["[[tomato]]", "[[home]]"]
+surfaces: ["[tomato](../wiki/surfaces/tomato.md)", "[home](../wiki/surfaces/home.md)"]
 ---
 
 # A bento dossier for every ingredient
@@ -14,7 +14,7 @@ surfaces: ["[[tomato]]", "[[home]]"]
 Redraw the six older dossiers in the single-frame bento shape Tomato has.
 
 ## Motivation
-Tomato was redrawn on 2026-07-19 because the chapter layout was too text-dense ([[dossiers]]). Paneer, Spinach, Ginger, Garlic, Cumin and Garam masala still use the older page. [[ingredient-dossier]] lists the three shapes the set draws.
+Tomato was redrawn on 2026-07-19 because the chapter layout was too text-dense ([dossiers](../wiki/decisions/dossiers.md)). Paneer, Spinach, Ginger, Garlic, Cumin and Garam masala still use the older page. [ingredient-dossier](../wiki/concepts/ingredient-dossier.md) lists the three shapes the set draws.
 
 ## Acceptance scenarios
 - Given any dossier, then it fits one 1440 × 900 frame with no scroll.

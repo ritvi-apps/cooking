@@ -14,7 +14,7 @@ Dishes that were cooked and liked get forgotten, along with the steps and what a
 One person: the owner, who is the only reader today. No cost was written down.
 
 ## Expected
-Open hamburg with an ingredient on the counter and see what it can become and how, without hunting for a recipe. See [[map-not-manual]] and [[growth-rule]].
+Open hamburg with an ingredient on the counter and see what it can become and how, without hunting for a recipe. See [map-not-manual](../wiki/concepts/map-not-manual.md) and [growth-rule](../wiki/concepts/growth-rule.md).
 
 ## Status today
 Being worked on as designs only. There is no app, and the cookbook holds one recipe.

@@ -21,9 +21,9 @@ and Recipes repeats it: dishes cooked and liked, not a wishlist.
 - The cookbook holds one recipe today, and that is correct.
 
 ## Related
-- [[recipes]]
-- [[palak-paneer]]
-- [[ingredients]]
+- [recipes](../surfaces/recipes.md)
+- [palak-paneer](../surfaces/palak-paneer.md)
+- [ingredients](../surfaces/ingredients.md)
 
 ## Sources
 - .context/designs/web/recipes/recipes.html

@@ -22,8 +22,8 @@ picked. Journeys says the same thing in its own words.
 - The site is not documentation. A page that reads like a manual is wrong.
 
 ## Related
-- [[journey-catalogue]]
-- [[dossiers]]
+- [journey-catalogue](../entities/journey-catalogue.md)
+- [dossiers](../decisions/dossiers.md)
 
 ## Sources
 - .context/designs/web/journeys/journeys.html

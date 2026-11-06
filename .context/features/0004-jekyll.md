@@ -5,7 +5,7 @@ status: planned
 last-verified: 2026-10-04
 release: null
 superseded-by: null
-surfaces: ["[[journeys]]", "[[ingredients]]"]
+surfaces: ["[journeys](../wiki/surfaces/journeys.md)", "[ingredients](../wiki/surfaces/ingredients.md)"]
 ---
 
 # Move to Jekyll

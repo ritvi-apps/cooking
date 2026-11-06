@@ -20,9 +20,9 @@ The journeys the set draws, their state, and the ones marked soon.
 | JOURNEY.SOON | Tomato, Chickpea, Rice, Urad dal, Greens, Mango | 2026-07-19 |
 
 ## Related
-- [[journeys]]
-- [[skill-states]]
-- [[map-not-manual]]
+- [journeys](../surfaces/journeys.md)
+- [skill-states](../concepts/skill-states.md)
+- [map-not-manual](../concepts/map-not-manual.md)
 
 ## Sources
 - .context/designs/web/journeys/journeys.html

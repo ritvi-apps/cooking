@@ -21,8 +21,8 @@ The three Indian growing seasons the grow pages are drawn against.
 | CALENDAR.HARVEST | sage, `--brand-500` | 2026-07-19 |
 
 ## Related
-- [[grow-tomato]]
-- [[tomato]]
+- [grow-tomato](../surfaces/grow-tomato.md)
+- [tomato](../surfaces/tomato.md)
 
 ## Sources
 - .context/designs/web/ingredients/tomato.html

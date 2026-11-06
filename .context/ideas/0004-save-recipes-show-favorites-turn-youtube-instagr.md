@@ -7,12 +7,12 @@ last-verified: 2026-11-04
 
 ## Summary
 A personal cookbook: paste a YouTube, Instagram or TikTok link and get clean ingredients and numbered steps back, then save it, mark favorites and find it again.
-Market review: [[video-recipe-market]].
+Market review: [video-recipe-market](../wiki/synthesis/video-recipe-market.md).
 
 ## Decision
-- Worth building: no — 18+ apps already do all three parts, and the leader has 327k ratings, funding and about $2M a year (estimate). See [[video-recipe-market]].
+- Worth building: no — 18+ apps already do all three parts, and the leader has 327k ratings, funding and about $2M a year (estimate). See [video-recipe-market](../wiki/synthesis/video-recipe-market.md).
 - Kill reason checked: "someone already does it well, for free or cheap". The review found it: ReciMe, Deglaze, Pestle and Flavorish each cover save, favorites, video import and cook mode.
-- For the owner's own use: use the free tier of an existing app (Pestle or Deglaze). hamburg stays the cookbook of dishes that were cooked and liked ([[growth-rule]]).
+- For the owner's own use: use the free tier of an existing app (Pestle or Deglaze). hamburg stays the cookbook of dishes that were cooked and liked ([growth-rule](../wiki/concepts/growth-rule.md)).
 - Revisit if: a test shows these apps fail on Hindi or Hinglish cooking videos, or on Indian vegetarian dishes. Test it by importing 10 such links into each of the top 3 apps and counting the wrong imports.
 
 ## Decided in discussion (2026-11-04)
@@ -28,7 +28,7 @@ Market review: [[video-recipe-market]].
 - Market: global, not India only (company rule). Rework the pricing and the "different because" line for a global market.
 - App name: not chosen. Global options: Recipe Echo, Saywhisk, Cookspoken, Reel to Meal, Hearth Notes; availability not checked.
 - Paused 2026-11-04 by the owner: "we will comeback later".
-- Pipeline: research is done ([[video-recipe-market]]). Next is an experiment: 10 Hindi/Marathi reels and 10 voice notes, Sarvam vs Whisper and Haiku vs Sonnet, counting wrong ingredients and quantities. Then options → plan (gated) → design.
+- Pipeline: research is done ([video-recipe-market](../wiki/synthesis/video-recipe-market.md)). Next is an experiment: 10 Hindi/Marathi reels and 10 voice notes, Sarvam vs Whisper and Haiku vs Sonnet, counting wrong ingredients and quantities. Then options → plan (gated) → design.
 - Copyright: whether recipe text shared across users is allowed.
 - Payment: whether Sarvam, Groq and the Anthropic API take UPI or prepaid credits without a credit card.
 

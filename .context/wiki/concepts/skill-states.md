@@ -22,7 +22,7 @@ solid when it can be produced from memory in a distracted kitchen.
 - A journey card carries the state of the journey as a whole.
 
 ## Related
-- [[journey-catalogue]]
+- [journey-catalogue](../entities/journey-catalogue.md)
 
 ## Sources
 - .context/designs/web/journeys/journeys.html

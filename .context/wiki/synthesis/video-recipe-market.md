@@ -50,7 +50,7 @@ Every feature in the idea (save, favorites, video → steps) is already free or 
 Quotes: `raw/2026-11-04-video-recipe-market/reviews.md`.
 
 ## Screens and videos
-- ReciMe, Flavorish, Pestle, Deglaze: `raw/2026-11-04-video-recipe-market/<app>-1.jpg`, `<app>-2.jpg`
+- ReciMe, Flavorish, Pestle, Deglaze: two screenshots each in `.context/raw/2026-11-04-video-recipe-market/` (recime, flavorish, pestle, deglaze)
 - Store page videos: the links in the table above.
 
 ## Market fit

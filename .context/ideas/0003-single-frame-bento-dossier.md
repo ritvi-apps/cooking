@@ -10,7 +10,7 @@ source: backfill
 ## Summary
 Fit a dossier into one frame of tiles instead of a page of chapters. Tomato has five: Grow, Source, Storage, Cook, Pairs + Avoid. A longer guide sits on its own page, as with growing tomato.
 
-Accepted but not finished. Only Tomato is drawn this way. The other six are FEAT-0002. The rules are in [[ingredient-dossier]] and the choice in [[dossiers]].
+Accepted but not finished. Only Tomato is drawn this way. The other six are FEAT-0002. The rules are in [ingredient-dossier](../wiki/concepts/ingredient-dossier.md) and the choice in [dossiers](../wiki/decisions/dossiers.md).
 
 ## Fit
 It answers the text density that sank `seven-chapter-tomato`. Whether the same five tiles suit a spice or a blend is still open on FEAT-0002.

@@ -26,7 +26,7 @@ The Ingredients list also labels Ginger and Garlic `aromatic` and Garam masala
 `blend`. Neither has a colour of its own.
 
 ## Related
-- [[ingredients]]
+- [ingredients](../surfaces/ingredients.md)
 
 ## Sources
 - .context/designs/tokens.js

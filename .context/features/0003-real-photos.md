@@ -5,7 +5,7 @@ status: planned
 last-verified: 2026-10-04
 release: null
 superseded-by: null
-surfaces: ["[[home]]", "[[ingredients]]"]
+surfaces: ["[home](../wiki/surfaces/home.md)", "[ingredients](../wiki/surfaces/ingredients.md)"]
 ---
 
 # Real photos in place of emoji

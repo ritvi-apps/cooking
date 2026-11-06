@@ -32,8 +32,8 @@ nothing is checked against code.
 - **The prototype is in git history.** `git show b507bd8 --stat -- prototype`.
 
 ## Related
-- [[map-not-manual]]
-- [[ingredient-dossier]]
+- [map-not-manual](map-not-manual.md)
+- [ingredient-dossier](ingredient-dossier.md)
 
 ## Sources
 - .context/designs/web/styles.css

@@ -4,4 +4,4 @@ last-verified: 2026-10-29
 
 # palak-paneer
 
-**These six ingredient links are why the six dossiers exist.** See [[growth-rule]].
+**These six ingredient links are why the six dossiers exist.** See [growth-rule](../concepts/growth-rule.md).

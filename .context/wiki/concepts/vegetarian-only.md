@@ -20,8 +20,8 @@ of every screen says 100% veg.
 - Vegan swaps are noted where one exists: tofu for paneer.
 
 ## Related
-- [[growth-rule]]
-- [[pairings]]
+- [growth-rule](growth-rule.md)
+- [pairings](../surfaces/pairings.md)
 
 ## Sources
 - .context/designs/web/recipes/palak-paneer.html
