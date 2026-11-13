@@ -37,5 +37,5 @@ AGENTS.md      the agent contract (imported above)
 
 ## Wiki
 
-`.context/wiki/` is the knowledge base. Read canon's `wiki-schema` standard before
+`.context/wiki/` is the knowledge base. Read `.claude/rules/wiki.md` before
 touching a page. Skills: `/ingest`, `/ask`, `/wiki-lint`, `/decision`.

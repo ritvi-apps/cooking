@@ -35,6 +35,13 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
       The stylesheet has rules for 900, 640 and 560px and no screen shows them.
 - [ ] T011 [P] Fix the Cookbook pill: BUG-0001.
 
+- [ ] T012 [P] Finish removing canon (2026-11-14). Its last `canon check` warned:
+      `wiki/decisions/dossiers.md` was last verified 118 days ago, and this file
+      is past its horizon (2026-10-25). Nothing checks either now.
+      `.context/designs/shell.js` still loads the viewer shell from
+      `unpkg.com/@freetesh/canon/shell/`; point it at Babul's shell once one
+      exists. `metrics/flow.json` came from `canon flow` and goes stale.
+
 ## Blocked
 
 ## Waiting

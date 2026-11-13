@@ -14,7 +14,7 @@ the top item of `## Now` is the next action. After finishing, delete the task.
 - `.context/` — ten folders, one job each; see `~/git/ritvi-apps/CLAUDE.md`.
   `.context/README.md` says which are present here and why the rest are not.
 - `.context/designs/` — the design set. There is no app, so it is the spec.
-- `.context/wiki/` — the knowledge base; its schema is canon's `wiki-schema` standard
+- `.context/wiki/` — the knowledge base; its rules are in `.claude/rules/wiki.md`
 - `.context/features/` — what is next, one page per feature
 
 ## Repository rules
@@ -30,8 +30,8 @@ the top item of `## Now` is the next action. After finishing, delete the task.
 
 ## Designs
 
-`.context/designs/` is a Babul design set: canon's `design-sets` standard
-(`canon standards`) says how it is built and `canon check` checks it. The
+`.context/designs/` is a Babul design set: `.claude/rules/design-sets.md` says
+how it is built. No tool checks it, so read the diff against that file. The
 shell reads pages, links, journeys and components from the HTML itself; there
 is no data file to update. It holds only designs; what they cannot show — a
 page's notes, design decisions, colour rules — is in `wiki/` (`surfaces/`,
@@ -45,6 +45,6 @@ nothing else (`tokens.js` says so on each).
 
 Before marking work complete:
 
-1. Run `canon check`. It runs the design checks and exits non-zero on any
-   failure.
+1. Read the diff against `.claude/rules/design-sets.md` and
+   `.claude/rules/wiki.md`; nothing checks them for you.
 2. Reflect changed behaviour in `CLAUDE.md` and any affected `.context/` artifact.
