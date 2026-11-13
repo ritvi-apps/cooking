@@ -1,6 +1,6 @@
 # Wiki index
 
-One line per page. Rules: canon's `context` and `writing` standards.
+One line per page. Rules: `.claude/rules/wiki.md`.
 
 ## Concepts
 - [purpose](concepts/purpose.md) — what hamburg is, who it is for, what it is not, its status

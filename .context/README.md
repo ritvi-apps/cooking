@@ -1,6 +1,6 @@
 # .context
 
-hamburg's product material, written in Plain Context (canon's `context` and `writing` standards).
+hamburg's product material, written in Plain Context. Wiki rules: `.claude/rules/wiki.md`.
 The repository is named `cooking`. It holds no application code, only content and a
 design set, so the design set is the spec.
 
