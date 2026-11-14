@@ -41,6 +41,13 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
       `.context/designs/shell.js` still loads the viewer shell from
       `unpkg.com/@freetesh/canon/shell/`; point it at Babul's shell once one
       exists.
+- [ ] T013 [P] Reword idea 0004 so it does not name another product
+      `ideas/0004-…` names a different app by name; state the rule on its own.
+      (found 2026-11-14 in a portfolio consistency check)
+- [ ] T014 [P] Add `.archon/checks.json`
+      There is none, so `babul judge` does not check this repo. Start with the
+      lychee `.context` link check. (found 2026-11-14 in a portfolio consistency
+      check)
 
 ## Blocked
 
