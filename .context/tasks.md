@@ -37,10 +37,10 @@ horizon: 2026-10-25        # this file is a lie after this date — regenerate
 
 - [ ] T012 [P] Finish removing canon (2026-11-14). Its last `canon check` warned:
       `wiki/decisions/dossiers.md` was last verified 118 days ago, and this file
-      is past its horizon (2026-10-25). Nothing checks either now.
+      is past its horizon (2026-10-25). `babul stale` flags both.
       `.context/designs/shell.js` still loads the viewer shell from
       `unpkg.com/@freetesh/canon/shell/`; point it at Babul's shell once one
-      exists. `metrics/flow.json` came from `canon flow` and goes stale.
+      exists.
 
 ## Blocked
 
