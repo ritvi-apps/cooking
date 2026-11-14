@@ -49,6 +49,8 @@
           S.loadDefs(nested).then(done);
         } };
         var timer = setTimeout(function () { entry.done(null); }, DEF_TIMEOUT_MS);
+        /* A missing file loads an error page that never posts: give up at its load, not at the timeout. */
+        frame.onload = function () { setTimeout(function () { if (waiting.indexOf(entry) >= 0) { entry.done(null); } }, 50); };
         waiting.push(entry);
         (document.body || document.documentElement).appendChild(frame);
       });

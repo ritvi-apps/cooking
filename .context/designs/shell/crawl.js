@@ -27,6 +27,8 @@
         done(tree);
       } };
       var timer = setTimeout(function () { c.errors.push(file + " did not describe itself"); entry.done(null); }, TIMEOUT_MS);
+      /* A missing file loads an error page that never posts: give up at its load, not at the timeout. */
+      frame.onload = function () { setTimeout(function () { if (frames.indexOf(entry) >= 0) { c.errors.push(file + " did not describe itself"); entry.done(null); } }, 50); };
       frames.push(entry);
       document.body.appendChild(frame);
     });

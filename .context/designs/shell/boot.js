@@ -23,15 +23,16 @@
   var size = location.href.slice(root.length).split("/")[0];
   var view = me.getAttribute("data-view") || "";
 
-  var CDN = {
-    tailwind: "https://cdn.tailwindcss.com/3.4.17",
-    lucide: "https://unpkg.com/lucide@0.544.0/dist/umd/lucide.js",
-    react: "https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js",
-    reactDom: "https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js",
+  /* The libraries are copies in vendor/: no download per page, no flash on a slow network, and the set opens offline. */
+  var LIB = {
+    tailwind: shell + "vendor/tailwind-3.4.17.js",
+    lucide: shell + "vendor/lucide-0.544.0.min.js",
+    react: shell + "vendor/react-18.3.1.min.js",
+    reactDom: shell + "vendor/react-dom-18.3.1.min.js",
     /* React Flow v11, not v12: v12's UMD build expects react/jsx-runtime as a
        global, which React's own UMD build does not provide. */
-    reactFlow: "https://unpkg.com/reactflow@11.11.4/dist/umd/index.js",
-    reactFlowCss: "https://unpkg.com/reactflow@11.11.4/dist/style.css",
+    reactFlow: shell + "vendor/reactflow-11.11.4.js",
+    reactFlowCss: shell + "vendor/reactflow-11.11.4.css",
   };
   var DATA = ["design", "tokens"];
   var flag = function (name) { return new RegExp("[?&]" + name + "\\b").test(location.search); };
@@ -40,7 +41,7 @@
     root: root, size: size, view: view, bare: flag("bare"),
     /* Only a server at _shell/ could read the repo beyond the set; none runs now, so this stays false. */
     served: /\/_shell\/$/.test(shell),
-    lucideVersion: (/lucide@([\d.]+)/.exec(CDN.lucide) || [])[1],
+    lucideVersion: (/lucide-([\d.]+)/.exec(LIB.lucide) || [])[1],
   };
 
   var out = [];
@@ -62,16 +63,16 @@
 
   DATA.forEach(function (name) { script(root + name + ".js"); });
   script(shell + "expand.js");
-  script(CDN.tailwind);
+  script(LIB.tailwind);
   script(shell + "theme.js");
-  script(CDN.lucide);
+  script(LIB.lucide);
   style(shell + "shell.css");
   style(root + size + "/styles.css");
   if (view === "journey") {
-    script(CDN.react);
-    script(CDN.reactDom);
-    script(CDN.reactFlow);
-    style(CDN.reactFlowCss);
+    script(LIB.react);
+    script(LIB.reactDom);
+    script(LIB.reactFlow);
+    style(LIB.reactFlowCss);
   }
   if (!flag("bare")) {
     script(shell + "describe.js");
