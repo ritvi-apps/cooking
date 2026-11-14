@@ -1,9 +1,8 @@
-/* A design set's one link to its shell. The set holds this file, pointed at the
- * published shell, so a page opens from disk. `canon ui` serves it pointed at its
- * own shell, and a site that publishes sets writes it pointed at the one it hosts. */
+/* A design set's one link to its shell. The shell lives beside it in shell/,
+ * so a page opens straight from disk with nothing to install. */
 (function () {
-  var SHELL = "https://unpkg.com/@freetesh/canon/shell/";
   var me = document.currentScript, view = me.getAttribute("data-view");
-  document.write('<script src="' + SHELL + 'boot.js" data-root="' + me.src.replace(/shell\.js(\?.*)?$/, "") + '"' +
+  var root = me.src.replace(/shell\.js(\?.*)?$/, "");
+  document.write('<script src="' + root + 'shell/boot.js" data-root="' + root + '"' +
     (view ? ' data-view="' + view + '"' : "") + "></" + "script>");
 })();
